@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administration - Marpeap Digitals">
+    <title>Admin - Marpeap Digitals</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="css/style.css?v=2.1.0">
+    <link rel="stylesheet" href="css/admin.css?v=2.1.0">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="admin-navbar">
+        <div class="container">
+            <div class="admin-nav-content">
+                <a href="index.html" class="admin-logo">
+                    <img src="assets/images/logo.png" alt="Marpeap Digitals" class="logo-img">
+                    <span>Admin - Marpeap Digitals</span>
+                </a>
+                <div class="admin-nav-links">
+                    <a href="admin.html#dashboard" class="admin-nav-link active">Dashboard</a>
+                    <a href="admin.html#clients" class="admin-nav-link">Clients</a>
+                    <a href="index.html" class="admin-nav-link">Retour au site</a>
+                    <button id="logoutBtn" class="btn btn-outline btn-sm">Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Connexion Admin</h1>
+                <p>Marpeap Digitals</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="loginEmail">Nom d'utilisateur</label>
+                    <input type="text" id="loginEmail" required>
+                    <span class="error-message" id="loginEmailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Mot de passe</label>
+                    <input type="password" id="loginPassword" required>
+                    <span class="error-message" id="loginPasswordError"></span>
+                </div>
+                <div class="form-message" id="loginMessage"></div>
+                <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Content -->
+    <div id="adminContent" class="admin-content" style="display: none;">
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section">
+                <div class="admin-header">
+                    <h1>Dashboard</h1>
+                    <p>Vue d'ensemble de votre activité</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <p class="stat-label">Messages de contact</p>
+                            <p class="stat-value" id="contactsCount">0</p>
+                        </div>
+                        <div class="stat-icon">📧</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <p class="stat-label">Clients actifs</p>
+                            <p class="stat-value" id="clientsCount">0</p>
+                        </div>
+                        <div class="stat-icon">👥</div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h2>Messages récents</h2>
+                        <a href="admin.html#clients" class="btn btn-outline btn-sm">Voir tout</a>
+                    </div>
+                    <div class="admin-card-body">
+                        <div id="recentContacts" class="contacts-list">
+                            <p class="empty-message">Aucun message pour le moment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-actions">
+                    <h2>Actions rapides</h2>
+                    <div class="actions-buttons">
+                        <a href="admin.html#clients" class="btn btn-secondary">Gérer les clients</a>
+                        <a href="contact.html" class="btn btn-secondary">Voir le formulaire de contact</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clients Section -->
+            <section id="clients" class="admin-section">
+                <div class="admin-header">
+                    <h1>Gestion des clients</h1>
+                    <p>Créez et gérez les comptes clients</p>
+                </div>
+
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h2>Créer un nouveau client</h2>
+                    </div>
+                    <div class="admin-card-body">
+                        <form id="clientForm" class="client-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="clientName">Nom du client</label>
+                                    <input type="text" id="clientName" required>
+                                    <span class="error-message" id="clientNameError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientEmail">Email</label>
+                                    <input type="email" id="clientEmail" required>
+                                    <span class="error-message" id="clientEmailError"></span>
+                                </div>
+                            </div>
+                            <div class="form-message" id="clientMessage"></div>
+                            <button type="submit" class="btn btn-primary">Créer le client</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h2>Liste des clients (<span id="clientsListCount">0</span>)</h2>
+                    </div>
+                    <div class="admin-card-body">
+                        <div id="clientsList" class="clients-table-container">
+                            <table class="clients-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Email</th>
+                                        <th>Statut</th>
+                                        <th>Date de création</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="clientsTableBody">
+                                    <tr>
+                                        <td colspan="5" class="empty-message">Aucun client pour le moment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=2.1.0"></script>
+    <script src="js/admin.js?v=2.1.0"></script>
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Cache
+.cache/
+.vercel/
+
+# Next.js (archivé)
+_nextjs-archive/
+
+# Build artifacts (si nécessaire)
+dist/
+build/
+out/
