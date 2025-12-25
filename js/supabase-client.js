@@ -47,40 +47,6 @@ function createSupabaseClient() {
         console.error('Erreur Supabase:', error);
         throw error;
       }
-    },
-    
-    // Fonction pour envoyer un email via Edge Function
-    async sendContactEmail(contactData) {
-      try {
-        const response = await fetch(`${this.url}/functions/v1/send-contact-email`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${this.key}`
-          },
-          body: JSON.stringify({
-            name: contactData.name,
-            email: contactData.email,
-            phone: contactData.phone || '',
-            service: contactData.service || '',
-            project_type: contactData.projectType || '',
-            budget: contactData.budget || '',
-            timeline: contactData.timeline || '',
-            message: contactData.message
-          })
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          throw new Error(errorData.error || `Erreur HTTP: ${response.status}`);
-        }
-
-        const result = await response.json();
-        return { success: true, data: result };
-      } catch (error) {
-        console.error('Erreur lors de l\'envoi de l\'email:', error);
-        throw error;
-      }
     }
   };
 }

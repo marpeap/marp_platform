@@ -1,19 +1,48 @@
-// Function to send email notification via Supabase Edge Function
+// Function to send email notification via EmailJS
 async function sendEmailNotification(contactData) {
-  // Vérifier si Supabase client est disponible
-  if (!window.supabaseClient || typeof window.supabaseClient.sendContactEmail !== 'function') {
-    console.warn('⚠️ Supabase client non disponible. Les notifications par email ne seront pas envoyées.');
-    return { success: false, reason: 'Supabase client not available' };
+  // Vérifier si EmailJS est configuré et disponible
+  if (!window.EMAILJS_CONFIG || !window.isEmailJSConfigured || !window.isEmailJSConfigured()) {
+    console.warn('⚠️ EmailJS non configuré. Les notifications par email ne seront pas envoyées.');
+    console.warn('💡 Pour configurer EmailJS, modifiez js/emailjs-config.js avec vos identifiants.');
+    return { success: false, reason: 'EmailJS not configured' };
+  }
+  
+  const config = window.EMAILJS_CONFIG;
+  
+  // Vérifier que window.emailjs est disponible
+  if (!window.emailjs || typeof window.emailjs.send !== 'function') {
+    console.error('❌ EmailJS SDK non chargé. Vérifiez que le script EmailJS est inclus dans contact.html');
+    return { success: false, reason: 'EmailJS SDK not loaded' };
   }
   
   try {
-    // Envoyer l'email via Supabase Edge Function
-    const result = await window.supabaseClient.sendContactEmail(contactData);
+    // Préparer les paramètres du template
+    const templateParams = {
+      to_email: config.RECIPIENT_EMAIL,
+      from_name: contactData.name,
+      from_email: contactData.email,
+      phone: contactData.phone || 'Non fourni',
+      service: contactData.service || 'Non spécifié',
+      project_type: contactData.projectType || 'Non spécifié',
+      budget: contactData.budget || 'Non spécifié',
+      timeline: contactData.timeline || 'Non spécifié',
+      message: contactData.message,
+      reply_to: contactData.email,
+      subject: `Nouveau message de contact - ${contactData.name}`,
+      date: new Date().toLocaleString('fr-FR')
+    };
     
-    console.log('✅ Email de notification envoyé avec succès via Supabase:', result);
-    return { success: true, data: result.data };
+    // Envoyer l'email via EmailJS
+    const response = await window.emailjs.send(
+      config.SERVICE_ID,
+      config.TEMPLATE_ID,
+      templateParams
+    );
+    
+    console.log('✅ Email de notification envoyé avec succès:', response);
+    return { success: true, response };
   } catch (error) {
-    console.error('❌ Erreur lors de l\'envoi de l\'email via Supabase:', error);
+    console.error('❌ Erreur lors de l\'envoi de l\'email:', error);
     // Ne pas bloquer le processus si l'email échoue
     return { success: false, error: error.message || error };
   }

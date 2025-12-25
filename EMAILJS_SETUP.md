@@ -23,35 +23,20 @@ Ce guide vous explique comment configurer EmailJS pour recevoir les notification
 4. Suivez les instructions pour connecter votre compte
 5. **Notez le Service ID** (ex: `service_xxxxx`)
 
+**✅ Service ID déjà configuré :** `service_gvyrpik`
+
 ### 3. Créer un template email
 
 1. Dans le dashboard, allez dans **Email Templates**
 2. Cliquez sur **Create New Template**
-3. Utilisez ce template de base :
+3. **Utilisez le template HTML fourni** :
+   - Ouvrez le fichier `EMAILJS_TEMPLATE.html`
+   - Copiez tout le contenu HTML
+   - Dans EmailJS, sélectionnez le mode **HTML** (pas Text)
+   - Collez le contenu HTML
+   - Consultez `EMAILJS_TEMPLATE_INSTRUCTIONS.md` pour les instructions détaillées
 
-```
-Sujet: Nouveau message de contact - {{from_name}}
-
-Bonjour,
-
-Vous avez reçu un nouveau message de contact depuis www.marpeap.digital :
-
-Nom: {{from_name}}
-Email: {{from_email}}
-Téléphone: {{phone}}
-
-Service concerné: {{service}}
-Type de projet: {{project_type}}
-Budget: {{budget}}
-Délai souhaité: {{timeline}}
-
-Message:
-{{message}}
-
----
-Date: {{date}}
-Répondre à: {{reply_to}}
-```
+**Template disponible :** `EMAILJS_TEMPLATE.html` (design moderne et professionnel)
 
 4. **Notez le Template ID** (ex: `template_xxxxx`)
 
@@ -68,12 +53,14 @@ Répondre à: {{reply_to}}
 
 ```javascript
 const EMAILJS_CONFIG = {
-  PUBLIC_KEY: 'VOTRE_PUBLIC_KEY_ICI',
-  SERVICE_ID: 'VOTRE_SERVICE_ID_ICI',
-  TEMPLATE_ID: 'VOTRE_TEMPLATE_ID_ICI',
-  RECIPIENT_EMAIL: 'adnan.najim@pm.me' // Déjà configuré
+  PUBLIC_KEY: 'VOTRE_PUBLIC_KEY_ICI',  // À remplacer
+  SERVICE_ID: 'service_gvyrpik',        // ✅ Déjà configuré
+  TEMPLATE_ID: 'VOTRE_TEMPLATE_ID_ICI', // À remplacer
+  RECIPIENT_EMAIL: 'adnan.najim@pm.me'  // ✅ Déjà configuré
 };
 ```
+
+**Note:** Le Service ID `service_gvyrpik` est déjà configuré dans le fichier.
 
 ### 6. Variables disponibles dans le template
 
