@@ -1,0 +1,751 @@
+/* ============================================
+   BOTPRESS CHATBOT - STYLE PERSONNALISÉ
+   Marpeap Digitals - Design sobre et puissant
+   ============================================ */
+
+/* Variables Botpress */
+:root {
+  --bp-primary: #2563eb;
+  --bp-primary-hover: #1d4ed8;
+  --bp-primary-light: rgba(37, 99, 235, 0.1);
+  --bp-secondary: #9333ea;
+  --bp-accent: #06b6d4;
+  --bp-bg-dark: #0f0f1a;
+  --bp-bg-card: rgba(15, 15, 26, 0.95);
+  --bp-text-primary: #ffffff;
+  --bp-text-secondary: #d1d5db;
+  --bp-text-muted: #9ca3af;
+  --bp-border: rgba(37, 99, 235, 0.2);
+  --bp-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  --bp-shadow-glow: 0 0 20px rgba(37, 99, 235, 0.4);
+  --bp-radius: 16px;
+  --bp-radius-sm: 12px;
+  --bp-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   CONTAINER PRINCIPAL
+   ============================================ */
+
+/* Widget container */
+.bp-widget-container,
+#bp-web-widget-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  z-index: 9999;
+}
+
+/* ============================================
+   BOUTON DE LANCEMENT
+   ============================================ */
+
+/* Bouton flottant principal */
+.bp-widget-button,
+#bp-widget-button,
+.bp-widget-launcher {
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, var(--bp-primary), var(--bp-secondary)) !important;
+  box-shadow: var(--bp-shadow), var(--bp-shadow-glow) !important;
+  border: 2px solid rgba(255, 255, 255, 0.1) !important;
+  transition: var(--bp-transition) !important;
+  cursor: pointer !important;
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 10000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.bp-widget-button:hover,
+#bp-widget-button:hover,
+.bp-widget-launcher:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4), 0 0 30px rgba(37, 99, 235, 0.6) !important;
+}
+
+.bp-widget-button:active,
+#bp-widget-button:active,
+.bp-widget-launcher:active {
+  transform: scale(0.95) !important;
+}
+
+/* Animation du bouton */
+.bp-widget-button::before,
+#bp-widget-button::before,
+.bp-widget-launcher::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.bp-widget-button:hover::before,
+#bp-widget-button:hover::before,
+.bp-widget-launcher:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+/* Icône du bouton */
+.bp-widget-button svg,
+#bp-widget-button svg,
+.bp-widget-launcher svg {
+  width: 28px !important;
+  height: 28px !important;
+  fill: var(--bp-text-primary) !important;
+  stroke: var(--bp-text-primary) !important;
+  z-index: 1;
+  position: relative;
+}
+
+/* Badge de notification */
+.bp-widget-button-badge,
+.bp-widget-badge {
+  position: absolute !important;
+  top: -4px !important;
+  right: -4px !important;
+  background: linear-gradient(135deg, #ec4899, #f472b6) !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4) !important;
+  animation: pulse 2s infinite !important;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+/* ============================================
+   FENÊTRE DE CHAT
+   ============================================ */
+
+/* Container de la fenêtre */
+.bp-widget-window,
+.bp-widget-container,
+#bp-web-widget {
+  width: 400px !important;
+  height: 600px !important;
+  max-width: calc(100vw - 48px) !important;
+  max-height: calc(100vh - 120px) !important;
+  border-radius: var(--bp-radius) !important;
+  box-shadow: var(--bp-shadow), var(--bp-shadow-glow) !important;
+  border: 1px solid var(--bp-border) !important;
+  background: var(--bp-bg-card) !important;
+  backdrop-filter: blur(20px) !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  bottom: 100px !important;
+  right: 24px !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .bp-widget-window,
+  .bp-widget-container,
+  #bp-web-widget {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* ============================================
+   EN-TÊTE DU CHAT
+   ============================================ */
+
+/* Header */
+.bp-widget-header,
+.bp-widget-title-bar {
+  background: linear-gradient(135deg, var(--bp-primary), var(--bp-secondary)) !important;
+  padding: 20px 24px !important;
+  border-bottom: 1px solid var(--bp-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.bp-widget-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Titre du header */
+.bp-widget-header-title,
+.bp-widget-title {
+  color: var(--bp-text-primary) !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bp-widget-header-title::before {
+  content: '💬';
+  font-size: 20px;
+}
+
+/* Bouton de fermeture */
+.bp-widget-close,
+.bp-widget-close-button {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: none !important;
+  color: var(--bp-text-primary) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: var(--bp-transition) !important;
+  z-index: 1;
+  position: relative;
+}
+
+.bp-widget-close:hover,
+.bp-widget-close-button:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: rotate(90deg) !important;
+}
+
+.bp-widget-close svg,
+.bp-widget-close-button svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* ============================================
+   ZONE DE MESSAGES
+   ============================================ */
+
+/* Container des messages */
+.bp-widget-messages,
+.bp-widget-conversation,
+.bp-widget-chat-container {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  padding: 24px !important;
+  background: var(--bp-bg-dark) !important;
+  background-image: 
+    linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
+  position: relative !important;
+}
+
+/* Scrollbar personnalisée */
+.bp-widget-messages::-webkit-scrollbar,
+.bp-widget-conversation::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.bp-widget-messages::-webkit-scrollbar-track,
+.bp-widget-conversation::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.bp-widget-messages::-webkit-scrollbar-thumb,
+.bp-widget-conversation::-webkit-scrollbar-thumb {
+  background: var(--bp-primary) !important;
+  border-radius: 3px !important;
+}
+
+.bp-widget-messages::-webkit-scrollbar-thumb:hover,
+.bp-widget-conversation::-webkit-scrollbar-thumb:hover {
+  background: var(--bp-secondary) !important;
+}
+
+/* Message utilisateur */
+.bp-widget-message-user,
+.bp-widget-user-message {
+  background: linear-gradient(135deg, var(--bp-primary), var(--bp-secondary)) !important;
+  color: var(--bp-text-primary) !important;
+  padding: 12px 16px !important;
+  border-radius: var(--bp-radius-sm) var(--bp-radius-sm) 4px var(--bp-radius-sm) !important;
+  margin-bottom: 12px !important;
+  margin-left: auto !important;
+  max-width: 75% !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+  animation: messageSlideIn 0.3s ease !important;
+  word-wrap: break-word !important;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Message bot */
+.bp-widget-message-bot,
+.bp-widget-bot-message {
+  background: var(--bp-bg-card) !important;
+  color: var(--bp-text-primary) !important;
+  padding: 12px 16px !important;
+  border-radius: var(--bp-radius-sm) var(--bp-radius-sm) var(--bp-radius-sm) 4px !important;
+  margin-bottom: 12px !important;
+  margin-right: auto !important;
+  max-width: 75% !important;
+  border: 1px solid var(--bp-border) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  animation: messageSlideIn 0.3s ease !important;
+  word-wrap: break-word !important;
+}
+
+/* Texte des messages */
+.bp-widget-message-text,
+.bp-widget-message-content {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+/* Timestamp */
+.bp-widget-message-time,
+.bp-widget-timestamp {
+  font-size: 11px !important;
+  color: var(--bp-text-muted) !important;
+  margin-top: 4px !important;
+  opacity: 0.7 !important;
+}
+
+/* ============================================
+   BOUTONS RAPIDES / SUGGESTIONS
+   ============================================ */
+
+/* Container des suggestions */
+.bp-widget-suggestions,
+.bp-widget-quick-replies {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  padding: 16px 24px !important;
+  background: var(--bp-bg-card) !important;
+  border-top: 1px solid var(--bp-border) !important;
+}
+
+/* Bouton de suggestion */
+.bp-widget-suggestion,
+.bp-widget-quick-reply {
+  background: var(--bp-primary-light) !important;
+  color: var(--bp-primary) !important;
+  border: 1px solid var(--bp-border) !important;
+  padding: 10px 16px !important;
+  border-radius: var(--bp-radius-sm) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: var(--bp-transition) !important;
+  white-space: nowrap !important;
+}
+
+.bp-widget-suggestion:hover,
+.bp-widget-quick-reply:hover {
+  background: var(--bp-primary) !important;
+  color: var(--bp-text-primary) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+}
+
+.bp-widget-suggestion:active,
+.bp-widget-quick-reply:active {
+  transform: translateY(0) !important;
+}
+
+/* ============================================
+   ZONE DE SAISIE
+   ============================================ */
+
+/* Container de l'input */
+.bp-widget-input-container,
+.bp-widget-input-wrapper {
+  padding: 16px 24px !important;
+  background: var(--bp-bg-card) !important;
+  border-top: 1px solid var(--bp-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Input de texte */
+.bp-widget-input,
+.bp-widget-text-input,
+input[type="text"].bp-widget-input {
+  flex: 1 !important;
+  background: var(--bp-bg-dark) !important;
+  border: 1px solid var(--bp-border) !important;
+  border-radius: var(--bp-radius-sm) !important;
+  padding: 12px 16px !important;
+  color: var(--bp-text-primary) !important;
+  font-size: 14px !important;
+  outline: none !important;
+  transition: var(--bp-transition) !important;
+}
+
+.bp-widget-input:focus,
+.bp-widget-text-input:focus,
+input[type="text"].bp-widget-input:focus {
+  border-color: var(--bp-primary) !important;
+  box-shadow: 0 0 0 3px var(--bp-primary-light) !important;
+}
+
+.bp-widget-input::placeholder,
+.bp-widget-text-input::placeholder,
+input[type="text"].bp-widget-input::placeholder {
+  color: var(--bp-text-muted) !important;
+}
+
+/* Bouton d'envoi */
+.bp-widget-send-button,
+.bp-widget-send {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, var(--bp-primary), var(--bp-secondary)) !important;
+  border: none !important;
+  color: var(--bp-text-primary) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: var(--bp-transition) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+}
+
+.bp-widget-send-button:hover,
+.bp-widget-send:hover {
+  transform: scale(1.1) rotate(5deg) !important;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4) !important;
+}
+
+.bp-widget-send-button:active,
+.bp-widget-send:active {
+  transform: scale(0.95) !important;
+}
+
+.bp-widget-send-button svg,
+.bp-widget-send svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* ============================================
+   INDICATEUR DE TYPING
+   ============================================ */
+
+/* Container typing */
+.bp-widget-typing,
+.bp-widget-typing-indicator {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 12px 16px !important;
+  background: var(--bp-bg-card) !important;
+  border-radius: var(--bp-radius-sm) !important;
+  border: 1px solid var(--bp-border) !important;
+  margin-bottom: 12px !important;
+  max-width: 75px !important;
+}
+
+/* Dots de typing */
+.bp-widget-typing-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: var(--bp-primary) !important;
+  animation: typingDot 1.4s infinite !important;
+}
+
+.bp-widget-typing-dot:nth-child(2) {
+  animation-delay: 0.2s !important;
+}
+
+.bp-widget-typing-dot:nth-child(3) {
+  animation-delay: 0.4s !important;
+}
+
+@keyframes typingDot {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   CARTES / CAROUSELS
+   ============================================ */
+
+/* Container de carte */
+.bp-widget-card,
+.bp-widget-carousel-card {
+  background: var(--bp-bg-card) !important;
+  border: 1px solid var(--bp-border) !important;
+  border-radius: var(--bp-radius-sm) !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: var(--bp-transition) !important;
+}
+
+.bp-widget-card:hover,
+.bp-widget-carousel-card:hover {
+  border-color: var(--bp-primary) !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Titre de carte */
+.bp-widget-card-title {
+  color: var(--bp-text-primary) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Description de carte */
+.bp-widget-card-description {
+  color: var(--bp-text-secondary) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  margin-bottom: 12px !important;
+}
+
+/* Bouton de carte */
+.bp-widget-card-button {
+  background: linear-gradient(135deg, var(--bp-primary), var(--bp-secondary)) !important;
+  color: var(--bp-text-primary) !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: var(--bp-radius-sm) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: var(--bp-transition) !important;
+  width: 100% !important;
+}
+
+.bp-widget-card-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* ============================================
+   ÉTATS ET LOADING
+   ============================================ */
+
+/* Loading spinner */
+.bp-widget-loading,
+.bp-widget-spinner {
+  width: 24px !important;
+  height: 24px !important;
+  border: 3px solid var(--bp-primary-light) !important;
+  border-top-color: var(--bp-primary) !important;
+  border-radius: 50% !important;
+  animation: spin 0.8s linear infinite !important;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Message d'erreur */
+.bp-widget-error {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  color: #fca5a5 !important;
+  padding: 12px 16px !important;
+  border-radius: var(--bp-radius-sm) !important;
+  margin-bottom: 12px !important;
+}
+
+/* Message de succès */
+.bp-widget-success {
+  background: rgba(34, 197, 94, 0.1) !important;
+  border: 1px solid rgba(34, 197, 94, 0.3) !important;
+  color: #86efac !important;
+  padding: 12px 16px !important;
+  border-radius: var(--bp-radius-sm) !important;
+  margin-bottom: 12px !important;
+}
+
+/* ============================================
+   LIENS ET BOUTONS
+   ============================================ */
+
+/* Liens dans les messages */
+.bp-widget-message a,
+.bp-widget-link {
+  color: var(--bp-primary) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: var(--bp-transition) !important;
+}
+
+.bp-widget-message a:hover,
+.bp-widget-link:hover {
+  border-bottom-color: var(--bp-primary) !important;
+  color: var(--bp-accent) !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .bp-widget-button,
+  #bp-widget-button {
+    width: 56px !important;
+    height: 56px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  .bp-widget-window,
+  .bp-widget-container {
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bp-widget-message-user,
+  .bp-widget-user-message,
+  .bp-widget-message-bot,
+  .bp-widget-bot-message {
+    max-width: 85% !important;
+    font-size: 13px !important;
+  }
+
+  .bp-widget-input-container {
+    padding: 12px 16px !important;
+  }
+}
+
+/* ============================================
+   ANIMATIONS GLOBALES
+   ============================================ */
+
+/* Fade in général */
+.bp-widget-fade-in {
+  animation: fadeIn 0.3s ease !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITÉ
+   ============================================ */
+
+/* Focus visible */
+.bp-widget-button:focus-visible,
+.bp-widget-send-button:focus-visible,
+.bp-widget-close:focus-visible {
+  outline: 2px solid var(--bp-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Mode sombre (déjà appliqué) */
+@media (prefers-color-scheme: light) {
+  /* Le style reste en mode sombre pour cohérence avec le site */
+}
+
+/* ============================================
+   OVERRIDES FINAUX
+   ============================================ */
+
+/* Assurer que les styles s'appliquent */
+.bp-widget-container * {
+  box-sizing: border-box !important;
+}
+
+/* Supprimer les styles par défaut indésirables */
+.bp-widget-container button {
+  font-family: inherit !important;
+}
+
+.bp-widget-container input {
+  font-family: inherit !important;
+}
+

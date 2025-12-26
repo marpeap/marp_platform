@@ -193,17 +193,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Modal functionality
   function initModals() {
-    // #region agent log
-    fetch('http://127.0.0.1:7252/ingest/7ef793c8-9349-4d7c-bdd6-05150cacb290',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'contact.js:195',message:'initModals() called',data:{timestamp:Date.now()},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-    // #endregion
-    
     const modals = document.querySelectorAll('.modal');
     const triggers = document.querySelectorAll('.modal-trigger');
     const closeButtons = document.querySelectorAll('.modal-close');
-
-    // #region agent log
-    fetch('http://127.0.0.1:7252/ingest/7ef793c8-9349-4d7c-bdd6-05150cacb290',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'contact.js:200',message:'Elements found',data:{modalsCount:modals.length,triggersCount:triggers.length,closeButtonsCount:closeButtons.length,modalsIds:Array.from(modals).map(m=>m.id),triggersIds:Array.from(triggers).map(t=>t.id)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
 
     console.log('🔧 Initialisation des modals:', {
       modals: modals.length,
@@ -212,37 +204,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Open modal
-    triggers.forEach((trigger, index) => {
-      // #region agent log
-      fetch('http://127.0.0.1:7252/ingest/7ef793c8-9349-4d7c-bdd6-05150cacb290',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'contact.js:210',message:'Attaching event listener',data:{triggerIndex:index,triggerId:trigger.id,dataModal:trigger.getAttribute('data-modal')},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-      // #endregion
-      
+    triggers.forEach(trigger => {
       trigger.addEventListener('click', function(e) {
-        // #region agent log
-        fetch('http://127.0.0.1:7252/ingest/7ef793c8-9349-4d7c-bdd6-05150cacb290',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'contact.js:214',message:'Trigger clicked',data:{triggerId:this.id,dataModal:this.getAttribute('data-modal'),defaultPrevented:e.defaultPrevented,isPropagationStopped:e.cancelBubble},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-        // #endregion
-        
         e.preventDefault();
         e.stopPropagation();
         const modalId = this.getAttribute('data-modal');
         const modal = document.getElementById(modalId);
-        
-        // #region agent log
-        fetch('http://127.0.0.1:7252/ingest/7ef793c8-9349-4d7c-bdd6-05150cacb290',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'contact.js:220',message:'Modal lookup',data:{modalId:modalId,modalFound:!!modal,modalIdActual:modal?.id,modalClasses:modal?.className,modalStyle:modal?window.getComputedStyle(modal).display:'N/A'},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
-        
         console.log('🔘 Clic sur trigger:', modalId, 'Modal trouvé:', !!modal);
         if (modal) {
-          const beforeClasses = modal.className;
           modal.classList.add('active');
           this.classList.add('active');
           document.body.style.overflow = 'hidden';
-          
-          // #region agent log
-          const computedStyle = window.getComputedStyle(modal);
-          fetch('http://127.0.0.1:7252/ingest/7ef793c8-9349-4d7c-bdd6-05150cacb290',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'contact.js:230',message:'Modal activated',data:{modalId:modalId,beforeClasses:beforeClasses,afterClasses:modal.className,display:computedStyle.display,visibility:computedStyle.visibility,zIndex:computedStyle.zIndex,opacity:computedStyle.opacity},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
-          // #endregion
-          
           console.log('✅ Modal ouvert:', modalId);
         } else {
           console.error('❌ Modal non trouvé:', modalId);
@@ -352,14 +324,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Initialiser les modals après un court délai pour s'assurer que le DOM est complètement chargé
-  // #region agent log
-  fetch('http://127.0.0.1:7252/ingest/7ef793c8-9349-4d7c-bdd6-05150cacb290',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'contact.js:295',message:'Scheduling initModals',data:{documentReadyState:document.readyState,modalsInDOM:document.querySelectorAll('.modal').length,triggersInDOM:document.querySelectorAll('.modal-trigger').length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-  // #endregion
-  
   setTimeout(() => {
-    // #region agent log
-    fetch('http://127.0.0.1:7252/ingest/7ef793c8-9349-4d7c-bdd6-05150cacb290',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'contact.js:300',message:'initModals timeout executed',data:{documentReadyState:document.readyState,modalsInDOM:document.querySelectorAll('.modal').length,triggersInDOM:document.querySelectorAll('.modal-trigger').length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-    // #endregion
     initModals();
   }, 100);
 

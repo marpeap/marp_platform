@@ -46,3 +46,4 @@ WITH CHECK (true);
 -- Exécutez cette requête pour vérifier :
 -- SELECT * FROM pg_policies WHERE tablename = 'contacts';
 
+

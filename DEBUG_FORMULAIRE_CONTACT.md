@@ -134,3 +134,4 @@ const EMAILJS_CONFIG = {
 3. **L'initialisation EmailJS attend maintenant** que le SDK soit complètement chargé
 4. **Les logs de débogage** vous aideront à identifier les problèmes
 
+
