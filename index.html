@@ -35,7 +35,7 @@
     <meta property="og:url" content="https://www.marpeap.digital/">
     <meta property="og:title" content="Marpeap Digitals - Développeur Web Indépendant | Création Digitale d'Exception">
     <meta property="og:description" content="Développeur web indépendant spécialisé en création digitale, développement web sur-mesure, design UI/UX et solutions e-commerce. Expertise technique, agilité et transparence.">
-    <meta property="og:image" content="https://www.marpeap.digital/assets/images/logo.png">
+    <meta property="og:image" content="https://www.marpeap.digital/assets/images/marpeap.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Marpeap Digitals - Logo">
@@ -50,7 +50,7 @@
     <meta name="twitter:url" content="https://www.marpeap.digital/">
     <meta name="twitter:title" content="Marpeap Digitals - Développeur Web Indépendant">
     <meta name="twitter:description" content="Développeur web indépendant spécialisé en création digitale, développement web sur-mesure et solutions e-commerce.">
-    <meta name="twitter:image" content="https://www.marpeap.digital/assets/images/logo.png">
+    <meta name="twitter:image" content="https://www.marpeap.digital/assets/images/marpeap.png">
     <meta name="twitter:image:alt" content="Marpeap Digitals - Logo">
     <meta name="twitter:creator" content="@MarpeapX">
     <meta name="twitter:site" content="@MarpeapX">
@@ -71,6 +71,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://www.google.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
@@ -90,8 +91,8 @@
       "name": "Marpeap Digitals",
       "description": "Développeur web indépendant spécialisé en création digitale, développement web sur-mesure, design UI/UX et solutions e-commerce",
       "url": "https://www.marpeap.digital",
-      "logo": "https://www.marpeap.digital/assets/images/logo.png",
-      "image": "https://www.marpeap.digital/assets/images/logo.png",
+      "logo": "https://www.marpeap.digital/assets/images/marpeap.png",
+      "image": "https://www.marpeap.digital/assets/images/marpeap.png",
       "telephone": "+33-X-XX-XX-XX-XX",
       "email": "contact@marpeap.digital",
       "address": {
@@ -172,7 +173,7 @@
       "@type": "Organization",
       "name": "Marpeap Digitals",
       "url": "https://www.marpeap.digital",
-      "logo": "https://www.marpeap.digital/assets/images/logo.png",
+      "logo": "https://www.marpeap.digital/assets/images/logo.webp",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer service",
@@ -235,7 +236,8 @@
         <div class="container">
             <div class="nav-content">
                 <a href="index.html" class="logo" aria-label="Marpeap Digitals - Accueil">
-                    <img src="assets/images/logo.png" alt="Marpeap Digitals - Logo - Développeur Web Indépendant" class="logo-img" width="180" height="180">
+                    <img src="assets/images/marpeap.png" alt="Marpeap Digitals - Logo - Développeur Web Indépendant" class="logo-img logo-img-dark" width="180" height="180" loading="eager">
+                    <img src="assets/images/marpeap2.png" alt="Marpeap Digitals - Logo - Développeur Web Indépendant" class="logo-img logo-img-light" width="180" height="180" loading="eager" style="display: none;">
                 </a>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                     <span></span>
@@ -248,6 +250,28 @@
                     <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+                    <svg class="theme-icon theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="theme-icon theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="tel:0649710370" class="btn-call-mobile" aria-label="Appeler">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <span>Appeler</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -255,6 +279,11 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-background">
+            <div class="hero-slideshow">
+                <div class="hero-slide hero-slide-active" style="background-image: url('assets/images/background.png');"></div>
+                <div class="hero-slide" style="background-image: url('assets/images/img1j.png');"></div>
+                <div class="hero-slide" style="background-image: url('assets/images/img3.png');"></div>
+            </div>
             <div class="blob blob-1"></div>
             <div class="blob blob-2"></div>
             <div class="blob blob-3"></div>
@@ -262,16 +291,19 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="gradient-text">Création Digitale</span>
-                    <span class="hero-subtitle">d'Exception</span>
+                    <span class="gradient-text">Développeur web</span>
+                    <span class="hero-subtitle">pour PME et indépendants</span>
                 </h1>
                 <p class="hero-description">
-                    Transformez vos idées en solutions digitales innovantes. 
-                    Nous créons des expériences web modernes et performantes.
+                    Je crée des sites web et des outils sur mesure pour gagner en visibilité et en efficacité.
                 </p>
                 <div class="hero-buttons">
-                    <a href="contact.html" class="btn btn-primary">Démarrer un projet</a>
-                    <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+                    <div class="hero-cta-container">
+                        <a href="contact.html" class="btn btn-primary">
+                            Discuter de votre projet
+                        </a>
+                        <p class="hero-response-time">Réponse sous 24h</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -286,111 +318,483 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Nos Services</h2>
-                <p class="section-description">Des solutions complètes pour tous vos besoins digitaux</p>
+                <h2 class="section-title">Mes Services</h2>
+                <p class="section-description">Des solutions adaptées à vos besoins</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card" data-service="developpement-web">
-                    <div class="service-icon">💻</div>
-                    <h3 class="service-title">Développement Web</h3>
-                    <p class="service-description">Sites web modernes et performants avec les dernières technologies</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
+            <div class="services-grid services-grid-main">
+                <div class="service-card service-card-blue" data-service="site-web">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Site web professionnel</h3>
+                    <p class="service-description">
+                        <strong>Pour qui :</strong> PME, indépendants<br>
+                        <strong>Objectif :</strong> crédibilité + visibilité
+                    </p>
+                    <ul class="service-features">
+                        <li>Site rapide et mobile</li>
+                        <li>SEO technique de base</li>
+                        <li>Formulaire de contact</li>
+                        <li>Mise en ligne complète</li>
+                    </ul>
+                    <div class="service-cta-container">
+                        <button class="btn btn-outline service-cta">Voir les détails</button>
+                        <p class="service-response-time">Réponse sous 24h</p>
+                    </div>
                 </div>
-                <div class="service-card" data-service="design-uiux">
+                <div class="service-card service-card-purple" data-service="application">
+                    <div class="service-icon">⚙️</div>
+                    <h3 class="service-title">Application / outil sur mesure</h3>
+                    <p class="service-description">
+                        <strong>Pour qui :</strong> entreprises avec besoins spécifiques
+                    </p>
+                    <ul class="service-features">
+                        <li>Application web</li>
+                        <li>Automatisation</li>
+                        <li>Dashboard / API</li>
+                        <li>Gain de temps réel</li>
+                    </ul>
+                    <p class="service-note">👉 Sur devis</p>
+                    <div class="service-cta-container">
+                        <button class="btn btn-outline service-cta">Voir les détails</button>
+                        <p class="service-response-time">Réponse sous 24h</p>
+                    </div>
+                </div>
+                <div class="service-card service-card-cyan" data-service="optimisation">
+                    <div class="service-icon">🚀</div>
+                    <h3 class="service-title">Optimisation & amélioration</h3>
+                    <p class="service-description">
+                        <strong>Pour qui :</strong> sites existants
+                    </p>
+                    <ul class="service-features">
+                        <li>Performance</li>
+                        <li>Sécurité</li>
+                        <li>SEO technique</li>
+                        <li>Corrections ciblées</li>
+                    </ul>
+                    <div class="service-cta-container">
+                        <button class="btn btn-outline service-cta">Voir les détails</button>
+                        <p class="service-response-time">Réponse sous 24h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="services-more-container">
+                <button class="btn btn-outline services-more-toggle" id="servicesMoreToggle">
+                    Plus de projets techniques
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 7.5l5 5 5-5"/>
+                    </svg>
+                </button>
+                <div class="services-grid services-grid-more" id="servicesMore" style="display: none;">
+                    <div class="service-card service-card-more">
                     <div class="service-icon">🎨</div>
                     <h3 class="service-title">Design UI/UX</h3>
-                    <p class="service-description">Interfaces utilisateur intuitives et esthétiques pour une expérience optimale</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
+                        <p class="service-description">Interfaces intuitives et esthétiques</p>
                 </div>
-                <div class="service-card" data-service="ecommerce">
+                    <div class="service-card service-card-more">
                     <div class="service-icon">🛒</div>
                     <h3 class="service-title">E-commerce</h3>
-                    <p class="service-description">Solutions e-commerce sur mesure pour développer votre activité en ligne</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
+                        <p class="service-description">Boutiques en ligne sur mesure</p>
                 </div>
-                <div class="service-card" data-service="applications-web">
+                    <div class="service-card service-card-more">
                     <div class="service-icon">📱</div>
                     <h3 class="service-title">Applications Web</h3>
-                    <p class="service-description">Applications web progressives (PWA) et applications métier sur mesure</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
+                        <p class="service-description">PWA et applications métier</p>
                 </div>
-                <div class="service-card" data-service="optimisation-seo">
-                    <div class="service-icon">🚀</div>
-                    <h3 class="service-title">Optimisation SEO</h3>
-                    <p class="service-description">Amélioration de votre visibilité en ligne et référencement naturel</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
+                    <div class="service-card service-card-more">
+                        <div class="service-icon">🔄</div>
+                        <h3 class="service-title">Refonte de Site</h3>
+                        <p class="service-description">Modernisation complète</p>
                 </div>
-                <div class="service-card" data-service="maintenance-support">
+                    <div class="service-card service-card-more">
+                        <div class="service-icon">🔌</div>
+                        <h3 class="service-title">Intégration API</h3>
+                        <p class="service-description">Connexion de systèmes</p>
+                    </div>
+                    <div class="service-card service-card-more">
+                        <div class="service-icon">🔍</div>
+                        <h3 class="service-title">Audit Technique</h3>
+                        <p class="service-description">Analyse et recommandations</p>
+                    </div>
+                    <div class="service-card service-card-more">
+                        <div class="service-icon">📚</div>
+                        <h3 class="service-title">Formation</h3>
+                        <p class="service-description">Accompagnement personnalisé</p>
+                    </div>
+                    <div class="service-card service-card-more">
+                        <div class="service-icon">☁️</div>
+                        <h3 class="service-title">Hébergement</h3>
+                        <p class="service-description">Infrastructure cloud</p>
+                    </div>
+                    <div class="service-card service-card-more">
+                        <div class="service-icon">⚡</div>
+                        <h3 class="service-title">Performance</h3>
+                        <p class="service-description">Vitesse et réactivité</p>
+                    </div>
+                    <div class="service-card service-card-more">
+                        <div class="service-icon">🔒</div>
+                        <h3 class="service-title">Sécurité Web</h3>
+                        <p class="service-description">Protection renforcée</p>
+                    </div>
+                    <div class="service-card service-card-more">
+                        <div class="service-icon">💼</div>
+                        <h3 class="service-title">Consulting</h3>
+                        <p class="service-description">Conseil stratégique</p>
+                    </div>
+                    <div class="service-card service-card-more">
                     <div class="service-icon">🔧</div>
-                    <h3 class="service-title">Maintenance & Support</h3>
-                    <p class="service-description">Accompagnement continu et maintenance de vos solutions digitales</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="refonte-site">
-                    <div class="service-icon">🔄</div>
-                    <h3 class="service-title">Refonte de Site Web</h3>
-                    <p class="service-description">Modernisation complète de votre site existant avec les dernières technologies</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="integration-api">
-                    <div class="service-icon">🔌</div>
-                    <h3 class="service-title">Intégration API & Webhooks</h3>
-                    <p class="service-description">Connexion de votre site avec vos outils et services externes</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="migration-modernisation">
-                    <div class="service-icon">🚀</div>
-                    <h3 class="service-title">Migration & Modernisation</h3>
-                    <p class="service-description">Migration vers de nouvelles technologies et modernisation de votre infrastructure</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="audit-technique">
-                    <div class="service-icon">🔍</div>
-                    <h3 class="service-title">Audit Technique</h3>
-                    <p class="service-description">Analyse approfondie de votre site : performance, sécurité, code qualité</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="formation-accompagnement">
-                    <div class="service-icon">📚</div>
-                    <h3 class="service-title">Formation & Accompagnement</h3>
-                    <p class="service-description">Formation personnalisée pour maîtriser votre site et vos outils</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="hebergement-deploiement">
-                    <div class="service-icon">☁️</div>
-                    <h3 class="service-title">Hébergement & Déploiement</h3>
-                    <p class="service-description">Configuration et gestion de l'hébergement et du déploiement de votre site</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="optimisation-performance">
-                    <div class="service-icon">⚡</div>
-                    <h3 class="service-title">Optimisation de Performance</h3>
-                    <p class="service-description">Amélioration de la vitesse, du temps de chargement et de l'expérience utilisateur</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="securite-web">
-                    <div class="service-icon">🔒</div>
-                    <h3 class="service-title">Sécurité Web</h3>
-                    <p class="service-description">Renforcement de la sécurité de votre site et protection contre les menaces</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="chiffrement-grapheneos">
-                    <div class="service-icon">📱🔐</div>
-                    <h3 class="service-title">Chiffrement Graphène OS</h3>
-                    <p class="service-description">Installation et configuration de Graphène OS pour sécuriser votre téléphone Android</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
-                </div>
-                <div class="service-card" data-service="consulting-digital">
-                    <div class="service-icon">💼</div>
-                    <h3 class="service-title">Consulting Digital</h3>
-                    <p class="service-description">Conseil stratégique et accompagnement pour vos projets digitaux</p>
-                    <div class="service-click-hint">Cliquez pour en savoir plus</div>
+                        <h3 class="service-title">Maintenance</h3>
+                        <p class="service-description">Support continu</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Modals -->
+    <!-- Pourquoi travailler avec moi ? -->
+    <section class="why-work-with-me" id="why-work-with-me">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pourquoi travailler avec moi ?</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card why-card-blue">
+                    <div class="why-icon">👤</div>
+                    <h3 class="why-title">Interlocuteur unique</h3>
+                    <p class="why-description">Un seul contact du début à la fin. Pas d'intermédiaires, pas de perte d'information.</p>
+                </div>
+                <div class="why-card why-card-purple">
+                    <div class="why-icon">🎯</div>
+                    <h3 class="why-title">Solutions sur mesure</h3>
+                    <p class="why-description">Pas de templates, pas de solutions génériques. Chaque projet est adapté à vos besoins spécifiques.</p>
+                </div>
+                <div class="why-card why-card-cyan">
+                    <div class="why-icon">💬</div>
+                    <h3 class="why-title">Communication claire</h3>
+                    <p class="why-description">Pas de jargon technique inutile. Je vous explique tout simplement et vous tient informé régulièrement.</p>
+                </div>
+                <div class="why-card why-card-green">
+                    <div class="why-icon">⏰</div>
+                    <h3 class="why-title">Respect des délais</h3>
+                    <p class="why-description">Engagements tenus. Si je vous donne une date, elle sera respectée.</p>
+                </div>
+                <div class="why-card why-card-pink">
+                    <div class="why-icon">💻</div>
+                    <h3 class="why-title">Code propre et maintenable</h3>
+                    <p class="why-description">Un code de qualité, bien documenté, facile à faire évoluer. Votre investissement est pérenne.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment ça se passe ? -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Comment ça se passe ?</h2>
+                <p class="section-description">Un processus simple et transparent</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step process-step-blue">
+                    <div class="process-number">1</div>
+                    <h3 class="process-title">Échange gratuit</h3>
+                    <p class="process-description">On discute de votre besoin, de vos objectifs et de votre budget. Sans engagement, pour comprendre si on peut travailler ensemble.</p>
+                </div>
+                <div class="process-step process-step-purple">
+                    <div class="process-number">2</div>
+                    <h3 class="process-title">Proposition claire</h3>
+                    <p class="process-description">Je vous envoie un devis détaillé avec le périmètre exact, les fonctionnalités, les délais et le prix. Pas de surprise.</p>
+                </div>
+                <div class="process-step process-step-cyan">
+                    <div class="process-number">3</div>
+                    <h3 class="process-title">Développement avec échanges réguliers</h3>
+                    <p class="process-description">Je développe votre projet en vous tenant informé régulièrement. Vous pouvez voir l'avancement et donner votre avis à chaque étape.</p>
+                </div>
+                <div class="process-step process-step-green">
+                    <div class="process-number">4</div>
+                    <h3 class="process-title">Livraison + accompagnement</h3>
+                    <p class="process-description">Votre site est mis en ligne et je vous forme à son utilisation. Je reste disponible pour vos questions après la livraison.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Modals - Services Principaux -->
+    <!-- Modal Site Web Professionnel -->
+    <div class="service-modal" id="modal-site-web">
+        <div class="service-modal-overlay"></div>
+        <div class="service-modal-content">
+            <button class="service-modal-close" aria-label="Fermer">&times;</button>
+            <div class="service-modal-header">
+                <div class="service-modal-icon">🌐</div>
+                <h2 class="service-modal-title">Site web professionnel</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-description-section">
+                    <h3>À quoi sert ce service ?</h3>
+                    <p>Un site web professionnel est votre vitrine en ligne. Il renforce votre crédibilité, améliore votre visibilité et vous permet d'attirer de nouveaux clients. Idéal pour les PME et indépendants qui veulent se démarquer sans investir des fortunes.</p>
+                    <p>Je crée des sites web rapides, modernes et entièrement adaptés aux mobiles. Chaque site est optimisé pour le référencement naturel et inclut tous les éléments essentiels pour votre présence en ligne.</p>
+                    <ul>
+                        <li>Site rapide et responsive (mobile-first)</li>
+                        <li>SEO technique de base intégré</li>
+                        <li>Formulaire de contact fonctionnel</li>
+                        <li>Mise en ligne complète et configuration</li>
+                        <li>Formation à la gestion du contenu</li>
+                    </ul>
+                </div>
+                <div class="service-comparison-section">
+                    <h3>Marpeap vs Freelance Lambda vs Agence Professionnelle</h3>
+                    <div class="comparison-table">
+                        <div class="comparison-row comparison-header">
+                            <div class="comparison-cell">Critère</div>
+                            <div class="comparison-cell comparison-marpeap">Marpeap</div>
+                            <div class="comparison-cell comparison-freelance">Freelance Lambda</div>
+                            <div class="comparison-cell comparison-agency">Agence Professionnelle</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Prix moyen (site vitrine)</div>
+                            <div class="comparison-cell comparison-marpeap">200€ - 450€</div>
+                            <div class="comparison-cell comparison-freelance">400€ - 800€</div>
+                            <div class="comparison-cell comparison-agency">5 000€ - 15 000€</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Prix moyen (site avec blog)</div>
+                            <div class="comparison-cell comparison-marpeap">450€ - 900€</div>
+                            <div class="comparison-cell comparison-freelance">800€ - 1 500€</div>
+                            <div class="comparison-cell comparison-agency">8 000€ - 20 000€</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Interlocuteur unique</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Direct, sans intermédiaire</div>
+                            <div class="comparison-cell comparison-freelance">✓ Direct, sans intermédiaire</div>
+                            <div class="comparison-cell comparison-agency">✗ Équipe fragmentée</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Réactivité</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Réponse sous 24h garantie</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Variable (2-5 jours)</div>
+                            <div class="comparison-cell comparison-agency">✗ Délais administratifs</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Personnalisation</div>
+                            <div class="comparison-cell comparison-marpeap">✓ 100% sur-mesure, pas de template</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Souvent basé sur template</div>
+                            <div class="comparison-cell comparison-agency">✗ Solutions standardisées</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Transparence des coûts</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Devis clair, pas de frais cachés</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Parfois des surprises</div>
+                            <div class="comparison-cell comparison-agency">✗ Frais de structure inclus</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Suivi post-lancement</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Accompagnement personnalisé inclus</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Variable selon le freelance</div>
+                            <div class="comparison-cell comparison-agency">✗ Support générique payant</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Délai de livraison</div>
+                            <div class="comparison-cell comparison-marpeap">✓ 1-3 semaines</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ 2-6 semaines</div>
+                            <div class="comparison-cell comparison-agency">✗ 2-4 mois</div>
+                        </div>
+                    </div>
+                    <div class="comparison-note">
+                        <p><strong>💡 Pourquoi choisir Marpeap ?</strong></p>
+                        <p>En tant que développeur indépendant spécialisé pour les PME, je vous offre le meilleur rapport qualité/prix. Vous économisez jusqu'à 90% par rapport à une agence tout en bénéficiant d'un service personnalisé, réactif et transparent. Chaque projet est traité avec attention car votre satisfaction est ma priorité.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-modal-footer">
+                <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Application / Outil sur mesure -->
+    <div class="service-modal" id="modal-application">
+        <div class="service-modal-overlay"></div>
+        <div class="service-modal-content">
+            <button class="service-modal-close" aria-label="Fermer">&times;</button>
+            <div class="service-modal-header">
+                <div class="service-modal-icon">⚙️</div>
+                <h2 class="service-modal-title">Application / outil sur mesure</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-description-section">
+                    <h3>À quoi sert ce service ?</h3>
+                    <p>Vous avez des besoins spécifiques que les solutions standardes ne couvrent pas ? Je développe des applications web sur mesure, des outils d'automatisation et des dashboards adaptés à votre activité. Parfait pour les entreprises qui veulent gagner en efficacité et en productivité.</p>
+                    <p>Chaque application est conçue pour répondre exactement à vos besoins métier, avec une interface intuitive et des fonctionnalités qui s'intègrent parfaitement à votre workflow existant.</p>
+                    <ul>
+                        <li>Application web sur mesure</li>
+                        <li>Automatisation de processus métier</li>
+                        <li>Dashboard et tableaux de bord personnalisés</li>
+                        <li>Intégration API et connexion de systèmes</li>
+                        <li>Gain de temps réel et ROI mesurable</li>
+                    </ul>
+                </div>
+                <div class="service-comparison-section">
+                    <h3>Marpeap vs Freelance Lambda vs Agence Professionnelle</h3>
+                    <div class="comparison-table">
+                        <div class="comparison-row comparison-header">
+                            <div class="comparison-cell">Critère</div>
+                            <div class="comparison-cell comparison-marpeap">Marpeap</div>
+                            <div class="comparison-cell comparison-freelance">Freelance Lambda</div>
+                            <div class="comparison-cell comparison-agency">Agence Professionnelle</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Prix moyen (application simple)</div>
+                            <div class="comparison-cell comparison-marpeap">2 000€ - 5 000€</div>
+                            <div class="comparison-cell comparison-freelance">3 500€ - 8 000€</div>
+                            <div class="comparison-cell comparison-agency">15 000€ - 50 000€</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Prix moyen (application complexe)</div>
+                            <div class="comparison-cell comparison-marpeap">5 000€ - 15 000€</div>
+                            <div class="comparison-cell comparison-freelance">10 000€ - 25 000€</div>
+                            <div class="comparison-cell comparison-agency">50 000€ - 200 000€+</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Compréhension du besoin</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Écoute active, analyse approfondie</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Variable selon l'expérience</div>
+                            <div class="comparison-cell comparison-agency">✗ Processus rigide</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Flexibilité et itérations</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Adaptations rapides incluses</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Supplémentaire souvent facturé</div>
+                            <div class="comparison-cell comparison-agency">✗ Changements = nouveaux devis</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Communication pendant le projet</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Échanges réguliers, transparence totale</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Variable</div>
+                            <div class="comparison-cell comparison-agency">✗ Point d'étape mensuel</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Code maintenable</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Code propre, documenté, évolutif</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Qualité variable</div>
+                            <div class="comparison-cell comparison-agency">⚠️ Code parfois complexe</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Formation et documentation</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Formation + doc complète incluse</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Souvent minimale</div>
+                            <div class="comparison-cell comparison-agency">✗ Supplémentaire</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Délai de développement</div>
+                            <div class="comparison-cell comparison-marpeap">✓ 4-12 semaines selon complexité</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ 8-20 semaines</div>
+                            <div class="comparison-cell comparison-agency">✗ 3-6 mois minimum</div>
+                        </div>
+                    </div>
+                    <div class="comparison-note">
+                        <p><strong>💡 Pourquoi choisir Marpeap ?</strong></p>
+                        <p>Les applications sur mesure nécessitent une compréhension fine de vos besoins. En tant que développeur indépendant, je prends le temps de bien comprendre votre métier avant de développer. Vous économisez jusqu'à 80% par rapport à une agence tout en obtenant une solution parfaitement adaptée, évolutive et documentée.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-modal-footer">
+                <a href="contact.html" class="btn btn-primary">Discuter du projet</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Optimisation & Amélioration -->
+    <div class="service-modal" id="modal-optimisation">
+        <div class="service-modal-overlay"></div>
+        <div class="service-modal-content">
+            <button class="service-modal-close" aria-label="Fermer">&times;</button>
+            <div class="service-modal-header">
+                <div class="service-modal-icon">🚀</div>
+                <h2 class="service-modal-title">Optimisation & amélioration</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-description-section">
+                    <h3>À quoi sert ce service ?</h3>
+                    <p>Votre site existe déjà mais il est lent, mal référencé ou présente des problèmes de sécurité ? Je peux l'auditer, identifier les points d'amélioration et les corriger efficacement. Un site optimisé améliore votre visibilité, votre conversion et l'expérience de vos visiteurs.</p>
+                    <p>Je propose des audits complets et des corrections ciblées pour améliorer les performances, la sécurité et le référencement de votre site existant, sans avoir à tout refaire.</p>
+                    <ul>
+                        <li>Audit de performance complet</li>
+                        <li>Optimisation de la vitesse de chargement</li>
+                        <li>Renforcement de la sécurité</li>
+                        <li>Amélioration du SEO technique</li>
+                        <li>Corrections ciblées et recommandations</li>
+                    </ul>
+                </div>
+                <div class="service-comparison-section">
+                    <h3>Marpeap vs Freelance Lambda vs Agence Professionnelle</h3>
+                    <div class="comparison-table">
+                        <div class="comparison-row comparison-header">
+                            <div class="comparison-cell">Critère</div>
+                            <div class="comparison-cell comparison-marpeap">Marpeap</div>
+                            <div class="comparison-cell comparison-freelance">Freelance Lambda</div>
+                            <div class="comparison-cell comparison-agency">Agence Professionnelle</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Prix audit complet</div>
+                            <div class="comparison-cell comparison-marpeap">150€ - 300€</div>
+                            <div class="comparison-cell comparison-freelance">300€ - 600€</div>
+                            <div class="comparison-cell comparison-agency">1 500€ - 5 000€</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Prix optimisation complète</div>
+                            <div class="comparison-cell comparison-marpeap">500€ - 2 000€</div>
+                            <div class="comparison-cell comparison-freelance">1 000€ - 4 000€</div>
+                            <div class="comparison-cell comparison-agency">5 000€ - 20 000€</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Rapidité d'intervention</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Démarrage sous 48h</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ 1-2 semaines</div>
+                            <div class="comparison-cell comparison-agency">✗ 2-4 semaines</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Transparence des résultats</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Rapport détaillé avec métriques avant/après</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Rapport basique</div>
+                            <div class="comparison-cell comparison-agency">✗ Rapport marketing</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Corrections ciblées</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Seulement ce qui est nécessaire</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Parfois surdimensionné</div>
+                            <div class="comparison-cell comparison-agency">✗ Refonte complète proposée</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Suivi post-optimisation</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Vérification incluse après 1 mois</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Variable</div>
+                            <div class="comparison-cell comparison-agency">✗ Supplémentaire</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">ROI mesurable</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Amélioration chiffrée garantie</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Variable</div>
+                            <div class="comparison-cell comparison-agency">⚠️ Difficile à mesurer</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Communication</div>
+                            <div class="comparison-cell comparison-marpeap">✓ Explications claires, sans jargon</div>
+                            <div class="comparison-cell comparison-freelance">⚠️ Parfois technique</div>
+                            <div class="comparison-cell comparison-agency">✗ Jargon marketing</div>
+                        </div>
+                    </div>
+                    <div class="comparison-note">
+                        <p><strong>💡 Pourquoi choisir Marpeap ?</strong></p>
+                        <p>L'optimisation d'un site existant nécessite une approche pragmatique et mesurable. Je vous propose un audit honnête avec des corrections ciblées qui apportent un vrai résultat. Vous économisez jusqu'à 85% par rapport à une agence tout en obtenant des améliorations concrètes et mesurables de vos performances.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-modal-footer">
+                <a href="contact.html" class="btn btn-primary">Demander un audit</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modals (supprimés - plus utilisés) -->
     <!-- Modal Développement Web -->
     <div class="service-modal" id="modal-developpement-web">
         <div class="service-modal-overlay"></div>
@@ -1615,36 +2019,36 @@
                     </h2>
                     <div class="about-description">
                         <div class="about-text-visible">
-                            <p>
+                        <p class="about-line-1">
                                 Choisir Marpeap Digitals, c'est faire le choix d'un développeur indépendant pleinement impliqué, 
                                 là où une agence numérique fonctionne souvent de manière fragmentée.
-                            </p>
-                            <p>
+                        </p>
+                        <p class="about-line-2">
                                 Un développeur solo, c'est un interlocuteur unique, capable de comprendre votre projet dans sa globalité, 
                                 sans pertes d'information entre équipes commerciales, chefs de projet et développeurs. Chaque décision 
                                 est prise avec une vision d'ensemble, orientée performance, cohérence technique et pérennité.
                             </p>
                         </div>
                         <div class="about-text-hidden" id="aboutTextHidden">
-                            <p>
+                            <p class="about-line-3">
                                 Contrairement à une entreprise numérique aux solutions standardisées, Marpeap Digitals privilégie le 
                                 véritable sur-mesure : pas de recettes génériques, pas de coûts dissimulés liés à une structure lourde. 
                                 Vous investissez dans de la valeur technique concrète, pas dans une hiérarchie superflue.
                             </p>
-                            <p>
+                            <p class="about-line-4">
                                 Faire appel à un développeur indépendant, c'est aussi bénéficier d'une agilité maximale : échanges directs, 
                                 ajustements rapides, cycles de développement courts. Votre projet avance plus vite, avec des choix 
                                 techniques clairs, expliqués et assumés.
                             </p>
-                            <p>
+                            <p class="about-line-5">
                                 Enfin, confier votre projet à Marpeap Digitals, c'est collaborer avec un professionnel qui engage 
                                 personnellement sa réputation sur chaque réalisation. Votre projet n'est pas un dossier parmi d'autres, 
                                 mais un partenariat fondé sur l'exigence, la transparence et le résultat.
                             </p>
-                            <p>
+                            <p class="about-line-6">
                                 Je suis impatient de pouvoir ajouter votre création dans mon Portofolio !
                             </p>
-                            <p>
+                            <p class="about-line-7">
                                 - Adnan "Marpeap" Najim
                             </p>
                         </div>
@@ -1688,7 +2092,9 @@
             <div class="portfolio-grid">
                 <div class="portfolio-item">
                     <div class="portfolio-card">
-                        <div class="portfolio-icon">💻</div>
+                        <div class="portfolio-icon portfolio-icon-github">
+                            <img src="assets/images/git.png" alt="GitHub" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
                         <h3 class="portfolio-title">GitHub</h3>
                         <p class="portfolio-description">Découvrez mes projets open-source et contributions sur GitHub</p>
                         <div class="portfolio-tags">
@@ -1774,11 +2180,18 @@
                 </div>
             </div>
             <div class="footer-bottom">
+                <div class="footer-reassurance">
+                    <span>🇫🇷 Basé en France</span>
+                    <span>💻 Travail à distance</span>
+                    <span>💰 Facturation claire</span>
+                    <span>🔒 Respect du RGPD</span>
+                </div>
                 <p>&copy; 2025 Marpeap Digitals. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/theme-toggle.js?v=2.1.0"></script>
     <script src="js/main.js?v=2.1.0"></script>
     <script src="js/services-sync.js?v=2.1.0"></script>
 </body>

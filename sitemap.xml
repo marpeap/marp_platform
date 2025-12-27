@@ -15,7 +15,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.digital/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.digital/"/>
     <image:image>
-      <image:loc>https://www.marpeap.digital/assets/images/logo.png</image:loc>
+      <image:loc>https://www.marpeap.digital/assets/images/marpeap.png</image:loc>
       <image:title>Marpeap Digitals - Logo</image:title>
       <image:caption>Marpeap Digitals - Développeur Web Indépendant</image:caption>
     </image:image>
@@ -54,6 +54,7 @@
   </url>
   
 </urlset>
+
 
 
 

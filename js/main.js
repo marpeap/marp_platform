@@ -128,19 +128,35 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalOverlays = document.querySelectorAll('.service-modal-overlay');
   const modalCloseButtons = document.querySelectorAll('.service-modal-close');
 
-  // Open modal when clicking on a service card
+  // Open modal when clicking on a service card or button
   serviceCards.forEach(card => {
-    card.addEventListener('click', function(e) {
-      const serviceId = this.getAttribute('data-service');
-      const modal = document.getElementById(`modal-${serviceId}`);
-      
-      if (modal) {
+    const serviceId = card.getAttribute('data-service');
+    const modal = document.getElementById(`modal-${serviceId}`);
+    
+    if (modal) {
+      // Click on entire card
+      card.addEventListener('click', function(e) {
+        // Don't open if clicking on a link inside
+        if (e.target.tagName === 'A' && e.target.href) {
+          return;
+        }
         e.preventDefault();
         e.stopPropagation();
         modal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      });
+      
+      // Click on button inside card
+      const button = card.querySelector('.service-cta');
+      if (button) {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
       }
-    });
+    }
   });
 
   // Close modal functions
@@ -193,6 +209,41 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+});
+
+// Hero Slideshow
+document.addEventListener('DOMContentLoaded', function() {
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+  
+  if (heroSlides.length > 0) {
+    function nextSlide() {
+      heroSlides[currentSlide].classList.remove('hero-slide-active');
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      heroSlides[currentSlide].classList.add('hero-slide-active');
+    }
+    
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
+  }
+});
+
+// Toggle "Plus de projets techniques"
+document.addEventListener('DOMContentLoaded', function() {
+  const servicesMoreToggle = document.getElementById('servicesMoreToggle');
+  const servicesMore = document.getElementById('servicesMore');
+  
+  if (servicesMoreToggle && servicesMore) {
+    servicesMoreToggle.addEventListener('click', function() {
+      const isHidden = servicesMore.style.display === 'none' || !servicesMore.style.display;
+      servicesMore.style.display = isHidden ? 'grid' : 'none';
+      
+      const svg = servicesMoreToggle.querySelector('svg');
+      if (svg) {
+        svg.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
+    });
+  }
 });
 
 // Utility functions

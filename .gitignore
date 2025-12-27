@@ -1,33 +1,99 @@
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-*.log
-npm-debug.log*
-
-# Environment
+# Fichiers sensibles et clés API
+EMAILJS_KEYS.txt
+*.key
+*.pem
+*.p12
 .env
 .env.local
 .env.*.local
 
-# Dependencies
+# Fichiers de configuration sensibles
+supabase/.env
+supabase/.env.local
+
+# Fichiers de debug et logs
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dossiers de dépendances
 node_modules/
+.pnp
+.pnp.js
+.yarn/
+.npm/
 
-# Cache
-.cache/
-.vercel/
-
-# Next.js (archivé)
-_nextjs-archive/
-
-# Build artifacts (si nécessaire)
+# Fichiers de build et cache
+.next/
+out/
 dist/
 build/
-out/
+.cache/
+.parcel-cache/
+.vercel/
+.vercel-cache/
+
+# Fichiers de test
+coverage/
+.nyc_output/
+*.test.js
+*.spec.js
+__tests__/
+test/
+tests/
+
+# Fichiers d'IDE et éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.project
+.classpath
+.settings/
+
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Fichiers de documentation (déjà dans docs/)
+# Les fichiers .md sont maintenant dans docs/ et peuvent être versionnés ou ignorés selon besoin
+# Note: Les fichiers dans docs/ sont versionnés pour la documentation du projet
+
+# Fichiers de backup
+*.bak
+*.backup
+*.old
+
+# Fichiers de configuration locale
+config.local.js
+settings.local.json
+
+# Fichiers de migration et scripts SQL (optionnel - à garder si nécessaire)
+# supabase-permissions.sql  # Décommenter si vous ne voulez pas versionner ce fichier
+
+# Fichiers de templates EmailJS (optionnel - à garder si nécessaire)
+# EMAILJS_TEMPLATE.html
+# EMAILJS_AUTOREPLY_TEMPLATE.html
+
+# Fichiers de base de connaissances chatbot (optionnel)
+# CHATBOT_KNOWLEDGE_BASE.txt  # Décommenter si vous ne voulez pas versionner ce fichier

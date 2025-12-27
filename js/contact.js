@@ -13,9 +13,6 @@ async function sendAutoReply(contactData) {
     const autoReplyParams = {
       from_name: contactData.name,
       from_email: contactData.email, // Destinataire de l'auto-réponse
-      service: contactData.service || 'Non spécifié',
-      project_type: contactData.projectType || 'Non spécifié',
-      timeline: contactData.timeline || 'Non spécifié',
       message: contactData.message,
       date: new Date().toLocaleString('fr-FR')
     };
@@ -77,11 +74,6 @@ async function sendEmailNotification(contactData) {
       to_email: config.RECIPIENT_EMAIL,
       from_name: contactData.name,
       from_email: contactData.email,
-      phone: contactData.phone || 'Non fourni',
-      service: contactData.service || 'Non spécifié',
-      project_type: contactData.projectType || 'Non spécifié',
-      budget: contactData.budget || 'Non spécifié',
-      timeline: contactData.timeline || 'Non spécifié',
       message: contactData.message,
       reply_to: contactData.email,
       subject: `Nouveau message de contact - ${contactData.name}`,
@@ -124,9 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const contactForm = document.getElementById('contactForm');
   if (!contactForm) return;
 
-  // Phone validation regex (French format)
-  const phoneRegex = /^(\+33|0)[1-9](\d{2}){4}$/;
-
   // Validation functions
   function validateName(name) {
     if (name.length < 2) {
@@ -146,21 +135,12 @@ document.addEventListener('DOMContentLoaded', function() {
     return '';
   }
 
-  function validatePhone(phone) {
-    // Remove spaces and format
-    const cleaned = phone.replace(/\s/g, '');
-    if (!phoneRegex.test(cleaned)) {
-      return 'Numéro de téléphone invalide (format: +33X XX XX XX XX ou 0X XX XX XX XX)';
-    }
-    return '';
-  }
-
   function validateMessage(message) {
     if (message.length < 10) {
       return 'Le message doit contenir au moins 10 caractères';
     }
-    if (message.length > 1000) {
-      return 'Le message ne peut pas dépasser 1000 caractères';
+    if (message.length > 2000) {
+      return 'Le message ne peut pas dépasser 2000 caractères';
     }
     return '';
   }
@@ -331,7 +311,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Real-time validation
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
-  const phoneInput = document.getElementById('phone');
   const messageInput = document.getElementById('message');
 
   if (nameInput) {
@@ -356,17 +335,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  if (phoneInput) {
-    phoneInput.addEventListener('blur', function() {
-      const error = validatePhone(this.value);
-      if (error) {
-        showError('phone', error);
-      } else {
-        clearError('phone');
-      }
-    });
-  }
-
   if (messageInput) {
     messageInput.addEventListener('blur', function() {
       const error = validateMessage(this.value);
@@ -378,68 +346,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Real-time validation for new fields (now using hidden inputs)
-  const serviceInput = document.getElementById('service');
-  const projectTypeInput = document.getElementById('projectType');
-  const budgetInput = document.getElementById('budget');
-  const timelineInput = document.getElementById('timeline');
-
-  // Watch for changes in hidden inputs
-  if (serviceInput) {
-    const observer = new MutationObserver(function() {
-      if (serviceInput.value) {
-        clearError('service');
-      }
-    });
-    observer.observe(serviceInput, { attributes: true, attributeFilter: ['value'] });
-  }
-
-  if (projectTypeInput) {
-    const observer = new MutationObserver(function() {
-      if (projectTypeInput.value) {
-        clearError('projectType');
-      }
-    });
-    observer.observe(projectTypeInput, { attributes: true, attributeFilter: ['value'] });
-  }
-
-  if (budgetInput) {
-    const observer = new MutationObserver(function() {
-      if (budgetInput.value) {
-        clearError('budget');
-      }
-    });
-    observer.observe(budgetInput, { attributes: true, attributeFilter: ['value'] });
-  }
-
-  if (timelineInput) {
-    const observer = new MutationObserver(function() {
-      if (timelineInput.value) {
-        clearError('timeline');
-      }
-    });
-    observer.observe(timelineInput, { attributes: true, attributeFilter: ['value'] });
-  }
-
   // Form submission
   contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     // Clear previous errors
-    ['name', 'email', 'phone', 'service', 'projectType', 'budget', 'timeline', 'message'].forEach(field => clearError(field));
+    ['name', 'email', 'message'].forEach(field => clearError(field));
 
     // Get form values
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const serviceInput = document.getElementById('service');
-    const projectTypeInput = document.getElementById('projectType');
-    const budgetInput = document.getElementById('budget');
-    const timelineInput = document.getElementById('timeline');
-    const service = serviceInput ? serviceInput.value : '';
-    const projectType = projectTypeInput ? projectTypeInput.value : '';
-    const budget = budgetInput ? budgetInput.value : '';
-    const timeline = timelineInput ? timelineInput.value : '';
     const message = messageInput.value.trim();
 
     // Validate all fields
@@ -453,17 +369,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailError = validateEmail(email);
     if (emailError) {
       showError('email', emailError);
-      hasError = true;
-    }
-
-    const phoneError = validatePhone(phone);
-    if (phoneError) {
-      showError('phone', phoneError);
-      hasError = true;
-    }
-
-    if (!service) {
-      showError('service', 'Veuillez sélectionner un service');
       hasError = true;
     }
 
@@ -620,5 +525,263 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }, 5000);
   });
+});
+
+// ============================================
+// GESTION DU MODAL DE RENDEZ-VOUS
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const appointmentModal = document.getElementById('appointmentModal');
+  const btnAppointment = document.getElementById('btnAppointment');
+  const btnCancelAppointment = document.getElementById('btnCancelAppointment');
+  const appointmentModalClose = document.querySelector('.appointment-modal-close');
+  const appointmentModalOverlay = document.querySelector('.appointment-modal-overlay');
+  const appointmentForm = document.getElementById('appointmentForm');
+  const appointmentDateInput = document.getElementById('appointmentDate');
+  const btnSubmitAppointment = document.getElementById('btnSubmitAppointment');
+
+  // Définir la date minimale (aujourd'hui)
+  if (appointmentDateInput) {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    appointmentDateInput.min = tomorrow.toISOString().split('T')[0];
+  }
+
+  // Ouvrir le modal
+  if (btnAppointment) {
+    btnAppointment.addEventListener('click', function() {
+      if (appointmentModal) {
+        appointmentModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+
+  // Fermer le modal
+  function closeAppointmentModal() {
+    if (appointmentModal) {
+      appointmentModal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (appointmentForm) {
+        appointmentForm.reset();
+        // Clear errors
+        document.querySelectorAll('#appointmentForm .error-message').forEach(err => {
+          err.textContent = '';
+          err.classList.remove('show');
+        });
+        const appointmentFormMessage = document.getElementById('appointmentFormMessage');
+        if (appointmentFormMessage) {
+          appointmentFormMessage.textContent = '';
+          appointmentFormMessage.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  if (btnCancelAppointment) {
+    btnCancelAppointment.addEventListener('click', closeAppointmentModal);
+  }
+
+  if (appointmentModalClose) {
+    appointmentModalClose.addEventListener('click', closeAppointmentModal);
+  }
+
+  if (appointmentModalOverlay) {
+    appointmentModalOverlay.addEventListener('click', closeAppointmentModal);
+  }
+
+  // Fermer avec Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && appointmentModal && appointmentModal.classList.contains('active')) {
+      closeAppointmentModal();
+    }
+  });
+
+  // Empêcher la fermeture en cliquant dans le contenu
+  if (appointmentModal) {
+    const appointmentModalContent = appointmentModal.querySelector('.appointment-modal-content');
+    if (appointmentModalContent) {
+      appointmentModalContent.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
+  // Validation du formulaire de rendez-vous
+  function validateAppointmentField(fieldId, value, validator) {
+    const errorElement = document.getElementById(fieldId + 'Error');
+    const error = validator(value);
+    
+    if (error) {
+      if (errorElement) {
+        errorElement.textContent = error;
+        errorElement.classList.add('show');
+      }
+      return false;
+    } else {
+      if (errorElement) {
+        errorElement.textContent = '';
+        errorElement.classList.remove('show');
+      }
+      return true;
+    }
+  }
+
+  function validateAppointmentName(name) {
+    if (name.length < 2) return 'Le nom doit contenir au moins 2 caractères';
+    if (name.length > 100) return 'Le nom ne peut pas dépasser 100 caractères';
+    return '';
+  }
+
+  function validateAppointmentEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return 'Email invalide';
+    return '';
+  }
+
+  function validateAppointmentDate(date) {
+    if (!date) return 'Veuillez sélectionner une date';
+    const selectedDate = new Date(date);
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+    if (selectedDate < tomorrow) return 'La date doit être au moins demain';
+    return '';
+  }
+
+  function validateAppointmentTime(time) {
+    if (!time) return 'Veuillez sélectionner une heure';
+    return '';
+  }
+
+  function validateAppointmentType(type) {
+    if (!type) return 'Veuillez sélectionner un type de rendez-vous';
+    return '';
+  }
+
+  // Soumission du formulaire de rendez-vous
+  if (appointmentForm) {
+    appointmentForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const appointmentName = document.getElementById('appointmentName').value.trim();
+      const appointmentEmail = document.getElementById('appointmentEmail').value.trim();
+      const appointmentPhone = document.getElementById('appointmentPhone').value.trim();
+      const appointmentDate = document.getElementById('appointmentDate').value;
+      const appointmentTime = document.getElementById('appointmentTime').value;
+      const appointmentType = document.getElementById('appointmentType').value;
+      const appointmentMessage = document.getElementById('appointmentMessage').value.trim();
+
+      // Validation
+      let isValid = true;
+      isValid = validateAppointmentField('appointmentName', appointmentName, validateAppointmentName) && isValid;
+      isValid = validateAppointmentField('appointmentEmail', appointmentEmail, validateAppointmentEmail) && isValid;
+      isValid = validateAppointmentField('appointmentDate', appointmentDate, validateAppointmentDate) && isValid;
+      isValid = validateAppointmentField('appointmentTime', appointmentTime, validateAppointmentTime) && isValid;
+      isValid = validateAppointmentField('appointmentType', appointmentType, validateAppointmentType) && isValid;
+
+      if (!isValid) {
+        return;
+      }
+
+      // Désactiver le bouton
+      if (btnSubmitAppointment) {
+        btnSubmitAppointment.disabled = true;
+        btnSubmitAppointment.textContent = 'Envoi en cours...';
+      }
+
+      const appointmentFormMessage = document.getElementById('appointmentFormMessage');
+
+      try {
+        // Préparer les données
+        const appointmentData = {
+          name: appointmentName,
+          email: appointmentEmail,
+          phone: appointmentPhone || 'Non renseigné',
+          date: appointmentDate,
+          time: appointmentTime,
+          type: appointmentType,
+          message: appointmentMessage || 'Aucun message',
+          submittedAt: new Date().toLocaleString('fr-FR')
+        };
+
+        // Envoyer via EmailJS (si configuré)
+        if (window.EMAILJS_CONFIG && window.emailjs) {
+          const templateParams = {
+            from_name: appointmentData.name,
+            from_email: appointmentData.email,
+            phone: appointmentData.phone,
+            appointment_date: new Date(appointmentData.date).toLocaleDateString('fr-FR', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            }),
+            appointment_time: appointmentData.time,
+            appointment_type: appointmentData.type,
+            message: appointmentData.message,
+            date: appointmentData.submittedAt
+          };
+
+          await window.emailjs.send(
+            window.EMAILJS_CONFIG.SERVICE_ID,
+            window.EMAILJS_CONFIG.TEMPLATE_ID,
+            templateParams,
+            window.EMAILJS_CONFIG.PUBLIC_KEY
+          );
+        }
+
+        // Sauvegarder dans Supabase (si configuré)
+        if (window.supabase) {
+          const { error } = await window.supabase
+            .from('appointments')
+            .insert([{
+              name: appointmentData.name,
+              email: appointmentData.email,
+              phone: appointmentData.phone,
+              appointment_date: appointmentData.date,
+              appointment_time: appointmentData.time,
+              appointment_type: appointmentData.type,
+              message: appointmentData.message,
+              created_at: new Date().toISOString()
+            }]);
+
+          if (error) {
+            console.error('Erreur Supabase:', error);
+          }
+        }
+
+        // Afficher le message de succès
+        if (appointmentFormMessage) {
+          appointmentFormMessage.textContent = '✅ Votre demande de rendez-vous a été envoyée avec succès ! Je vous confirmerai rapidement par email.';
+          appointmentFormMessage.className = 'form-message show success';
+        }
+
+        // Réinitialiser le formulaire
+        appointmentForm.reset();
+        
+        // Fermer le modal après 3 secondes
+        setTimeout(() => {
+          closeAppointmentModal();
+        }, 3000);
+
+      } catch (error) {
+        console.error('Erreur lors de l\'envoi de la demande de rendez-vous:', error);
+        
+        if (appointmentFormMessage) {
+          appointmentFormMessage.textContent = '❌ Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.';
+          appointmentFormMessage.className = 'form-message show error';
+        }
+      } finally {
+        // Réactiver le bouton
+        if (btnSubmitAppointment) {
+          btnSubmitAppointment.disabled = false;
+          btnSubmitAppointment.textContent = 'Confirmer la réservation';
+        }
+      }
+    });
+  }
 });
 
