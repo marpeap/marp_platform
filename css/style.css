@@ -349,7 +349,6 @@ body {
     linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
 }
-}
 
 /* Tech background patterns */
 body::before {
@@ -2333,13 +2332,19 @@ body > * {
 }
 
 /* ManyLovr Card - Pink/Purple Theme */
-.portfolio-item:nth-child(2) .portfolio-card {
+.portfolio-item:nth-child(2) .portfolio-card,
+.portfolio-card.portfolio-manylovr {
   border-color: rgba(147, 51, 234, 0.4);
-  background: linear-gradient(135deg, 
-    rgba(30, 15, 30, 0.95) 0%,
-    rgba(88, 28, 135, 0.95) 50%,
-    rgba(30, 15, 30, 0.95) 100%
-  );
+  background: 
+    linear-gradient(135deg, 
+      rgba(30, 15, 30, 0.85) 0%,
+      rgba(88, 28, 135, 0.9) 50%,
+      rgba(30, 15, 30, 0.85) 100%
+    ),
+    url('../assets/images/manylovr.png');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
   box-shadow: 
     0 10px 40px rgba(0, 0, 0, 0.3),
     0 0 50px rgba(147, 51, 234, 0.2),
@@ -2347,7 +2352,8 @@ body > * {
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.portfolio-item:nth-child(2) .portfolio-card::before {
+.portfolio-item:nth-child(2) .portfolio-card::before,
+.portfolio-card.portfolio-manylovr::before {
   background: linear-gradient(90deg, 
     var(--primary-purple),
     var(--primary-pink),
@@ -2357,11 +2363,13 @@ body > * {
   animation: gradient-flow 3s ease infinite;
 }
 
-.portfolio-item:nth-child(2) .portfolio-card::after {
+.portfolio-item:nth-child(2) .portfolio-card::after,
+.portfolio-card.portfolio-manylovr::after {
   background: radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, rgba(236, 72, 153, 0.1) 50%, transparent 70%);
 }
 
-.portfolio-item:nth-child(2) .portfolio-card:hover {
+.portfolio-item:nth-child(2) .portfolio-card:hover,
+.portfolio-card.portfolio-manylovr:hover {
   border-color: rgba(147, 51, 234, 0.8);
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.4),
@@ -2370,33 +2378,39 @@ body > * {
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.portfolio-item:nth-child(2) .portfolio-icon {
+.portfolio-item:nth-child(2) .portfolio-icon,
+.portfolio-card.portfolio-manylovr .portfolio-icon {
   filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.5)) drop-shadow(0 0 40px rgba(236, 72, 153, 0.3));
 }
 
-.portfolio-item:nth-child(2) .portfolio-card:hover .portfolio-icon {
+.portfolio-item:nth-child(2) .portfolio-card:hover .portfolio-icon,
+.portfolio-card.portfolio-manylovr:hover .portfolio-icon {
   filter: drop-shadow(0 0 30px rgba(147, 51, 234, 0.8)) drop-shadow(0 0 60px rgba(236, 72, 153, 0.5));
 }
 
-.portfolio-item:nth-child(2) .portfolio-tag {
+.portfolio-item:nth-child(2) .portfolio-tag,
+.portfolio-card.portfolio-manylovr .portfolio-tag {
   background: rgba(147, 51, 234, 0.2);
   border-color: rgba(147, 51, 234, 0.4);
   color: #c4b5fd;
 }
 
-.portfolio-item:nth-child(2) .portfolio-card:hover .portfolio-tag {
+.portfolio-item:nth-child(2) .portfolio-card:hover .portfolio-tag,
+.portfolio-card.portfolio-manylovr:hover .portfolio-tag {
   background: rgba(147, 51, 234, 0.3);
   border-color: rgba(147, 51, 234, 0.6);
   box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
   color: #ddd6fe;
 }
 
-.portfolio-item:nth-child(2) .portfolio-link {
+.portfolio-item:nth-child(2) .portfolio-link,
+.portfolio-card.portfolio-manylovr .portfolio-link {
   background: linear-gradient(135deg, rgba(147, 51, 234, 0.25), rgba(236, 72, 153, 0.25));
   border-color: rgba(147, 51, 234, 0.5);
 }
 
-.portfolio-item:nth-child(2) .portfolio-link:hover {
+.portfolio-item:nth-child(2) .portfolio-link:hover,
+.portfolio-card.portfolio-manylovr .portfolio-link:hover {
   background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
   border-color: var(--primary-purple);
   box-shadow: 
