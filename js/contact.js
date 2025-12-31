@@ -74,6 +74,17 @@ async function sendEmailNotification(contactData) {
       to_email: config.RECIPIENT_EMAIL,
       from_name: contactData.name,
       from_email: contactData.email,
+      phone: contactData.phone || 'Non renseigné',
+      service: contactData.service || 'Non spécifié',
+      project_type: contactData.projectType || 'Non spécifié',
+      budget: contactData.budget || 'Non spécifié',
+      timeline: contactData.timeline || 'Non spécifié',
+      // Champs de rendez-vous (non utilisés pour les messages de contact, mais nécessaires pour le template unifié)
+      appointment_date: '',
+      appointment_time: '',
+      appointment_type: '',
+      appointment_location: 'Non applicable',
+      appointment_coordinates: 'Non applicable',
       message: contactData.message,
       reply_to: contactData.email,
       subject: `Nouveau message de contact - ${contactData.name}`,
@@ -357,6 +368,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const message = messageInput.value.trim();
+    
+    // Récupérer les valeurs optionnelles depuis les inputs cachés ou les modals
+    const phoneInput = document.getElementById('phone');
+    const phone = phoneInput ? phoneInput.value.trim() : '';
+    
+    const serviceInput = document.getElementById('service');
+    const service = serviceInput ? serviceInput.value.trim() : '';
+    
+    const projectTypeInput = document.getElementById('projectType');
+    const projectType = projectTypeInput ? projectTypeInput.value.trim() : '';
+    
+    const budgetInput = document.getElementById('budget');
+    const budget = budgetInput ? budgetInput.value.trim() : '';
+    
+    const timelineInput = document.getElementById('timeline');
+    const timeline = timelineInput ? timelineInput.value.trim() : '';
 
     // Validate all fields
     let hasError = false;
@@ -369,21 +396,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailError = validateEmail(email);
     if (emailError) {
       showError('email', emailError);
-      hasError = true;
-    }
-
-    if (!projectType) {
-      showError('projectType', 'Veuillez sélectionner un type de projet');
-      hasError = true;
-    }
-
-    if (!budget) {
-      showError('budget', 'Veuillez sélectionner une tranche de budget');
-      hasError = true;
-    }
-
-    if (!timeline) {
-      showError('timeline', 'Veuillez sélectionner un délai');
       hasError = true;
     }
 
@@ -408,11 +420,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactData = {
       name: name,
       email: email,
-      phone: phone,
-      service: service,
-      projectType: projectType,
-      budget: budget,
-      timeline: timeline,
+      phone: phone || 'Non renseigné',
+      service: service || 'Non spécifié',
+      projectType: projectType || 'Non spécifié',
+      budget: budget || 'Non spécifié',
+      timeline: timeline || 'Non spécifié',
       message: message
     };
 
@@ -943,6 +955,11 @@ document.addEventListener('DOMContentLoaded', function() {
             appointment_coordinates: appointmentData.latitude && appointmentData.longitude 
               ? `${appointmentData.latitude}, ${appointmentData.longitude}` 
               : 'Non applicable',
+            // Champs de projet (non utilisés pour les rendez-vous, mais nécessaires pour le template unifié)
+            service: 'Non spécifié',
+            project_type: 'Non spécifié',
+            budget: 'Non spécifié',
+            timeline: 'Non spécifié',
             message: appointmentData.message,
             date: appointmentData.submittedAt
           };
