@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
     <!-- Primary Meta Tags -->
-    <title>Contact - Marpeap Digitals | Développeur Web Indépendant</title>
-    <meta name="title" content="Contact - Marpeap Digitals | Développeur Web Indépendant">
-    <meta name="description" content="Contactez Marpeap Digitals pour discuter de votre projet digital. Développeur web indépendant spécialisé en création digitale, développement web sur-mesure et solutions e-commerce. Réponse rapide garantie.">
-    <meta name="keywords" content="contact développeur web, devis développement web, contact freelance, consultation digitale, projet web, devis site internet">
+    <title>Contact - Marpeap Digitals | Développeur Web Indépendant à Rennes</title>
+    <meta name="title" content="Contact - Marpeap Digitals | Développeur Web Indépendant à Rennes">
+    <meta name="description" content="Contactez Marpeap Digitals à Rennes pour discuter de votre projet digital. Développeur web indépendant spécialisé en création digitale, développement web sur-mesure et solutions e-commerce. Réponse rapide garantie.">
+    <meta name="keywords" content="contact développeur web, contact développeur web Rennes, devis développement web, contact freelance Rennes, consultation digitale, projet web, devis site internet, développeur web Bretagne">
     <meta name="author" content="Marpeap Digitals">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="French">
-    <meta name="geo.region" content="FR">
-    <meta name="geo.placename" content="France">
+    <meta name="geo.region" content="FR-53">
+    <meta name="geo.placename" content="Rennes, Bretagne, France">
+    <meta name="geo.position" content="48.1173;-1.6778">
+    <meta name="ICBM" content="48.1173, -1.6778">
     <meta name="distribution" content="global">
     <meta name="target" content="all">
     
@@ -28,8 +30,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.marpeap.digital/contact.html">
-    <meta property="og:title" content="Contact - Marpeap Digitals | Développeur Web Indépendant">
-    <meta property="og:description" content="Contactez Marpeap Digitals pour discuter de votre projet digital. Développeur web indépendant spécialisé en création digitale.">
+    <meta property="og:title" content="Contact - Marpeap Digitals | Développeur Web Indépendant à Rennes">
+    <meta property="og:description" content="Contactez Marpeap Digitals à Rennes pour discuter de votre projet digital. Développeur web indépendant spécialisé en création digitale.">
     <meta property="og:image" content="https://www.marpeap.digital/assets/images/marpeap.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -42,8 +44,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.marpeap.digital/contact.html">
-    <meta name="twitter:title" content="Contact - Marpeap Digitals | Développeur Web Indépendant">
-    <meta name="twitter:description" content="Contactez Marpeap Digitals pour discuter de votre projet digital.">
+    <meta name="twitter:title" content="Contact - Marpeap Digitals | Développeur Web Indépendant à Rennes">
+    <meta name="twitter:description" content="Contactez Marpeap Digitals à Rennes pour discuter de votre projet digital.">
     <meta name="twitter:image" content="https://www.marpeap.digital/assets/images/marpeap.png">
     <meta name="twitter:image:alt" content="Marpeap Digitals - Logo">
     <meta name="twitter:creator" content="@MarpeapX">
@@ -62,6 +64,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     
     <!-- Stylesheet avec versioning -->
     <link rel="stylesheet" href="css/style.css?v=2.1.0">
@@ -92,8 +97,8 @@
         <div class="container">
             <div class="nav-content">
                 <a href="index.html" class="logo">
-                    <img src="assets/images/marpeap.png" alt="Marpeap Digitals" class="logo-img logo-img-dark" width="180" height="180" loading="eager">
-                    <img src="assets/images/marpeap2.png" alt="Marpeap Digitals" class="logo-img logo-img-light" width="180" height="180" loading="eager" style="display: none;">
+                    <img src="assets/images/marpeap.png" alt="Marpeap Digitals - Logo - Développeur Web Indépendant à Rennes" class="logo-img logo-img-dark" width="180" height="180" loading="eager" fetchpriority="high">
+                    <img src="assets/images/marpeap2.png" alt="Marpeap Digitals - Logo - Développeur Web Indépendant à Rennes" class="logo-img logo-img-light" width="180" height="180" loading="lazy" style="display: none;">
                 </a>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                     <span></span>
@@ -244,12 +249,25 @@
                         <label for="appointmentType">Type de rendez-vous *</label>
                         <select id="appointmentType" name="appointmentType" required>
                             <option value="">Sélectionnez un type</option>
-                            <option value="consultation">Consultation gratuite</option>
-                            <option value="devis">Demande de devis</option>
-                            <option value="suivi">Suivi de projet</option>
-                            <option value="autre">Autre</option>
+                            <option value="telephone">Rendez-vous téléphonique</option>
+                            <option value="cafe">Rendez-vous dans un café</option>
                         </select>
                         <span class="error-message" id="appointmentTypeError"></span>
+                    </div>
+
+                    <!-- Section de sélection de lieu pour rendez-vous en café -->
+                    <div class="form-group appointment-location-group" id="appointmentLocationGroup" style="display: none;">
+                        <label for="appointmentLocation">Choisissez un lieu de rendez-vous *</label>
+                        <p class="location-hint">Cliquez sur la carte pour sélectionner un point de rendez-vous à Rennes</p>
+                        <div id="appointmentMap" class="appointment-map"></div>
+                        <input type="hidden" id="appointmentLocation" name="appointmentLocation">
+                        <input type="hidden" id="appointmentLat" name="appointmentLat">
+                        <input type="hidden" id="appointmentLng" name="appointmentLng">
+                        <div class="selected-location-info" id="selectedLocationInfo" style="display: none;">
+                            <span class="location-icon">📍</span>
+                            <span class="location-text" id="locationText"></span>
+                        </div>
+                        <span class="error-message" id="appointmentLocationError"></span>
                     </div>
 
                     <div class="form-group">
@@ -299,6 +317,8 @@
     </footer>
 
 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- Configuration EmailJS -->

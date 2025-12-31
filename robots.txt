@@ -58,6 +58,9 @@ Allow: /js/*.js$
 # Sitemap XML
 Sitemap: https://www.marpeap.digital/sitemap.xml
 
+# Sitemap Images (si créé séparément)
+# Sitemap: https://www.marpeap.digital/sitemap-images.xml
+
 # Informations supplémentaires
 # Site: www.marpeap.digital
 # Propriétaire: Marpeap Digitals

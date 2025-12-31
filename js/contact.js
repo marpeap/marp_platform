@@ -549,12 +549,210 @@ document.addEventListener('DOMContentLoaded', function() {
     appointmentDateInput.min = tomorrow.toISOString().split('T')[0];
   }
 
+  // ============================================
+  // GESTION DE LA CARTE POUR RENDEZ-VOUS EN CAFÉ
+  // ============================================
+  let appointmentMap = null;
+  let appointmentMarker = null;
+  let selectedLocation = null;
+
+  const appointmentTypeSelect = document.getElementById('appointmentType');
+  const appointmentLocationGroup = document.getElementById('appointmentLocationGroup');
+  const appointmentMapContainer = document.getElementById('appointmentMap');
+  const selectedLocationInfo = document.getElementById('selectedLocationInfo');
+  const locationText = document.getElementById('locationText');
+  const appointmentLatInput = document.getElementById('appointmentLat');
+  const appointmentLngInput = document.getElementById('appointmentLng');
+  const appointmentLocationInput = document.getElementById('appointmentLocation');
+
+  // Initialiser la carte
+  function initAppointmentMap() {
+    if (!appointmentMapContainer || appointmentMap) return;
+
+    // Coordonnées de Rennes (centre-ville)
+    const rennesCenter = [48.1173, -1.6778];
+
+    // Créer la carte
+    appointmentMap = L.map('appointmentMap', {
+      center: rennesCenter,
+      zoom: 13,
+      zoomControl: true,
+      attributionControl: true
+    });
+
+    // Ajouter la couche de tuiles OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(appointmentMap);
+
+    // Gérer le clic sur la carte
+    appointmentMap.on('click', function(e) {
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+
+      // Supprimer le marqueur précédent s'il existe
+      if (appointmentMarker) {
+        appointmentMap.removeLayer(appointmentMarker);
+      }
+
+      // Créer une icône SVG personnalisée bleue
+      const blueIcon = L.icon({
+        iconUrl: 'data:image/svg+xml;base64,' + btoa(`
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <circle cx="16" cy="16" r="14" fill="#2563eb" stroke="white" stroke-width="2"/>
+            <circle cx="16" cy="16" r="6" fill="white"/>
+          </svg>
+        `),
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32],
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+        shadowSize: [41, 41],
+        shadowAnchor: [12, 41]
+      });
+
+      // Ajouter un nouveau marqueur
+      appointmentMarker = L.marker([lat, lng], {
+        draggable: true,
+        icon: blueIcon
+      }).addTo(appointmentMap);
+
+      // Sauvegarder les coordonnées
+      selectedLocation = { lat, lng };
+      if (appointmentLatInput) appointmentLatInput.value = lat;
+      if (appointmentLngInput) appointmentLngInput.value = lng;
+
+      // Effectuer une requête de géocodage inverse pour obtenir l'adresse
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`)
+        .then(response => response.json())
+        .then(data => {
+          const address = data.display_name || `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+          if (appointmentLocationInput) appointmentLocationInput.value = address;
+          if (locationText) locationText.textContent = address;
+          if (selectedLocationInfo) selectedLocationInfo.style.display = 'flex';
+          
+          // Effacer l'erreur de validation
+          const locationError = document.getElementById('appointmentLocationError');
+          if (locationError) {
+            locationError.textContent = '';
+            locationError.classList.remove('show');
+          }
+        })
+        .catch(error => {
+          console.error('Erreur de géocodage:', error);
+          const address = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+          if (appointmentLocationInput) appointmentLocationInput.value = address;
+          if (locationText) locationText.textContent = address;
+          if (selectedLocationInfo) selectedLocationInfo.style.display = 'flex';
+        });
+
+      // Gérer le déplacement du marqueur
+      appointmentMarker.on('dragend', function(e) {
+        const newLat = e.target.getLatLng().lat;
+        const newLng = e.target.getLatLng().lng;
+        selectedLocation = { lat: newLat, lng: newLng };
+        if (appointmentLatInput) appointmentLatInput.value = newLat;
+        if (appointmentLngInput) appointmentLngInput.value = newLng;
+
+        // Mettre à jour l'adresse
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${newLat}&lon=${newLng}&zoom=18&addressdetails=1`)
+          .then(response => response.json())
+          .then(data => {
+            const address = data.display_name || `${newLat.toFixed(6)}, ${newLng.toFixed(6)}`;
+            if (appointmentLocationInput) appointmentLocationInput.value = address;
+            if (locationText) locationText.textContent = address;
+          })
+          .catch(error => {
+            console.error('Erreur de géocodage:', error);
+            const address = `${newLat.toFixed(6)}, ${newLng.toFixed(6)}`;
+            if (appointmentLocationInput) appointmentLocationInput.value = address;
+            if (locationText) locationText.textContent = address;
+          });
+      });
+    });
+
+    // Ajuster la taille de la carte après un court délai
+    setTimeout(() => {
+      if (appointmentMap) {
+        appointmentMap.invalidateSize();
+      }
+    }, 100);
+  }
+
+  // Gérer l'affichage conditionnel de la section de carte
+  if (appointmentTypeSelect) {
+    appointmentTypeSelect.addEventListener('change', function() {
+      const selectedType = this.value;
+      
+      if (selectedType === 'cafe') {
+        // Afficher la section de carte
+        if (appointmentLocationGroup) {
+          appointmentLocationGroup.style.display = 'block';
+        }
+        
+        // Initialiser la carte si elle n'existe pas encore
+        setTimeout(() => {
+          initAppointmentMap();
+          if (appointmentMap) {
+            appointmentMap.invalidateSize();
+          }
+        }, 100);
+      } else {
+        // Masquer la section de carte
+        if (appointmentLocationGroup) {
+          appointmentLocationGroup.style.display = 'none';
+        }
+        
+        // Réinitialiser les valeurs
+        selectedLocation = null;
+        if (appointmentLatInput) appointmentLatInput.value = '';
+        if (appointmentLngInput) appointmentLngInput.value = '';
+        if (appointmentLocationInput) appointmentLocationInput.value = '';
+        if (selectedLocationInfo) selectedLocationInfo.style.display = 'none';
+        
+        // Supprimer le marqueur
+        if (appointmentMarker && appointmentMap) {
+          appointmentMap.removeLayer(appointmentMarker);
+          appointmentMarker = null;
+        }
+      }
+    });
+  }
+
+  // Réinitialiser la carte lors de la fermeture du modal
+  function resetAppointmentMap() {
+    selectedLocation = null;
+    if (appointmentMarker && appointmentMap) {
+      appointmentMap.removeLayer(appointmentMarker);
+      appointmentMarker = null;
+    }
+    if (appointmentLatInput) appointmentLatInput.value = '';
+    if (appointmentLngInput) appointmentLngInput.value = '';
+    if (appointmentLocationInput) appointmentLocationInput.value = '';
+    if (selectedLocationInfo) selectedLocationInfo.style.display = 'none';
+    if (appointmentLocationGroup) appointmentLocationGroup.style.display = 'none';
+  }
+
   // Ouvrir le modal
   if (btnAppointment) {
     btnAppointment.addEventListener('click', function() {
       if (appointmentModal) {
         appointmentModal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // Si "rendez-vous dans un café" est déjà sélectionné, initialiser la carte
+        if (appointmentTypeSelect && appointmentTypeSelect.value === 'cafe') {
+          setTimeout(() => {
+            if (appointmentLocationGroup) {
+              appointmentLocationGroup.style.display = 'block';
+            }
+            initAppointmentMap();
+            if (appointmentMap) {
+              appointmentMap.invalidateSize();
+            }
+          }, 100);
+        }
       }
     });
   }
@@ -576,6 +774,8 @@ document.addEventListener('DOMContentLoaded', function() {
           appointmentFormMessage.textContent = '';
           appointmentFormMessage.classList.remove('show');
         }
+        // Réinitialiser la carte
+        resetAppointmentMap();
       }
     }
   }
@@ -661,6 +861,13 @@ document.addEventListener('DOMContentLoaded', function() {
     return '';
   }
 
+  function validateAppointmentLocation(type, location) {
+    if (type === 'cafe' && !location) {
+      return 'Veuillez sélectionner un lieu de rendez-vous sur la carte';
+    }
+    return '';
+  }
+
   // Soumission du formulaire de rendez-vous
   if (appointmentForm) {
     appointmentForm.addEventListener('submit', async function(e) {
@@ -673,6 +880,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const appointmentTime = document.getElementById('appointmentTime').value;
       const appointmentType = document.getElementById('appointmentType').value;
       const appointmentMessage = document.getElementById('appointmentMessage').value.trim();
+      const appointmentLocation = appointmentLocationInput ? appointmentLocationInput.value.trim() : '';
+      const appointmentLat = appointmentLatInput ? appointmentLatInput.value : '';
+      const appointmentLng = appointmentLngInput ? appointmentLngInput.value : '';
 
       // Validation
       let isValid = true;
@@ -681,6 +891,11 @@ document.addEventListener('DOMContentLoaded', function() {
       isValid = validateAppointmentField('appointmentDate', appointmentDate, validateAppointmentDate) && isValid;
       isValid = validateAppointmentField('appointmentTime', appointmentTime, validateAppointmentTime) && isValid;
       isValid = validateAppointmentField('appointmentType', appointmentType, validateAppointmentType) && isValid;
+      
+      // Valider le lieu pour les rendez-vous en café
+      if (appointmentType === 'cafe') {
+        isValid = validateAppointmentField('appointmentLocation', appointmentLocation, (loc) => validateAppointmentLocation(appointmentType, loc)) && isValid;
+      }
 
       if (!isValid) {
         return;
@@ -702,7 +917,10 @@ document.addEventListener('DOMContentLoaded', function() {
           phone: appointmentPhone || 'Non renseigné',
           date: appointmentDate,
           time: appointmentTime,
-          type: appointmentType,
+          type: appointmentType === 'telephone' ? 'Rendez-vous téléphonique' : 'Rendez-vous dans un café',
+          location: appointmentType === 'cafe' ? appointmentLocation : null,
+          latitude: appointmentType === 'cafe' ? appointmentLat : null,
+          longitude: appointmentType === 'cafe' ? appointmentLng : null,
           message: appointmentMessage || 'Aucun message',
           submittedAt: new Date().toLocaleString('fr-FR')
         };
@@ -721,6 +939,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }),
             appointment_time: appointmentData.time,
             appointment_type: appointmentData.type,
+            appointment_location: appointmentData.location || 'Non applicable',
+            appointment_coordinates: appointmentData.latitude && appointmentData.longitude 
+              ? `${appointmentData.latitude}, ${appointmentData.longitude}` 
+              : 'Non applicable',
             message: appointmentData.message,
             date: appointmentData.submittedAt
           };
@@ -744,6 +966,9 @@ document.addEventListener('DOMContentLoaded', function() {
               appointment_date: appointmentData.date,
               appointment_time: appointmentData.time,
               appointment_type: appointmentData.type,
+              appointment_location: appointmentData.location,
+              latitude: appointmentData.latitude,
+              longitude: appointmentData.longitude,
               message: appointmentData.message,
               created_at: new Date().toISOString()
             }]);
@@ -761,6 +986,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Réinitialiser le formulaire
         appointmentForm.reset();
+        resetAppointmentMap();
         
         // Fermer le modal après 3 secondes
         setTimeout(() => {

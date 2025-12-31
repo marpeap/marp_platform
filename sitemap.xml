@@ -16,8 +16,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.digital/"/>
     <image:image>
       <image:loc>https://www.marpeap.digital/assets/images/marpeap.png</image:loc>
-      <image:title>Marpeap Digitals - Logo</image:title>
-      <image:caption>Marpeap Digitals - Développeur Web Indépendant</image:caption>
+      <image:title>Marpeap Digitals - Logo - Développeur Web Indépendant à Rennes</image:title>
+      <image:caption>Marpeap Digitals - Développeur Web Indépendant à Rennes, spécialisé en création digitale</image:caption>
+      <image:license>https://www.marpeap.digital</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.marpeap.digital/assets/images/background.png</image:loc>
+      <image:title>Marpeap Digitals - Arrière-plan</image:title>
+      <image:caption>Arrière-plan du site Marpeap Digitals</image:caption>
     </image:image>
   </url>
   
@@ -26,9 +32,14 @@
     <loc>https://www.marpeap.digital/contact.html</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.digital/contact.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.digital/contact.html"/>
+    <image:image>
+      <image:loc>https://www.marpeap.digital/assets/images/marpeap.png</image:loc>
+      <image:title>Marpeap Digitals - Contact</image:title>
+      <image:caption>Contactez Marpeap Digitals, développeur web indépendant à Rennes</image:caption>
+    </image:image>
   </url>
   
   <!-- Sections de la page d'accueil (ancres) -->
