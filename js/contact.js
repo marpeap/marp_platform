@@ -70,25 +70,26 @@ async function sendEmailNotification(contactData) {
   
   try {
     // Préparer les paramètres du template
+    // IMPORTANT: Toutes les variables doivent être des chaînes non vides pour éviter l'erreur "corrupted variables"
     const templateParams = {
-      to_email: config.RECIPIENT_EMAIL,
-      from_name: contactData.name,
-      from_email: contactData.email,
+      to_email: config.RECIPIENT_EMAIL || '',
+      from_name: contactData.name || '',
+      from_email: contactData.email || '',
       phone: contactData.phone || 'Non renseigné',
       service: contactData.service || 'Non spécifié',
       project_type: contactData.projectType || 'Non spécifié',
       budget: contactData.budget || 'Non spécifié',
       timeline: contactData.timeline || 'Non spécifié',
       // Champs de rendez-vous (non utilisés pour les messages de contact, mais nécessaires pour le template unifié)
-      appointment_date: '',
-      appointment_time: '',
-      appointment_type: '',
+      appointment_date: 'Non applicable',
+      appointment_time: 'Non applicable',
+      appointment_type: 'Non applicable',
       appointment_location: 'Non applicable',
       appointment_coordinates: 'Non applicable',
-      message: contactData.message,
-      reply_to: contactData.email,
-      subject: `Nouveau message de contact - ${contactData.name}`,
-      date: new Date().toLocaleString('fr-FR')
+      message: contactData.message || 'Aucun message',
+      reply_to: contactData.email || '',
+      subject: `Nouveau message de contact - ${contactData.name || 'Contact'}`,
+      date: new Date().toLocaleString('fr-FR') || new Date().toISOString()
     };
     
     console.log('📧 Envoi de l\'email de notification...');
@@ -939,18 +940,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Envoyer via EmailJS (si configuré)
         if (window.EMAILJS_CONFIG && window.emailjs) {
-          const templateParams = {
-            from_name: appointmentData.name,
-            from_email: appointmentData.email,
-            phone: appointmentData.phone,
-            appointment_date: new Date(appointmentData.date).toLocaleDateString('fr-FR', {
+          // IMPORTANT: Toutes les variables doivent être des chaînes non vides pour éviter l'erreur "corrupted variables"
+          let appointmentDateFormatted = 'Non applicable';
+          try {
+            appointmentDateFormatted = new Date(appointmentData.date).toLocaleDateString('fr-FR', {
               weekday: 'long',
               year: 'numeric',
               month: 'long',
               day: 'numeric'
-            }),
-            appointment_time: appointmentData.time,
-            appointment_type: appointmentData.type,
+            });
+          } catch (e) {
+            console.warn('Erreur formatage date:', e);
+          }
+          
+          const templateParams = {
+            to_email: window.EMAILJS_CONFIG.RECIPIENT_EMAIL || '',
+            from_name: appointmentData.name || '',
+            from_email: appointmentData.email || '',
+            phone: appointmentData.phone || 'Non renseigné',
+            appointment_date: appointmentDateFormatted,
+            appointment_time: appointmentData.time || 'Non spécifié',
+            appointment_type: appointmentData.type || 'Non spécifié',
             appointment_location: appointmentData.location || 'Non applicable',
             appointment_coordinates: appointmentData.latitude && appointmentData.longitude 
               ? `${appointmentData.latitude}, ${appointmentData.longitude}` 
@@ -960,8 +970,10 @@ document.addEventListener('DOMContentLoaded', function() {
             project_type: 'Non spécifié',
             budget: 'Non spécifié',
             timeline: 'Non spécifié',
-            message: appointmentData.message,
-            date: appointmentData.submittedAt
+            message: appointmentData.message || 'Aucun message',
+            reply_to: appointmentData.email || '',
+            subject: `Nouvelle demande de rendez-vous - ${appointmentData.name || 'Contact'}`,
+            date: appointmentData.submittedAt || new Date().toLocaleString('fr-FR')
           };
 
           await window.emailjs.send(
