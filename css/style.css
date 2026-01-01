@@ -2677,6 +2677,9 @@ body > * {
   transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  content-visibility: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -2773,6 +2776,9 @@ body > * {
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  will-change: auto;
   box-shadow: 
     0 10px 40px rgba(0, 0, 0, 0.3),
     0 0 50px rgba(147, 51, 234, 0.2),
@@ -2856,6 +2862,9 @@ body > * {
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  will-change: auto;
   background: 
     linear-gradient(135deg, 
       rgba(6, 78, 120, 0.85) 0%,
@@ -2946,6 +2955,9 @@ body > * {
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-blend-mode: overlay !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: optimize-contrast !important;
+  will-change: auto !important;
   background: 
     linear-gradient(135deg, 
       rgba(15, 23, 42, 0.85) 0%,
