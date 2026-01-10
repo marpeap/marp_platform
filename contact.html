@@ -53,23 +53,26 @@
     
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/png" href="/assets/images/favico.png">
-    <link rel="shortcut icon" type="image/png" href="/assets/images/favico.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favico.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favico.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favico.png">
-    <meta name="theme-color" content="#2563eb">
-    <meta name="msapplication-TileColor" content="#2563eb">
+    <link rel="apple-touch-icon" href="/assets/images/favico.png">
+    <meta name="theme-color" content="#0A0F1C">
     
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style-new.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     
-    <!-- Stylesheet avec versioning -->
-    <link rel="stylesheet" href="css/style.css?v=2.1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -82,212 +85,163 @@
       "mainEntity": {
         "@type": "Organization",
         "name": "Marpeap Digitals",
-        "email": "contact@marpeap.digital"
+        "email": "adnan.najim@pm.me",
+        "telephone": "+33649710370"
       }
     }
     </script>
-    
-    <!-- Botpress Webchat Integration -->
-    <script src="https://cdn.botpress.cloud/webchat/v3.5/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/12/26/14/20251226142643-U4LOAHAI.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="container">
-            <div class="nav-content">
-                <a href="index.html" class="logo">
-                    <img src="assets/images/marpeap.png" alt="Marpeap Digitals - Logo - Développeur Web Indépendant à Rennes" class="logo-img logo-img-dark" width="180" height="180" loading="eager" fetchpriority="high">
-                    <img src="assets/images/marpeap2.png" alt="Marpeap Digitals - Logo - Développeur Web Indépendant à Rennes" class="logo-img logo-img-light" width="180" height="180" loading="lazy" style="display: none;">
-                </a>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html#services" class="nav-link">Services</a></li>
-                    <li><a href="index.html#about" class="nav-link">À propos</a></li>
-                    <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
-                    <svg class="theme-icon theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg class="theme-icon theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="tel:0649710370" class="btn-call-mobile" aria-label="Appeler">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    <span>Appeler</span>
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="brand-text">MARPEAP</span>
+                    <span class="brand-tagline">DIGITALS</span>
                 </a>
             </div>
+            <div class="nav-links">
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="tel:+33649710370" class="btn-primary-nav">
+                    <span class="btn-icon">📞</span>
+                    06 49 71 03 70
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
         <div class="container">
-            <div class="contact-header">
-                <h1 class="contact-title">Contactez-moi</h1>
-                <p class="contact-subtitle">
-                    Décrivez brièvement votre besoin.<br>
-                    Je vous réponds sous 24h.
-                </p>
-            </div>
-
-            <div class="contact-form-container">
-                <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                        <label for="name">Nom</label>
-                            <input type="text" id="name" name="name" required>
-                            <span class="error-message" id="nameError"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                            <span class="error-message" id="emailError"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Décrivez votre projet, vos besoins, vos questions..." required></textarea>
-                        <span class="error-message" id="messageError"></span>
-                    </div>
-
-                    <div class="form-message" id="formMessage"></div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
-                            Envoyer le message
-                        </button>
-                        <div class="form-divider">
-                            <span>ou</span>
-                        </div>
-                        <button type="button" class="btn btn-outline btn-appointment" id="btnAppointment">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                            Réserver un rendez-vous
-                        </button>
-                    </div>
-                </form>
+            <div class="contact-hero-content" data-aos="fade-up">
+                <h1 class="contact-hero-title">PARLONS DE VOTRE PROJET</h1>
+                <p class="contact-hero-subtitle">Réponse garantie sous 24h. Direct, sans intermédiaire.</p>
             </div>
         </div>
     </section>
 
-    <!-- Modal de réservation de rendez-vous -->
-    <div class="appointment-modal" id="appointmentModal">
-        <div class="appointment-modal-overlay"></div>
-        <div class="appointment-modal-content">
-            <button class="appointment-modal-close" aria-label="Fermer">&times;</button>
-            <div class="appointment-modal-header">
-                <div class="appointment-icon">📅</div>
-                <h2 class="appointment-modal-title">Réserver un rendez-vous</h2>
-                <p class="appointment-modal-subtitle">Choisissez une date et une heure pour discuter de votre projet</p>
-            </div>
-            <div class="appointment-modal-body">
-                <form id="appointmentForm" class="appointment-form">
-                    <div class="form-group">
-                        <label for="appointmentName">Nom complet *</label>
-                        <input type="text" id="appointmentName" name="appointmentName" required>
-                        <span class="error-message" id="appointmentNameError"></span>
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info-card" data-aos="fade-right">
+                    <h2 class="contact-info-title">Informations de Contact</h2>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Téléphone</h3>
+                            <a href="tel:+33649710370">06 49 71 03 70</a>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="appointmentEmail">Email *</label>
-                        <input type="email" id="appointmentEmail" name="appointmentEmail" required>
-                        <span class="error-message" id="appointmentEmailError"></span>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Email</h3>
+                            <a href="mailto:adnan.najim@pm.me">adnan.najim@pm.me</a>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="appointmentPhone">Téléphone (optionnel)</label>
-                        <input type="tel" id="appointmentPhone" name="appointmentPhone" placeholder="06 12 34 56 78">
-                        <span class="error-message" id="appointmentPhoneError"></span>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Localisation</h3>
+                            <p>Rennes, Bretagne, France</p>
+                        </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Disponibilité</h3>
+                            <p>Lun - Ven : 9h - 18h</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <h3>Réseaux Sociaux</h3>
+                        <div class="social-links">
+                            <a href="https://github.com/marpeap" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com/MarpeapX" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-card" data-aos="fade-left">
+                    <h2 class="contact-form-title">Envoyez-moi un message</h2>
+                    <p class="contact-form-subtitle">Remplissez le formulaire ci-dessous et je vous répondrai dans les 24h.</p>
+                    
+                    <form id="contactForm" class="contact-form">
                         <div class="form-group">
-                            <label for="appointmentDate">Date souhaitée *</label>
-                            <input type="date" id="appointmentDate" name="appointmentDate" required min="">
-                            <span class="error-message" id="appointmentDateError"></span>
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                            <span class="error-message" id="nameError"></span>
                         </div>
 
                         <div class="form-group">
-                            <label for="appointmentTime">Heure souhaitée *</label>
-                            <select id="appointmentTime" name="appointmentTime" required>
-                                <option value="">Sélectionnez une heure</option>
-                                <option value="09:00">09:00</option>
-                                <option value="10:00">10:00</option>
-                                <option value="11:00">11:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                            </select>
-                            <span class="error-message" id="appointmentTimeError"></span>
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                            <span class="error-message" id="emailError"></span>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="appointmentType">Type de rendez-vous *</label>
-                        <select id="appointmentType" name="appointmentType" required>
-                            <option value="">Sélectionnez un type</option>
-                            <option value="telephone">Rendez-vous téléphonique</option>
-                            <option value="cafe">Rendez-vous dans un café</option>
-                        </select>
-                        <span class="error-message" id="appointmentTypeError"></span>
-                    </div>
-
-                    <!-- Section de sélection de lieu pour rendez-vous en café -->
-                    <div class="form-group appointment-location-group" id="appointmentLocationGroup" style="display: none;">
-                        <label for="appointmentLocation">Choisissez un lieu de rendez-vous *</label>
-                        <p class="location-hint">Cliquez sur la carte pour sélectionner un point de rendez-vous à Rennes</p>
-                        <div id="appointmentMap" class="appointment-map"></div>
-                        <input type="hidden" id="appointmentLocation" name="appointmentLocation">
-                        <input type="hidden" id="appointmentLat" name="appointmentLat">
-                        <input type="hidden" id="appointmentLng" name="appointmentLng">
-                        <div class="selected-location-info" id="selectedLocationInfo" style="display: none;">
-                            <span class="location-icon">📍</span>
-                            <span class="location-text" id="locationText"></span>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Décrivez votre projet, vos besoins, vos questions..." required></textarea>
+                            <span class="error-message" id="messageError"></span>
                         </div>
-                        <span class="error-message" id="appointmentLocationError"></span>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="appointmentMessage">Message (optionnel)</label>
-                        <textarea id="appointmentMessage" name="appointmentMessage" rows="4" placeholder="Décrivez brièvement le sujet de votre rendez-vous..."></textarea>
-                        <span class="error-message" id="appointmentMessageError"></span>
-                    </div>
+                        <div class="form-message" id="formMessage"></div>
 
-                    <div class="form-message" id="appointmentFormMessage"></div>
-
-                    <div class="appointment-modal-footer">
-                        <button type="button" class="btn btn-outline" id="btnCancelAppointment">Annuler</button>
-                        <button type="submit" class="btn btn-primary" id="btnSubmitAppointment">
-                            Confirmer la réservation
+                        <button type="submit" class="btn-primary btn-submit" id="submitBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                            <span>Envoyer le message</span>
                         </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -317,18 +271,34 @@
     </footer>
 
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/33649710370?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20digital" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactez-nous sur WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+            <path d="M16 0C7.164 0 0 7.164 0 16c0 2.828.736 5.484 2.028 7.78L0 32l8.384-2.196A15.93 15.93 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.44 0-4.776-.656-6.784-1.896l-.488-.292-5.056 1.324 1.348-4.932-.32-.504A13.29 13.29 0 012.667 16c0-7.364 5.97-13.333 13.333-13.333S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.308-9.964c-.4-.2-2.368-1.168-2.736-1.3-.368-.136-.636-.2-.904.2-.268.4-1.036 1.3-1.268 1.568-.236.268-.468.3-.868.1-.4-.2-1.688-.62-3.216-1.98-1.188-1.06-1.992-2.368-2.224-2.768-.236-.4-.024-.616.176-.816.18-.18.4-.468.6-.704.2-.232.268-.4.4-.668.136-.268.068-.5-.032-.7-.1-.2-.904-2.176-1.236-2.98-.324-.78-.656-.676-.904-.688-.232-.012-.5-.016-.768-.016s-.7.1-1.068.5c-.368.4-1.4 1.368-1.4 3.336s1.436 3.868 1.636 4.136c.2.268 2.82 4.304 6.832 6.036.956.412 1.7.656 2.28.84.96.304 1.832.26 2.52.156.768-.116 2.368-.968 2.7-1.904.332-.936.332-1.736.232-1.904-.1-.168-.368-.268-.768-.468z"/>
+        </svg>
+    </a>
+
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <!-- Configuration EmailJS -->
-    <script src="js/emailjs-config.js?v=2.1.0"></script>
-    <!-- Supabase Client -->
-    <script src="js/supabase-client.js?v=2.1.0"></script>
-    <!-- Scripts principaux -->
-    <script src="js/theme-toggle.js?v=2.1.0"></script>
-    <script src="js/main.js?v=2.1.0"></script>
-    <script src="js/contact.js?v=2.1.0"></script>
+    
+    <!-- Scripts -->
+    <script src="js/main-new.js"></script>
+    <script src="js/contact-emailjs.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
 
