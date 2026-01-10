@@ -356,7 +356,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: var(--spacing-3xl) 0;
-  padding-top: calc(var(--spacing-3xl) + 80px);
+  padding-top: 120px;
   background: var(--bg-primary);
   position: relative;
   overflow: hidden;
@@ -1381,6 +1381,7 @@ a:hover {
   .hero {
     min-height: auto;
     padding: var(--spacing-2xl) 0;
+    padding-top: 140px;
   }
   
   .hero-cta {
