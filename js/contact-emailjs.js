@@ -124,6 +124,7 @@
         {
           from_name: formData.name,
           from_email: formData.email,
+          phone: formData.phone || 'Non renseigné',
           message: formData.message,
           to_name: 'Marpeap Digitals',
           reply_to: formData.email
