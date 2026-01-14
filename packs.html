@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <title>Offres Starter & Tarifs - Marpeap Digitals</title>
+    <meta name="description" content="Démarrez votre présence digitale avec la qualité Studio Marpeap. Sites web, E-commerce et Visibilité locale à prix packagés.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://www.marpeap.digital/packs.html">
+    <link rel="icon" type="image/png" href="assets/images/favico.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style-new.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+        /* Ajustement Hero pour cette page */
+        .hero-packs {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            text-align: center;
+        }
+
+        .pricing-section {
+            padding-bottom: 100px;
+        }
+
+        /* Grille des prix */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Carte de Prix (Basée sur tes styles existants .service-card) */
+        .pricing-card {
+            background: rgba(30, 30, 50, 0.6); /* Un peu plus transparent */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Bordures colorées selon les packs */
+        .pricing-card.blue { border-top: 4px solid #3b82f6; }
+        .pricing-card.blue:hover { box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15); border-color: #3b82f6; }
+
+        .pricing-card.green { border-top: 4px solid #10b981; }
+        .pricing-card.green:hover { box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15); border-color: #10b981; }
+
+        .pricing-card.orange { border-top: 4px solid #f59e0b; background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(30, 30, 50, 0.6) 100%); }
+        .pricing-card.orange:hover { box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15); border-color: #f59e0b; }
+
+        /* Badge Populaire */
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #f59e0b;
+            color: #000;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .price-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .price-subtitle {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-amount {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 2rem;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        .price-amount span {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .price-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-features li::before {
+            content: '✓';
+            color: #10b981; /* Vert validation */
+            font-weight: bold;
+        }
+
+        /* Boutons adaptés */
+        .btn-pack {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-blue { background: #3b82f6; color: white; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+        .btn-blue:hover { background: #2563eb; transform: translateY(-2px); }
+
+        .btn-green { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid #10b981; }
+        .btn-green:hover { background: #10b981; color: white; }
+
+        .btn-orange { background: #f59e0b; color: black; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
+        .btn-orange:hover { background: #d97706; transform: translateY(-2px); }
+
+        /* Section Abonnements */
+        .subs-container {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 4rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-text">MARPEAP</span>
+                <span class="brand-tagline">DIGITALS</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="packs.html" class="nav-link active" style="color:white;">Packs</a>
+                <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="tel:+33649710370" class="btn-primary-nav">
+                    <span class="btn-icon">📞</span>
+                    06 49 71 03 70
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero-packs">
+        <div class="container">
+            <h1 class="hero-title" data-aos="fade-up">
+                L'EXCELLENCE SANS LE<br>
+                <span class="title-line-2" style="color:#3b82f6;">COÛT D'AGENCE.</span>
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+                La qualité Marpeap standardisée pour les indépendants et TPE.<br>
+                Démarrez vite, évoluez plus tard.
+            </p>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            
+            <div class="pricing-grid">
+                
+                <div class="pricing-card blue" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="price-title">M-ONE™</h3>
+                    <p class="price-subtitle">Carte de Visite Digitale</p>
+                    <div class="price-amount">290€</div>
+                    <ul class="price-features">
+                        <li>Site One-Page Ultra-Rapide</li>
+                        <li>Design Studio Premium</li>
+                        <li>Hébergement inclus (1 an)</li>
+                        <li>Optimisé Mobile & SEO</li>
+                        <li>Livraison 72h</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-pack btn-blue">Commander</a>
+                </div>
+
+                <div class="pricing-card orange" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-badge">POPULAIRE</div>
+                    <h3 class="price-title">M-SHOP LITE™</h3>
+                    <p class="price-subtitle">E-Commerce Start</p>
+                    <div class="price-amount">590€</div>
+                    <ul class="price-features">
+                        <li>Boutique Shopify/WooCommerce</li>
+                        <li>Paiement Stripe Configuré</li>
+                        <li>Jusqu'à 20 Produits Intégrés</li>
+                        <li>Pages Légales & RGPD</li>
+                        <li>Tuto Vidéo de Gestion</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-pack btn-orange">Lancer ma boutique</a>
+                </div>
+
+                <div class="pricing-card green" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="price-title">M-LOCAL™</h3>
+                    <p class="price-subtitle">Visibilité Google Maps</p>
+                    <div class="price-amount">190€</div>
+                    <ul class="price-features">
+                        <li>Création Fiche Google Business</li>
+                        <li>Optimisation Mots-clés Locaux</li>
+                        <li>Intégration Photos HD</li>
+                        <li>QR Code Avis Clients</li>
+                        <li>Réponses aux 5 derniers avis</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-pack btn-green">Être visible</a>
+                </div>
+
+            </div>
+
+            <div class="subs-container" data-aos="fade-up">
+                <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="section-title">Abonnements Tranquillité</h2>
+                    <p class="section-subtitle">Ne gérez plus jamais la technique.</p>
+                </div>
+
+                <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 800px; margin: 0 auto;">
+                    <div class="pricing-card" style="border-top: 4px solid #8b5cf6;">
+                        <h3 class="price-title">M-CARE MINI</h3>
+                        <div class="price-amount" style="font-size: 2.5rem; margin-bottom: 1rem;">39€<span>/mois</span></div>
+                        <p class="price-subtitle">Maintenance & Hébergement</p>
+                        <ul class="price-features">
+                            <li>Hébergement Haute Performance</li>
+                            <li>Sauvegardes Hebdomadaires</li>
+                            <li>Mises à jour de sécurité</li>
+                            <li>2 modifications de design /mois</li>
+                        </ul>
+                    </div>
+
+                    <div class="pricing-card" style="border-top: 4px solid #ec4899;">
+                        <h3 class="price-title">M-SEO STARTER</h3>
+                        <div class="price-amount" style="font-size: 2.5rem; margin-bottom: 1rem;">89€<span>/mois</span></div>
+                        <p class="price-subtitle">Croissance & Positionnement</p>
+                        <ul class="price-features">
+                            <li>Suivi de 5 Mots-clés</li>
+                            <li>Optimisation Fiche Google</li>
+                            <li>Rapport Mensuel Simple</li>
+                            <li>Conseils d'amélioration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>MARPEAP DIGITALS</h3>
+                    <p>Code. Growth. Results.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="index.html#services">Développement Web</a></li>
+                            <li><a href="index.html#services">Marketing Digital</a></li>
+                            <li><a href="index.html#services">Intelligence Artificielle</a></li>
+                            <li><a href="index.html#services">Design & Branding</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="tel:+33649710370">06 49 71 03 70</a></li>
+                            <li><a href="mailto:contact@marpeap.digital">contact@marpeap.digital</a></li>
+                            <li><a href="https://marpeap.digital">marpeap.digital</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Suivez-moi</h4>
+                        <ul>
+                            <li><a href="https://github.com/marpeap" target="_blank">GitHub</a></li>
+                            <li><a href="https://twitter.com/MarpeapX" target="_blank">Twitter/X</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Marpeap Digitals. Tous droits réservés.</p>
+                <p>Développé avec ⚡ par Adnan "Marpeap" Najim</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main-new.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Script de secours pour le menu mobile si main-new.js ne charge pas sur cette page
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if(toggle && navLinks) {
+                toggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                    
+                    // Animation simple des barres du burger
+                    const spans = toggle.querySelectorAll('span');
+                    if(toggle.classList.contains('active')) {
+                        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+                    } else {
+                        spans.forEach(s => s.style.transform = 'none');
+                        spans[1].style.opacity = '1';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

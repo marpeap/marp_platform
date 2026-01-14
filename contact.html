@@ -1,98 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Meta Charset & Viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <!-- Primary Meta Tags -->
-    <title>Contact - Marpeap Digitals | Développeur Web Indépendant à Rennes</title>
+    <title>Contact - Marpeap Digitals | Studio Web Rennes</title>
     <meta name="title" content="Contact - Marpeap Digitals | Développeur Web Indépendant à Rennes">
-    <meta name="description" content="Contactez Marpeap Digitals à Rennes pour discuter de votre projet digital. Développeur web indépendant spécialisé en création digitale, développement web sur-mesure et solutions e-commerce. Réponse rapide garantie.">
-    <meta name="keywords" content="contact développeur web, contact développeur web Rennes, devis développement web, contact freelance Rennes, consultation digitale, projet web, devis site internet, développeur web Bretagne">
-    <meta name="author" content="Marpeap Digitals">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="language" content="French">
-    <meta name="geo.region" content="FR-53">
-    <meta name="geo.placename" content="Rennes, Bretagne, France">
-    <meta name="geo.position" content="48.1173;-1.6778">
-    <meta name="ICBM" content="48.1173, -1.6778">
-    <meta name="distribution" content="global">
-    <meta name="target" content="all">
+    <meta name="description" content="Démarrez votre projet digital. Contactez le studio Marpeap pour vos sites web, e-commerce et automatisations.">
+    <meta name="robots" content="index, follow">
     
-    <!-- Alternate Languages -->
-    <link rel="alternate" hreflang="fr" href="https://www.marpeap.digital/contact.html">
-    <link rel="alternate" hreflang="x-default" href="https://www.marpeap.digital/contact.html">
-    
-    <!-- Canonical URL -->
+    <link rel="icon" type="image/png" href="assets/images/favico.png">
     <link rel="canonical" href="https://www.marpeap.digital/contact.html">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.marpeap.digital/contact.html">
-    <meta property="og:title" content="Contact - Marpeap Digitals | Développeur Web Indépendant à Rennes">
-    <meta property="og:description" content="Contactez Marpeap Digitals à Rennes pour discuter de votre projet digital. Développeur web indépendant spécialisé en création digitale.">
-    <meta property="og:image" content="https://www.marpeap.digital/assets/images/marpeap.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Marpeap Digitals - Logo">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:site_name" content="Marpeap Digitals">
-    <meta property="article:author" content="Marpeap Digitals">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.marpeap.digital/contact.html">
-    <meta name="twitter:title" content="Contact - Marpeap Digitals | Développeur Web Indépendant à Rennes">
-    <meta name="twitter:description" content="Contactez Marpeap Digitals à Rennes pour discuter de votre projet digital.">
-    <meta name="twitter:image" content="https://www.marpeap.digital/assets/images/marpeap.png">
-    <meta name="twitter:image:alt" content="Marpeap Digitals - Logo">
-    <meta name="twitter:creator" content="@MarpeapX">
-    <meta name="twitter:site" content="@MarpeapX">
-    
-    <!-- Favicon & Icons -->
-    <link rel="icon" type="image/png" href="/assets/images/favico.png">
-    <link rel="apple-touch-icon" href="/assets/images/favico.png">
-    <meta name="theme-color" content="#0A0F1C">
-    
-    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style-new.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Remplace par ta PUBLIC KEY EmailJS
+            emailjs.init("TA_CLE_PUBLIQUE_ICI");
+        })();
     </script>
-    
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Contact - Marpeap Digitals",
-      "description": "Page de contact pour discuter de votre projet digital avec Marpeap Digitals",
-      "url": "https://www.marpeap.digital/contact.html",
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "Marpeap Digitals",
-        "email": "adnan.najim@pm.me",
-        "telephone": "+33649710370"
-      }
+
+    <style>
+       /* Ajustements Formulaire Contact Studio */
+    .form-row-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
     }
-    </script>
+
+    @media (max-width: 768px) {
+        .form-row-group { grid-template-columns: 1fr; gap: 0; }
+    }
+
+    /* --- LE FIX POUR LES SELECTS --- */
+    
+    /* 1. On donne le même look que les inputs textes */
+    .form-group input, 
+    .form-group textarea, 
+    .form-group select {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        background: rgba(15, 23, 42, 0.6); /* Fond sombre transparent */
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.75rem;
+        color: #f3f4f6; /* Texte clair */
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        outline: none;
+    }
+
+    /* 2. On supprime le style par défaut du navigateur */
+    .form-group select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        /* Ajout d'une flèche SVG personnalisée blanche/bleue */
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1.2em;
+        padding-right: 2.5rem; /* Espace pour la flèche */
+    }
+
+    /* 3. Style au Focus (Clic) - Effet Néon */
+    .form-group input:focus, 
+    .form-group textarea:focus, 
+    .form-group select:focus {
+        border-color: #3b82f6; /* Bleu Marpeap */
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* 4. Style des options déroulantes (Le menu qui s'ouvre) */
+    .form-group select option {
+        background-color: #0f172a; /* Fond très sombre (Dark Navy) */
+        color: white;
+        padding: 10px;
+    }
+
+    /* Labels */
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #94a3b8; /* Gris bleuté */
+        letter-spacing: 0.5px;
+    }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
@@ -103,6 +111,7 @@
             </div>
             <div class="nav-links">
                 <a href="index.html#services" class="nav-link">Services</a>
+                <a href="packs.html" class="nav-link">Packs</a>
                 <a href="index.html#portfolio" class="nav-link">Portfolio</a>
                 <a href="contact.html" class="nav-link active">Contact</a>
                 <a href="tel:+33649710370" class="btn-primary-nav">
@@ -118,138 +127,149 @@
         </div>
     </nav>
 
-    <!-- Contact Hero Section -->
     <section class="contact-hero">
         <div class="container">
             <div class="contact-hero-content" data-aos="fade-up">
-                <h1 class="contact-hero-title">PARLONS DE VOTRE PROJET</h1>
-                <p class="contact-hero-subtitle">Réponse garantie sous 24h. Direct, sans intermédiaire.</p>
+                <h1 class="contact-hero-title">LANCEZ VOTRE <span style="color:#3b82f6;">CROISSANCE</span></h1>
+                <p class="contact-hero-subtitle">Parlez-moi de votre projet. Je vous recontacte sous 24h avec une vision claire.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
     <section class="contact-form-section">
         <div class="container">
             <div class="contact-grid">
-                <!-- Contact Info -->
+                
                 <div class="contact-info-card" data-aos="fade-right">
-                    <h2 class="contact-info-title">Informations de Contact</h2>
+                    <h2 class="contact-info-title">Studio Marpeap</h2>
                     
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         </div>
                         <div class="contact-info-content">
-                            <h3>Téléphone</h3>
+                            <h3>Ligne Directe</h3>
                             <a href="tel:+33649710370">06 49 71 03 70</a>
                         </div>
                     </div>
 
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         </div>
                         <div class="contact-info-content">
                             <h3>Email</h3>
-                            <a href="mailto:adnan.najim@pm.me">adnan.najim@pm.me</a>
+                            <a href="mailto:contact@marpeap.digital">contact@marpeap.digital</a>
                         </div>
                     </div>
 
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
                         <div class="contact-info-content">
-                            <h3>Localisation</h3>
-                            <p>Rennes, Bretagne, France</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12 6 12 12 16 14"/>
-                            </svg>
-                        </div>
-                        <div class="contact-info-content">
-                            <h3>Disponibilité</h3>
-                            <p>Lun - Ven : 9h - 18h</p>
+                            <h3>QG</h3>
+                            <p>Rennes, Bretagne & Remote France</p>
                         </div>
                     </div>
 
                     <div class="contact-social">
-                        <h3>Réseaux Sociaux</h3>
+                        <h3>Suivez le Studio</h3>
                         <div class="social-links">
-                            <a href="https://github.com/marpeap" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <a href="https://twitter.com/MarpeapX" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                                </svg>
-                            </a>
+                            <a href="https://github.com/marpeap" target="_blank" aria-label="GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                            <a href="https://twitter.com/MarpeapX" target="_blank" aria-label="Twitter"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
                 <div class="contact-form-card" data-aos="fade-left">
-                    <h2 class="contact-form-title">Envoyez-moi un message</h2>
-                    <p class="contact-form-subtitle">Remplissez le formulaire ci-dessous et je vous répondrai dans les 24h.</p>
+                    <h2 class="contact-form-title">Détails du Projet</h2>
                     
                     <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nom complet *</label>
-                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
-                            <span class="error-message" id="nameError"></span>
-                        </div>
+    
+    <input type="hidden" name="date" id="currentDate">
+    <input type="hidden" name="appointment_date" value="À définir">
+    <input type="hidden" name="appointment_time" value="-">
+    <input type="hidden" name="appointment_type" value="Prise de contact Web">
+    <input type="hidden" name="appointment_location" value="Visio / Téléphone">
+    <input type="hidden" name="appointment_coordinates" value="Remote">
 
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                            <span class="error-message" id="emailError"></span>
-                        </div>
+    <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="from_name">Nom complet *</label>
+        <input type="text" id="from_name" name="from_name" placeholder="Votre nom ou société" required>
+    </div>
 
-                        <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
-                            <span class="error-message" id="phoneError"></span>
-                        </div>
+    <div class="form-row-group" style="margin-bottom: 1.5rem;">
+        <div class="form-group">
+            <label for="from_email">Email *</label>
+            <input type="email" id="from_email" name="from_email" placeholder="votre@email.com" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+        </div>
+    </div>
 
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" placeholder="Décrivez votre projet, vos besoins, vos questions..." required></textarea>
-                            <span class="error-message" id="messageError"></span>
-                        </div>
+    <div class="form-row-group" style="margin-bottom: 1.5rem;">
+        <div class="form-group">
+            <label for="service">Service ou Pack *</label>
+            <select id="service" name="service" required>
+                <option value="" disabled selected>Choisir une offre...</option>
+                <option value="Pack M-ONE (290€)">🔹 Pack M-ONE (Site Vitrine)</option>
+                <option value="Pack M-SHOP (590€)">🔸 Pack M-SHOP (E-commerce)</option>
+                <option value="Pack M-LOCAL (190€)">📍 Pack M-LOCAL (Google Maps)</option>
+                <option value="Projet Sur-Mesure">🛠️ Développement Sur-Mesure</option>
+                <option value="Maintenance / SEO">🚀 Maintenance ou SEO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="project_type">Type de projet</label>
+            <select id="project_type" name="project_type">
+                <option value="Création" selected>✨ Création (Nouveau)</option>
+                <option value="Refonte">🔄 Refonte (Existant)</option>
+                <option value="Audit/Conseil">📊 Audit & Conseil</option>
+            </select>
+        </div>
+    </div>
 
-                        <div class="form-message" id="formMessage"></div>
+    <div class="form-row-group" style="margin-bottom: 1.5rem;">
+        <div class="form-group">
+            <label for="budget">Budget Estimé</label>
+            <select id="budget" name="budget">
+                <option value="Non défini" selected>Je ne sais pas</option>
+                <option value="< 500€">Moins de 500€ (Packs)</option>
+                <option value="500€ - 1500€">500€ - 1500€</option>
+                <option value="1500€ - 5000€">1500€ - 5000€</option>
+                <option value="+ 5000€">Plus de 5000€</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="timeline">Délai souhaité</label>
+            <select id="timeline" name="timeline">
+                <option value="Flexible" selected>Flexible</option>
+                <option value="Urgent (< 1 semaine)">🔥 Urgent (< 1 semaine)</option>
+                <option value="1 mois">Dans le mois</option>
+            </select>
+        </div>
+    </div>
 
-                        <button type="submit" class="btn-primary btn-submit" id="submitBtn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg>
-                            <span>Envoyer le message</span>
-                        </button>
-                    </form>
+    <div class="form-group" style="margin-bottom: 2rem;">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="5" placeholder="Détaillez votre besoin..." required></textarea>
+    </div>
+
+    <div class="form-message" id="formMessage"></div>
+
+    <button type="submit" class="btn-primary btn-submit" id="submitBtn" style="width: 100%; justify-content: center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <span>Envoyer la demande</span>
+    </button>
+</form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -262,54 +282,71 @@
                         <h4>Navigation</h4>
                         <a href="index.html">Accueil</a>
                         <a href="index.html#services">Services</a>
+                        <a href="packs.html">Packs</a>
                         <a href="index.html#portfolio">Portfolio</a>
-                        <a href="contact.html">Contact</a>
                     </div>
                     <div class="footer-column">
                         <h4>Contact</h4>
                         <a href="tel:+33649710370">06 49 71 03 70</a>
-                        <a href="mailto:adnan.najim@pm.me">adnan.najim@pm.me</a>
-                        <p>Rennes, France</p>
+                        <a href="mailto:contact@marpeap.digital">contact@marpeap.digital</a>
                     </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <p>&copy; 2025 Marpeap Digitals. Tous droits réservés.</p>
-                <p>Développé avec ⚡ par Adnan "Marpeap" Najim</p>
             </div>
         </div>
     </footer>
 
-
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/33649710370?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20digital" 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Contactez-nous sur WhatsApp">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-            <path d="M16 0C7.164 0 0 7.164 0 16c0 2.828.736 5.484 2.028 7.78L0 32l8.384-2.196A15.93 15.93 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.44 0-4.776-.656-6.784-1.896l-.488-.292-5.056 1.324 1.348-4.932-.32-.504A13.29 13.29 0 012.667 16c0-7.364 5.97-13.333 13.333-13.333S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.308-9.964c-.4-.2-2.368-1.168-2.736-1.3-.368-.136-.636-.2-.904.2-.268.4-1.036 1.3-1.268 1.568-.236.268-.468.3-.868.1-.4-.2-1.688-.62-3.216-1.98-1.188-1.06-1.992-2.368-2.224-2.768-.236-.4-.024-.616.176-.816.18-.18.4-.468.6-.704.2-.232.268-.4.4-.668.136-.268.068-.5-.032-.7-.1-.2-.904-2.176-1.236-2.98-.324-.78-.656-.676-.904-.688-.232-.012-.5-.016-.768-.016s-.7.1-1.068.5c-.368.4-1.4 1.368-1.4 3.336s1.436 3.868 1.636 4.136c.2.268 2.82 4.304 6.832 6.036.956.412 1.7.656 2.28.84.96.304 1.832.26 2.52.156.768-.116 2.368-.968 2.7-1.904.332-.936.332-1.736.232-1.904-.1-.168-.368-.268-.768-.468z"/>
-        </svg>
-    </a>
-
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    
-    <!-- Scripts -->
     <script src="js/main-new.js"></script>
-    <script src="js/contact-emailjs.js"></script>
-    
-    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
+        AOS.init({ duration: 800, once: true });
+
+        // Script Spécifique pour gérer l'envoi EmailJS et la date
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Remplir la date cachée automatiquement
+            const dateInput = document.getElementById('currentDate');
+            if(dateInput) {
+                const now = new Date();
+                dateInput.value = now.toLocaleDateString('fr-FR') + ' ' + now.toLocaleTimeString('fr-FR');
+            }
+
+            // 2. Gestionnaire d'envoi du formulaire
+            const form = document.getElementById('contactForm');
+            const btn = document.getElementById('submitBtn');
+            const msgBox = document.getElementById('formMessage');
+
+            if(form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // État "Envoi en cours..."
+                    const originalBtnText = btn.innerHTML;
+                    btn.innerHTML = 'Envoi en cours...';
+                    btn.disabled = true;
+
+                    // Envoi via EmailJS
+                    // NOTE: Remplace 'SERVICE_ID' et 'TEMPLATE_ID' par tes vrais IDs EmailJS
+                    emailjs.sendForm('ton_service_id', 'ton_template_id', this)
+                        .then(function() {
+                            // Succès
+                            msgBox.innerHTML = 'Message envoyé avec succès ! Je vous recontacte très vite.';
+                            msgBox.className = 'form-message success show';
+                            form.reset();
+                            btn.innerHTML = originalBtnText;
+                            btn.disabled = false;
+                        }, function(error) {
+                            // Erreur
+                            console.error('Erreur EmailJS:', error);
+                            msgBox.innerHTML = 'Une erreur est survenue. Appelez-moi directement au 06 49 71 03 70.';
+                            msgBox.className = 'form-message error show';
+                            btn.innerHTML = originalBtnText;
+                            btn.disabled = false;
+                        });
+                });
+            }
         });
     </script>
 </body>
 </html>
-
