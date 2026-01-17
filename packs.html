@@ -414,28 +414,6 @@
             once: true,
             offset: 100
         });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if(toggle && navLinks) {
-                toggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    toggle.classList.toggle('active');
-                    
-                    const spans = toggle.querySelectorAll('span');
-                    if(toggle.classList.contains('active')) {
-                        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                        spans[1].style.opacity = '0';
-                        spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
-                    } else {
-                        spans.forEach(s => s.style.transform = 'none');
-                        spans[1].style.opacity = '1';
-                    }
-                });
-            }
-        });
     </script>
 </body>
 </html>
