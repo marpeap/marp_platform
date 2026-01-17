@@ -39,9 +39,9 @@
             margin-top: 3rem;
         }
 
-        /* Carte de Prix (Basée sur tes styles existants .service-card) */
+        /* Carte de Prix */
         .pricing-card {
-            background: rgba(30, 30, 50, 0.6); /* Un peu plus transparent */
+            background: rgba(30, 30, 50, 0.6);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1.5rem;
@@ -60,7 +60,6 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* Bordures colorées selon les packs */
         .pricing-card.blue { border-top: 4px solid #3b82f6; }
         .pricing-card.blue:hover { box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15); border-color: #3b82f6; }
 
@@ -70,7 +69,6 @@
         .pricing-card.orange { border-top: 4px solid #f59e0b; background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(30, 30, 50, 0.6) 100%); }
         .pricing-card.orange:hover { box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15); border-color: #f59e0b; }
 
-        /* Badge Populaire */
         .popular-badge {
             position: absolute;
             top: 15px;
@@ -133,11 +131,10 @@
 
         .price-features li::before {
             content: '✓';
-            color: #10b981; /* Vert validation */
+            color: #10b981;
             font-weight: bold;
         }
 
-        /* Boutons adaptés */
         .btn-pack {
             width: 100%;
             padding: 1rem;
@@ -148,6 +145,7 @@
             transition: all 0.3s ease;
             font-size: 0.9rem;
             letter-spacing: 1px;
+            text-align: center;
         }
 
         .btn-blue { background: #3b82f6; color: white; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
@@ -159,7 +157,6 @@
         .btn-orange { background: #f59e0b; color: black; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
         .btn-orange:hover { background: #d97706; transform: translateY(-2px); }
 
-        /* Section Abonnements */
         .subs-container {
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 4rem;
@@ -255,18 +252,37 @@
                 </div>
 
             </div>
-<div class="section-header" style="text-align: center; margin-top: 6rem; margin-bottom: 3rem;">
+
+            <div class="section-header" style="text-align: center; margin-top: 6rem; margin-bottom: 3rem;">
                 <h2 class="section-title" style="color: #fff;">Solutions <span style="color: #8b5cf6;">Techniques & Data</span></h2>
                 <p class="section-subtitle">Pour ceux qui veulent aller plus loin que le simple site web.</p>
             </div>
 
             <div class="pricing-grid">
                 
+                <div class="pricing-card" style="border-top: 4px solid #facc15; background: linear-gradient(180deg, rgba(250, 204, 21, 0.05) 0%, rgba(30, 30, 50, 0.6) 100%);">
+                    <div class="popular-badge" style="background: #facc15; color: black;">ULTIMATE</div>
+                    <h3 class="price-title" style="color: #facc15;">M-CORP™</h3>
+                    <p class="price-subtitle">Force de Travail Autonome (Multi-Agents)</p>
+                    <div style="margin-bottom: 1.5rem;">
+                        <span style="text-decoration: line-through; color: #64748b; font-size: 1.2rem; font-weight: 700;">2 490€</span>
+                        <div class="price-amount" style="margin-bottom: 0;">820€</div>
+                    </div>
+                    <ul class="price-features">
+                        <li>Équipe de 3 Agents IA spécialisés</li>
+                        <li>Collaboration Autonome entre agents</li>
+                        <li>Exécution réelle (Posts, Emails, Code)</li>
+                        <li>Mémoire partagée & Apprentissage</li>
+                        <li>Tableau de bord de supervision</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-pack" style="background: #facc15; color: black;">Recruter mon équipe</a>
+                </div>
+
                 <div class="pricing-card" style="border-top: 4px solid #8b5cf6; background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, rgba(30, 30, 50, 0.6) 100%);">
                     <div class="popular-badge" style="background: #8b5cf6; color: white;">INNOVATION</div>
                     <h3 class="price-title">M-NEURAL™</h3>
                     <p class="price-subtitle">Automatisation & Chatbot IA</p>
-                    <div class="price-amount">290€</div>
+                    <div class="price-amount">390€</div>
                     <ul class="price-features">
                         <li>Chatbot GPT-4 Entraîné sur vos données</li>
                         <li>Intégration Widget Site Web</li>
@@ -274,13 +290,13 @@
                         <li>Connexion API (Lead -> Excel/CRM)</li>
                         <li>Formation prise en main (1h)</li>
                     </ul>
-                    <a href="contact.html" class="btn-pack" style="background: #8b5cf6; color: white; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">Automatiser mon business</a>
+                    <a href="index.html#contact" class="btn-pack" style="background: #8b5cf6; color: white;">Automatiser mon business</a>
                 </div>
 
                 <div class="pricing-card" style="border-top: 4px solid #ef4444;">
                     <h3 class="price-title">M-SPEED™</h3>
                     <p class="price-subtitle">Audit & Optimisation Vitesse</p>
-                    <div class="price-amount">690€</div>
+                    <div class="price-amount">260€</div>
                     <ul class="price-features">
                         <li>Audit Complet Performance & Sécurité</li>
                         <li>Optimisation Images & Code (Cache)</li>
@@ -288,32 +304,32 @@
                         <li>Nettoyage Malware / Virus</li>
                         <li>Rapport Avant / Après</li>
                     </ul>
-                    <a href="contact.html" class="btn-pack" style="border: 1px solid #ef4444; color: #ef4444; background: rgba(239, 68, 68, 0.1);">Booster mon site</a>
+                    <a href="index.html#contact" class="btn-pack" style="border: 1px solid #ef4444; color: #ef4444; background: rgba(239, 68, 68, 0.1);">Booster mon site</a>
                 </div>
 
-<div class="pricing-card" style="border-top: 4px solid #06b6d4; background: linear-gradient(180deg, rgba(6, 182, 212, 0.05) 0%, rgba(30, 30, 50, 0.6) 100%);">
+                <div class="pricing-card" style="border-top: 4px solid #06b6d4; background: linear-gradient(180deg, rgba(6, 182, 212, 0.05) 0%, rgba(30, 30, 50, 0.6) 100%);">
                     <div class="popular-badge" style="background: #06b6d4; color: white; right: -35px; top: 20px;">MOBILE</div>
                     <h3 class="price-title">M-APP™</h3>
                     <p class="price-subtitle">Application Mobile Hybride / PWA</p>
                     <div class="price-amount">1 990€</div>
-<ul class="price-features">
-                    <li>Compatible iOS & Android (1 seul code)</li>
-                    <li>Installation sur écran d'accueil</li>
-                    <li>Expérience Native & Fluide (React)</li>
-                    <li>Mode Hors-Ligne & Notifications</li>
-                    <li>Publication Stores (Optionnel)</li>
-                </ul>
-                <a href="contact.html" class="btn-pack" style="border: 1px solid #06b6d4; color: #06b6d4; background: rgba(6, 182, 212, 0.1);">Créer mon application</a>
-            
-            </div> </div> <div class="subs-container" data-aos="fade-up">
-            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                    <ul class="price-features">
+                        <li>Compatible iOS & Android (1 seul code)</li>
+                        <li>Installation sur écran d'accueil</li>
+                        <li>Expérience Native & Fluide (React)</li>
+                        <li>Mode Hors-Ligne & Notifications</li>
+                        <li>Publication Stores (Optionnel)</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-pack" style="border: 1px solid #06b6d4; color: #06b6d4; background: rgba(6, 182, 212, 0.1);">Créer mon application</a>
+                </div>
+            </div>
+
             <div class="subs-container" data-aos="fade-up">
                 <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
                     <h2 class="section-title">Abonnements Tranquillité</h2>
                     <p class="section-subtitle">Ne gérez plus jamais la technique.</p>
                 </div>
 
-            <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 900px; margin: 0 auto; gap: 2rem;">
+                <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 900px; margin: 0 auto; gap: 2rem;">
                     <div class="pricing-card" style="border-top: 4px solid #8b5cf6;">
                         <h3 class="price-title">M-CARE MINI</h3>
                         <div class="price-amount" style="font-size: 2.5rem; margin-bottom: 1rem;">39€<span>/mois</span></div>
@@ -383,7 +399,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Marpeap Digitals. Tous droits réservés.</p>
+                <p>&copy; 2026 Marpeap Digitals. Tous droits réservés.</p>
                 <p>Développé avec ⚡ par Adnan "Marpeap" Najim</p>
             </div>
         </div>
@@ -399,7 +415,6 @@
             offset: 100
         });
 
-        // Script de secours pour le menu mobile si main-new.js ne charge pas sur cette page
         document.addEventListener('DOMContentLoaded', () => {
             const toggle = document.querySelector('.mobile-menu-toggle');
             const navLinks = document.querySelector('.nav-links');
@@ -409,7 +424,6 @@
                     navLinks.classList.toggle('active');
                     toggle.classList.toggle('active');
                     
-                    // Animation simple des barres du burger
                     const spans = toggle.querySelectorAll('span');
                     if(toggle.classList.contains('active')) {
                         spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
