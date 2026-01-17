@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <title>Marpeap Digitals - Code. Growth. Results. | Du Code à l'Acquisition Client</title>
+    <meta name="description" content="Votre Partenaire Digital Unique : Du Code à l'Acquisition Client. Stop au bricolage. Je construis l'écosystème complet qui fait décoller votre activité. Expert Freelance basé à Rennes.">
+    <meta name="keywords" content="développement web, marketing digital, SEO technique, création site web, e-commerce, intelligence artificielle, automatisation, Rennes, freelance, full-stack">
+    <meta name="author" content="Adnan 'Marpeap' Najim">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <link rel="canonical" href="https://www.marpeap.digital/">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.marpeap.digital/">
+    <meta property="og:title" content="Marpeap Digitals - Code. Growth. Results.">
+    <meta property="og:description" content="Du Code à l'Acquisition Client. Stop au bricolage. Je construis l'écosystème complet qui fait décoller votre activité.">
+    <meta property="og:image" content="https://www.marpeap.digital/assets/images/marpeap-og.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Marpeap Digitals">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Marpeap Digitals - Expert Freelance Full-Stack & Growth">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@MarpeapX">
+    <meta name="twitter:creator" content="@MarpeapX">
+    <meta name="twitter:title" content="Marpeap Digitals - Code. Growth. Results.">
+    <meta name="twitter:description" content="Du Code à l'Acquisition Client. Développement, Marketing & IA.">
+    <meta name="twitter:image" content="https://www.marpeap.digital/assets/images/marpeap-og.png">
+    
+    <link rel="icon" type="image/png" href="/assets/images/favico.png">
+    <link rel="apple-touch-icon" href="/assets/images/favico.png">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    
+    <meta name="theme-color" content="#0A0F1C">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style-new.css" as="style">
+    <link rel="stylesheet" href="css/style-new.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Marpeap Digitals",
+      "description": "Expert Freelance en Développement Web, Marketing Digital et Intelligence Artificielle basé à Rennes",
+      "url": "https://www.marpeap.digital",
+      "logo": "https://www.marpeap.digital/assets/images/marpeap.png",
+      "telephone": "+33649710370",
+      "email": "contact@marpeap.digital",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rennes",
+        "addressRegion": "Bretagne",
+        "addressCountry": "FR"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Adnan Najim",
+        "alternateName": "Marpeap",
+        "jobTitle": "Expert Freelance Full-Stack & Growth"
+      },
+      "serviceType": [
+        "Développement Web",
+        "E-commerce",
+        "SEO Technique",
+        "Marketing Digital",
+        "Intelligence Artificielle",
+        "Automatisation",
+        "Design UI/UX"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "priceRange": "€€",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "12"
+      },
+      "sameAs": [
+        "https://github.com/marpeap",
+        "https://twitter.com/MarpeapX",
+        "https://www.linkedin.com/in/adnan-najim"
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.marpeap.digital/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://www.marpeap.digital/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Portfolio",
+          "item": "https://www.marpeap.digital/#portfolio"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contact",
+          "item": "https://www.marpeap.digital/#contact"
+        }
+      ]
+    }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marpeap Digital - Offres Starter</title>
+    <style>
+        /* Base stylistique conforme à marpeap.digital */
+        :root {
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --royal-blue: #3b82f6;
+            --emerald-green: #10b981;
+            --amber-500: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+            color: #f8fafc;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--slate-700);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--royal-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #f8fafc 60%, var(--royal-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .pricing-card {
+            background: var(--slate-800);
+            border: 1px solid var(--slate-700);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .highlight-tag {
+            position: absolute;
+            top: -1rem;
+            right: 1rem;
+            background: var(--amber-500);
+            color: black;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        /* Subscription Section */
+        .subscriptions {
+            display: grid;
+            gap: 1.5rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--slate-700);
+        }
+
+        .subscription-card {
+            background: var(--slate-800);
+            border: 1px solid var(--slate-700);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--slate-700);
+        }
+
+        .footer a {
+            color: var(--royal-blue);
+            text-decoration: none;
+        }
+
+        /* Utilitaires */
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            width: 100%;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--emerald-green);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-text">MARPEAP</span>
+                <span class="brand-tagline">DIGITALS</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="packs.html" class="nav-link">Packs</a>
+                <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="tel:+33649710370" class="btn-primary-nav">
+                    <span class="btn-icon">📞</span>
+                    06 49 71 03 70
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="badge">⚡ OFFRES DE LANCEMENT STUDIO</div>
+            <h1 class="hero-title">L'EXCELLENCE SANS LE COÛT D'AGENCE</h1>
+            <p class="hero-subtitle">La qualité Marpeap standardisée pour les business & indépendants. Démarrez vite, évoluez plus tard.</p>
+        </section>
+
+        <!-- Pricing Grid -->
+        <div class="pricing-grid">
+            <!-- M-ONE Card -->
+            <article class="pricing-card" style="border-color: #3b82f6">
+                <h2>M-ONE™</h2>
+                <p class="subtitle">Carte de Visite Digitale</p>
+                <div class="price">290€</div>
+                <ul class="feature-list">
+                    <li>Site One-Page Ultra-Rapide</li>
+                    <li>Design Studio Premium</li>
+                    <li>Hébergement inclus (1 an)</li>
+                    <li>Optimisé Mobile & SEO</li>
+                    <li>Livraison 72h</li>
+                </ul>
+                <a href="#" class="btn" style="background: #3b82f6; color: white">Commander</a>
+            </article>
+
+            <!-- M-SHOP LITE Card -->
+            <article class="pricing-card" style="border-color: #f59e0b">
+                <div class="highlight-tag">🏆 BEST SELLER</div>
+                <h2>M-SHOP LITE™</h2>
+                <p class="subtitle">E-Commerce Start</p>
+                <div class="price">990€</div>
+                <ul class="feature-list">
+                    <li>Boutique Shopify/WooCommerce</li>
+                    <li>Paiement Stripe Configuré</li>
+                    <li>20 Produits Intégrés</li>
+                    <li>Pages Légales RGPD</li>
+                    <li>Tuto Vidéo de Gestion</li>
+                </ul>
+                <a href="#" class="btn" style="background: #f59e0b; color: black">Lancer ma boutique</a>
+            </article>
+
+            <!-- M-LOCAL Card -->
+            <article class="pricing-card" style="border-color: #10b981">
+                <h2>M-LOCAL™</h2>
+                <p class="subtitle">Pack Visibilité Google</p>
+                <div class="price">190€</div>
+                <ul class="feature-list">
+                    <li>Création Fiche Google Business</li>
+                    <li>Optimisation Mots-clés</li>
+                    <li>Intégration Photos HD</li>
+                    <li>QR Code Avis Clients</li>
+                    <li>Boost Référencement Local</li>
+                </ul>
+                <a href="#" class="btn" style="background: #10b981; color: white">Être visible</a>
+            </article>
+        </div>
+
+        <!-- Subscriptions -->
+        <section class="subscriptions">
+            <h2>Abonnements Mensuels</h2>
+            <article class="subscription-card">
+                <h3>M-CARE MINI</h3>
+                <div class="price">39€/mois</div>
+                <p>Maintenance technique & Sauvegardes</p>
+            </article>
+            <article class="subscription-card">
+                <h3>M-SEO STARTER</h3>
+                <div class="price">89€/mois</div>
+                <p>Suivi Positionnement & Rapport Mensuel</p>
+            </article>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="/">← Retour à l'accueil</a>
+        </footer>
+    </main>
+<script>
+    // Script pour le menu mobile
+    const mobileBtn = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if(mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Animation simple du burger
+            const spans = mobileBtn.querySelectorAll('span');
+            if(navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,102 +1,52 @@
-# Fichiers sensibles et clés API
-EMAILJS_KEYS.txt
-*.key
-*.pem
-*.p12
-.env
-.env.local
-.env.*.local
+# Fichiers sensibles - NE PAS COMMITER
+# ===================================
 
-# Fichiers de configuration sensibles
-supabase/.env
-supabase/.env.local
+# Clés API EmailJS
+fonctions/EMAILJS_KEYS.txt
 
-# Fichiers de debug et logs
-*.log
-*.log.*
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-.pnpm-debug.log*
+# Configurations JavaScript avec clés API
+js/emailjs-config.js
+js/supabase-client.js
 
-# Fichiers temporaires
-*.tmp
-*.temp
-*.swp
-*.swo
-*~
+# Configurations de base de données
+fonctions/supabase-permissions.sql
+
+# Fonctions serveur Supabase (si elles existent)
+fonctions/supabase/functions/
+
+# Archives (optionnel - décommentez si vous voulez les exclure)
+# _archived/
+
+# Fichiers temporaires système
+# =============================
 .DS_Store
 Thumbs.db
-desktop.ini
+*.tmp
+*.temp
 
-# Dossiers de dépendances
-node_modules/
-.pnp
-.pnp.js
-.yarn/
-.npm/
-
-# Fichiers de build et cache
-.next/
-out/
+# Logs et fichiers de cache
+# =========================
+*.log
+.cache/
 dist/
 build/
-.cache/
-.parcel-cache/
-.vercel/
-.vercel-cache/
 
-# Fichiers de test
-coverage/
-.nyc_output/
-*.test.js
-*.spec.js
-__tests__/
-test/
-tests/
+# Environnements de développement
+# ===============================
+node_modules/
+.env
+.env.local
+.env.production
+.env.development
 
-# Fichiers d'IDE et éditeurs
+# Éditeurs de code
+# ================
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
-*.code-workspace
-.project
-.classpath
-.settings/
+*.swp
+*.swo
 
-# Fichiers système
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Desktop.ini
-
-# Fichiers de documentation (déjà dans docs/)
-# Les fichiers .md sont maintenant dans docs/ et peuvent être versionnés ou ignorés selon besoin
-# Note: Les fichiers dans docs/ sont versionnés pour la documentation du projet
-
-# Fichiers de backup
-*.bak
-*.backup
-*.old
-
-# Fichiers de configuration locale
-config.local.js
-settings.local.json
-
-# Fichiers de migration et scripts SQL (optionnel - à garder si nécessaire)
-# supabase-permissions.sql  # Décommenter si vous ne voulez pas versionner ce fichier
-
-# Fichiers de templates EmailJS (optionnel - à garder si nécessaire)
-# EMAILJS_TEMPLATE.html
-# EMAILJS_AUTOREPLY_TEMPLATE.html
-
-# Fichiers de base de connaissances chatbot (optionnel)
-# CHATBOT_KNOWLEDGE_BASE.txt  # Décommenter si vous ne voulez pas versionner ce fichier
-
-# Dossier fonctions - fichiers non nécessaires au site web
-fonctions/
+# Git
+# ===
+*.orig
+*.rej

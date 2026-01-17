@@ -4,27 +4,27 @@
 
 const EMAILJS_CONFIG = {
   // Public Key EmailJS (trouvable dans Account > API Keys)
-  PUBLIC_KEY: 'FDKh_5nUofVZbjniz',
-  
+  PUBLIC_KEY: 'VOTRE_PUBLIC_KEY_EMAILJS',
+
   // Service ID EmailJS (trouvable dans Email Services)
-  SERVICE_ID: 'service_gvyrpik',
-  
+  SERVICE_ID: 'VOTRE_SERVICE_ID_EMAILJS',
+
   // Template ID EmailJS - Notification pour le propriétaire
-  TEMPLATE_ID: 'template_k5lgn2g', // Contact Us - Notification
-  
+  TEMPLATE_ID: 'VOTRE_TEMPLATE_ID_NOTIFICATION',
+
   // Template ID EmailJS - Auto-réponse pour le client
-  AUTOREPLY_TEMPLATE_ID: 'template_didr2ab', // Auto-Reply
-  
-  // Email du destinataire (déjà configuré)
-  RECIPIENT_EMAIL: 'marpeap@gmail.com'
+  AUTOREPLY_TEMPLATE_ID: 'VOTRE_TEMPLATE_ID_AUTOREPLY',
+
+  // Email du destinataire
+  RECIPIENT_EMAIL: 'votre-email@domaine.com'
 };
 
 // Vérifier si EmailJS est configuré
 function isEmailJSConfigured() {
-  return EMAILJS_CONFIG.PUBLIC_KEY === 'FDKh_5nUofVZbjniz' && // Public Key configurée
-         EMAILJS_CONFIG.SERVICE_ID === 'service_gvyrpik' && // Service ID configuré
-         EMAILJS_CONFIG.TEMPLATE_ID === 'template_k5lgn2g' && // Template ID notification configuré
-         EMAILJS_CONFIG.AUTOREPLY_TEMPLATE_ID === 'template_didr2ab' && // Template ID auto-réponse configuré
+  return EMAILJS_CONFIG.PUBLIC_KEY !== 'VOTRE_PUBLIC_KEY_EMAILJS' && // Public Key configurée
+         EMAILJS_CONFIG.SERVICE_ID !== 'VOTRE_SERVICE_ID_EMAILJS' && // Service ID configuré
+         EMAILJS_CONFIG.TEMPLATE_ID !== 'VOTRE_TEMPLATE_ID_NOTIFICATION' && // Template ID notification configuré
+         EMAILJS_CONFIG.AUTOREPLY_TEMPLATE_ID !== 'VOTRE_TEMPLATE_ID_AUTOREPLY' && // Template ID auto-réponse configuré
          typeof window !== 'undefined' &&
          typeof window.emailjs !== 'undefined';
 }
@@ -34,10 +34,10 @@ if (typeof window !== 'undefined') {
   // Exporter la configuration immédiatement
   window.EMAILJS_CONFIG = EMAILJS_CONFIG;
   window.isEmailJSConfigured = isEmailJSConfigured;
-  
+
   // Fonction pour initialiser EmailJS une fois le SDK chargé
   function initEmailJS() {
-    if (EMAILJS_CONFIG.PUBLIC_KEY === 'FDKh_5nUofVZbjniz' && typeof window.emailjs !== 'undefined') {
+    if (EMAILJS_CONFIG.PUBLIC_KEY !== 'VOTRE_PUBLIC_KEY_EMAILJS' && typeof window.emailjs !== 'undefined') {
       try {
         window.emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
         console.log('✅ EmailJS initialisé avec succès');
@@ -47,15 +47,16 @@ if (typeof window !== 'undefined') {
         return false;
       }
     } else {
-      if (EMAILJS_CONFIG.PUBLIC_KEY === 'FDKh_5nUofVZbjniz') {
-        console.warn('⚠️ EmailJS SDK non chargé. Vérifiez que le script EmailJS est inclus dans contact.html');
-      } else {
+      if (EMAILJS_CONFIG.PUBLIC_KEY === 'VOTRE_PUBLIC_KEY_EMAILJS') {
         console.warn('⚠️ EmailJS non configuré. Les emails ne seront pas envoyés.');
+        console.warn('   Remplacez les valeurs dans js/emailjs-config.js par vos vraies clés.');
+      } else if (typeof window.emailjs === 'undefined') {
+        console.warn('⚠️ EmailJS SDK non chargé. Vérifiez que le script EmailJS est inclus dans contact.html');
       }
       return false;
     }
   }
-  
+
   // Essayer d'initialiser immédiatement si le SDK est déjà chargé
   if (typeof window.emailjs !== 'undefined') {
     initEmailJS();
@@ -77,4 +78,3 @@ if (typeof window !== 'undefined') {
     });
   }
 }
-

@@ -1,11 +1,15 @@
 // Client Supabase pour JavaScript vanilla
-const SUPABASE_URL = 'https://bllhmxwzdkvmldqdjcxh.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsbGhteHd6ZGt2bWxkcWRqY3hoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxMjEwNTgsImV4cCI6MjA4MDY5NzA1OH0.fBkvjIQaxWviHInwPH8PhR33BQPp9yH7PdfBiDRwAbg';
+// IMPORTANT: Remplacez les valeurs ci-dessous par vos vraies configurations Supabase
+const SUPABASE_URL = 'VOTRE_URL_SUPABASE';
+const SUPABASE_ANON_KEY = 'VOTRE_CLE_ANONYME_SUPABASE';
 
 // Fonction pour créer le client Supabase
 function createSupabaseClient() {
-  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-    console.warn('Supabase n\'est pas configuré. Veuillez définir SUPABASE_URL et SUPABASE_ANON_KEY dans js/supabase-client.js');
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY ||
+      SUPABASE_URL === 'VOTRE_URL_SUPABASE' ||
+      SUPABASE_ANON_KEY === 'VOTRE_CLE_ANONYME_SUPABASE') {
+    console.warn('⚠️ Supabase n\'est pas configuré. Remplacez SUPABASE_URL et SUPABASE_ANON_KEY dans js/supabase-client.js');
+    console.warn('   Obtenez ces valeurs sur https://supabase.com/dashboard/project/_/settings/api');
     return null;
   }
 
@@ -13,7 +17,7 @@ function createSupabaseClient() {
   return {
     url: SUPABASE_URL,
     key: SUPABASE_ANON_KEY,
-    
+
     // Fonction pour insérer un contact
     async insertContact(contactData) {
       try {
@@ -54,12 +58,11 @@ function createSupabaseClient() {
 // Export pour utilisation dans d'autres fichiers
 if (typeof window !== 'undefined') {
   window.supabaseClient = createSupabaseClient();
-  
+
   // Vérifier l'initialisation
   if (window.supabaseClient) {
     console.log('✅ Supabase client initialisé avec succès');
   } else {
-    console.warn('⚠️ Supabase client non initialisé. Vérifiez la configuration dans js/supabase-client.js');
+    console.warn('⚠️ Supabase client non initialisé. Configurez SUPABASE_URL et SUPABASE_ANON_KEY dans js/supabase-client.js');
   }
 }
-
