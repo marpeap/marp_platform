@@ -20,15 +20,15 @@ const getAgentConfig = (mode) => {
           subtitle: 'Analyse Technique & Code',
           color: 'border-cyan-500/50',
           gradientFrom: 'from-cyan-500',
-          gradientTo: 'to-blue-600',
+          gradientTo: 'to-cyan-600',
         },
         secondary: {
           agent: 'M3',
           title: 'Marp3 - Security Check 🛡️',
           subtitle: 'Vérification Sécurité',
-          color: 'border-rose-500/50',
-          gradientFrom: 'from-rose-500',
-          gradientTo: 'to-orange-500',
+          color: 'border-blue-500/50',
+          gradientFrom: 'from-blue-500',
+          gradientTo: 'to-blue-600',
         },
       };
     
@@ -40,15 +40,15 @@ const getAgentConfig = (mode) => {
           subtitle: 'Stratégie de Vente & Prix',
           color: 'border-emerald-500/50',
           gradientFrom: 'from-emerald-500',
-          gradientTo: 'to-green-600',
+          gradientTo: 'to-emerald-600',
         },
         secondary: {
           agent: 'M4',
           title: 'Marp4 - Business Check 💰',
           subtitle: 'Validation Business',
-          color: 'border-amber-500/50',
-          gradientFrom: 'from-amber-500',
-          gradientTo: 'to-yellow-600',
+          color: 'border-green-500/50',
+          gradientFrom: 'from-green-500',
+          gradientTo: 'to-green-600',
         },
       };
     
@@ -58,17 +58,17 @@ const getAgentConfig = (mode) => {
           agent: 'M5',
           title: 'Marp5 - Marketing Guru 🚀',
           subtitle: 'Positionnement & Buzz',
-          color: 'border-purple-500/50',
-          gradientFrom: 'from-purple-500',
-          gradientTo: 'to-pink-600',
+          color: 'border-violet-500/50',
+          gradientFrom: 'from-violet-500',
+          gradientTo: 'to-violet-600',
         },
         secondary: {
           agent: 'M7',
           title: 'Marp7 - Nurture Strategy 📧',
           subtitle: 'Stratégie de Nurture',
-          color: 'border-teal-500/50',
-          gradientFrom: 'from-teal-500',
-          gradientTo: 'to-cyan-600',
+          color: 'border-fuchsia-500/50',
+          gradientFrom: 'from-fuchsia-500',
+          gradientTo: 'to-fuchsia-600',
         },
       };
     
@@ -80,15 +80,15 @@ const getAgentConfig = (mode) => {
           subtitle: 'Analyse de Produit',
           color: 'border-indigo-500/50',
           gradientFrom: 'from-indigo-500',
-          gradientTo: 'to-blue-600',
+          gradientTo: 'to-indigo-600',
         },
         secondary: {
           agent: 'M3',
           title: 'Marp3 - Reality Check ⚖️',
           subtitle: 'Critique de Marp3',
-          color: 'border-rose-500/50',
-          gradientFrom: 'from-rose-500',
-          gradientTo: 'to-orange-500',
+          color: 'border-slate-500/50',
+          gradientFrom: 'from-slate-500',
+          gradientTo: 'to-slate-600',
         },
       };
   }
@@ -115,9 +115,16 @@ function App() {
     try {
       const response = await sendChatMessage(projectDescription);
       
+      // Debug: Log de la réponse complète pour vérifier le mode
+      console.log('🔍 API Response Mode:', response.mode);
+      console.log('🔍 API Response Complete:', response);
+      
       // Capturer le mode et le verdict final
       if (response.mode) {
         setMode(response.mode);
+        console.log('✅ Mode défini dans le state:', response.mode);
+      } else {
+        console.warn('⚠️ Aucun mode détecté dans la réponse API');
       }
       if (response.final_verdict) {
         setFinalVerdict(response.final_verdict);
@@ -150,6 +157,11 @@ function App() {
 
   // Calculer la configuration des agents en fonction du mode
   const agentConfig = getAgentConfig(mode);
+  
+  // Debug: Log de la configuration utilisée
+  if (mode) {
+    console.log('🎯 Configuration appliquée pour le mode:', mode, agentConfig);
+  }
 
   return (
     <div className="min-h-screen bg-slate-950">
