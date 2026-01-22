@@ -11,16 +11,28 @@ function App() {
   const [marp3Data, setMarp3Data] = useState(null);
   const [loadingStage, setLoadingStage] = useState(null); // 'marp1' | 'marp3' | null
   const [error, setError] = useState(null);
+  const [mode, setMode] = useState(null);
+  const [finalVerdict, setFinalVerdict] = useState(null);
 
   const handleSubmit = async (projectDescription) => {
     setIsLoading(true);
     setError(null);
     setMarp1Data(null);
     setMarp3Data(null);
+    setMode(null);
+    setFinalVerdict(null);
     setLoadingStage('marp1');
 
     try {
       const response = await sendChatMessage(projectDescription);
+      
+      // Capturer le mode et le verdict final
+      if (response.mode) {
+        setMode(response.mode);
+      }
+      if (response.final_verdict) {
+        setFinalVerdict(response.final_verdict);
+      }
       
       // Simuler le chargement séquentiel pour l'UX
       // Marp1 arrive en premier (product_analysis)
@@ -83,6 +95,63 @@ function App() {
             >
               <p className="font-semibold">Erreur</p>
               <p className="text-sm">{error}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Mission Control - Mode Detection */}
+        <AnimatePresence>
+          {(mode || finalVerdict) && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="max-w-7xl mx-auto mb-6"
+            >
+              <div className="relative overflow-hidden rounded-xl border-2 border-slate-700/50 bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm shadow-xl">
+                {/* Animated background gradient based on mode */}
+                <div className={`absolute inset-0 opacity-20 ${
+                  mode?.includes('TECH') || mode?.includes('tech') 
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500' 
+                    : mode?.includes('SALES') || mode?.includes('sales')
+                    ? 'bg-gradient-to-r from-emerald-500 to-green-500'
+                    : 'bg-gradient-to-r from-indigo-500 to-purple-500'
+                }`} />
+                
+                <div className="relative p-5">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    {/* Mode Badge */}
+                    {mode && (
+                      <div className="flex items-center gap-3">
+                        <div className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm ${
+                          mode?.includes('TECH') || mode?.includes('tech')
+                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50'
+                            : mode?.includes('SALES') || mode?.includes('sales')
+                            ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/50'
+                            : 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50'
+                        }`}>
+                          <span className="text-lg">🎯</span>
+                          <span>Mode Détecté :</span>
+                          <span className="uppercase tracking-wider">{mode}</span>
+                        </div>
+                        {/* Active Squad Indicator */}
+                        <div className="flex items-center gap-2 text-slate-300 text-sm">
+                          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                          <span>Squad Active</span>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Final Verdict */}
+                    {finalVerdict && (
+                      <div className="flex-1 md:text-right">
+                        <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Verdict Final</p>
+                        <p className="text-slate-100 font-semibold text-sm leading-relaxed">{finalVerdict}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
