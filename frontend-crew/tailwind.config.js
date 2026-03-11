@@ -8,9 +8,20 @@ export default {
     extend: {
       colors: {
         'mission-control': {
-          bg: '#0f172a', // slate-900
-          dark: '#020617', // slate-950
-        }
+          bg: '#111827',
+          dark: '#0A0F1C',
+        },
+        'brand-blue': '#3B82F6',
+        'brand-purple': '#8B5CF6',
+        'brand-cyan': '#06B6D4',
+        'bg-primary': '#0A0F1C',
+        'bg-secondary': '#111827',
+        'bg-surface': '#1F2937',
+      },
+      fontFamily: {
+        heading: ["'Montserrat'", 'sans-serif'],
+        body: ["'Inter'", 'sans-serif'],
+        code: ["'Fira Code'", 'monospace'],
       }
     },
   },
