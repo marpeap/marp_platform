@@ -499,13 +499,7 @@ a:hover {
   display: block;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800;
-  background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple), var(--brand-cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  background-size: 200% auto;
-  animation: gradientShift 3s ease infinite;
+  color: var(--brand-blue);
 }
 
 @keyframes gradientShift {
