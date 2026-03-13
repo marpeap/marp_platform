@@ -41,20 +41,18 @@ async function sendEmailNotification(contactData) {
     console.warn('⚠️ EmailJS non configuré. Les notifications par email ne seront pas envoyées.');
     console.warn('💡 Pour configurer EmailJS, modifiez js/emailjs-config.js avec vos identifiants.');
     
-    // Diagnostic détaillé
+    // Diagnostic
     if (window.EMAILJS_CONFIG) {
+      const hasPublicKey = window.EMAILJS_CONFIG.PUBLIC_KEY && !window.EMAILJS_CONFIG.PUBLIC_KEY.startsWith('VOTRE_');
+      const hasServiceId = window.EMAILJS_CONFIG.SERVICE_ID && !window.EMAILJS_CONFIG.SERVICE_ID.startsWith('VOTRE_');
+      const hasTemplateId = window.EMAILJS_CONFIG.TEMPLATE_ID && !window.EMAILJS_CONFIG.TEMPLATE_ID.startsWith('VOTRE_');
+      const hasAutoReplyId = window.EMAILJS_CONFIG.AUTOREPLY_TEMPLATE_ID && !window.EMAILJS_CONFIG.AUTOREPLY_TEMPLATE_ID.startsWith('VOTRE_');
       console.warn('📋 État de la configuration:');
-      console.warn('  - Public Key:', window.EMAILJS_CONFIG.PUBLIC_KEY === 'FDKh_5nUofVZbjniz' ? '✅' : '❌');
-      console.warn('  - Service ID:', window.EMAILJS_CONFIG.SERVICE_ID === 'service_gvyrpik' ? '✅' : '❌');
-      console.warn('  - Template ID (Notification):', window.EMAILJS_CONFIG.TEMPLATE_ID === 'template_k5lgn2g' ? '✅' : '❌');
-      console.warn('  - Template ID (Auto-Reply):', window.EMAILJS_CONFIG.AUTOREPLY_TEMPLATE_ID === 'template_didr2ab' ? '✅' : '❌');
+      console.warn('  - Public Key:', hasPublicKey ? '✅' : '❌');
+      console.warn('  - Service ID:', hasServiceId ? '✅' : '❌');
+      console.warn('  - Template ID (Notification):', hasTemplateId ? '✅' : '❌');
+      console.warn('  - Template ID (Auto-Reply):', hasAutoReplyId ? '✅' : '❌');
       console.warn('  - EmailJS SDK:', typeof window.emailjs !== 'undefined' ? '✅' : '❌ NON CHARGÉ');
-      
-      if (window.EMAILJS_CONFIG.TEMPLATE_ID === 'YOUR_TEMPLATE_ID') {
-        console.error('❌ PROBLÈME PRINCIPAL: Template ID non configuré !');
-        console.error('💡 Solution: Créez un template dans EmailJS Dashboard et ajoutez le Template ID dans js/emailjs-config.js');
-        console.error('💡 Consultez DEBUG_EMAILJS.md pour les instructions détaillées');
-      }
     }
     
     return { success: false, reason: 'EmailJS not configured' };
