@@ -503,6 +503,8 @@ a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
   animation: gradientShift 3s ease infinite;
 }
 
@@ -828,10 +830,7 @@ a:hover {
 .section-title {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: var(--spacing-md);
-  background: linear-gradient(135deg, var(--text-primary), var(--brand-cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 .section-subtitle {
@@ -954,6 +953,182 @@ a:hover {
   color: var(--brand-blue);
   font-size: 0.875rem;
   font-weight: 600;
+}
+
+/* ========================================
+   ECOSYSTEM JOURNEY SECTION
+   ======================================== */
+
+.eco-journey {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+/* Vertical connecting line — centered */
+.eco-journey::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.06) 10%,
+    rgba(255, 255, 255, 0.06) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+.eco-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  position: relative;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.eco-step.eco-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.eco-bottom {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.eco-bottom.eco-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Marker column (number + label) */
+.eco-step-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.eco-number {
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.06);
+  letter-spacing: -0.02em;
+}
+
+.eco-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brand-cyan);
+}
+
+/* Content column */
+.eco-step-content {
+  padding-top: 0.75rem;
+}
+
+.eco-step-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.eco-step-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+/* Zigzag: even steps flip marker to right */
+.eco-step:nth-child(even) .eco-step-marker {
+  order: 2;
+  align-items: flex-start;
+}
+
+.eco-step:nth-child(even) .eco-step-content {
+  order: 1;
+  text-align: right;
+}
+
+.eco-step:nth-child(even) .eco-step-text {
+  margin-left: auto;
+}
+
+/* Bottom CTA */
+.eco-bottom {
+  text-align: center;
+  margin-top: 5rem;
+  position: relative;
+}
+
+.eco-bottom-tagline {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* Mobile ecosystem */
+@media (max-width: 768px) {
+  .eco-journey {
+    gap: 4rem;
+  }
+
+  .eco-journey::before {
+    display: none;
+  }
+
+  .eco-step {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .eco-step-marker {
+    align-items: flex-start !important;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .eco-number {
+    font-size: 2.5rem;
+  }
+
+  .eco-step:nth-child(even) .eco-step-marker {
+    order: 0;
+  }
+
+  .eco-step:nth-child(even) .eco-step-content {
+    order: 0;
+    text-align: left;
+  }
+
+  .eco-step:nth-child(even) .eco-step-text {
+    margin-left: 0;
+  }
+
+  .eco-step-text {
+    max-width: 100%;
+  }
+
+  .eco-bottom {
+    margin-top: 3rem;
+  }
 }
 
 /* ========================================
