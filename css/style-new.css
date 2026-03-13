@@ -1616,10 +1616,6 @@ a:hover {
     grid-template-columns: 1fr;
   }
   
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-  
   .cta-box {
     padding: var(--spacing-xl) var(--spacing-md);
   }
@@ -1868,14 +1864,46 @@ a:hover {
     -webkit-overflow-scrolling: touch;
   }
   
-  /* Better footer on mobile */
+  /* Compact footer on mobile */
+  .footer {
+    padding: var(--spacing-lg) 0 var(--spacing-sm);
+  }
+
   .footer-content {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
   }
-  
+
+  .footer-brand h3 {
+    font-size: 1.1rem;
+  }
+
   .footer-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .footer-column h4 {
+    font-size: 0.8rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .footer-column ul li {
+    margin-bottom: 0.2rem;
+  }
+
+  .footer-column ul li a {
+    font-size: 0.75rem;
+  }
+
+  .footer-bottom {
+    padding-top: var(--spacing-sm);
+    font-size: 0.75rem;
+  }
+
+  .footer-bottom p {
+    margin-bottom: 0.15rem;
   }
   
   /* Improved contact info */
