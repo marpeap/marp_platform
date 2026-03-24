@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
           suivi: '✗ Support générique'
         }
       },
-      note: 'En tant que développeur freelance, je vous offre une relation directe, sans intermédiaire. Vous économisez jusqu\'à 60% par rapport à une agence tout en bénéficiant d\'un service personnalisé et réactif. Chaque projet est traité avec la même attention, car votre satisfaction est ma priorité.'
+      note: 'Chez Marpeap Digitals, nous vous offrons une relation directe, sans intermédiaire. Vous bénéficiez d\'un service personnalisé et réactif à un tarif compétitif. Chaque projet est traité avec la même attention, car votre satisfaction est notre priorité.'
     },
     'design-uiux': {
       id: 'design-uiux',
@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
           comprehension: '✗ Vision fragmentée'
         }
       },
-      note: 'En tant que développeur freelance, je maîtrise à la fois le design et le développement. Cela signifie que mes designs sont toujours réalisables techniquement et optimisés pour la performance. Vous économisez jusqu\'à 70% par rapport à une agence tout en bénéficiant d\'une vision cohérente de votre projet.'
+      note: 'Chez Marpeap Digitals, nous maîtrisons à la fois le design et le développement. Nos designs sont toujours réalisables techniquement et optimisés pour la performance. Vous bénéficiez d\'une vision cohérente de votre projet à un tarif compétitif.'
     },
     'ecommerce': {
       id: 'ecommerce',
@@ -420,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
           personnalisation: '✗ Solutions génériques'
         }
       },
-      note: 'Les solutions e-commerce d\'agences sont souvent surdimensionnées et coûteuses. En tant que freelance, je crée des boutiques optimisées pour vos besoins réels, sans fonctionnalités inutiles. Vous économisez jusqu\'à 75% tout en obtenant une solution parfaitement adaptée à votre activité.'
+      note: 'Les solutions e-commerce classiques sont souvent surdimensionnées et coûteuses. Chez Marpeap Digitals, nous créons des boutiques optimisées pour vos besoins réels, sans fonctionnalités inutiles. Vous obtenez une solution parfaitement adaptée à votre activité, à un tarif compétitif.'
     },
     'applications-web': {
       id: 'applications-web',
@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function() {
           evolutivite: '✗ Contrats rigides'
         }
       },
-      note: 'Les applications métier nécessitent une compréhension approfondie de vos besoins. En tant que freelance, je travaille directement avec vous pour créer exactement ce dont vous avez besoin, sans surdimensionnement. Vous économisez jusqu\'à 80% par rapport à une agence tout en obtenant une solution parfaitement adaptée.'
+      note: 'Les applications métier nécessitent une compréhension approfondie de vos besoins. Chez Marpeap Digitals, nous travaillons directement avec vous pour créer exactement ce dont vous avez besoin, sans surdimensionnement. Vous obtenez une solution parfaitement adaptée à un tarif compétitif.'
     },
     'optimisation-seo': {
       id: 'optimisation-seo',
@@ -520,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function() {
           reactivite: '✗ Processus lent'
         }
       },
-      note: 'Le SEO nécessite une compréhension technique approfondie de votre site. En tant que développeur freelance, je peux optimiser directement le code et la structure, ce qu\'une agence SEO classique ne peut pas faire. Vous économisez jusqu\'à 70% tout en bénéficiant d\'une approche technique complète.'
+      note: 'Le SEO nécessite une compréhension technique approfondie de votre site. Chez Marpeap Digitals, nous optimisons directement le code et la structure, ce qu\'une agence SEO classique ne peut pas faire. Vous bénéficiez d\'une approche technique complète à un tarif compétitif.'
     },
     'maintenance-support': {
       id: 'maintenance-support',
@@ -570,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function() {
           transparence: '✗ Facturation complexe'
         }
       },
-      note: 'Qui mieux que le développeur qui a créé votre site peut le maintenir efficacement ? En tant que freelance, je connais parfaitement votre projet et peux intervenir rapidement. Vous économisez jusqu\'à 75% par rapport aux forfaits d\'agence tout en bénéficiant d\'un service personnalisé et réactif.'
+      note: 'Qui mieux que l\'équipe qui a créé votre site peut le maintenir efficacement ? Chez Marpeap Digitals, nous connaissons parfaitement votre projet et pouvons intervenir rapidement. Vous bénéficiez d\'un service personnalisé et réactif à un tarif compétitif.'
     },
     'refonte-site': {
       id: 'refonte-site',
@@ -620,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function() {
           delai: '✗ Processus long et complexe'
         }
       },
-      note: 'La refonte nécessite une compréhension fine de votre site existant et de vos besoins. En tant que freelance, je prends le temps d\'analyser en profondeur votre site actuel avant de proposer une solution optimale. Vous économisez jusqu\'à 70% par rapport à une agence tout en bénéficiant d\'une refonte sur-mesure qui préserve votre référencement.'
+      note: 'La refonte nécessite une compréhension fine de votre site existant et de vos besoins. Chez Marpeap Digitals, nous prenons le temps d\'analyser en profondeur votre site actuel avant de proposer une solution optimale. Vous bénéficiez d\'une refonte sur-mesure qui préserve votre référencement, à un tarif compétitif.'
     },
     'integration-api': {
       id: 'integration-api',
@@ -670,7 +670,7 @@ document.addEventListener('DOMContentLoaded', function() {
           documentation: '✗ Documentation minimale'
         }
       },
-      note: 'Les intégrations API nécessitent une expertise technique pointue et une compréhension approfondie de votre architecture. En tant que freelance spécialisé, je crée des intégrations sur-mesure, bien documentées et faciles à maintenir. Vous économisez jusqu\'à 75% par rapport à une agence tout en obtenant une solution technique de qualité professionnelle.'
+      note: 'Les intégrations API nécessitent une expertise technique pointue et une compréhension approfondie de votre architecture. Chez Marpeap Digitals, nous créons des intégrations sur-mesure, bien documentées et faciles à maintenir. Vous obtenez une solution technique de qualité professionnelle à un tarif compétitif.'
     },
     'migration-modernisation': {
       id: 'migration-modernisation',
@@ -720,7 +720,7 @@ document.addEventListener('DOMContentLoaded', function() {
           support: '✗ Supplémentaire'
         }
       },
-      note: 'Les migrations nécessitent une attention méticuleuse et une planification rigoureuse. En tant que freelance, je prends le temps nécessaire pour comprendre votre système actuel et créer un plan de migration sur-mesure. Vous économisez jusqu\'à 80% par rapport à une agence tout en bénéficiant d\'une migration sécurisée et bien planifiée.'
+      note: 'Les migrations nécessitent une attention méticuleuse et une planification rigoureuse. Chez Marpeap Digitals, nous prenons le temps nécessaire pour comprendre votre système actuel et créer un plan de migration sur-mesure. Vous bénéficiez d\'une migration sécurisée et bien planifiée à un tarif compétitif.'
     },
     'audit-technique': {
       id: 'audit-technique',
@@ -770,7 +770,7 @@ document.addEventListener('DOMContentLoaded', function() {
           suivi: '✗ Liste générique'
         }
       },
-      note: 'Un audit technique efficace nécessite une expertise technique approfondie et du temps pour analyser en détail. En tant que freelance, je prends le temps nécessaire pour examiner chaque aspect de votre site et vous fournir un rapport actionnable. Vous économisez jusqu\'à 75% par rapport à une agence tout en obtenant une analyse plus détaillée et personnalisée.'
+      note: 'Un audit technique efficace nécessite une expertise approfondie et du temps pour analyser en détail. Chez Marpeap Digitals, nous prenons le temps nécessaire pour examiner chaque aspect de votre site et vous fournir un rapport actionnable. Vous obtenez une analyse détaillée et personnalisée à un tarif compétitif.'
     },
     'formation-accompagnement': {
       id: 'formation-accompagnement',
@@ -820,7 +820,7 @@ document.addEventListener('DOMContentLoaded', function() {
           support: '✗ Supplémentaire'
         }
       },
-      note: 'La formation est plus efficace quand elle est personnalisée à votre site et à votre niveau. En tant que freelance, je connais parfaitement votre site puisque je l\'ai créé, et j\'adapte la formation à vos besoins réels. Vous économisez jusqu\'à 80% par rapport à une agence tout en bénéficiant d\'une formation sur-mesure et d\'un accompagnement personnalisé.'
+      note: 'La formation est plus efficace quand elle est personnalisée à votre site et à votre niveau. Chez Marpeap Digitals, nous connaissons parfaitement votre site puisque nous l\'avons créé, et nous adaptons la formation à vos besoins réels. Vous bénéficiez d\'une formation sur-mesure et d\'un accompagnement personnalisé à un tarif compétitif.'
     },
     'hebergement-deploiement': {
       id: 'hebergement-deploiement',
@@ -870,7 +870,7 @@ document.addEventListener('DOMContentLoaded', function() {
           optimisation: '✗ Configuration standard'
         }
       },
-      note: 'L\'hébergement et le déploiement nécessitent une configuration adaptée à votre site spécifique. En tant que freelance, je configure tout de manière optimale pour votre projet, sans marges cachées. Vous économisez jusqu\'à 70% par rapport à une agence tout en bénéficiant d\'une configuration sur-mesure et d\'un support réactif.'
+      note: 'L\'hébergement et le déploiement nécessitent une configuration adaptée à votre site spécifique. Chez Marpeap Digitals, nous configurons tout de manière optimale pour votre projet, sans marges cachées. Vous bénéficiez d\'une configuration sur-mesure et d\'un support réactif à un tarif compétitif.'
     },
     'optimisation-performance': {
       id: 'optimisation-performance',
@@ -920,7 +920,7 @@ document.addEventListener('DOMContentLoaded', function() {
           suivi: '✗ Supplémentaire'
         }
       },
-      note: 'L\'optimisation de performance nécessite une analyse technique approfondie de votre site spécifique. En tant que freelance, j\'identifie les vrais goulots d\'étranglement et applique des optimisations ciblées et mesurables. Vous économisez jusqu\'à 75% par rapport à une agence tout en obtenant des résultats concrets et mesurables.'
+      note: 'L\'optimisation de performance nécessite une analyse technique approfondie de votre site spécifique. Chez Marpeap Digitals, nous identifions les vrais goulots d\'étranglement et appliquons des optimisations ciblées et mesurables. Vous obtenez des résultats concrets et mesurables à un tarif compétitif.'
     },
     'securite-web': {
       id: 'securite-web',
@@ -970,7 +970,7 @@ document.addEventListener('DOMContentLoaded', function() {
           documentation: '✗ Documentation minimale'
         }
       },
-      note: 'La sécurité web nécessite une expertise technique pointue et une attention aux détails. En tant que freelance spécialisé, je prends le temps d\'analyser en profondeur votre site et de corriger toutes les vulnérabilités identifiées. Vous économisez jusqu\'à 80% par rapport à une agence tout en bénéficiant d\'un niveau de sécurité professionnel et d\'une documentation complète.'
+      note: 'La sécurité web nécessite une expertise technique pointue et une attention aux détails. Chez Marpeap Digitals, nous prenons le temps d\'analyser en profondeur votre site et de corriger toutes les vulnérabilités identifiées. Vous bénéficiez d\'un niveau de sécurité professionnel et d\'une documentation complète à un tarif compétitif.'
     },
     'chiffrement-grapheneos': {
       id: 'chiffrement-grapheneos',
@@ -1023,7 +1023,7 @@ document.addEventListener('DOMContentLoaded', function() {
           formation: '✗ Formation standardisée'
         }
       },
-      note: 'L\'installation de Graphène OS nécessite une expertise technique pointue et une attention méticuleuse pour éviter toute perte de données. En tant que freelance spécialisé, je prends le temps nécessaire pour sauvegarder vos données, installer le système correctement et vous former à son utilisation. Vous économisez jusqu\'à 85% par rapport à une agence tout en bénéficiant d\'un service personnalisé et d\'un support réactif.'
+      note: 'L\'installation de Graphène OS nécessite une expertise technique pointue et une attention méticuleuse pour éviter toute perte de données. Chez Marpeap Digitals, nous prenons le temps nécessaire pour sauvegarder vos données, installer le système correctement et vous former à son utilisation. Vous bénéficiez d\'un service personnalisé et d\'un support réactif à un tarif compétitif.'
     },
     'consulting-digital': {
       id: 'consulting-digital',
@@ -1076,7 +1076,7 @@ document.addEventListener('DOMContentLoaded', function() {
           suivi: '✗ Supplémentaire'
         }
       },
-      note: 'Le consulting digital est plus efficace quand il est personnalisé à votre situation spécifique. En tant que freelance, je prends le temps de comprendre en profondeur vos besoins et votre contexte avant de proposer des recommandations concrètes et actionnables. Vous économisez jusqu\'à 80% par rapport à une agence tout en bénéficiant d\'un conseil plus pertinent et d\'un accompagnement personnalisé.'
+      note: 'Le consulting digital est plus efficace quand il est personnalisé à votre situation spécifique. Chez Marpeap Digitals, nous prenons le temps de comprendre en profondeur vos besoins et votre contexte avant de proposer des recommandations concrètes et actionnables. Vous bénéficiez d\'un conseil pertinent et d\'un accompagnement personnalisé à un tarif compétitif.'
     }
   };
 
@@ -1178,7 +1178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <div class="form-section">
-          <h4>Prix - Freelance Lambda</h4>
+          <h4>Prix - Prestataire Lambda</h4>
           <div class="form-row">
             ${service.prices.freelance.simple ? `
               <div class="form-group">
