@@ -1,3 +1,20 @@
+// Rate limiter — 3 submissions max per 15 minutes
+var _formRL = {
+  key: 'marpeap_form_rl',
+  max: 3,
+  window: 15 * 60 * 1000,
+  check: function () {
+    var raw = localStorage.getItem(this.key);
+    var stamps = raw ? JSON.parse(raw) : [];
+    var now = Date.now();
+    stamps = stamps.filter(function (t) { return now - t < _formRL.window; });
+    if (stamps.length >= this.max) return false;
+    stamps.push(now);
+    localStorage.setItem(this.key, JSON.stringify(stamps));
+    return true;
+  }
+};
+
 // Function to send auto-reply email to client via EmailJS
 async function sendAutoReply(contactData) {
   const config = window.EMAILJS_CONFIG;
@@ -39,7 +56,7 @@ async function sendEmailNotification(contactData) {
   // Vérifier si EmailJS est configuré et disponible
   if (!window.EMAILJS_CONFIG || !window.isEmailJSConfigured || !window.isEmailJSConfigured()) {
     console.warn('⚠️ EmailJS non configuré. Les notifications par email ne seront pas envoyées.');
-    console.warn('💡 Pour configurer EmailJS, modifiez js/emailjs-config.js avec vos identifiants.');
+    console.warn('💡 EmailJS se configure via les variables dans la page HTML.');
     
     // Diagnostic
     if (window.EMAILJS_CONFIG) {
@@ -359,6 +376,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Form submission
   contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
+
+    // Rate limit check
+    if (!_formRL.check()) {
+      alert('Vous avez envoyé trop de messages. Veuillez réessayer dans quelques minutes.');
+      return;
+    }
 
     // Clear previous errors
     ['name', 'email', 'message'].forEach(field => clearError(field));
@@ -883,6 +906,12 @@ document.addEventListener('DOMContentLoaded', function() {
   if (appointmentForm) {
     appointmentForm.addEventListener('submit', async function(e) {
       e.preventDefault();
+
+      // Rate limit check
+      if (!_formRL.check()) {
+        alert('Vous avez envoyé trop de demandes. Veuillez réessayer dans quelques minutes.');
+        return;
+      }
 
       const appointmentName = document.getElementById('appointmentName').value.trim();
       const appointmentEmail = document.getElementById('appointmentEmail').value.trim();

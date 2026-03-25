@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- GTM chargé via js/cookie-consent.js après consentement RGPD -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Mentions Légales & Politique de Confidentialité | Marpeap Digitals</title>
+    <meta name="description" content="Mentions légales, politique de confidentialité et politique de cookies de Marpeap Digitals — agence digitale à Rennes.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="author" content="Marpeap Digitals">
+
+    <link rel="canonical" href="https://www.marpeap.com/mentions-legales.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.marpeap.com/mentions-legales.html">
+    <meta property="og:title" content="Mentions Légales | Marpeap Digitals">
+    <meta property="og:description" content="Mentions légales et politique de confidentialité de Marpeap Digitals.">
+    <meta property="og:site_name" content="Marpeap Digitals">
+
+    <meta name="theme-color" content="#0A0F1C">
+
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Marpeap" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0A0F1C 0%, #1a1f35 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 15, 28, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-brand span {
+            color: #3b82f6;
+        }
+
+        .nav-back {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: #60a5fa;
+        }
+
+        /* Main Content */
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .legal-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .legal-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .legal-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .legal-nav a:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+        }
+
+        .legal-section {
+            margin-bottom: 3rem;
+        }
+
+        .legal-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .legal-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-section p,
+        .legal-section li {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .legal-section ul li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .legal-section ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+        }
+
+        .legal-section a {
+            color: #60a5fa;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .legal-section a:hover {
+            color: #93bbfc;
+        }
+
+        .legal-section strong {
+            color: #f1f5f9;
+        }
+
+        .info-card {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .info-card p {
+            margin-bottom: 0.4rem;
+        }
+
+        .info-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 15, 28, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #60a5fa;
+        }
+
+        @media (max-width: 640px) {
+            .legal-container {
+                padding: 6rem 1.25rem 3rem;
+            }
+
+            .legal-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .legal-nav {
+                gap: 0.5rem;
+            }
+
+            .legal-nav a {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- GTM noscript injecté par cookie-consent.js après consentement -->
+
+    <nav class="nav">
+        <a href="index.html" class="nav-brand">MARPEAP<span>.</span></a>
+        <a href="index.html" class="nav-back">&larr; Retour au site</a>
+    </nav>
+
+    <main class="legal-container">
+        <div class="legal-header">
+            <h1>Mentions Légales & Confidentialité</h1>
+            <p>Dernière mise à jour : 25 mars 2026</p>
+        </div>
+
+        <nav class="legal-nav" aria-label="Navigation légale">
+            <a href="#mentions">Mentions légales</a>
+            <a href="#confidentialite">Confidentialité</a>
+            <a href="#cookies">Cookies</a>
+            <a href="#droits">Vos droits</a>
+        </nav>
+
+        <!-- MENTIONS LEGALES -->
+        <section id="mentions" class="legal-section">
+            <h2>1. Mentions légales</h2>
+
+            <h3>Editeur du site</h3>
+            <div class="info-card">
+                <p><strong>Marpeap Digitals</strong></p>
+                <p>Adresse : Rennes, Bretagne, France</p>
+                <p>Telephone : <a href="tel:+33230964030">02 30 96 40 30</a></p>
+                <p>Email : <a href="mailto:contact@marpeap.digital">contact@marpeap.digital</a></p>
+                <p>Site web : <a href="https://www.marpeap.com">www.marpeap.com</a></p>
+            </div>
+
+            <h3>Hebergement</h3>
+            <div class="info-card">
+                <p><strong>Vercel Inc.</strong></p>
+                <p>440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
+                <p>Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></p>
+            </div>
+
+            <h3>Propriete intellectuelle</h3>
+            <p>L'ensemble du contenu de ce site (textes, images, logos, graphismes, icones, code source) est la propriete exclusive de Marpeap Digitals ou de ses partenaires. Toute reproduction, representation, modification ou exploitation, meme partielle, est interdite sans autorisation ecrite prealable.</p>
+            <p>Les marques et logos presents sur le site sont des marques deposees. Leur utilisation sans autorisation constitue une contrefacon.</p>
+
+            <h3>Responsabilite</h3>
+            <p>Marpeap Digitals s'efforce de fournir des informations exactes et a jour. Toutefois, nous ne garantissons pas l'exhaustivite ni l'absence d'erreurs. L'utilisation des informations du site se fait sous la responsabilite de l'utilisateur.</p>
+            <p>Les liens vers des sites tiers sont fournis a titre informatif. Marpeap Digitals n'est pas responsable du contenu de ces sites externes.</p>
+        </section>
+
+        <!-- POLITIQUE DE CONFIDENTIALITE -->
+        <section id="confidentialite" class="legal-section">
+            <h2>2. Politique de confidentialité</h2>
+
+            <p>Marpeap Digitals s'engage a proteger la vie privee de ses utilisateurs conformement au <strong>Reglement General sur la Protection des Donnees (RGPD)</strong> et a la <strong>loi Informatique et Libertes</strong>.</p>
+
+            <h3>Donnees collectees</h3>
+            <p>Nous collectons uniquement les donnees strictement necessaires :</p>
+            <ul>
+                <li><strong>Formulaire de contact</strong> : nom, adresse email, message, et eventuellement le service ou pack selectionne. Ces donnees sont transmises via EmailJS et ne sont pas stockees sur nos serveurs.</li>
+                <li><strong>Donnees de navigation</strong> : adresse IP anonymisee, type de navigateur, pages visitees, duree de visite. Ces donnees sont collectees via Google Tag Manager / Google Analytics a des fins statistiques.</li>
+            </ul>
+
+            <h3>Finalites du traitement</h3>
+            <ul>
+                <li>Repondre a vos demandes de contact et devis</li>
+                <li>Ameliorer l'experience utilisateur et les performances du site</li>
+                <li>Realiser des statistiques de frequentation anonymisees</li>
+            </ul>
+
+            <h3>Base legale</h3>
+            <ul>
+                <li><strong>Consentement</strong> : pour les cookies non essentiels et l'envoi du formulaire de contact</li>
+                <li><strong>Interet legitime</strong> : pour les statistiques de frequentation et l'amelioration du site</li>
+            </ul>
+
+            <h3>Duree de conservation</h3>
+            <ul>
+                <li><strong>Donnees de contact</strong> : conservees le temps necessaire au traitement de votre demande, puis supprimees dans un delai maximum de 12 mois</li>
+                <li><strong>Donnees de navigation</strong> : 14 mois maximum (duree standard Google Analytics)</li>
+            </ul>
+
+            <h3>Destinataires des donnees</h3>
+            <p>Vos donnees peuvent etre transmises aux sous-traitants suivants, dans le cadre strict de leurs services :</p>
+            <ul>
+                <li><strong>EmailJS</strong> — traitement et acheminement des formulaires de contact</li>
+                <li><strong>Google (Analytics / Tag Manager)</strong> — mesure d'audience</li>
+                <li><strong>Vercel</strong> — hebergement du site</li>
+            </ul>
+            <p>Aucune donnee n'est vendue, louee ou cedee a des tiers a des fins commerciales.</p>
+
+            <h3>Transferts hors UE</h3>
+            <p>Certains sous-traitants (Google, Vercel, EmailJS) sont bases aux Etats-Unis. Ces transferts sont encadres par les <strong>clauses contractuelles types</strong> de la Commission europeenne et/ou le <strong>EU-US Data Privacy Framework</strong>, garantissant un niveau de protection adequat.</p>
+        </section>
+
+        <!-- POLITIQUE DE COOKIES -->
+        <section id="cookies" class="legal-section">
+            <h2>3. Politique de cookies</h2>
+
+            <h3>Qu'est-ce qu'un cookie ?</h3>
+            <p>Un cookie est un petit fichier texte depose sur votre navigateur lors de la visite d'un site web. Il permet de stocker des informations relatives a votre navigation.</p>
+
+            <h3>Cookies utilises sur ce site</h3>
+
+            <ul>
+                <li><strong>Cookies essentiels</strong> : necessaires au fonctionnement du site (aucune donnee personnelle). Ils ne requierent pas votre consentement.</li>
+                <li><strong>Cookies analytiques (Google Analytics via GTM)</strong> : permettent de mesurer l'audience du site de maniere anonymisee. Deposes uniquement apres votre consentement.</li>
+            </ul>
+
+            <h3>Gestion de vos preferences</h3>
+            <p>Vous pouvez a tout moment modifier vos preferences en matiere de cookies :</p>
+            <ul>
+                <li>Via les parametres de votre navigateur (Chrome, Firefox, Safari, Edge)</li>
+                <li>En supprimant les cookies existants depuis les parametres de votre navigateur</li>
+            </ul>
+            <p>La desactivation de certains cookies peut affecter votre experience de navigation sur le site.</p>
+        </section>
+
+        <!-- VOS DROITS -->
+        <section id="droits" class="legal-section">
+            <h2>4. Vos droits</h2>
+
+            <p>Conformement au RGPD, vous disposez des droits suivants concernant vos donnees personnelles :</p>
+
+            <ul>
+                <li><strong>Droit d'acces</strong> : obtenir la confirmation que vos donnees sont traitees et en recevoir une copie</li>
+                <li><strong>Droit de rectification</strong> : corriger des donnees inexactes ou incompletes</li>
+                <li><strong>Droit a l'effacement</strong> : demander la suppression de vos donnees</li>
+                <li><strong>Droit a la limitation</strong> : restreindre le traitement de vos donnees</li>
+                <li><strong>Droit a la portabilite</strong> : recevoir vos donnees dans un format structure</li>
+                <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos donnees</li>
+            </ul>
+
+            <p>Pour exercer ces droits, contactez-nous a : <a href="mailto:contact@marpeap.digital">contact@marpeap.digital</a></p>
+            <p>Nous nous engageons a repondre dans un delai de <strong>30 jours</strong>.</p>
+
+            <p>En cas de litige, vous pouvez adresser une reclamation aupres de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertes) :</p>
+            <div class="info-card">
+                <p><strong>CNIL</strong></p>
+                <p>3 Place de Fontenoy, TSA 80715</p>
+                <p>75334 Paris Cedex 07</p>
+                <p>Site : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Marpeap Digitals. Tous droits reserves.</p>
+        <p><a href="index.html">Accueil</a> &middot; <a href="packs.html">Packs</a> &middot; <a href="contact.html">Contact</a></p>
+    </footer>
+    <script src="js/cookie-consent.js" defer></script>
+</body>
+</html>

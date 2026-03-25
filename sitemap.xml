@@ -52,6 +52,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.com/contact.html"/>
   </url>
 
+  <!-- FAQ -->
+  <url>
+    <loc>https://www.marpeap.com/faq.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.com/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.com/faq.html"/>
+  </url>
+
+  <!-- Mentions légales & Confidentialité -->
+  <url>
+    <loc>https://www.marpeap.com/mentions-legales.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Section Services -->
   <url>
     <loc>https://www.marpeap.com/#services</loc>
