@@ -5,83 +5,67 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
+
   <!-- Page d'accueil -->
   <url>
-    <loc>https://www.marpeap.digital/</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://www.marpeap.com/</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.digital/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.digital/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.com/"/>
     <image:image>
-      <image:loc>https://www.marpeap.digital/assets/images/marpeap.png</image:loc>
-      <image:title>Marpeap Digitals - Logo - Développeur Web Indépendant à Rennes</image:title>
-      <image:caption>Marpeap Digitals - Développeur Web Indépendant à Rennes, spécialisé en création digitale</image:caption>
-      <image:license>https://www.marpeap.digital</image:license>
+      <image:loc>https://www.marpeap.com/assets/images/marpeap.png</image:loc>
+      <image:title>Marpeap Digitals - Agence digitale specialisee en IA et automatisation</image:title>
+      <image:caption>Marpeap Digitals - Agence digitale a Rennes, sites web, agents IA, automatisation</image:caption>
+      <image:license>https://www.marpeap.com</image:license>
     </image:image>
     <image:image>
-      <image:loc>https://www.marpeap.digital/assets/images/background.png</image:loc>
-      <image:title>Marpeap Digitals - Arrière-plan</image:title>
-      <image:caption>Arrière-plan du site Marpeap Digitals</image:caption>
+      <image:loc>https://www.marpeap.com/assets/images/marpeap-og.png</image:loc>
+      <image:title>Marpeap Digitals - Open Graph</image:title>
+      <image:caption>Marpeap Digitals - Outils digitaux pour entreprises ambitieuses</image:caption>
     </image:image>
   </url>
-  
-  <!-- Page Packs/Tarifs -->
+
+  <!-- Page Solutions / Packs -->
   <url>
-    <loc>https://www.marpeap.digital/packs.html</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://www.marpeap.com/packs.html</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.digital/packs.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.digital/packs.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.com/packs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.com/packs.html"/>
     <image:image>
-      <image:loc>https://www.marpeap.digital/assets/images/marpeap.png</image:loc>
-      <image:title>Marpeap Digitals - Packs Web</image:title>
-      <image:caption>Packs web complets : site vitrine, e-commerce, IA - Marpeap Digitals</image:caption>
+      <image:loc>https://www.marpeap.com/assets/images/marpeap.png</image:loc>
+      <image:title>Marpeap Digitals - Solutions et tarifs</image:title>
+      <image:caption>Site web, agent IA Google Ads, chatbot IA, equipe IA autonome - Marpeap Digitals</image:caption>
     </image:image>
   </url>
 
   <!-- Page Contact -->
   <url>
-    <loc>https://www.marpeap.digital/contact.html</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://www.marpeap.com/contact.html</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.digital/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.digital/contact.html"/>
-    <image:image>
-      <image:loc>https://www.marpeap.digital/assets/images/marpeap.png</image:loc>
-      <image:title>Marpeap Digitals - Contact</image:title>
-      <image:caption>Contactez Marpeap Digitals, développeur web indépendant à Rennes</image:caption>
-    </image:image>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marpeap.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marpeap.com/contact.html"/>
   </url>
-  
-  <!-- Sections de la page d'accueil (ancres) -->
+
+  <!-- Section Services -->
   <url>
-    <loc>https://www.marpeap.digital/#services</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://www.marpeap.com/#services</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
+  <!-- Section Contact -->
   <url>
-    <loc>https://www.marpeap.digital/#about</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://www.marpeap.com/#contact</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <url>
-    <loc>https://www.marpeap.digital/#portfolio</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
+
 </urlset>
-
-
-
-
-
