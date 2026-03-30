@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const input = document.getElementById(fieldId);
     if (input) {
-      input.style.borderColor = '#ef4444';
+      input.style.borderColor = '#FF5A5A';
     }
   }
 

@@ -27,7 +27,7 @@
     <meta name="twitter:description" content="Réponses à vos questions sur la création de site web, agents IA, chatbot et automatisation.">
     <meta name="twitter:image" content="https://www.marpeap.com/assets/images/marpeap-og.png">
 
-    <meta name="theme-color" content="#0A0F1C">
+    <meta name="theme-color" content="#080C18">
 
     <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
@@ -39,7 +39,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style-new.css">
 
     <!-- FAQ Schema JSON-LD pour rich snippets Google -->
     <script type="application/ld+json">
@@ -60,7 +62,7 @@
           "name": "Qu'est-ce qu'un agent IA Google Ads et comment ça fonctionne ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Notre agent IA Google Ads (M-CAMPAIGN) est un système autonome qui gère vos campagnes publicitaires 24h/24. Il analyse les performances en temps réel, ajuste les enchères, optimise les mots-clés et le budget automatiquement. Le setup est à 75€ puis l'abonnement est mensuel."
+            "text": "Notre agent IA Google Ads (M-CAMPAIGN) est un système autonome qui gère vos campagnes publicitaires 24h/24. Il analyse les performances en temps réel, ajuste les enchères, optimise les mots-clés et le budget automatiquement. L'abonnement démarre à 49€/mois, sans engagement."
           }
         },
         {
@@ -153,65 +155,9 @@
     </script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0A0F1C 0%, #1a1f35 100%);
-            color: #e2e8f0;
             min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
-            background: rgba(10, 15, 28, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .nav-brand span {
-            color: #3b82f6;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #3b82f6;
+            background: linear-gradient(135deg, #080C18 0%, #0F1629 100%);
         }
 
         /* Hero */
@@ -221,22 +167,15 @@
         }
 
         .faq-hero h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
             color: #fff;
             margin-bottom: 1rem;
         }
 
-        .faq-hero h1 span {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .faq-hero p {
-            color: #94a3b8;
+            color: #8492A6;
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
@@ -254,15 +193,15 @@
         }
 
         .faq-category-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
-            color: #3b82f6;
+            color: #4F8AFF;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            border-bottom: 1px solid rgba(79, 138, 255, 0.2);
         }
 
         /* Accordion */
@@ -276,7 +215,7 @@
         }
 
         .faq-item:hover {
-            border-color: rgba(59, 130, 246, 0.2);
+            border-color: rgba(79, 138, 255, 0.2);
         }
 
         .faq-question {
@@ -284,7 +223,7 @@
             background: none;
             border: none;
             color: #f1f5f9;
-            font-family: 'Inter', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             font-size: 1rem;
             font-weight: 500;
             text-align: left;
@@ -298,14 +237,14 @@
         }
 
         .faq-question:hover {
-            color: #3b82f6;
+            color: #4F8AFF;
         }
 
         .faq-question::after {
             content: "+";
             font-size: 1.3rem;
             font-weight: 300;
-            color: #3b82f6;
+            color: #4F8AFF;
             flex-shrink: 0;
             transition: transform 0.3s;
         }
@@ -326,13 +265,13 @@
 
         .faq-answer-inner {
             padding: 0 1.5rem 1.25rem;
-            color: #94a3b8;
+            color: #8492A6;
             font-size: 0.95rem;
             line-height: 1.7;
         }
 
         .faq-answer-inner a {
-            color: #60a5fa;
+            color: #7BA8FF;
             text-decoration: underline;
             text-underline-offset: 2px;
         }
@@ -345,14 +284,14 @@
         }
 
         .faq-cta p {
-            color: #94a3b8;
+            color: #8492A6;
             font-size: 1.05rem;
             margin-bottom: 1.5rem;
         }
 
         .faq-cta a {
             display: inline-block;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background: #4F8AFF;
             color: #fff;
             font-weight: 600;
             font-size: 1rem;
@@ -367,83 +306,7 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
-        .footer {
-            background: rgba(10, 15, 28, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 3rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-brand h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-brand p {
-            color: #94a3b8;
-        }
-
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .footer-column h4 {
-            color: #fff;
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.4rem;
-        }
-
-        .footer-column ul li a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .footer-column ul li a:hover {
-            color: #3b82f6;
-        }
-
-        .footer-bottom {
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: #94a3b8;
-            font-size: 0.85rem;
-        }
-
-        .footer-bottom p {
-            margin-bottom: 0.25rem;
-        }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
             .faq-hero h1 {
                 font-size: 1.8rem;
             }
@@ -456,32 +319,38 @@
                 font-size: 0.95rem;
                 padding: 1rem 1.25rem;
             }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-links {
-                grid-template-columns: 1fr 1fr;
-            }
         }
     </style>
 </head>
 <body>
 
-    <nav class="nav">
-        <a href="index.html" class="nav-brand">MARPEAP<span>.</span></a>
-        <div class="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="packs.html">Solutions</a>
-            <a href="faq.html" class="active">FAQ</a>
-            <a href="contact.html">Contact</a>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-text">MARPEAP</span>
+                <span class="brand-tagline">DIGITALS</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="packs.html" class="nav-link">Packs</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="https://app.marpeap.digital" class="nav-link">Shop</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="tel:+33230964030" class="btn-primary-nav">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 12.69v2.37a1.58 1.58 0 0 1-1.72 1.58 15.65 15.65 0 0 1-6.82-2.43 15.42 15.42 0 0 1-4.74-4.74A15.65 15.65 0 0 1 .8 2.72 1.58 1.58 0 0 1 2.35 1h2.37a1.58 1.58 0 0 1 1.58 1.36 10.15 10.15 0 0 0 .55 2.22 1.58 1.58 0 0 1-.36 1.67l-1 1a12.65 12.65 0 0 0 4.74 4.74l1-1a1.58 1.58 0 0 1 1.67-.36 10.15 10.15 0 0 0 2.22.55 1.58 1.58 0 0 1 1.38 1.6Z"/></svg>
+                    02 30 96 40 30
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <section class="faq-hero">
-        <h1>Questions <span>Frequentes</span></h1>
+        <h1>Questions frequentes</h1>
         <p>Tout ce que vous devez savoir sur nos services, nos tarifs et notre fonctionnement.</p>
     </section>
 
@@ -527,7 +396,7 @@
                 <button class="faq-question" aria-expanded="false">Qu'est-ce qu'un agent IA Google Ads et comment ca fonctionne ?</button>
                 <div class="faq-answer" role="region">
                     <div class="faq-answer-inner">
-                        Notre agent IA Google Ads (<strong>M-CAMPAIGN</strong>) est un systeme autonome qui gere vos campagnes publicitaires 24h/24. Il analyse les performances en temps reel, ajuste les encheres, optimise les mots-cles et le budget automatiquement. Le setup est a 75&#8364; puis l'abonnement est mensuel.
+                        Notre agent IA Google Ads (<strong>M-CAMPAIGN</strong>) est un systeme autonome qui gere vos campagnes publicitaires 24h/24. Il analyse les performances en temps reel, ajuste les encheres, optimise les mots-cles et le budget automatiquement. L'abonnement demarre a 49&#8364;/mois, sans engagement.
                     </div>
                 </div>
             </div>
@@ -616,41 +485,43 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>MARPEAP DIGITALS</h3>
-                <p>Code. Growth. Results.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>MARPEAP DIGITALS</h3>
+                    <p>Code. Growth. Results.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="index.html#services">Developpement Web</a></li>
+                            <li><a href="index.html#services">Marketing Digital</a></li>
+                            <li><a href="index.html#services">Intelligence Artificielle</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="tel:+33230964030">02 30 96 40 30</a></li>
+                            <li><a href="mailto:contact@marpeap.digital">contact@marpeap.digital</a></li>
+                            <li><a href="https://marpeap.com">marpeap.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Suivez-nous</h4>
+                        <ul>
+                            <li><a href="https://github.com/marpeap" target="_blank">GitHub</a></li>
+                            <li><a href="https://twitter.com/MarpeapX" target="_blank">Twitter/X</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="index.html#services">Developpement Web</a></li>
-                        <li><a href="index.html#services">Marketing Digital</a></li>
-                        <li><a href="index.html#services">Intelligence Artificielle</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="tel:+33230964030">02 30 96 40 30</a></li>
-                        <li><a href="mailto:contact@marpeap.digital">contact@marpeap.digital</a></li>
-                        <li><a href="https://marpeap.com">marpeap.com</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Suivez-nous</h4>
-                    <ul>
-                        <li><a href="https://github.com/marpeap" target="_blank">GitHub</a></li>
-                        <li><a href="https://twitter.com/MarpeapX" target="_blank">Twitter/X</a></li>
-                        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-                    </ul>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Marpeap Digitals. Tous droits reserves.</p>
+                <p><a href="mentions-legales.html" style="color: #8492A6; text-decoration: none;">Mentions legales & Confidentialite</a></p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Marpeap Digitals. Tous droits reserves.</p>
-            <p><a href="mentions-legales.html" style="color: #94a3b8; text-decoration: none;">Mentions legales & Confidentialite</a></p>
         </div>
     </footer>
 
@@ -673,6 +544,7 @@
         });
     });
     </script>
+    <script src="js/main-new.js"></script>
     <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>

@@ -18,7 +18,7 @@
     <meta property="og:description" content="Mentions légales et politique de confidentialité de Marpeap Digitals.">
     <meta property="og:site_name" content="Marpeap Digitals">
 
-    <meta name="theme-color" content="#0A0F1C">
+    <meta name="theme-color" content="#080C18">
 
     <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
@@ -29,61 +29,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style-new.css">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0A0F1C 0%, #1a1f35 100%);
-            color: #e2e8f0;
             min-height: 100vh;
-            line-height: 1.7;
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
-            background: rgba(10, 15, 28, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .nav-brand span {
-            color: #3b82f6;
-        }
-
-        .nav-back {
-            color: #3b82f6;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-back:hover {
-            color: #60a5fa;
+            background: linear-gradient(135deg, #080C18 0%, #0F1629 100%);
         }
 
         /* Main Content */
@@ -99,7 +52,7 @@
         }
 
         .legal-header h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
             font-weight: 800;
             color: #fff;
@@ -107,7 +60,7 @@
         }
 
         .legal-header p {
-            color: #94a3b8;
+            color: #8492A6;
             font-size: 0.95rem;
         }
 
@@ -122,19 +75,19 @@
         }
 
         .legal-nav a {
-            color: #3b82f6;
+            color: #4F8AFF;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 500;
             padding: 0.4rem 1rem;
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(79, 138, 255, 0.3);
             border-radius: 20px;
             transition: all 0.3s;
         }
 
         .legal-nav a:hover {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: #3b82f6;
+            background: rgba(79, 138, 255, 0.1);
+            border-color: #4F8AFF;
         }
 
         .legal-section {
@@ -142,17 +95,17 @@
         }
 
         .legal-section h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.4rem;
             font-weight: 700;
-            color: #3b82f6;
+            color: #4F8AFF;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            border-bottom: 1px solid rgba(79, 138, 255, 0.2);
         }
 
         .legal-section h3 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             color: #fff;
@@ -181,11 +134,11 @@
             content: "—";
             position: absolute;
             left: 0;
-            color: #3b82f6;
+            color: #4F8AFF;
         }
 
         .legal-section a {
-            color: #60a5fa;
+            color: #7BA8FF;
             text-decoration: underline;
             text-underline-offset: 2px;
         }
@@ -199,8 +152,8 @@
         }
 
         .info-card {
-            background: rgba(59, 130, 246, 0.05);
-            border: 1px solid rgba(59, 130, 246, 0.15);
+            background: rgba(79, 138, 255, 0.05);
+            border: 1px solid rgba(79, 138, 255, 0.15);
             border-radius: 8px;
             padding: 1.25rem;
             margin: 1rem 0;
@@ -212,29 +165,6 @@
 
         .info-card p:last-child {
             margin-bottom: 0;
-        }
-
-        /* Footer */
-        .footer {
-            background: rgba(10, 15, 28, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .footer p {
-            color: #94a3b8;
-            font-size: 0.85rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .footer a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #60a5fa;
         }
 
         @media (max-width: 640px) {
@@ -260,9 +190,29 @@
 <body>
     <!-- GTM noscript injecté par cookie-consent.js après consentement -->
 
-    <nav class="nav">
-        <a href="index.html" class="nav-brand">MARPEAP<span>.</span></a>
-        <a href="index.html" class="nav-back">&larr; Retour au site</a>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-text">MARPEAP</span>
+                <span class="brand-tagline">DIGITALS</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="packs.html" class="nav-link">Packs</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="https://app.marpeap.digital" class="nav-link">Shop</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="tel:+33230964030" class="btn-primary-nav">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 12.69v2.37a1.58 1.58 0 0 1-1.72 1.58 15.65 15.65 0 0 1-6.82-2.43 15.42 15.42 0 0 1-4.74-4.74A15.65 15.65 0 0 1 .8 2.72 1.58 1.58 0 0 1 2.35 1h2.37a1.58 1.58 0 0 1 1.58 1.36 10.15 10.15 0 0 0 .55 2.22 1.58 1.58 0 0 1-.36 1.67l-1 1a12.65 12.65 0 0 0 4.74 4.74l1-1a1.58 1.58 0 0 1 1.67-.36 10.15 10.15 0 0 0 2.22.55 1.58 1.58 0 0 1 1.38 1.6Z"/></svg>
+                    02 30 96 40 30
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
     <main class="legal-container">
@@ -404,9 +354,47 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 Marpeap Digitals. Tous droits reserves.</p>
-        <p><a href="index.html">Accueil</a> &middot; <a href="packs.html">Packs</a> &middot; <a href="contact.html">Contact</a></p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>MARPEAP DIGITALS</h3>
+                    <p>Code. Growth. Results.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="index.html#services">Developpement Web</a></li>
+                            <li><a href="index.html#services">Marketing Digital</a></li>
+                            <li><a href="index.html#services">Intelligence Artificielle</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="tel:+33230964030">02 30 96 40 30</a></li>
+                            <li><a href="mailto:contact@marpeap.digital">contact@marpeap.digital</a></li>
+                            <li><a href="https://marpeap.com">marpeap.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Suivez-nous</h4>
+                        <ul>
+                            <li><a href="https://github.com/marpeap" target="_blank">GitHub</a></li>
+                            <li><a href="https://twitter.com/MarpeapX" target="_blank">Twitter/X</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Marpeap Digitals. Tous droits reserves.</p>
+                <p><a href="mentions-legales.html" style="color: #8492A6; text-decoration: none;">Mentions legales & Confidentialite</a></p>
+            </div>
+        </div>
     </footer>
+
+    <script src="js/main-new.js"></script>
     <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>

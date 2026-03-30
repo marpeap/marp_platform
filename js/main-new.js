@@ -182,54 +182,6 @@
   }
 
   // ========================================
-  // CURSOR GLOW EFFECT
-  // ========================================
-  
-  const cursorGlow = document.createElement('div');
-  cursorGlow.className = 'cursor-glow';
-  cursorGlow.style.cssText = `
-    position: fixed;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent);
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
-    opacity: 0;
-  `;
-  
-  document.body.appendChild(cursorGlow);
-  
-  let cursorX = 0;
-  let cursorY = 0;
-  let glowX = 0;
-  let glowY = 0;
-  
-  document.addEventListener('mousemove', (e) => {
-    cursorX = e.clientX;
-    cursorY = e.clientY;
-    cursorGlow.style.opacity = '1';
-  });
-  
-  document.addEventListener('mouseleave', () => {
-    cursorGlow.style.opacity = '0';
-  });
-  
-  function animateCursorGlow() {
-    glowX += (cursorX - glowX) * 0.1;
-    glowY += (cursorY - glowY) * 0.1;
-    
-    cursorGlow.style.left = glowX + 'px';
-    cursorGlow.style.top = glowY + 'px';
-    
-    requestAnimationFrame(animateCursorGlow);
-  }
-  
-  animateCursorGlow();
-
-  // ========================================
   // PERFORMANCE MONITORING
   // ========================================
   
@@ -292,7 +244,7 @@
     left: 0;
     width: 0%;
     height: 3px;
-    background: linear-gradient(90deg, #3B82F6, #8B5CF6, #06B6D4);
+    background: #4F8AFF;
     z-index: 10000;
     transition: width 0.1s ease;
   `;
@@ -347,52 +299,12 @@
   });
 
   // ========================================
-  // EASTER EGG: KONAMI CODE
-  // ========================================
-  
-  const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-  let konamiIndex = 0;
-  
-  document.addEventListener('keydown', (e) => {
-    if (e.key === konamiCode[konamiIndex]) {
-      konamiIndex++;
-      
-      if (konamiIndex === konamiCode.length) {
-        activateEasterEgg();
-        konamiIndex = 0;
-      }
-    } else {
-      konamiIndex = 0;
-    }
-  });
-  
-  function activateEasterEgg() {
-    document.body.style.animation = 'rainbow 2s infinite';
-    
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes rainbow {
-        0% { filter: hue-rotate(0deg); }
-        100% { filter: hue-rotate(360deg); }
-      }
-    `;
-    document.head.appendChild(style);
-    
-    setTimeout(() => {
-      document.body.style.animation = '';
-      style.remove();
-    }, 5000);
-    
-    console.log('🎉 Easter egg activated! You found the secret!');
-  }
-
-  // ========================================
   // INITIALIZE ON DOM READY
   // ========================================
   
-  console.log('%c🚀 MARPEAP DIGITALS', 'font-size: 24px; font-weight: bold; color: #3B82F6;');
-  console.log('%cCode. Growth. Results.', 'font-size: 14px; color: #06B6D4;');
-  console.log('%cWebsite loaded successfully!', 'font-size: 12px; color: #10B981;');
-  console.log('%cContact: contact@marpeap.digital | +33 2 30 96 40 30', 'font-size: 10px; color: #9CA3AF;');
+  console.log('%c🚀 MARPEAP DIGITALS', 'font-size: 24px; font-weight: bold; color: #4F8AFF;');
+  console.log('%cCode. Growth. Results.', 'font-size: 14px; color: #00E0C6;');
+  console.log('%cWebsite loaded successfully!', 'font-size: 12px; color: #0DD9A4;');
+  console.log('%cContact: contact@marpeap.digital | +33 2 30 96 40 30', 'font-size: 10px; color: #8492A6;');
 
 })();
