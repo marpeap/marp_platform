@@ -1,63 +1,56 @@
-# robots.txt pour www.marpeap.com
-# Optimise pour Google et autres moteurs de recherche
+# robots.txt — www.marpeap.com
 
-# Autoriser tous les robots a indexer le site
 User-agent: *
 Allow: /
-
-# Autoriser specifiquement Googlebot
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Autoriser Googlebot-Image pour les images
-User-agent: Googlebot-Image
-Allow: /assets/images/
-
-# Autoriser Googlebot-Mobile
-User-agent: Googlebot-Mobile
-Allow: /
-
-# Autoriser Bingbot
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 0
-
-# Autoriser Slurp (Yahoo)
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-# Bloquer les robots indesirables
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-# Fichiers et dossiers a ne pas indexer
 Disallow: /admin.html
 Disallow: /admin/
-Disallow: /*.json$
-Disallow: /js/
-Disallow: /css/
 Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /.env
 
-# Autoriser les fichiers CSS et JS pour le rendu
+# Autoriser CSS/JS pour le rendu
 Allow: /css/*.css$
 Allow: /js/*.js$
 
-# Sitemap XML
-Sitemap: https://www.marpeap.com/sitemap.xml
+# Crawlers IA d'entrainement — BLOQUER
+User-agent: GPTBot
+Disallow: /
 
-# Site: www.marpeap.com
-# Proprietaire: Marpeap Digitals
-# Contact: contact@marpeap.digital
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+# Crawlers IA de recherche — AUTORISER (pour etre cite)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+Sitemap: https://www.marpeap.com/sitemap.xml
