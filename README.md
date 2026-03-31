@@ -90,7 +90,7 @@ Les fichiers sensibles suivants sont exclus du versioning :
 
 ## 📞 Support
 
-Pour toute question : contact@marpeap.digital
+Pour toute question : contact@marpeap.com
 
 ---
 

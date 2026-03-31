@@ -25,7 +25,7 @@
 - **Titre** : Développeur Web Indépendant
 - **Localisation** : France
 - **Site web** : https://www.marpeap.digital
-- **Email** : marpeap@gmail.com / contact@marpeap.digital
+- **Email** : marpeap@gmail.com / contact@marpeap.com
 - **Twitter** : @MarpeapX
 - **GitHub** : https://github.com/marpeap
 
@@ -365,7 +365,7 @@ Le formulaire de contact est disponible sur : https://www.marpeap.digital/contac
 
 ### Coordonnées Principales
 
-- **Email** : marpeap@gmail.com / contact@marpeap.digital
+- **Email** : marpeap@gmail.com / contact@marpeap.com
 - **Site web** : https://www.marpeap.digital
 - **Twitter** : @MarpeapX
 - **GitHub** : https://github.com/marpeap

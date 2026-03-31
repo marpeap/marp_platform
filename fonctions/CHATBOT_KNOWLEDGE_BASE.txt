@@ -5,7 +5,7 @@ IDENTITÉ
 Nom: Marpeap Digitals
 Entreprise: Marpeap Digitals
 Titre: Développeur Web Indépendant
-Email: marpeap@gmail.com / contact@marpeap.digital
+Email: marpeap@gmail.com / contact@marpeap.com
 Site: https://www.marpeap.digital
 Twitter: @MarpeapX
 GitHub: https://github.com/marpeap

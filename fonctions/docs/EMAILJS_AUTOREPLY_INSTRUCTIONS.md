@@ -47,7 +47,7 @@ Le template utilise les variables suivantes :
 
 6. **To Email** : `{{from_email}}` (l'email du client qui a rempli le formulaire)
 
-7. **Reply To** : `contact@marpeap.digital` (ou votre email de contact)
+7. **Reply To** : `contact@marpeap.com` (ou votre email de contact)
 
 ### 3. Tester le template
 

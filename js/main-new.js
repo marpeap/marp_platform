@@ -305,6 +305,6 @@
   console.log('%c🚀 MARPEAP DIGITALS', 'font-size: 24px; font-weight: bold; color: #4F8AFF;');
   console.log('%cCode. Growth. Results.', 'font-size: 14px; color: #00E0C6;');
   console.log('%cWebsite loaded successfully!', 'font-size: 12px; color: #0DD9A4;');
-  console.log('%cContact: contact@marpeap.digital | +33 2 30 96 40 30', 'font-size: 10px; color: #8492A6;');
+  console.log('%cContact: contact@marpeap.com | +33 2 30 96 40 30', 'font-size: 10px; color: #8492A6;');
 
 })();
