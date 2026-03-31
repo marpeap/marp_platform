@@ -82,6 +82,7 @@
 
         .pricing-section {
             padding-bottom: 100px;
+            background: var(--bg-section-alt, #0A0E1A);
         }
 
         /* Grille — 3 colonnes top, 1 full-width bottom */
@@ -140,7 +141,7 @@
             border-radius: 12px;
             padding: 32px 28px;
             position: relative;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s var(--ease-out-cubic), box-shadow 0.2s var(--ease-out-cubic);
             display: flex;
             flex-direction: column;
             text-align: left;
@@ -165,11 +166,12 @@
 
         /* Header: name + tagline */
         .pack-name {
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 800;
             color: #fff;
             margin-bottom: 4px;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.015em;
         }
 
         .pack-tagline {
@@ -181,10 +183,11 @@
 
         /* Price */
         .pack-price {
-            font-size: 28px;
+            font-size: clamp(1.5rem, 3vw, 1.75rem);
             font-weight: 800;
             margin-bottom: 4px;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.02em;
         }
 
         .pack-price-old {
@@ -205,7 +208,7 @@
         .pack-desc {
             font-size: 14px;
             color: var(--p-text2);
-            line-height: 1.7;
+            line-height: 1.5;
             margin-bottom: 24px;
         }
 
@@ -238,17 +241,18 @@
         .btn-pack {
             display: inline-block;
             padding: 12px 28px;
-            border-radius: 8px;
+            border-radius: 9999px;
             font-weight: 700;
             font-size: 13px;
             text-decoration: none;
             text-align: center;
-            transition: opacity 0.15s;
+            transition: transform 0.2s var(--ease-out-cubic), box-shadow 0.2s var(--ease-out-cubic);
             align-self: flex-start;
         }
 
         .btn-pack:hover {
-            opacity: 0.85;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -4px rgba(0, 0, 0, 0.35);
         }
 
         /* Info link */
@@ -282,7 +286,7 @@
             z-index: 2000;
             backdrop-filter: blur(5px);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s var(--ease-out-cubic);
         }
 
         .modal.active {
@@ -293,7 +297,7 @@
         }
 
         .modal-content {
-            background: rgba(10, 15, 28, 0.95);
+            background: rgba(10, 15, 28, 0.97);
             border-radius: 1rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             max-width: 600px;
@@ -302,9 +306,8 @@
             padding: 2rem;
             position: relative;
             overflow-y: auto;
-            backdrop-filter: blur(20px);
             transform: scale(0.9);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s var(--ease-out-cubic);
         }
 
         .modal.active .modal-content {
@@ -327,7 +330,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.2s var(--ease-out-cubic);
         }
 
         .modal-close:hover {
@@ -344,6 +347,8 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .modal-subtitle {
@@ -395,6 +400,37 @@
             color: #0DD9A4;
             flex-shrink: 0;
         }
+
+        /* ── Pack color variants (replaces inline styles) ── */
+        .pack-mone { border-top: 2px solid #4F8AFF; }
+        .pack-mone .pack-price { color: #4F8AFF; }
+        .pack-mone .btn-pack { background: #4F8AFF; color: #fff; }
+
+        .pack-mcampaign { border-top: 2px solid #2ED573; }
+        .pack-mcampaign .pack-tag { color: #2ED573; }
+        .pack-mcampaign .pack-price { color: #2ED573; }
+        .pack-mcampaign .btn-pack { background: #2ED573; color: #000; }
+
+        .pack-mneural { border-top: 2px solid #9B5BF5; }
+        .pack-mneural .pack-price { color: #9B5BF5; }
+        .pack-mneural .btn-pack { background: #9B5BF5; color: #fff; }
+
+        .pack-mcorp { border-top: 2px solid #F1C40F; }
+        .pack-mcorp .pack-tag { color: #F1C40F; }
+        .pack-mcorp .pack-price { color: #F1C40F; }
+        .pack-mcorp .btn-pack { background: #F1C40F; color: #000; }
+
+        /* Modal CTA variants */
+        .modal-cta-mone { background: #4F8AFF; color: #fff; }
+        .modal-cta-mcampaign { background: #22c55e; color: #fff; }
+        .modal-cta-mneural { background: #8b5cf6; color: #fff; }
+        .modal-cta-mcorp { background: #facc15; color: #000; }
+
+        .modal-subtitle-mone { color: #4F8AFF; }
+        .modal-subtitle-mcampaign { color: #22c55e; }
+        .modal-subtitle-mneural { color: #8b5cf6; }
+        .modal-subtitle-mcorp { color: #facc15; }
+
     </style>
 </head>
 <body>
@@ -445,12 +481,12 @@
             <div class="pricing-grid">
 
                 <!-- M-ONE -->
-                <div class="pricing-card" style="border-top: 2px solid #4F8AFF;">
+                <div class="pricing-card pack-mone">
                     <div>
                         <h3 class="pack-name">M-ONE</h3>
                         <p class="pack-tagline">Site web professionnel</p>
                     </div>
-                    <div class="pack-price" style="color: #4F8AFF;">290€</div>
+                    <div class="pack-price">290€</div>
                     <p class="pack-price-note">tout compris</p>
                     <p class="pack-desc">Un site one-page ultra-rapide, optimisé mobile et SEO, livré en 72 heures. Design premium, hébergement inclus.</p>
                     <ul class="pack-features">
@@ -459,18 +495,18 @@
                         <li><span class="feat-dash">—</span>Hébergement inclus</li>
                         <li><span class="feat-dash">—</span>Livraison 72h</li>
                     </ul>
-                    <a href="https://app.marpeap.digital/" class="btn-pack" style="background: #4F8AFF; color: #fff;">Commander</a>
+                    <a href="https://app.marpeap.digital/" class="btn-pack">Commander</a>
                     <button class="pack-info-link" data-modal="modal-mone">En savoir plus</button>
                 </div>
 
                 <!-- M-CAMPAIGN -->
-                <div class="pricing-card" style="border-top: 2px solid #2ED573;">
-                    <span class="pack-tag" style="color: #2ED573;">Agent IA</span>
+                <div class="pricing-card pack-mcampaign">
+                    <span class="pack-tag">Agent IA</span>
                     <div>
                         <h3 class="pack-name">M-CAMPAIGN</h3>
                         <p class="pack-tagline">Gestionnaire Google Ads IA</p>
                     </div>
-                    <div class="pack-price" style="color: #2ED573;">49€/mois</div>
+                    <div class="pack-price">49€/mois</div>
                     <p class="pack-price-note">sans engagement</p>
                     <p class="pack-desc">Un agent IA qui gère vos campagnes Google Ads en autonomie. Toutes les fonctions automatisées : enchères, mots-clés, annonces, rapports. Optimisation continue, 24/7.</p>
                     <ul class="pack-features">
@@ -479,17 +515,17 @@
                         <li><span class="feat-dash">—</span>Rapports intelligents</li>
                         <li><span class="feat-dash">—</span>Dashboard dédié</li>
                     </ul>
-                    <a href="https://campaign.marpeap.com" class="btn-pack" style="background: #2ED573; color: #000;">Lancer mes campagnes</a>
+                    <a href="https://campaign.marpeap.com" class="btn-pack">Lancer mes campagnes</a>
                     <button class="pack-info-link" data-modal="modal-mcampaign">En savoir plus</button>
                 </div>
 
                 <!-- M-NEURAL -->
-                <div class="pricing-card" style="border-top: 2px solid #9B5BF5;">
+                <div class="pricing-card pack-mneural">
                     <div>
                         <h3 class="pack-name">M-NEURAL</h3>
                         <p class="pack-tagline">Chatbot IA spécialisé</p>
                     </div>
-                    <div class="pack-price" style="color: #9B5BF5;">180€ <span class="pack-price-old">290€</span></div>
+                    <div class="pack-price">180€ <span class="pack-price-old">290€</span></div>
                     <p class="pack-price-note">tout compris</p>
                     <p class="pack-desc">Une instance IA entraînée sur vos données, intégrée directement sur votre site. Réponses instantanées, 24/7, dans votre ton de voix.</p>
                     <ul class="pack-features">
@@ -498,18 +534,18 @@
                         <li><span class="feat-dash">—</span>Connexion API/CRM</li>
                         <li><span class="feat-dash">—</span>Formation incluse</li>
                     </ul>
-                    <a href="https://app.marpeap.digital/" class="btn-pack" style="background: #9B5BF5; color: #fff;">Automatiser mon business</a>
+                    <a href="https://app.marpeap.digital/" class="btn-pack">Installer mon chatbot</a>
                     <button class="pack-info-link" data-modal="modal-mneural">En savoir plus</button>
                 </div>
 
                 <!-- M-CORP -->
-                <div class="pricing-card card-wide" style="border-top: 2px solid #F1C40F;">
-                    <span class="pack-tag" style="color: #F1C40F;">Premium</span>
+                <div class="pricing-card card-wide pack-mcorp">
+                    <span class="pack-tag">Premium</span>
                     <div>
                         <h3 class="pack-name">M-CORP</h3>
                         <p class="pack-tagline">Équipe IA autonome</p>
                     </div>
-                    <div class="pack-price" style="color: #F1C40F;">820€ <span class="pack-price-old">1 990€</span></div>
+                    <div class="pack-price">820€ <span class="pack-price-old">1 990€</span></div>
                     <p class="pack-price-note">mise en service</p>
                     <p class="pack-desc">Cinq agents IA spécialisés qui collaborent entre eux. Exécution réelle : posts, emails, code, analyses. Mémoire partagée et apprentissage continu.</p>
                     <ul class="pack-features">
@@ -518,7 +554,7 @@
                         <li><span class="feat-dash">—</span>Exécution réelle</li>
                         <li><span class="feat-dash">—</span>Tableau de bord</li>
                     </ul>
-                    <a href="https://app.marpeap.digital/" class="btn-pack" style="background: #F1C40F; color: #000;">Recruter mon équipe</a>
+                    <a href="https://app.marpeap.digital/" class="btn-pack">Recruter mon équipe</a>
                     <button class="pack-info-link" data-modal="modal-mcorp">En savoir plus</button>
                 </div>
 
@@ -579,7 +615,7 @@
             <button class="modal-close" aria-label="Fermer">&times;</button>
             <div class="modal-header">
                 <h2 class="modal-title">M-CAMPAIGN™</h2>
-                <p class="modal-subtitle" style="color: #22c55e;">Votre Google Ads tourne en pilote automatique</p>
+                <p class="modal-subtitle modal-subtitle-mcampaign">Votre Google Ads tourne en pilote automatique</p>
                 <div class="modal-price">A partir de 49€/mois</div>
             </div>
 
@@ -612,7 +648,7 @@
             </div>
 
             <div style="text-align: center; padding: 1rem 0;">
-                <a href="https://campaign.marpeap.com" class="btn-pack" style="background: #22c55e; color: white; display: inline-block; padding: 14px 40px; font-size: 1rem;">Lancer mes campagnes</a>
+                <a href="https://campaign.marpeap.com" class="btn-pack modal-cta-mcampaign" style="padding: 14px 40px; font-size: 1rem;">Lancer mes campagnes</a>
             </div>
         </div>
     </div>
@@ -622,7 +658,7 @@
             <button class="modal-close" aria-label="Fermer">&times;</button>
             <div class="modal-header">
                 <h2 class="modal-title">M-ONE™</h2>
-                <p class="modal-subtitle" style="color: #4F8AFF;">Votre site web professionnel en 72 heures</p>
+                <p class="modal-subtitle modal-subtitle-mone">Votre site web professionnel en 72 heures</p>
                 <div class="modal-price">290€</div>
             </div>
 
@@ -654,7 +690,7 @@
             </div>
 
             <div style="text-align: center; padding: 1rem 0;">
-                <a href="https://app.marpeap.digital/" class="btn-pack" style="background: #4F8AFF; color: white; display: inline-block; padding: 14px 40px; font-size: 1rem;">Commander mon site</a>
+                <a href="https://app.marpeap.digital/" class="btn-pack modal-cta-mone" style="padding: 14px 40px; font-size: 1rem;">Commander mon site</a>
             </div>
         </div>
     </div>
@@ -664,7 +700,7 @@
             <button class="modal-close" aria-label="Fermer">&times;</button>
             <div class="modal-header">
                 <h2 class="modal-title">M-CORP™</h2>
-                <p class="modal-subtitle" style="color: #facc15;">5 agents IA qui bossent pendant que vous décidez</p>
+                <p class="modal-subtitle modal-subtitle-mcorp">5 agents IA qui bossent pendant que vous décidez</p>
                 <div class="modal-price">820€ <span style="text-decoration: line-through; color: #64748b; font-size: 1.2rem;">1 990€</span></div>
             </div>
 
@@ -705,7 +741,7 @@
             </div>
 
             <div style="text-align: center; padding: 1rem 0;">
-                <a href="https://app.marpeap.digital/" class="btn-pack" style="background: #facc15; color: black; display: inline-block; padding: 14px 40px; font-size: 1rem;">Recruter mon équipe IA</a>
+                <a href="https://app.marpeap.digital/" class="btn-pack modal-cta-mcorp" style="padding: 14px 40px; font-size: 1rem;">Recruter mon équipe IA</a>
             </div>
         </div>
     </div>
@@ -715,7 +751,7 @@
             <button class="modal-close" aria-label="Fermer">&times;</button>
             <div class="modal-header">
                 <h2 class="modal-title">M-NEURAL™</h2>
-                <p class="modal-subtitle" style="color: #8b5cf6;">Un expert de votre métier, disponible 24/7 sur votre site</p>
+                <p class="modal-subtitle modal-subtitle-mneural">Un expert de votre métier, disponible 24/7 sur votre site</p>
                 <div class="modal-price">180€</div>
             </div>
 
@@ -748,7 +784,7 @@
             </div>
 
             <div style="text-align: center; padding: 1rem 0;">
-                <a href="https://app.marpeap.digital/" class="btn-pack" style="background: #8b5cf6; color: white; display: inline-block; padding: 14px 40px; font-size: 1rem;">Installer mon chatbot</a>
+                <a href="https://app.marpeap.digital/" class="btn-pack modal-cta-mneural" style="padding: 14px 40px; font-size: 1rem;">Installer mon chatbot</a>
             </div>
         </div>
     </div>
