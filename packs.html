@@ -145,16 +145,13 @@
         }
 
         .pricing-card:hover {
-            border-color: rgba(255,255,255,0.12);
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
             transform: translateY(-4px);
         }
 
-        /* Recommended card — visually distinct */
+        /* Recommended card — subtle lift */
         .pricing-card.pack-recommended {
-            background: rgba(255,255,255,0.05);
-            border-color: rgba(255,255,255,0.12);
-            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.25);
         }
 
         /* Tag label — inline, not absolute */
@@ -421,35 +418,70 @@
 
         .modal-benefits li::before {
             content: '—';
-            color: #0DD9A4;
+            color: var(--p-text2);
             flex-shrink: 0;
         }
 
-        /* ── Pack color variants — accent on CTA + dots only ── */
-        .pack-mone .btn-pack { background: #4F8AFF; color: #fff; }
-        .pack-mone .pack-features li::before { background: #4F8AFF; }
+        /* ── Pack card backgrounds — real product palettes ── */
 
-        .pack-mcampaign .pack-tag { color: #2ED573; background: rgba(46,213,115,0.08); }
-        .pack-mcampaign .btn-pack { background: #2ED573; color: #000; }
-        .pack-mcampaign .pack-features li::before { background: #2ED573; }
+        /* M-ONE — #4F6EF7 indigo, bg #0B0D11 */
+        .pack-mone {
+            background:
+                radial-gradient(ellipse 100% 80% at 20% 90%, rgba(79,110,247,0.10) 0%, transparent 50%),
+                rgba(11,13,17,0.7);
+            border-color: rgba(79,110,247,0.12);
+        }
+        .pack-mone:hover { border-color: rgba(79,110,247,0.25); }
+        .pack-mone .btn-pack { background: #4F6EF7; color: #fff; }
+        .pack-mone .pack-features li::before { background: #4F6EF7; }
 
+        /* M-CAMPAIGN — #0AD0C9 teal, 3-layer gradient from campaign.marpeap.com */
+        .pack-mcampaign {
+            background:
+                radial-gradient(ellipse 120% 70% at 15% 55%, rgba(10,142,153,0.25) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 50% at 80% 20%, rgba(6,77,94,0.30) 0%, transparent 45%),
+                linear-gradient(160deg, #0A4550 0%, #07363F 40%, #042830 100%);
+            border-color: #1A5562;
+        }
+        .pack-mcampaign:hover { border-color: rgba(10,208,201,0.35); }
+        .pack-mcampaign .pack-tag { color: #0AD0C9; background: rgba(10,208,201,0.10); }
+        .pack-mcampaign .btn-pack { background: #0AD0C9; color: #04252F; }
+        .pack-mcampaign .pack-features li::before { background: #0AD0C9; }
+
+        /* M-NEURAL — #9B5BF5 violet */
+        .pack-mneural {
+            background:
+                radial-gradient(ellipse 80% 70% at 70% 80%, rgba(155,91,245,0.08) 0%, transparent 50%),
+                rgba(14,11,22,0.7);
+            border-color: rgba(155,91,245,0.12);
+        }
+        .pack-mneural:hover { border-color: rgba(155,91,245,0.25); }
         .pack-mneural .btn-pack { background: #9B5BF5; color: #fff; }
         .pack-mneural .pack-features li::before { background: #9B5BF5; }
 
-        .pack-mcorp .pack-tag { color: #F1C40F; background: rgba(241,196,15,0.08); }
-        .pack-mcorp .btn-pack { background: #F1C40F; color: #000; }
-        .pack-mcorp .pack-features li::before { background: #F1C40F; }
+        /* M-CORP — #4F8AFF blue, bg #0A0F1C */
+        .pack-mcorp {
+            background:
+                radial-gradient(ellipse 90% 60% at 30% 70%, rgba(79,138,255,0.10) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 40% at 85% 30%, rgba(37,99,235,0.08) 0%, transparent 45%),
+                linear-gradient(150deg, #111827 0%, #0D1320 50%, #0A0F1C 100%);
+            border-color: #2D3748;
+        }
+        .pack-mcorp:hover { border-color: rgba(79,138,255,0.30); }
+        .pack-mcorp .pack-tag { color: #4F8AFF; background: rgba(79,138,255,0.10); }
+        .pack-mcorp .btn-pack { background: #4F8AFF; color: #fff; }
+        .pack-mcorp .pack-features li::before { background: #4F8AFF; }
 
-        /* Modal CTA variants */
-        .modal-cta-mone { background: #4F8AFF; color: #fff; }
-        .modal-cta-mcampaign { background: #22c55e; color: #fff; }
-        .modal-cta-mneural { background: #8b5cf6; color: #fff; }
-        .modal-cta-mcorp { background: #facc15; color: #000; }
+        /* Modal CTA variants — real product colors */
+        .modal-cta-mone { background: #4F6EF7; color: #fff; }
+        .modal-cta-mcampaign { background: #0AD0C9; color: #04252F; }
+        .modal-cta-mneural { background: #9B5BF5; color: #fff; }
+        .modal-cta-mcorp { background: #4F8AFF; color: #fff; }
 
-        .modal-subtitle-mone { color: #4F8AFF; }
-        .modal-subtitle-mcampaign { color: #22c55e; }
-        .modal-subtitle-mneural { color: #8b5cf6; }
-        .modal-subtitle-mcorp { color: #facc15; }
+        .modal-subtitle-mone { color: #4F6EF7; }
+        .modal-subtitle-mcampaign { color: #0AD0C9; }
+        .modal-subtitle-mneural { color: #9B5BF5; }
+        .modal-subtitle-mcorp { color: #4F8AFF; }
 
     </style>
 </head>
@@ -468,7 +500,6 @@
                 <a href="faq.html" class="nav-link">FAQ</a>
                 <a href="https://app.marpeap.digital" class="nav-link">Shop</a>
                 <a href="index.html#contact" class="nav-link">Contact</a>
-                <a href="https://refer.marpeap.digital" class="nav-link" style="color: #00f0ff; font-size: 0.85rem;" target="_blank" rel="noopener noreferrer">Devenez apporteur d'affaires</a>
                 <a href="tel:+33230964030" class="btn-primary-nav">
                     <svg class="btn-icon" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 12.69v2.37a1.58 1.58 0 0 1-1.72 1.58 15.65 15.65 0 0 1-6.82-2.43 15.42 15.42 0 0 1-4.74-4.74A15.65 15.65 0 0 1 .8 2.72 1.58 1.58 0 0 1 2.35 1h2.37a1.58 1.58 0 0 1 1.58 1.36 10.15 10.15 0 0 0 .55 2.22 1.58 1.58 0 0 1-.36 1.67l-1 1a12.65 12.65 0 0 0 4.74 4.74l1-1a1.58 1.58 0 0 1 1.67-.36 10.15 10.15 0 0 0 2.22.55 1.58 1.58 0 0 1 1.38 1.6Z"/></svg>
                     02 30 96 40 30
