@@ -75,9 +75,34 @@
         /* Hero */
         .hero-packs {
             padding-top: 160px;
-            padding-bottom: 80px;
-            background: radial-gradient(circle at center, rgba(79, 110, 247, 0.08) 0%, transparent 70%);
-            text-align: center;
+            padding-bottom: 64px;
+            text-align: left;
+        }
+
+        .hero-packs .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: -0.025em;
+            line-height: 1.08;
+            max-width: 18ch;
+        }
+
+        .hero-packs .hero-subtitle {
+            max-width: 520px;
+            margin-bottom: 0;
+        }
+
+        .hero-packs .hero-proof {
+            margin-top: 20px;
+            font-size: 0.8125rem;
+            color: var(--p-text3);
+            display: flex;
+            gap: 24px;
+        }
+
+        .hero-packs .hero-proof span {
+            color: var(--text-primary, #EDF0F7);
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .pricing-section {
@@ -517,14 +542,13 @@
 
     <section class="hero-packs">
         <div class="container">
-            <h1 class="hero-title">
-                Vous dormez.<br>
-                <span class="title-line-2">Votre IA travaille.</span>
-            </h1>
-            <p class="hero-subtitle">
-                Sites web, agents IA, gestion publicitaire.<br>
-                Déployés et opérationnels en 48 heures.
-            </p>
+            <h1 class="hero-title">Quatre produits. Zéro friction.</h1>
+            <p class="hero-subtitle">Un site, un agent pub, un chatbot ou une équipe IA complète. Chaque pack est déployé sous 48h, prêt à produire des résultats.</p>
+            <div class="hero-proof">
+                <div><span>48h</span> déploiement</div>
+                <div><span>0</span> engagement</div>
+                <div><span>100%</span> opérationnel</div>
+            </div>
         </div>
     </section>
 
