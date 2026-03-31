@@ -102,22 +102,21 @@
             align-items: start;
         }
 
-        .pricing-card.card-wide > div:first-child,
+        .pricing-card.card-wide > .pack-tag,
+        .pricing-card.card-wide > .pack-name,
+        .pricing-card.card-wide > .pack-tagline,
         .pricing-card.card-wide > .pack-price,
         .pricing-card.card-wide > .pack-price-note,
-        .pricing-card.card-wide > .pack-desc {
+        .pricing-card.card-wide > .pack-desc,
+        .pricing-card.card-wide > .btn-pack,
+        .pricing-card.card-wide > .pack-info-link {
             grid-column: 1;
         }
 
         .pricing-card.card-wide > .pack-features {
             grid-column: 2;
-            grid-row: 1 / span 4;
+            grid-row: 1 / span 6;
             align-self: center;
-        }
-
-        .pricing-card.card-wide > .btn-pack,
-        .pricing-card.card-wide > .pack-info-link {
-            grid-column: 1;
         }
 
         @media (max-width: 960px) {
@@ -138,10 +137,10 @@
         .pricing-card {
             background: var(--p-surface);
             border: 1px solid var(--p-border);
-            border-radius: 12px;
-            padding: 32px 28px;
+            border-radius: 16px;
+            padding: 28px 24px 32px;
             position: relative;
-            transition: border-color 0.2s var(--ease-out-cubic), box-shadow 0.2s var(--ease-out-cubic);
+            transition: border-color 0.2s var(--ease-out-cubic), box-shadow 0.2s var(--ease-out-cubic), transform 0.2s var(--ease-out-cubic);
             display: flex;
             flex-direction: column;
             text-align: left;
@@ -150,18 +149,25 @@
         .pricing-card:hover {
             border-color: rgba(255,255,255,0.12);
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            transform: translateY(-4px);
         }
 
-        /* Tag label (top-right) */
+        /* Recommended card — visually distinct */
+        .pricing-card.pack-recommended {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.12);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Tag label — inline, not absolute */
         .pack-tag {
-            position: absolute;
-            top: 16px;
-            right: 16px;
             font-size: 11px;
             font-weight: 600;
             padding: 3px 10px;
-            border-radius: 4px;
+            border-radius: 9999px;
             background: rgba(255,255,255,0.06);
+            align-self: flex-start;
+            margin-bottom: 12px;
         }
 
         /* Header: name + tagline */
@@ -224,17 +230,21 @@
         }
 
         .pack-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             font-size: 13px;
             color: var(--p-text2);
+            padding-left: 14px;
+            position: relative;
         }
 
-        .pack-features li .feat-dash {
-            color: rgba(255,255,255,0.25);
-            flex-shrink: 0;
-            font-size: 10px;
+        .pack-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
         }
 
         /* CTA button */
@@ -401,24 +411,24 @@
             flex-shrink: 0;
         }
 
-        /* ── Pack color variants (replaces inline styles) ── */
-        .pack-mone { border-top: 2px solid #4F8AFF; }
+        /* ── Pack color variants ── */
         .pack-mone .pack-price { color: #4F8AFF; }
         .pack-mone .btn-pack { background: #4F8AFF; color: #fff; }
+        .pack-mone .pack-features li::before { background: #4F8AFF; }
 
-        .pack-mcampaign { border-top: 2px solid #2ED573; }
         .pack-mcampaign .pack-tag { color: #2ED573; }
         .pack-mcampaign .pack-price { color: #2ED573; }
         .pack-mcampaign .btn-pack { background: #2ED573; color: #000; }
+        .pack-mcampaign .pack-features li::before { background: #2ED573; }
 
-        .pack-mneural { border-top: 2px solid #9B5BF5; }
         .pack-mneural .pack-price { color: #9B5BF5; }
         .pack-mneural .btn-pack { background: #9B5BF5; color: #fff; }
+        .pack-mneural .pack-features li::before { background: #9B5BF5; }
 
-        .pack-mcorp { border-top: 2px solid #F1C40F; }
         .pack-mcorp .pack-tag { color: #F1C40F; }
         .pack-mcorp .pack-price { color: #F1C40F; }
         .pack-mcorp .btn-pack { background: #F1C40F; color: #000; }
+        .pack-mcorp .pack-features li::before { background: #F1C40F; }
 
         /* Modal CTA variants */
         .modal-cta-mone { background: #4F8AFF; color: #fff; }
@@ -482,38 +492,34 @@
 
                 <!-- M-ONE -->
                 <div class="pricing-card pack-mone">
-                    <div>
-                        <h3 class="pack-name">M-ONE</h3>
-                        <p class="pack-tagline">Site web professionnel</p>
-                    </div>
+                    <h3 class="pack-name">M-ONE</h3>
+                    <p class="pack-tagline">Site web professionnel</p>
                     <div class="pack-price">290€</div>
                     <p class="pack-price-note">tout compris</p>
-                    <p class="pack-desc">Un site one-page ultra-rapide, optimisé mobile et SEO, livré en 72 heures. Design premium, hébergement inclus.</p>
+                    <p class="pack-desc">Site one-page rapide, optimisé mobile et SEO, livré en 72h. Hébergement inclus.</p>
                     <ul class="pack-features">
-                        <li><span class="feat-dash">—</span>One-page responsive</li>
-                        <li><span class="feat-dash">—</span>Optimisation SEO</li>
-                        <li><span class="feat-dash">—</span>Hébergement inclus</li>
-                        <li><span class="feat-dash">—</span>Livraison 72h</li>
+                        <li>One-page responsive</li>
+                        <li>SEO intégré</li>
+                        <li>Hébergement inclus</li>
+                        <li>Livré en 72h</li>
                     </ul>
                     <a href="https://app.marpeap.digital/" class="btn-pack">Commander</a>
                     <button class="pack-info-link" data-modal="modal-mone">En savoir plus</button>
                 </div>
 
-                <!-- M-CAMPAIGN -->
-                <div class="pricing-card pack-mcampaign">
-                    <span class="pack-tag">Agent IA</span>
-                    <div>
-                        <h3 class="pack-name">M-CAMPAIGN</h3>
-                        <p class="pack-tagline">Gestionnaire Google Ads IA</p>
-                    </div>
+                <!-- M-CAMPAIGN — Recommended -->
+                <div class="pricing-card pack-mcampaign pack-recommended">
+                    <span class="pack-tag">Populaire</span>
+                    <h3 class="pack-name">M-CAMPAIGN</h3>
+                    <p class="pack-tagline">Google Ads en pilote automatique</p>
                     <div class="pack-price">49€/mois</div>
                     <p class="pack-price-note">sans engagement</p>
-                    <p class="pack-desc">Un agent IA qui gère vos campagnes Google Ads en autonomie. Toutes les fonctions automatisées : enchères, mots-clés, annonces, rapports. Optimisation continue, 24/7.</p>
+                    <p class="pack-desc">Un agent IA prend le contrôle de vos campagnes Google Ads. Enchères, mots-clés, annonces, rapports — tout est géré, 24/7.</p>
                     <ul class="pack-features">
-                        <li><span class="feat-dash">—</span>100% fonctions automatisées</li>
-                        <li><span class="feat-dash">—</span>Optimisation enchères 24/7</li>
-                        <li><span class="feat-dash">—</span>Rapports intelligents</li>
-                        <li><span class="feat-dash">—</span>Dashboard dédié</li>
+                        <li>Toutes les fonctions automatisées</li>
+                        <li>Enchères optimisées en continu</li>
+                        <li>Rapports hebdomadaires</li>
+                        <li>Dashboard dédié</li>
                     </ul>
                     <a href="https://campaign.marpeap.com" class="btn-pack">Lancer mes campagnes</a>
                     <button class="pack-info-link" data-modal="modal-mcampaign">En savoir plus</button>
@@ -521,18 +527,16 @@
 
                 <!-- M-NEURAL -->
                 <div class="pricing-card pack-mneural">
-                    <div>
-                        <h3 class="pack-name">M-NEURAL</h3>
-                        <p class="pack-tagline">Chatbot IA spécialisé</p>
-                    </div>
+                    <h3 class="pack-name">M-NEURAL</h3>
+                    <p class="pack-tagline">Chatbot IA sur votre site</p>
                     <div class="pack-price">180€ <span class="pack-price-old">290€</span></div>
                     <p class="pack-price-note">tout compris</p>
-                    <p class="pack-desc">Une instance IA entraînée sur vos données, intégrée directement sur votre site. Réponses instantanées, 24/7, dans votre ton de voix.</p>
+                    <p class="pack-desc">Instance IA entraînée sur vos données, intégrée à votre site. Répond dans votre ton, 24/7.</p>
                     <ul class="pack-features">
-                        <li><span class="feat-dash">—</span>Instance IA personnalisée</li>
-                        <li><span class="feat-dash">—</span>Widget site web</li>
-                        <li><span class="feat-dash">—</span>Connexion API/CRM</li>
-                        <li><span class="feat-dash">—</span>Formation incluse</li>
+                        <li>IA personnalisée</li>
+                        <li>Widget intégré</li>
+                        <li>Connexion API/CRM</li>
+                        <li>Formation incluse</li>
                     </ul>
                     <a href="https://app.marpeap.digital/" class="btn-pack">Installer mon chatbot</a>
                     <button class="pack-info-link" data-modal="modal-mneural">En savoir plus</button>
@@ -541,18 +545,16 @@
                 <!-- M-CORP -->
                 <div class="pricing-card card-wide pack-mcorp">
                     <span class="pack-tag">Premium</span>
-                    <div>
-                        <h3 class="pack-name">M-CORP</h3>
-                        <p class="pack-tagline">Équipe IA autonome</p>
-                    </div>
+                    <h3 class="pack-name">M-CORP</h3>
+                    <p class="pack-tagline">5 agents IA qui collaborent</p>
                     <div class="pack-price">820€ <span class="pack-price-old">1 990€</span></div>
                     <p class="pack-price-note">mise en service</p>
-                    <p class="pack-desc">Cinq agents IA spécialisés qui collaborent entre eux. Exécution réelle : posts, emails, code, analyses. Mémoire partagée et apprentissage continu.</p>
+                    <p class="pack-desc">Cinq agents spécialisés qui exécutent : posts, emails, prospection, analyse. Mémoire partagée, apprentissage continu.</p>
                     <ul class="pack-features">
-                        <li><span class="feat-dash">—</span>5 agents spécialisés</li>
-                        <li><span class="feat-dash">—</span>Collaboration autonome</li>
-                        <li><span class="feat-dash">—</span>Exécution réelle</li>
-                        <li><span class="feat-dash">—</span>Tableau de bord</li>
+                        <li>5 agents spécialisés</li>
+                        <li>Collaboration autonome</li>
+                        <li>Exécution réelle</li>
+                        <li>Tableau de bord</li>
                     </ul>
                     <a href="https://app.marpeap.digital/" class="btn-pack">Recruter mon équipe</a>
                     <button class="pack-info-link" data-modal="modal-mcorp">En savoir plus</button>
