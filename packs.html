@@ -424,16 +424,17 @@
 
         /* ── Pack card backgrounds — real product palettes ── */
 
-        /* M-ONE — #4F6EF7 indigo, bg #0B0D11 */
+        /* M-ONE — gold #E8C547 + violet #9B5BF5 atmosphere on #06060E (from app landing) */
         .pack-mone {
             background:
-                radial-gradient(ellipse 100% 80% at 20% 90%, rgba(79,110,247,0.10) 0%, transparent 50%),
-                rgba(11,13,17,0.7);
-            border-color: rgba(79,110,247,0.12);
+                radial-gradient(circle at 15% 85%, rgba(232,197,71,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 85% 15%, rgba(155,91,245,0.09) 0%, transparent 50%),
+                linear-gradient(155deg, #0C0C1A 0%, #090912 45%, #06060E 100%);
+            border-color: rgba(232,197,71,0.12);
         }
-        .pack-mone:hover { border-color: rgba(79,110,247,0.25); }
-        .pack-mone .btn-pack { background: #4F6EF7; color: #fff; }
-        .pack-mone .pack-features li::before { background: #4F6EF7; }
+        .pack-mone:hover { border-color: rgba(232,197,71,0.25); }
+        .pack-mone .btn-pack { background: #E8C547; color: #06060E; }
+        .pack-mone .pack-features li::before { background: #E8C547; }
 
         /* M-CAMPAIGN — #0AD0C9 teal, 3-layer gradient from campaign.marpeap.com */
         .pack-mcampaign {
@@ -448,24 +449,25 @@
         .pack-mcampaign .btn-pack { background: #0AD0C9; color: #04252F; }
         .pack-mcampaign .pack-features li::before { background: #0AD0C9; }
 
-        /* M-NEURAL — #9B5BF5 violet */
+        /* M-NEURAL — #9B5BF5 violet + warm rose undertone */
         .pack-mneural {
             background:
-                radial-gradient(ellipse 80% 70% at 70% 80%, rgba(155,91,245,0.08) 0%, transparent 50%),
-                rgba(14,11,22,0.7);
-            border-color: rgba(155,91,245,0.12);
+                radial-gradient(ellipse 110% 70% at 75% 80%, rgba(155,91,245,0.14) 0%, transparent 50%),
+                radial-gradient(circle at 10% 20%, rgba(219,39,119,0.07) 0%, transparent 45%),
+                linear-gradient(165deg, #12101E 0%, #0E0B18 50%, #0A0814 100%);
+            border-color: rgba(155,91,245,0.14);
         }
-        .pack-mneural:hover { border-color: rgba(155,91,245,0.25); }
+        .pack-mneural:hover { border-color: rgba(155,91,245,0.30); }
         .pack-mneural .btn-pack { background: #9B5BF5; color: #fff; }
         .pack-mneural .pack-features li::before { background: #9B5BF5; }
 
-        /* M-CORP — #4F8AFF blue, bg #0A0F1C */
+        /* M-CORP — #4F8AFF blue, bg #0A0F1C navy (from corp dashboard) */
         .pack-mcorp {
             background:
-                radial-gradient(ellipse 90% 60% at 30% 70%, rgba(79,138,255,0.10) 0%, transparent 50%),
-                radial-gradient(ellipse 50% 40% at 85% 30%, rgba(37,99,235,0.08) 0%, transparent 45%),
-                linear-gradient(150deg, #111827 0%, #0D1320 50%, #0A0F1C 100%);
-            border-color: #2D3748;
+                radial-gradient(ellipse 100% 65% at 25% 75%, rgba(79,138,255,0.14) 0%, transparent 50%),
+                radial-gradient(ellipse 70% 50% at 80% 15%, rgba(37,99,235,0.10) 0%, transparent 45%),
+                linear-gradient(150deg, #151D2E 0%, #101828 40%, #0A0F1C 100%);
+            border-color: rgba(79,138,255,0.12);
         }
         .pack-mcorp:hover { border-color: rgba(79,138,255,0.30); }
         .pack-mcorp .pack-tag { color: #4F8AFF; background: rgba(79,138,255,0.10); }
@@ -473,12 +475,12 @@
         .pack-mcorp .pack-features li::before { background: #4F8AFF; }
 
         /* Modal CTA variants — real product colors */
-        .modal-cta-mone { background: #4F6EF7; color: #fff; }
+        .modal-cta-mone { background: #E8C547; color: #06060E; }
         .modal-cta-mcampaign { background: #0AD0C9; color: #04252F; }
         .modal-cta-mneural { background: #9B5BF5; color: #fff; }
         .modal-cta-mcorp { background: #4F8AFF; color: #fff; }
 
-        .modal-subtitle-mone { color: #4F6EF7; }
+        .modal-subtitle-mone { color: #E8C547; }
         .modal-subtitle-mcampaign { color: #0AD0C9; }
         .modal-subtitle-mneural { color: #9B5BF5; }
         .modal-subtitle-mcorp { color: #4F8AFF; }
