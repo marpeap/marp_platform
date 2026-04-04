@@ -1142,7 +1142,7 @@ a:hover {
 .eco-card {
   position: sticky;
   top: calc(60px + var(--card-index, 0) * 8px);
-  z-index: calc(10 - var(--card-index, 0));
+  z-index: calc(1 + var(--card-index, 0));
   border-radius: var(--radius-xl);
   overflow: hidden;
   background:
