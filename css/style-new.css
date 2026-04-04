@@ -10,20 +10,28 @@
    ======================================== */
 
 :root {
-  /* Background Colors — custom, off-Tailwind */
-  --bg-primary: #080C18;
-  --bg-secondary: #0F1629;
-  --bg-surface: #1A2038;
+  /* Background Colors — neutral warm dark */
+  --bg-primary: #0A0A0E;
+  --bg-secondary: #111114;
+  --bg-surface: #1A1A1E;
 
-  /* Brand Colors — custom palette */
-  --brand-blue: #4F8AFF;
-  --brand-purple: #C4A1FF;
-  --brand-cyan: #00E0C6;
+  /* Brand Palette — Dore leger a Argente, 6 etapes */
+  --brand-gold: #D4B87A;
+  --brand-champagne: #C8B48C;
+  --brand-warm-silver: #BCAF9E;
+  --brand-neutral: #AEB2B0;
+  --brand-cool-silver: #A0B5C2;
+  --brand-silver: #B8C8D8;
+
+  /* Legacy aliases — mapped to new palette */
+  --brand-blue: var(--brand-gold);
+  --brand-purple: var(--brand-champagne);
+  --brand-cyan: var(--brand-silver);
 
   /* Text Colors */
-  --text-primary: #EDF0F7;
-  --text-secondary: #8492A6;
-  --text-highlight: #7BA8FF;
+  --text-primary: #EDF0F0;
+  --text-secondary: #8A8E96;
+  --text-highlight: #D4B87A;
 
   /* Status Colors */
   --success: #0DD9A4;
@@ -51,7 +59,7 @@
   --radius-xl: 16px;
 
   /* Section alternate background (Figma "lego blocks" pattern) */
-  --bg-section-alt: #0A0E1A;
+  --bg-section-alt: #0C0C10;
 
   /* Transitions — custom easings (Webflow/Linear inspired) */
   --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
@@ -66,7 +74,7 @@
   --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 10px 24px -4px rgba(0, 0, 0, 0.25);
   --shadow-xl: 0 20px 40px -8px rgba(0, 0, 0, 0.3);
-  --shadow-focus: 0 0 0 3px rgba(79, 138, 255, 0.25);
+  --shadow-focus: 0 0 0 3px rgba(212, 184, 122, 0.25);
 }
 
 /* ========================================
