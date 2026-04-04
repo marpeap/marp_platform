@@ -1138,11 +1138,11 @@ a:hover {
   gap: 2rem;
 }
 
-/* ── Stacking cards ── */
+/* ── Unstacking cards — start piled, peel off on scroll ── */
 .eco-card {
   position: sticky;
-  top: calc(60px + var(--card-index, 0) * 28px);
-  z-index: calc(1 + var(--card-index, 0));
+  top: calc(60px + var(--card-index, 0) * 8px);
+  z-index: calc(10 - var(--card-index, 0));
   border-radius: var(--radius-xl);
   overflow: hidden;
   background:
@@ -1331,7 +1331,7 @@ a:hover {
 /* ── Desktop: split layout + mockup visible ── */
 @media (min-width: 769px) {
   .eco-card {
-    top: calc(80px + var(--card-index, 0) * 40px);
+    top: calc(80px + var(--card-index, 0) * 12px);
   }
 
   .eco-card-body {
