@@ -4,6 +4,8 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 Disallow: /admin/
+Disallow: /boutique
+Disallow: /boutique.html
 Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /.env

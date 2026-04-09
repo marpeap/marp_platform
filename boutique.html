@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Boutique de Skills | Marpeap</title>
+    <meta name="description" content="Skills Claude personnalisés par Marpeap. Protocoles, design, rédaction, SEO, art génératif — 15 € l'unité.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Marpeap" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #080C18 0%, #0F1629 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── Navbar ── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 28, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand { font-family: 'Space Grotesk', sans-serif; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #8492A6;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover { color: #D4B87A; }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-cta-nav {
+            background: #D4B87A;
+            color: #0A0A0E;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: opacity 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .btn-cta-nav:hover { opacity: 0.88; }
+
+        .btn-phone-nav {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.5rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: border-color 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-phone-nav:hover {
+            border-color: rgba(255, 255, 255, 0.28);
+            color: #fff;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        /* ── Success Banner ── */
+        .success-banner {
+            display: none;
+            position: fixed;
+            top: 4.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 900;
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #4ade80;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            white-space: nowrap;
+        }
+
+        .success-banner.visible { display: block; }
+
+        /* ── Hero ── */
+        .boutique-hero {
+            padding: 9rem 0 3.5rem;
+            text-align: center;
+            background: radial-gradient(ellipse 65% 50% at 50% 60%, rgba(212, 184, 122, 0.09) 0%, transparent 65%);
+        }
+
+        .boutique-hero-label {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: rgba(212, 184, 122, 0.6);
+            letter-spacing: 0.06em;
+            margin-bottom: 1.25rem;
+        }
+
+        .boutique-hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4.5vw, 3.25rem);
+            font-weight: 700;
+            line-height: 1.06;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+        }
+
+        .boutique-hero-sub {
+            font-size: 1.0625rem;
+            color: rgba(255, 255, 255, 0.52);
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.55;
+        }
+
+        /* ── Skills Grid ── */
+        .boutique-grid-section {
+            padding: 2rem 0 6rem;
+        }
+
+        .boutique-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        /* Base card */
+        .skill-card {
+            border-radius: 1rem;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Individual card atmospheres */
+        .skill-card--art {
+            background:
+                radial-gradient(ellipse 80% 60% at 15% 20%, rgba(139, 92, 246, 0.18) 0%, transparent 55%),
+                linear-gradient(155deg, #111828 0%, #0d1220 100%);
+            border: 1px solid rgba(139, 92, 246, 0.18);
+        }
+        .skill-card--art:hover { border-color: rgba(139, 92, 246, 0.35); }
+
+        .skill-card--articles {
+            background:
+                radial-gradient(ellipse 80% 60% at 85% 15%, rgba(251, 146, 60, 0.15) 0%, transparent 55%),
+                linear-gradient(155deg, #131520 0%, #0e1018 100%);
+            border: 1px solid rgba(251, 146, 60, 0.16);
+        }
+        .skill-card--articles:hover { border-color: rgba(251, 146, 60, 0.32); }
+
+        .skill-card--design {
+            background:
+                radial-gradient(ellipse 80% 60% at 15% 80%, rgba(34, 211, 238, 0.15) 0%, transparent 55%),
+                linear-gradient(155deg, #0f1a22 0%, #0b1218 100%);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+        }
+        .skill-card--design:hover { border-color: rgba(34, 211, 238, 0.30); }
+
+        .skill-card--canvas {
+            background:
+                radial-gradient(ellipse 80% 60% at 80% 80%, rgba(244, 114, 182, 0.14) 0%, transparent 55%),
+                linear-gradient(155deg, #131220 0%, #0f0e1a 100%);
+            border: 1px solid rgba(244, 114, 182, 0.15);
+        }
+        .skill-card--canvas:hover { border-color: rgba(244, 114, 182, 0.30); }
+
+        .skill-card--cycle {
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 50%, rgba(52, 211, 153, 0.14) 0%, transparent 55%),
+                linear-gradient(155deg, #0d1a16 0%, #0a1210 100%);
+            border: 1px solid rgba(52, 211, 153, 0.15);
+        }
+        .skill-card--cycle:hover { border-color: rgba(52, 211, 153, 0.30); }
+
+        .skill-card--gif {
+            background:
+                radial-gradient(ellipse 80% 60% at 80% 30%, rgba(99, 179, 237, 0.15) 0%, transparent 55%),
+                linear-gradient(155deg, #0e1620 0%, #0a121c 100%);
+            border: 1px solid rgba(99, 179, 237, 0.15);
+        }
+        .skill-card--gif:hover { border-color: rgba(99, 179, 237, 0.30); }
+
+        .skill-card--seo {
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 15%, rgba(212, 184, 122, 0.15) 0%, transparent 55%),
+                linear-gradient(155deg, #171410 0%, #110f09 100%);
+            border: 1px solid rgba(212, 184, 122, 0.18);
+        }
+        .skill-card--seo:hover { border-color: rgba(212, 184, 122, 0.35); }
+
+        /* Card internals */
+        .skill-card-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            color: rgba(255, 255, 255, 0.28);
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            line-height: 1.2;
+            margin-bottom: 0.625rem;
+        }
+
+        .skill-card-desc {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.52);
+            line-height: 1.5;
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        .skill-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #fff;
+        }
+
+        .skill-price span {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.38);
+            margin-left: 0.2rem;
+        }
+
+        .btn-buy {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 0.5rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: background 0.15s ease, border-color 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .btn-buy:hover {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.26);
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: rgba(10, 15, 28, 0.95);
+            padding: 3rem 0 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            color: #D4B87A;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p { color: #8492A6; }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #8492A6;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover { color: #D4B87A; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #8492A6;
+            font-size: 0.9rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .boutique-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .boutique-grid { grid-template-columns: 1fr; }
+            .footer-content, .footer-links { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand" aria-label="Marpeap">
+                <img src="assets/images/marpeap.png" alt="Marpeap" height="34" loading="eager">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="packs.html" class="nav-link">Nos solutions</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="https://refer.marpeap.com" class="nav-link" target="_blank" rel="noopener noreferrer">Devenir partenaire</a>
+            </div>
+            <div class="nav-actions">
+                <a href="packs.html" class="btn-cta-nav">Voir nos solutions</a>
+                <a href="tel:+33230964030" class="btn-phone-nav">
+                    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 12.69v2.37a1.58 1.58 0 0 1-1.72 1.58 15.65 15.65 0 0 1-6.82-2.43 15.42 15.42 0 0 1-4.74-4.74A15.65 15.65 0 0 1 .8 2.72 1.58 1.58 0 0 1 2.35 1h2.37a1.58 1.58 0 0 1 1.58 1.36 10.15 10.15 0 0 0 .55 2.22 1.58 1.58 0 0 1-.36 1.67l-1 1a12.65 12.65 0 0 0 4.74 4.74l1-1a1.58 1.58 0 0 1 1.67-.36 10.15 10.15 0 0 0 2.22.55 1.58 1.58 0 0 1 1.38 1.6Z"/></svg>
+                    <span>02 30 96 40 30</span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="success-banner" id="successBanner">
+        Paiement confirmé — votre skill sera livré sous 24h à l'adresse email renseignée.
+    </div>
+
+    <section class="boutique-hero">
+        <div class="container">
+            <span class="boutique-hero-label">marpeap · skills</span>
+            <h1 class="boutique-hero-title">Boutique de Skills</h1>
+            <p class="boutique-hero-sub">Protocoles et outils Claude conçus par Marpeap. Chaque skill, 15 €.</p>
+        </div>
+    </section>
+
+    <section class="boutique-grid-section">
+        <div class="container">
+            <div class="boutique-grid">
+
+                <!-- Art Algorithmique -->
+                <div class="skill-card skill-card--art">
+                    <span class="skill-card-tag">art</span>
+                    <h2 class="skill-card-title">Art Algorithmique</h2>
+                    <p class="skill-card-desc">Génère des œuvres génératifs avec p5.js — flow fields, particules, noise Perlin. Sortie : HTML interactif + JS exportable.</p>
+                    <div class="skill-card-footer">
+                        <div class="skill-price">15 €<span>HT</span></div>
+                        <a href="https://buy.stripe.com/fZu6oH1fJ0h07wk4JE93y01" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                    </div>
+                </div>
+
+                <!-- Rédaction d'Articles -->
+                <div class="skill-card skill-card--articles">
+                    <span class="skill-card-tag">articles</span>
+                    <h2 class="skill-card-title">Rédaction d'Articles</h2>
+                    <p class="skill-card-desc">Machine éditoriale sur 912M d'articles, NNGroup eye-tracking, Cialdini & Kahneman. Headlines, hooks, biais cognitifs, conversion.</p>
+                    <div class="skill-card-footer">
+                        <div class="skill-price">15 €<span>HT</span></div>
+                        <a href="https://buy.stripe.com/eVq14naQj4xgg2Q0to93y02" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                    </div>
+                </div>
+
+                <!-- Web Design Anti-LLM -->
+                <div class="skill-card skill-card--design">
+                    <span class="skill-card-tag">better-design</span>
+                    <h2 class="skill-card-title">Web Design Anti-LLM</h2>
+                    <p class="skill-card-desc">Système Hyper V3 pour concevoir ou auditer un site sans patterns génériques IA. 6 fonds, 8 types de sections, typographie, rythme.</p>
+                    <div class="skill-card-footer">
+                        <div class="skill-price">15 €<span>HT</span></div>
+                        <a href="https://buy.stripe.com/7sY4gzf6z8NwdUI1xs93y03" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                    </div>
+                </div>
+
+                <!-- Design sur Canvas -->
+                <div class="skill-card skill-card--canvas">
+                    <span class="skill-card-tag">canvas</span>
+                    <h2 class="skill-card-title">Design sur Canvas</h2>
+                    <p class="skill-card-desc">Crée des affiches et visuels statiques (PNG, PDF) via une philosophie de design originale. Composition, typographie, ambiance.</p>
+                    <div class="skill-card-footer">
+                        <div class="skill-price">15 €<span>HT</span></div>
+                        <a href="https://buy.stripe.com/dRm00j7E7aVEaIw2Bw93y04" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                    </div>
+                </div>
+
+                <!-- Protocole Cycle-MKR -->
+                <div class="skill-card skill-card--cycle">
+                    <span class="skill-card-tag">cycle-mkr</span>
+                    <h2 class="skill-card-title">Protocole Cycle-MKR</h2>
+                    <p class="skill-card-desc">R&D par patches atomiques : init bloc, reprise de session, LIRE / PLAN / CODER / CHECK / SMOKE / COMMIT, release gate, audit.</p>
+                    <div class="skill-card-footer">
+                        <div class="skill-price">15 €<span>HT</span></div>
+                        <a href="https://buy.stripe.com/bJecN55vZ5BkaIw4JE93y05" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                    </div>
+                </div>
+
+                <!-- GIF & Vidéo -->
+                <div class="skill-card skill-card--gif">
+                    <span class="skill-card-tag">gif-makr</span>
+                    <h2 class="skill-card-title">GIF & Vidéo Makr</h2>
+                    <p class="skill-card-desc">GIFs animés (PIL) et vidéos produit cinématiques (Puppeteer + ffmpeg) pour Slack, landing pages et campagnes marketing.</p>
+                    <div class="skill-card-footer">
+                        <div class="skill-price">15 €<span>HT</span></div>
+                        <a href="https://buy.stripe.com/28E8wPgaDfbU8Ao1xs93y06" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                    </div>
+                </div>
+
+                <!-- SEO Durci -->
+                <div class="skill-card skill-card--seo">
+                    <span class="skill-card-tag">seo</span>
+                    <h2 class="skill-card-title">SEO Durci</h2>
+                    <p class="skill-card-desc">Guide fiable et maintenu. Sources officielles Google Search, web.dev, Next.js, OpenAI. Règles vérifiées, cross-engine, patterns framework.</p>
+                    <div class="skill-card-footer">
+                        <div class="skill-price">15 €<span>HT</span></div>
+                        <a href="https://buy.stripe.com/cNi9ATgaDbZI8Aoeke93y07" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>MARPEAP</h3>
+                    <p>Code. Growth. Results.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <a href="index.html">Accueil</a>
+                        <a href="index.html#services">Services</a>
+                        <a href="packs.html">Packs</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <a href="tel:+33230964030">02 30 96 40 30</a>
+                        <a href="mailto:contact@marpeap.com">contact@marpeap.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MARPEAP. Tous droits réservés.</p>
+                <p><a href="mentions-legales.html" style="color: #8492A6; text-decoration: none;">Mentions légales & Confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Success state
+        if (new URLSearchParams(window.location.search).get('success') === '1') {
+            document.getElementById('successBanner').classList.add('visible');
+        }
+
+        // Mobile menu toggle
+        const toggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
