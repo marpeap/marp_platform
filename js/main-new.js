@@ -54,6 +54,37 @@
   }
 
   // ========================================
+  // NAV DROPDOWN "Nos solutions"
+  // ========================================
+
+  const navDropdown = document.querySelector('.nav-dropdown');
+  if (navDropdown) {
+    const trigger = navDropdown.querySelector('.nav-dropdown-trigger');
+
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navDropdown.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', navDropdown.classList.contains('open'));
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!navDropdown.contains(e.target)) {
+        navDropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        navDropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // ========================================
   // SMOOTH SCROLL FOR ANCHOR LINKS
   // ========================================
   

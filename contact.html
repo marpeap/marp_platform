@@ -135,6 +135,40 @@
             color: #D4B87A;
         }
 
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-trigger {
+            display: flex; align-items: center; gap: 5px;
+            background: none; border: none; cursor: pointer;
+            font-family: inherit; font-size: 0.95rem; font-weight: 500;
+            color: #8492A6; transition: color 0.3s; padding: 0;
+        }
+        .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger { color: #D4B87A; }
+        .nav-dropdown-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; opacity: 0.55; }
+        .nav-dropdown.open .nav-dropdown-chevron { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            position: absolute; top: calc(100% + 14px); left: 50%;
+            transform: translateX(-50%) translateY(-6px);
+            background: rgba(12,14,22,0.97); backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 11px;
+            padding: 6px; min-width: 210px;
+            opacity: 0; visibility: hidden; pointer-events: none;
+            transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+            z-index: 200; box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+        }
+        .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1; visibility: visible; pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+            transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s;
+        }
+        .nav-dropdown-item {
+            display: flex; flex-direction: column; gap: 2px;
+            padding: 9px 13px; border-radius: 7px; text-decoration: none;
+            transition: background 0.15s;
+        }
+        .nav-dropdown-item:hover { background: rgba(255,255,255,0.07); }
+        .nav-dropdown-item-title { font-size: 0.9rem; font-weight: 600; color: #fff; }
+        .nav-dropdown-item-sub { font-size: 0.775rem; color: #8492A6; }
+
         .nav-actions {
             display: flex;
             align-items: center;
@@ -644,7 +678,22 @@
             </a>
             <div class="nav-links">
                 <a href="index.html#services" class="nav-link">Services</a>
-                <a href="packs.html" class="nav-link">Nos solutions</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        Nos solutions
+                        <svg class="nav-dropdown-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="/boutique" class="nav-dropdown-item">
+                            <span class="nav-dropdown-item-title">Skill Shop</span>
+                            <span class="nav-dropdown-item-sub">Skills Claude à 15 €</span>
+                        </a>
+                        <a href="/packs" class="nav-dropdown-item">
+                            <span class="nav-dropdown-item-title">Packs</span>
+                            <span class="nav-dropdown-item-sub">Solutions complètes</span>
+                        </a>
+                    </div>
+                </div>
                 <a href="faq.html" class="nav-link">FAQ</a>
                 <a href="contact.html" class="nav-link active">Contact</a>
                 <a href="https://refer.marpeap.com" class="nav-link nav-link-referral" target="_blank" rel="noopener noreferrer">Devenir partenaire</a>
@@ -1147,5 +1196,23 @@
         });
     </script>
     <script src="js/cookie-consent.js" defer></script>
+    <script>
+    (function() {
+        var dd = document.querySelector('.nav-dropdown');
+        if (!dd) return;
+        var trigger = dd.querySelector('.nav-dropdown-trigger');
+        trigger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dd.classList.toggle('open');
+            trigger.setAttribute('aria-expanded', dd.classList.contains('open'));
+        });
+        document.addEventListener('click', function(e) {
+            if (!dd.contains(e.target)) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { dd.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
+        });
+    })();
+    </script>
 </body>
 </html>
