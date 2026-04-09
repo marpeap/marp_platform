@@ -322,97 +322,95 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #8492A6;
-            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+            font-weight: 400;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.48);
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 1rem 1.25rem;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 0.5rem;
             color: #f3f4f6;
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
+            font-size: 0.9375rem;
+            transition: border-color 0.15s ease, background 0.15s ease;
             outline: none;
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: #D4B87A;
-            box-shadow: 0 0 0 4px rgba(79, 138, 255, 0.15);
-            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(212, 184, 122, 0.45);
+            background: rgba(255, 255, 255, 0.06);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 110px;
         }
 
         .form-select-btn {
             width: 100%;
-            padding: 0.875rem 1rem;
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 0.5rem;
             color: #f3f4f6;
             text-align: left;
             cursor: pointer;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
+            font-size: 0.9375rem;
+            transition: border-color 0.15s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .form-select-btn:hover {
-            background: rgba(79, 138, 255, 0.1);
-            border-color: rgba(79, 138, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.18);
         }
 
         .form-select-value {
             flex: 1;
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .form-select-value.selected {
+            color: #f3f4f6;
         }
 
         .form-select-arrow {
-            font-size: 0.8rem;
-            opacity: 0.6;
-            transition: transform 0.2s ease;
+            font-size: 0.7rem;
+            opacity: 0.4;
         }
 
         .btn-primary {
             background: #D4B87A;
-            color: white;
-            padding: 1rem 2rem;
+            color: #0A0A0E;
+            padding: 0.875rem 2rem;
             border: none;
-            border-radius: 0.75rem;
+            border-radius: 9999px;
             font-weight: 600;
+            font-size: 0.9375rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s;
+            transition: opacity 0.15s ease;
             width: 100%;
             justify-content: center;
+            letter-spacing: -0.01em;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(79, 138, 255, 0.3);
-        }
+        .btn-primary:hover { opacity: 0.88; }
 
         .btn-primary:disabled {
-            opacity: 0.6;
+            opacity: 0.45;
             cursor: not-allowed;
         }
 
@@ -775,13 +773,12 @@
 
                         <div class="form-message" id="formMessage"></div>
 
-                        <p style="font-size:0.78rem; color:#8492A6; line-height:1.55; margin-bottom:1.25rem;">
-                            <strong style="color:#a0aec0;">Informations RGPD</strong> — Les données saisies (nom, email, message) sont collectées par <strong style="color:#a0aec0;">Marpeap Digitals SASU</strong> (SIREN 994 788 081), responsable du traitement, aux fins de réponse à votre demande. Base légale : consentement (art. 6.1.a RGPD). Conservation : 12 mois maximum. Vous pouvez exercer vos droits (accès, rectification, effacement, opposition) à l'adresse <a href="mailto:contact@marpeap.com" style="color:#D4B87A; text-decoration:underline;">contact@marpeap.com</a>. Pour en savoir plus, consultez notre <a href="mentions-legales.html#confidentialite" style="color:#D4B87A; text-decoration:underline;">politique de confidentialité</a>.
+                        <p style="font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5; margin-bottom:1.25rem;">
+                            Données collectées par MARPEAP SASU (SIREN 994 788 081) aux fins de réponse à votre demande — conservation 12 mois. <a href="mentions-legales.html#confidentialite" style="color:rgba(255,255,255,0.42); text-decoration:underline;">Politique de confidentialité</a>.
                         </p>
 
                         <button type="submit" class="btn-primary btn-submit" id="submitBtn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                            <span>Envoyer la demande</span>
+                            <span>Envoyer</span>
                         </button>
                     </form>
                 </div>
