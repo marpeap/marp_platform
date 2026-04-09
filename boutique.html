@@ -74,11 +74,27 @@
         .success-banner {
             display: none; position: fixed; top: 4.5rem; left: 50%;
             transform: translateX(-50%); z-index: 900;
-            background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3);
-            color: #4ade80; padding: 0.75rem 1.5rem; border-radius: 9999px;
-            font-size: 0.9rem; font-weight: 500; backdrop-filter: blur(10px); white-space: nowrap;
+            background: rgba(10,15,28,0.96); border: 1px solid rgba(34,197,94,0.35);
+            padding: 0.875rem 1.5rem; border-radius: 14px;
+            backdrop-filter: blur(14px);
+            display: none; flex-direction: column; align-items: center; gap: 0.625rem;
+            min-width: 280px; text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
         }
-        .success-banner.visible { display: block; }
+        .success-banner.visible { display: flex; }
+        .success-banner-msg {
+            color: #4ade80; font-size: 0.9rem; font-weight: 600;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-download {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(212,184,122,0.12); border: 1px solid rgba(212,184,122,0.35);
+            color: #D4B87A; padding: 0.5rem 1.125rem; border-radius: 8px;
+            font-size: 0.875rem; font-weight: 600; text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .btn-download:hover { background: rgba(212,184,122,0.2); border-color: rgba(212,184,122,0.55); }
+        .btn-download svg { width: 14px; height: 14px; flex-shrink: 0; }
 
         /* ── Hero — atmosphère chaude or ── */
         .boutique-hero {
@@ -371,24 +387,55 @@
             overflow: hidden;
             border: 1px solid rgba(99,179,237,0.18);
             background: #0A0B0D;
+            position: relative;
         }
         .modal-video-wrap.visible { display: block; }
         .modal-video-wrap video {
             width: 100%;
             display: block;
-            border-radius: 7px;
+            border-radius: 7px 7px 0 0;
+            cursor: zoom-in;
         }
         .modal-video-caption {
-            padding: 0.5rem 0.75rem;
-            font-family: 'Fira Code', monospace;
+            padding: 0.4rem 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.6875rem;
             color: rgba(99,179,237,0.6);
             background: rgba(99,179,237,0.04);
             border-top: 1px solid rgba(99,179,237,0.1);
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 0.5rem;
         }
+        .btn-video-expand {
+            background: none; border: none; cursor: pointer;
+            color: rgba(99,179,237,0.7); font-size: 0.6875rem;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex; align-items: center; gap: 0.3rem;
+            padding: 0; transition: color 0.15s;
+        }
+        .btn-video-expand:hover { color: rgba(99,179,237,1); }
+
+        /* Video lightbox */
+        .video-lightbox {
+            display: none; position: fixed; inset: 0; z-index: 2000;
+            background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
+            align-items: center; justify-content: center;
+        }
+        .video-lightbox.open { display: flex; }
+        .video-lightbox video {
+            max-width: 90vw; max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+        }
+        .video-lightbox-close {
+            position: absolute; top: 1.25rem; right: 1.5rem;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+            color: #fff; width: 36px; height: 36px; border-radius: 50%;
+            font-size: 1.125rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+        .video-lightbox-close:hover { background: rgba(255,255,255,0.18); }
         .modal-section-title {
             font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600;
             letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.28);
@@ -495,7 +542,14 @@
     </nav>
 
     <div class="success-banner" id="successBanner">
-        Paiement confirmé — votre skill sera livré sous 24h à l'adresse email renseignée.
+        <div class="success-banner-msg">
+            <svg viewBox="0 0 16 16" fill="none" style="width:16px;height:16px;"><circle cx="8" cy="8" r="7" stroke="#4ade80" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Paiement confirmé
+        </div>
+        <a class="btn-download" id="downloadBtn" href="#" download>
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Télécharger le skill
+        </a>
     </div>
 
     <!-- ── Hero ── -->
@@ -507,7 +561,7 @@
                 <div class="proof-strip-inner">
                     <span class="proof-item">7 skills</span>
                     <span class="proof-sep">·</span>
-                    <span class="proof-item">Livraison sous 24h</span>
+                    <span class="proof-item">Téléchargement immédiat</span>
                     <span class="proof-sep">·</span>
                     <span class="proof-item">15 € · paiement unique</span>
                     <span class="proof-sep">·</span>
@@ -686,8 +740,11 @@
                         <source src="/videos/gifmakr-demo.mp4" type="video/mp4">
                     </video>
                     <div class="modal-video-caption">
-                        <span>▶</span>
-                        <span>Démo générée par le skill · Puppeteer + ffmpeg · 394 KB · 30s</span>
+                        <span>▶ Démo générée par le skill · Puppeteer + ffmpeg · 30s</span>
+                        <button class="btn-video-expand" id="btnVideoExpand" type="button" aria-label="Agrandir la vidéo">
+                            <svg viewBox="0 0 14 14" fill="none" style="width:11px;height:11px;"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Agrandir
+                        </button>
                     </div>
                 </div>
                 <p class="modal-section-title">Ce que le skill fait</p>
@@ -698,6 +755,14 @@
                 <a href="#" class="btn-buy-modal" id="modalBuyBtn" target="_blank" rel="noopener">Acheter ce skill</a>
             </div>
         </div>
+    </div>
+
+    <!-- Video lightbox -->
+    <div class="video-lightbox" id="videoLightbox" role="dialog" aria-modal="true" aria-label="Vidéo agrandie">
+        <button class="video-lightbox-close" id="lightboxClose" aria-label="Fermer">&times;</button>
+        <video id="lightboxVideo" autoplay muted loop playsinline>
+            <source src="/videos/gifmakr-demo.mp4" type="video/mp4">
+        </video>
     </div>
 
     <footer class="footer">
@@ -831,6 +896,29 @@
     const closeBtn   = document.getElementById('modalClose');
     const videoWrap  = document.getElementById('modalVideoWrap');
     const videoEl    = document.getElementById('modalVideo');
+    const lightbox   = document.getElementById('videoLightbox');
+    const lbVideo    = document.getElementById('lightboxVideo');
+    const lbClose    = document.getElementById('lightboxClose');
+    const btnExpand  = document.getElementById('btnVideoExpand');
+
+    function openLightbox() {
+        lightbox.classList.add('open');
+        lbVideo.currentTime = videoEl.currentTime;
+        lbVideo.play().catch(() => {});
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        lightbox.classList.remove('open');
+        lbVideo.pause();
+        document.body.style.overflow = '';
+    }
+    if (btnExpand) btnExpand.addEventListener('click', openLightbox);
+    videoEl.addEventListener('click', openLightbox);
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target === lbVideo) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
 
     function openModal(skillId) {
         const s = SKILLS[skillId];
@@ -856,8 +944,9 @@
 
     function closeModal() {
         overlay.classList.remove('open');
-        document.body.style.overflow = '';
+        if (!lightbox.classList.contains('open')) document.body.style.overflow = '';
         videoEl.pause();
+        closeLightbox();
     }
 
     document.querySelectorAll('.btn-details').forEach(btn =>
@@ -869,7 +958,24 @@
         if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
     });
 
-    if (new URLSearchParams(window.location.search).get('success') === '1') {
+    const SKILL_FILES = {
+        art:      { file: '/downloads/art.zip',          label: 'art.zip' },
+        articles: { file: '/downloads/articles.zip',     label: 'articles.zip' },
+        design:   { file: '/downloads/better-design.zip',label: 'better-design.zip' },
+        canvas:   { file: '/downloads/canvas.zip',       label: 'canvas.zip' },
+        cycle:    { file: '/downloads/cycle-mkr.zip',    label: 'cycle-mkr.zip' },
+        gif:      { file: '/downloads/gif-makr.zip',     label: 'gif-makr.zip' },
+        seo:      { file: '/downloads/seo.zip',          label: 'seo.zip' },
+    };
+
+    const successSkill = new URLSearchParams(window.location.search).get('success');
+    if (successSkill && SKILL_FILES[successSkill]) {
+        const { file, label } = SKILL_FILES[successSkill];
+        const btn = document.getElementById('downloadBtn');
+        btn.href     = file;
+        btn.download = label;
+        btn.textContent = '';
+        btn.innerHTML = `<svg viewBox="0 0 16 16" fill="none" style="width:14px;height:14px;flex-shrink:0"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Télécharger ${label}`;
         document.getElementById('successBanner').classList.add('visible');
     }
 
