@@ -364,6 +364,31 @@
 
         .modal-body { padding: 1.5rem 1.75rem; }
         .modal-intro { font-size: 0.9375rem; color: rgba(255,255,255,0.62); line-height: 1.6; margin-bottom: 1.5rem; }
+        .modal-video-wrap {
+            display: none;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(99,179,237,0.18);
+            background: #0A0B0D;
+        }
+        .modal-video-wrap.visible { display: block; }
+        .modal-video-wrap video {
+            width: 100%;
+            display: block;
+            border-radius: 7px;
+        }
+        .modal-video-caption {
+            padding: 0.5rem 0.75rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.6875rem;
+            color: rgba(99,179,237,0.6);
+            background: rgba(99,179,237,0.04);
+            border-top: 1px solid rgba(99,179,237,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
         .modal-section-title {
             font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600;
             letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.28);
@@ -656,6 +681,15 @@
             </div>
             <div class="modal-body">
                 <p class="modal-intro" id="modalIntro"></p>
+                <div class="modal-video-wrap" id="modalVideoWrap">
+                    <video id="modalVideo" autoplay muted loop playsinline>
+                        <source src="/videos/gifmakr-demo.mp4" type="video/mp4">
+                    </video>
+                    <div class="modal-video-caption">
+                        <span>▶</span>
+                        <span>Démo générée par le skill · Puppeteer + ffmpeg · 394 KB · 30s</span>
+                    </div>
+                </div>
                 <p class="modal-section-title">Ce que le skill fait</p>
                 <ul class="modal-list" id="modalList"></ul>
             </div>
@@ -787,14 +821,16 @@
         }
     };
 
-    const overlay  = document.getElementById('skillModal');
-    const panel    = document.getElementById('modalPanel');
-    const tagEl    = document.getElementById('modalTag');
-    const titleEl  = document.getElementById('modalTitle');
-    const introEl  = document.getElementById('modalIntro');
-    const listEl   = document.getElementById('modalList');
-    const buyBtn   = document.getElementById('modalBuyBtn');
-    const closeBtn = document.getElementById('modalClose');
+    const overlay    = document.getElementById('skillModal');
+    const panel      = document.getElementById('modalPanel');
+    const tagEl      = document.getElementById('modalTag');
+    const titleEl    = document.getElementById('modalTitle');
+    const introEl    = document.getElementById('modalIntro');
+    const listEl     = document.getElementById('modalList');
+    const buyBtn     = document.getElementById('modalBuyBtn');
+    const closeBtn   = document.getElementById('modalClose');
+    const videoWrap  = document.getElementById('modalVideoWrap');
+    const videoEl    = document.getElementById('modalVideo');
 
     function openModal(skillId) {
         const s = SKILLS[skillId];
@@ -805,6 +841,14 @@
         buyBtn.href          = s.link;
         panel.dataset.accent = skillId;
         listEl.innerHTML     = s.items.map(i => `<li>${i}</li>`).join('');
+        if (skillId === 'gif') {
+            videoWrap.classList.add('visible');
+            videoEl.currentTime = 0;
+            videoEl.play().catch(() => {});
+        } else {
+            videoWrap.classList.remove('visible');
+            videoEl.pause();
+        }
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
         closeBtn.focus();
@@ -813,6 +857,7 @@
     function closeModal() {
         overlay.classList.remove('open');
         document.body.style.overflow = '';
+        videoEl.pause();
     }
 
     document.querySelectorAll('.btn-details').forEach(btn =>

@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root {
+  --gold: #D4B87A;
+  --gold2: rgba(212,184,122,0.18);
+  --gold3: rgba(212,184,122,0.07);
+  --bg: #0A0B0D;
+  --bg2: #111318;
+  --bg3: #181C23;
+  --bg4: #1E2330;
+  --text: #E8E6E3;
+  --muted: rgba(232,230,227,0.5);
+  --muted2: rgba(232,230,227,0.25);
+  --muted3: rgba(232,230,227,0.1);
+  --green: #4CAF7A;
+  --cyan: #5BC4B8;
+  --blue: #5C9EFF;
+  --purple: #9B7FD4;
+  --orange: #E8924A;
+  --border: rgba(232,230,227,0.08);
+  --border2: rgba(232,230,227,0.14);
+}
+
+body {
+  width: 800px; height: 500px; overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.sg { font-family: 'Space Grotesk', sans-serif; }
+.fc { font-family: 'Fira Code', monospace; }
+
+/* Scene system */
+.scene { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+.scene.active { opacity: 1; }
+
+/* Reveal animations */
+.vis  { opacity: 0; transform: translateY(7px); }
+.vis.v  { opacity: 1; transform: translateY(0); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+.visx { opacity: 0; transform: translateX(-8px); }
+.visx.v { opacity: 1; transform: translateX(0); transition: opacity 0.38s ease-out, transform 0.38s ease-out; }
+.visxr { opacity: 0; transform: translateX(14px); }
+.visxr.v { opacity: 1; transform: translateX(0); transition: opacity 0.38s ease-out, transform 0.38s ease-out; }
+.viss { opacity: 0; transform: scale(0.94); }
+.viss.v { opacity: 1; transform: scale(1); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+
+/* ─────────────────────────────────────────────
+   SCENE 1 — Terminal
+───────────────────────────────────────────── */
+#s1 {
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 85%, rgba(212,184,122,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 10%, rgba(91,196,184,0.05) 0%, transparent 50%),
+    var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terminal-wrap {
+  width: 620px;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+}
+
+.dots { display: flex; gap: 6px; }
+.dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot-r { background: #FF5F57; }
+.dot-y { background: #FEBC2E; }
+.dot-g { background: #28C840; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+}
+
+.terminal-body {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 0 0 10px 10px;
+  padding: 20px 22px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.term-line {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prompt { color: var(--gold); }
+.cmd { color: var(--text); }
+.arg { color: var(--cyan); }
+.cmt { color: var(--muted); font-style: italic; }
+
+.resp-line {
+  font-family: 'Fira Code', monospace;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--muted);
+  padding-left: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-ok { color: var(--green); font-size: 11px; }
+.icon-arrow { color: var(--gold); font-size: 11px; }
+.icon-info { color: var(--blue); font-size: 11px; }
+
+.resp-label { color: var(--text); font-weight: 500; }
+.resp-val { color: var(--cyan); }
+
+.term-separator {
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0;
+}
+
+.progress-wrap {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-bar-bg {
+  flex: 1;
+  height: 4px;
+  background: var(--muted3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--cyan) 100%);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  min-width: 80px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  background: var(--gold);
+  border-radius: 1px;
+  vertical-align: middle;
+}
+
+/* ─────────────────────────────────────────────
+   SCENE 2 — Build Process
+───────────────────────────────────────────── */
+#s2 {
+  background:
+    radial-gradient(ellipse 80% 50% at 0% 100%, rgba(92,158,255,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 40% at 100% 0%, rgba(155,127,212,0.05) 0%, transparent 50%),
+    var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.s2-topbar {
+  height: 44px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.s2-tab {
+  font-family: 'Fira Code', monospace;
+  font-size: 11.5px;
+  color: var(--muted);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.s2-tab.active {
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.s2-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Left: code editor */
+.code-panel {
+  width: 420px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.code-file-bar {
+  padding: 8px 14px;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.code-file-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.code-body {
+  flex: 1;
+  padding: 14px 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.code-line {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  line-height: 1.72;
+  white-space: pre;
+  display: flex;
+  gap: 16px;
+}
+
+.ln { color: var(--muted2); min-width: 22px; text-align: right; font-size: 11px; }
+.c-kw { color: var(--purple); }
+.c-fn { color: var(--blue); }
+.c-str { color: var(--green); }
+.c-cm { color: var(--muted); font-style: italic; }
+.c-num { color: var(--orange); }
+.c-var { color: var(--cyan); }
+.c-tx { color: var(--text); }
+
+/* Right: capture panel */
+.capture-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+
+.cap-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.thumbnails-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.thumb {
+  height: 52px;
+  border-radius: 4px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.thumb-inner {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 5px;
+  gap: 2px;
+}
+
+.thumb-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+.thumb-bar-sm {
+  height: 2px;
+  border-radius: 1px;
+  background: var(--muted3);
+}
+
+.thumb-grid-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 3px;
+}
+
+.thumb-card-mini {
+  height: 10px;
+  border-radius: 2px;
+  background: var(--bg4);
+  border: 1px solid var(--border);
+}
+
+.thumb-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  color: var(--muted2);
+  text-align: center;
+  padding-top: 2px;
+}
+
+.frame-counter-wrap {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fc-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.fc-val {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.fc-bar-bg {
+  height: 3px;
+  background: var(--muted3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fc-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan) 0%, var(--blue) 100%);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.s2-bottom {
+  padding: 10px 18px;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 6px rgba(76,175,122,0.6);
+}
+
+.status-dot.pulse {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(76,175,122,0.6); }
+  50% { opacity: 0.4; box-shadow: 0 0 2px rgba(76,175,122,0.2); }
+}
+
+/* ─────────────────────────────────────────────
+   SCENE 3 — Result
+───────────────────────────────────────────── */
+#s3 {
+  background:
+    radial-gradient(ellipse 55% 60% at 50% 50%, rgba(212,184,122,0.06) 0%, transparent 65%),
+    var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.result-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.mac-window {
+  width: 640px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border2);
+  box-shadow:
+    0 32px 80px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(232,230,227,0.05);
+}
+
+.mac-titlebar {
+  height: 34px;
+  background: #1E2228;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+}
+
+.mac-dots { display: flex; gap: 6px; }
+.mac-dot { width: 11px; height: 11px; border-radius: 50%; }
+
+.mac-url {
+  flex: 1;
+  height: 20px;
+  background: var(--bg);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 10.5px;
+  color: var(--muted2);
+  margin: 0 30px;
+}
+
+.mac-body {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* Mini boutique inside the window */
+.mini-boutique {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-nav {
+  height: 44px;
+  background: rgba(10,11,13,0.95);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+}
+
+.mini-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+}
+
+.mini-nav-links {
+  display: flex;
+  gap: 14px;
+  margin-left: 10px;
+}
+
+.mini-nav-link {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.mini-hero {
+  padding: 22px 28px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 20%, rgba(212,184,122,0.08) 0%, transparent 60%),
+    var(--bg);
+}
+
+.mini-eyebrow {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.mini-h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.mini-h1 span { color: var(--gold); }
+
+.mini-sub {
+  font-size: 11px;
+  color: var(--muted);
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+.mini-proof {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.mini-proof-item {
+  font-family: 'Fira Code', monospace;
+  font-size: 9.5px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mini-proof-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.mini-cards {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 6px;
+  padding: 0 20px 16px;
+}
+
+.mini-card {
+  background:
+    radial-gradient(ellipse 90% 70% at 20% 20%, rgba(92,196,184,0.08) 0%, transparent 50%),
+    var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 72px;
+}
+
+.mini-card.gold-accent {
+  background:
+    radial-gradient(ellipse 90% 70% at 20% 20%, rgba(212,184,122,0.1) 0%, transparent 50%),
+    var(--bg2);
+  border-color: rgba(212,184,122,0.22);
+}
+
+.mini-card-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 8.5px;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+.mini-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.mini-card-sub {
+  font-size: 9px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.mini-card-cta {
+  margin-top: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 8.5px;
+  color: var(--gold);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Result stats bar */
+.result-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-icon { font-size: 12px; }
+.stat-val {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.stat-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.stat-sep {
+  width: 1px; height: 14px;
+  background: var(--border);
+}
+
+.ready-badge {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(76,175,122,0.1);
+  border: 1px solid rgba(76,175,122,0.25);
+  border-radius: 20px;
+}
+
+.ready-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 5px rgba(76,175,122,0.6);
+}
+
+.ready-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 10.5px;
+  color: var(--green);
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+  SCENE 1 — Terminal invocation
+════════════════════════════════════════════ -->
+<div class="scene" id="s1">
+  <div class="terminal-wrap">
+    <div class="terminal-header">
+      <div class="dots">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+      </div>
+      <div class="terminal-title">gif-makr — skill terminal</div>
+    </div>
+    <div class="terminal-body">
+
+      <div class="term-line vis" id="t1">
+        <span class="prompt fc">marpeap@studio</span>
+        <span class="fc" style="color:var(--muted)">~/marpeap.com</span>
+        <span class="fc" style="color:var(--muted)">$</span>
+        <span class="cursor" id="cur1"></span>
+      </div>
+
+      <div class="term-line vis" id="t2" style="margin-top:2px;">
+        <span class="prompt fc">marpeap@studio</span>
+        <span class="fc" style="color:var(--muted)">~/marpeap.com</span>
+        <span class="fc" style="color:var(--muted)">$</span>
+        <span class="cmd fc">/gif-makr</span>
+        <span class="arg fc">--mode video --sujet boutique.html</span>
+      </div>
+
+      <div class="term-separator vis" id="t3"></div>
+
+      <div class="resp-line vis" id="t4">
+        <span class="icon-info">▶</span>
+        <span class="resp-label">Skill chargé</span>
+        <span style="color:var(--muted)">·</span>
+        <span class="resp-val">GIF & Video Creator v3</span>
+      </div>
+
+      <div class="resp-line vis" id="t5">
+        <span class="icon-ok">✓</span>
+        <span>Pipeline</span>
+        <span style="color:var(--muted)">:</span>
+        <span class="resp-val">HTML → Puppeteer → ffmpeg</span>
+      </div>
+
+      <div class="resp-line vis" id="t6">
+        <span class="icon-ok">✓</span>
+        <span>Lecture boutique.html</span>
+        <span style="color:var(--muted)">→</span>
+        <span class="resp-val">Design system extrait</span>
+      </div>
+
+      <div class="resp-line vis" id="t7">
+        <span class="icon-ok">✓</span>
+        <span>Skills détectés</span>
+        <span style="color:var(--muted)">:</span>
+        <span class="resp-val">7 skills · 7 cartes · bento grid</span>
+      </div>
+
+      <div class="resp-line vis" id="t8">
+        <span class="icon-ok">✓</span>
+        <span>Storyboard généré</span>
+        <span style="color:var(--muted)">:</span>
+        <span class="resp-val">3 scènes / 165 frames / 27s</span>
+      </div>
+
+      <div class="term-separator vis" id="t9"></div>
+
+      <div class="resp-line vis" id="t10">
+        <span class="icon-arrow">→</span>
+        <span class="resp-label">Génération en cours</span>
+        <span class="resp-val">scenes.html</span>
+        <span style="color:var(--muted)">+</span>
+        <span class="resp-val">generate.mjs</span>
+      </div>
+
+      <div class="progress-wrap vis" id="t11">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="prog1" style="width:0%"></div>
+        </div>
+        <div class="progress-label fc" id="prog1label">0 / 165 frames</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  SCENE 2 — Build process
+════════════════════════════════════════════ -->
+<div class="scene" id="s2">
+  <div class="s2-topbar">
+    <div class="s2-tab active">scenes.html</div>
+    <div class="s2-tab">generate.mjs</div>
+    <div style="margin-left:auto;display:flex;gap:8px;align-items:center;">
+      <div class="status-dot pulse" id="s2dot"></div>
+      <span class="fc" style="font-size:11px;color:var(--muted)">capture active</span>
+    </div>
+  </div>
+
+  <div class="s2-body">
+    <!-- Code editor panel -->
+    <div class="code-panel">
+      <div class="code-file-bar">
+        <div class="code-file-dot"></div>
+        scripts/gif-makr-demo/scenes.html
+      </div>
+      <div class="code-body">
+
+        <div class="code-line vis" id="c1">
+          <span class="ln">1</span><span class="c-cm">/* Scene 1 — Terminal */</span>
+        </div>
+        <div class="code-line vis" id="c2">
+          <span class="ln">2</span><span class="c-tx">&lt;</span><span class="c-kw">div</span> <span class="c-var">class</span><span class="c-tx">=</span><span class="c-str">"scene"</span> <span class="c-var">id</span><span class="c-tx">=</span><span class="c-str">"s1"</span><span class="c-tx">&gt;</span>
+        </div>
+        <div class="code-line vis" id="c3">
+          <span class="ln">3</span><span style="padding-left:14px;"></span><span class="c-tx">&lt;</span><span class="c-kw">div</span> <span class="c-var">class</span><span class="c-tx">=</span><span class="c-str">"terminal-wrap"</span><span class="c-tx">&gt;</span>
+        </div>
+        <div class="code-line vis" id="c4">
+          <span class="ln">4</span><span style="padding-left:28px;"></span><span class="c-fn">.term-line</span> <span class="c-tx">{</span> <span class="c-var">font-family</span><span class="c-tx">:</span> <span class="c-str">'Fira Code'</span><span class="c-tx">; }</span>
+        </div>
+        <div class="code-line vis" id="c5">
+          <span class="ln">5</span><span style="padding-left:14px;"></span><span class="c-cm">/* gold: #D4B87A */</span>
+        </div>
+        <div class="code-line vis" id="c6">
+          <span class="ln">6</span><span style="padding-left:14px;"></span><span class="c-cm">/* bg:   #0A0B0D */</span>
+        </div>
+
+        <div class="code-line vis" id="c7" style="margin-top:4px;">
+          <span class="ln">7</span><span class="c-cm">/* Scene 2 — Build */</span>
+        </div>
+        <div class="code-line vis" id="c8">
+          <span class="ln">8</span><span class="c-kw">const</span> <span class="c-var">frame</span> <span class="c-tx">=</span> <span class="c-fn">parseInt</span><span class="c-tx">(</span>
+        </div>
+        <div class="code-line vis" id="c9">
+          <span class="ln">9</span><span style="padding-left:14px;"></span><span class="c-var">params</span><span class="c-tx">.</span><span class="c-fn">get</span><span class="c-tx">(</span><span class="c-str">'frame'</span><span class="c-tx">) || </span><span class="c-num">'0'</span>
+        </div>
+        <div class="code-line vis" id="c10">
+          <span class="ln">10</span><span class="c-tx">);</span>
+        </div>
+        <div class="code-line vis" id="c11" style="margin-top:4px;">
+          <span class="ln">11</span><span class="c-fn">showAt</span><span class="c-tx">(</span><span class="c-str">'hero-title'</span><span class="c-tx">, </span><span class="c-num">120</span><span class="c-tx">);</span>
+        </div>
+        <div class="code-line vis" id="c12">
+          <span class="ln">12</span><span class="c-fn">showAt</span><span class="c-tx">(</span><span class="c-str">'card-bd'</span><span class="c-tx">,    </span><span class="c-num">130</span><span class="c-tx">);</span>
+        </div>
+        <div class="code-line vis" id="c13">
+          <span class="ln">13</span><span class="c-fn">showAt</span><span class="c-tx">(</span><span class="c-str">'card-seo'</span><span class="c-tx">,   </span><span class="c-num">138</span><span class="c-tx">);</span>
+        </div>
+        <div class="code-line vis" id="c14">
+          <span class="ln">14</span><span class="c-fn">showAt</span><span class="c-tx">(</span><span class="c-str">'card-gif'</span><span class="c-tx">,   </span><span class="c-num">144</span><span class="c-tx">);</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Capture panel -->
+    <div class="capture-panel">
+      <div class="cap-title vis" id="capT">Captures en cours</div>
+
+      <div class="thumbnails-grid">
+        <div class="thumb visx" id="th1">
+          <div class="thumb-inner">
+            <div class="thumb-bar"></div>
+            <div class="thumb-bar-sm" style="width:70%"></div>
+            <div class="thumb-bar-sm" style="width:50%"></div>
+          </div>
+          <div class="thumb-label">0000</div>
+        </div>
+        <div class="thumb visx" id="th2">
+          <div class="thumb-inner">
+            <div class="thumb-bar" style="background:var(--cyan)"></div>
+            <div class="thumb-bar-sm" style="width:80%"></div>
+            <div class="thumb-bar-sm" style="width:55%"></div>
+          </div>
+          <div class="thumb-label">0020</div>
+        </div>
+        <div class="thumb visx" id="th3">
+          <div class="thumb-inner">
+            <div class="thumb-bar" style="background:var(--blue)"></div>
+            <div class="thumb-bar-sm" style="width:90%"></div>
+            <div class="thumb-bar-sm" style="width:60%"></div>
+            <div class="thumb-grid-mini" style="margin-top:4px;">
+              <div class="thumb-card-mini"></div>
+              <div class="thumb-card-mini"></div>
+            </div>
+          </div>
+          <div class="thumb-label">0055</div>
+        </div>
+        <div class="thumb visx" id="th4">
+          <div class="thumb-inner">
+            <div class="thumb-bar" style="background:var(--purple)"></div>
+            <div class="thumb-bar-sm" style="width:85%"></div>
+            <div class="thumb-grid-mini" style="margin-top:4px;">
+              <div class="thumb-card-mini"></div>
+              <div class="thumb-card-mini"></div>
+              <div class="thumb-card-mini"></div>
+              <div class="thumb-card-mini"></div>
+            </div>
+          </div>
+          <div class="thumb-label">0090</div>
+        </div>
+        <div class="thumb visx" id="th5">
+          <div class="thumb-inner">
+            <div class="thumb-bar" style="background:var(--green)"></div>
+            <div class="thumb-bar-sm"></div>
+            <div class="thumb-grid-mini">
+              <div class="thumb-card-mini" style="background:rgba(212,184,122,0.12);border-color:rgba(212,184,122,0.2)"></div>
+              <div class="thumb-card-mini"></div>
+              <div class="thumb-card-mini"></div>
+              <div class="thumb-card-mini"></div>
+            </div>
+          </div>
+          <div class="thumb-label">0115</div>
+        </div>
+        <div class="thumb visx" id="th6">
+          <div class="thumb-inner">
+            <div class="thumb-bar" style="background:var(--gold)"></div>
+            <div class="thumb-bar-sm" style="width:60%"></div>
+            <div class="thumb-grid-mini">
+              <div class="thumb-card-mini" style="grid-column:span 2;background:rgba(212,184,122,0.1)"></div>
+              <div class="thumb-card-mini"></div>
+              <div class="thumb-card-mini"></div>
+            </div>
+          </div>
+          <div class="thumb-label">0140</div>
+        </div>
+        <div class="thumb visxr" id="th7">
+          <div class="thumb-inner" style="align-items:center;justify-content:center;gap:3px;">
+            <div style="font-size:14px;">✓</div>
+            <div class="thumb-bar" style="width:80%;background:var(--green)"></div>
+          </div>
+          <div class="thumb-label">0165</div>
+        </div>
+        <div class="thumb visxr" id="th8" style="background:rgba(76,175,122,0.06);border-color:rgba(76,175,122,0.2);">
+          <div class="thumb-inner" style="align-items:center;justify-content:center;">
+            <div style="font-family:'Fira Code',monospace;font-size:9px;color:var(--green);text-align:center;line-height:1.5;">
+              ffmpeg<br>✓ done
+            </div>
+          </div>
+          <div class="thumb-label" style="color:var(--green)">MP4</div>
+        </div>
+      </div>
+
+      <div class="frame-counter-wrap vis" id="fcw">
+        <div class="fc-row">
+          <span class="fc-label">Captures Puppeteer</span>
+          <span class="fc-val" id="fcval">0 / 165</span>
+        </div>
+        <div class="fc-bar-bg">
+          <div class="fc-bar-fill" id="fcbar" style="width:0%"></div>
+        </div>
+        <div class="fc-row" style="margin-top:2px;">
+          <span class="fc-label" id="fcstatus">Initialisation...</span>
+          <span class="fc-val" style="color:var(--gold)">@2x · 800×500</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="s2-bottom">
+    <div class="status-dot pulse"></div>
+    <span id="s2status">node generate.mjs — puppeteer headless</span>
+    <span style="margin-left:auto;" id="s2fps">6 fps · H.264 · crf 22</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  SCENE 3 — Result
+════════════════════════════════════════════ -->
+<div class="scene" id="s3">
+
+  <div class="result-label vis" id="r0">Résultat · boutique-gifmakr-demo.mp4</div>
+
+  <div class="mac-window viss" id="r1">
+    <div class="mac-titlebar">
+      <div class="mac-dots">
+        <div class="mac-dot" style="background:#FF5F57"></div>
+        <div class="mac-dot" style="background:#FEBC2E"></div>
+        <div class="mac-dot" style="background:#28C840"></div>
+      </div>
+      <div class="mac-url">www.marpeap.com/boutique</div>
+    </div>
+
+    <div class="mac-body">
+      <div class="mini-boutique">
+
+        <!-- Mini navbar -->
+        <div class="mini-nav vis" id="r2">
+          <div class="mini-logo">Marpeap</div>
+          <div class="mini-nav-links">
+            <span class="mini-nav-link">Packs</span>
+            <span class="mini-nav-link">Contact</span>
+          </div>
+        </div>
+
+        <!-- Mini hero -->
+        <div class="mini-hero">
+          <div class="mini-eyebrow vis" id="r3">Skills · Outils IA de précision</div>
+          <div class="mini-h1 vis" id="r4">7 Skills <span>Marpeap</span></div>
+          <div class="mini-sub vis" id="r5">Chaque skill, un outil de précision. Design, SEO, vidéo, articles — livrés en 24h.</div>
+
+          <div class="mini-proof vis" id="r6">
+            <div class="mini-proof-item">
+              <div class="mini-proof-dot"></div>
+              <span>7 skills disponibles</span>
+            </div>
+            <div class="mini-proof-item">
+              <div class="mini-proof-dot"></div>
+              <span>15 € / skill</span>
+            </div>
+            <div class="mini-proof-item">
+              <div class="mini-proof-dot"></div>
+              <span>Stripe sécurisé</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini bento cards -->
+        <div class="mini-cards">
+          <div class="mini-card gold-accent vis" id="r7">
+            <div class="mini-card-tag">better-design</div>
+            <div class="mini-card-title">Design<br>Anti-IA</div>
+            <div class="mini-card-sub">Audit Hyper V3, sections, typographie, matière visuelle.</div>
+            <div class="mini-card-cta">Acheter — 15 € →</div>
+          </div>
+          <div class="mini-card vis" id="r8">
+            <div class="mini-card-tag">seo</div>
+            <div class="mini-card-title">SEO<br>Durci</div>
+            <div class="mini-card-sub">Sources officielles, CWV, structured data.</div>
+            <div class="mini-card-cta">Acheter →</div>
+          </div>
+          <div class="mini-card vis" id="r9" style="border-color:rgba(91,196,184,0.22);">
+            <div class="mini-card-tag" style="color:var(--cyan);">gif-makr</div>
+            <div class="mini-card-title" style="color:var(--cyan);">GIF &<br>Vidéo</div>
+            <div class="mini-card-sub">Puppeteer + ffmpeg. Démos cinématiques.</div>
+            <div class="mini-card-cta" style="color:var(--cyan);">Acheter →</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="result-stats viss" id="r10">
+    <div class="stat-item">
+      <span class="stat-icon" style="color:var(--green)">▶</span>
+      <span class="stat-val">boutique-gifmakr-demo.mp4</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-label">Durée</span>
+      <span class="stat-val" style="margin-left:4px;">27s</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-label">Taille</span>
+      <span class="stat-val" style="margin-left:4px;">847 KB</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-label">Résolution</span>
+      <span class="stat-val" style="margin-left:4px;">1600×1000 @2x</span>
+    </div>
+    <div class="ready-badge">
+      <div class="ready-dot"></div>
+      <span class="ready-text">Prêt à embarquer</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const frame = parseInt(new URLSearchParams(location.search).get('frame') || '0');
+
+// ─── Scene activation + crossfades ───────────────────────
+const scenes = [
+  { id: 's1', start: 0,   end: 55,  fadeOut: [48, 55] },
+  { id: 's2', start: 55,  end: 118, fadeIn: [55, 62],  fadeOut: [110, 118] },
+  { id: 's3', start: 118, end: 165, fadeIn: [118, 126], fadeOut: [158, 165] },
+];
+
+scenes.forEach(s => {
+  const el = document.getElementById(s.id);
+  if (frame >= s.start && frame <= s.end) {
+    el.classList.add('active');
+    let op = 1;
+    if (s.fadeIn && frame <= s.fadeIn[1]) {
+      op = Math.min(1, (frame - s.fadeIn[0]) / (s.fadeIn[1] - s.fadeIn[0]));
+    }
+    if (s.fadeOut && frame >= s.fadeOut[0]) {
+      op = Math.max(0, 1 - (frame - s.fadeOut[0]) / (s.fadeOut[1] - s.fadeOut[0]));
+    }
+    el.style.opacity = op;
+  }
+});
+
+// ─── Reveal helper ───────────────────────────────────────
+function showAt(id, triggerFrame) {
+  if (frame >= triggerFrame) {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('v');
+  }
+}
+
+// ─── Scene 1 reveals ─────────────────────────────────────
+showAt('t1',  2);
+showAt('t2',  7);
+showAt('t3',  12);
+showAt('t4',  14);
+showAt('t5',  18);
+showAt('t6',  22);
+showAt('t7',  27);
+showAt('t8',  31);
+showAt('t9',  35);
+showAt('t10', 37);
+showAt('t11', 40);
+
+// Progress bar in scene 1
+if (frame >= 40 && frame <= 55) {
+  const pct = Math.min(100, ((frame - 40) / 15) * 35);
+  const fill = document.getElementById('prog1');
+  const label = document.getElementById('prog1label');
+  if (fill) fill.style.width = pct + '%';
+  if (label) label.textContent = Math.round(pct * 165 / 100) + ' / 165 frames';
+}
+
+// ─── Scene 2 reveals ─────────────────────────────────────
+// Code lines
+showAt('c1',  62);  showAt('c2',  64);  showAt('c3',  66);
+showAt('c4',  68);  showAt('c5',  70);  showAt('c6',  72);
+showAt('c7',  76);  showAt('c8',  78);  showAt('c9',  80);
+showAt('c10', 82);  showAt('c11', 85);  showAt('c12', 87);
+showAt('c13', 89);  showAt('c14', 91);
+
+// Cap title
+showAt('capT', 63);
+
+// Thumbnails staggered
+showAt('th1', 65);  showAt('th2', 70);  showAt('th3', 76);
+showAt('th4', 82);  showAt('th5', 89);  showAt('th6', 96);
+showAt('th7', 103); showAt('th8', 108);
+
+// Frame counter
+showAt('fcw', 66);
+
+// Frame counter animation in scene 2
+if (frame >= 66 && frame <= 115) {
+  const progress = (frame - 66) / (115 - 66);
+  const framesCapt = Math.round(progress * 165);
+  const pct = Math.round(progress * 100);
+  const fcval = document.getElementById('fcval');
+  const fcbar = document.getElementById('fcbar');
+  const fcstatus = document.getElementById('fcstatus');
+  const s2status = document.getElementById('s2status');
+  if (fcval) fcval.textContent = framesCapt + ' / 165';
+  if (fcbar) fcbar.style.width = pct + '%';
+
+  if (fcstatus) {
+    if (pct < 30) fcstatus.textContent = 'Scène 1 — Terminal interface...';
+    else if (pct < 60) fcstatus.textContent = 'Scène 2 — Build process view...';
+    else if (pct < 90) fcstatus.textContent = 'Scène 3 — Résultat boutique...';
+    else fcstatus.textContent = 'ffmpeg assembling... boutique-gifmakr-demo.mp4';
+  }
+  if (s2status) {
+    if (pct < 95) s2status.textContent = `node generate.mjs — frame ${framesCapt.toString().padStart(4,'0')}.png`;
+    else s2status.textContent = 'ffmpeg — crf 22 · preset slow · tpad 2s';
+  }
+}
+
+// ─── Scene 3 reveals ─────────────────────────────────────
+showAt('r0',  120);
+showAt('r1',  122);
+showAt('r2',  126);
+showAt('r3',  130);
+showAt('r4',  133);
+showAt('r5',  137);
+showAt('r6',  141);
+showAt('r7',  145);
+showAt('r8',  150);
+showAt('r9',  154);
+showAt('r10', 158);
+</script>
+</body>
+</html>
