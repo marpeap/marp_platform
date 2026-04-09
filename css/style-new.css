@@ -721,6 +721,24 @@ a:hover {
   margin: 0;
 }
 
+.hero-video-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.35), 0 0 0 1px rgba(212,184,122,0.06);
+  background: #080B14;
+}
+
+.hero-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
 .hero-title {
   margin-bottom: var(--spacing-lg);
 }
