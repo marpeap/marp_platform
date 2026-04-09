@@ -1,18 +1,14 @@
 # Manifest — Bloc 00
 
-Etat : not_started
+Etat : done
 
 ## Patches
 
-P1 — C1 — Squelette boutique.html avec navbar, footer, noindex, section hero — `boutique.html` — Preuve primaire : fichier existe, s'ouvre dans le navigateur sans erreur console, `<meta name="robots" content="noindex, nofollow">` présent dans le source — Preuve non-cassure : les autres pages (index, contact, packs) inchangées — E1 : structure HTML valide, noindex présent, meta title/description présents — Rollback : `git restore boutique.html` — [ ] done
-
-P2 — C1 — CSS skills grid + skill card design (style inline dans boutique.html) — `boutique.html` — Preuve primaire : grid de cards skills s'affiche correctement sur desktop et mobile, tokens --brand-gold et --bg-primary utilisés — Preuve non-cassure : style-new.css non modifié — E1 : grep style-new.css confirme aucun changement — E3 : rendu visuel correct dans navigateur — Rollback : `git restore boutique.html` — [ ] done
-
-P3 — C3 — Intégration Stripe Buy Button par skill (script Stripe + web component) — `boutique.html` — Preuve primaire : clic sur bouton d'achat ouvre le checkout Stripe — Preuve non-cassure : publishable key seule visible dans le source HTML (grep confirme absence de sk_live) — E1 : grep `sk_live` dans boutique.html retourne 0 résultat — E3 : smoke visuel : bouton Stripe s'affiche, clic ouvre modal/redirect Stripe — Rollback : retirer les balises `<stripe-buy-button>` et le script Stripe — [ ] done
-
-P4 — C1 — Ajout Disallow /boutique dans robots.txt — `robots.txt` — Preuve primaire : `curl https://www.marpeap.com/robots.txt | grep boutique` retourne la ligne Disallow — Preuve non-cassure : les autres règles robots.txt inchangées — E1 : diff robots.txt, une seule ligne ajoutée sous la section User-agent: * — Rollback : retirer la ligne Disallow /boutique — [ ] done
-
-P5 — C1 — Success state : détection ?success=1 en JS, affichage message post-achat — `boutique.html` — Preuve primaire : accès à `/boutique?success=1` affiche le message de confirmation, les cards sont masquées ou un bandeau apparaît — Preuve non-cassure : accès à `/boutique` sans paramètre affiche la grille normale — E1 : logique JS simple, pas de dépendance externe — E3 : test manuel des deux URLs — Rollback : retirer le bloc JS de détection — [ ] done
+P1 — C1 — Squelette boutique.html avec navbar, footer, noindex, section hero — `boutique.html` — [x] done
+P2 — C1 — CSS skills grid + skill card design (7 atmosphères distinctes, Hyper V3) — `boutique.html` — [x] done
+P3 — C3 — Payment Links Stripe par skill (7 produits + prix 15€ + links créés via API) — `boutique.html` — [x] done
+P4 — C1 — Disallow /boutique et /boutique.html dans robots.txt — `robots.txt` — [x] done
+P5 — C1 — Success state JS (?success=1 → banner) — `boutique.html` — [x] done
 
 ## Regressions à vérifier après bloc
 - [ ] index.html s'affiche sans erreur
