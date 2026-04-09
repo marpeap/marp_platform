@@ -24,7 +24,7 @@
 
         body {
             font-family: 'DM Sans', sans-serif;
-            background: linear-gradient(135deg, #080C18 0%, #0F1629 100%);
+            background: #080C18;
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -38,7 +38,7 @@
             background: rgba(10, 15, 28, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0; z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         .navbar .container { display: flex; justify-content: space-between; align-items: center; }
         .nav-brand { font-family: 'Space Grotesk', sans-serif; }
@@ -80,38 +80,83 @@
         }
         .success-banner.visible { display: block; }
 
-        /* ── Hero ── */
+        /* ── Hero — atmosphère chaude or ── */
         .boutique-hero {
-            padding: 9rem 0 3.5rem; text-align: center;
-            background: radial-gradient(ellipse 65% 50% at 50% 60%, rgba(212,184,122,0.09) 0%, transparent 65%);
+            padding: 9rem 0 3rem;
+            text-align: center;
+            background:
+                radial-gradient(ellipse 70% 55% at 50% 65%, rgba(212,184,122,0.11) 0%, transparent 60%),
+                linear-gradient(180deg, #080C18 0%, #0d1326 100%);
         }
-        .boutique-hero-label {
-            display: inline-block; font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem; color: rgba(212,184,122,0.6);
-            letter-spacing: 0.06em; margin-bottom: 1.25rem;
-        }
+
         .boutique-hero-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 700;
-            line-height: 1.06; letter-spacing: -0.025em; margin-bottom: 1rem;
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 700; line-height: 1.05;
+            letter-spacing: -0.028em; margin-bottom: 0.875rem;
         }
+
         .boutique-hero-sub {
-            font-size: 1.0625rem; color: rgba(255,255,255,0.52);
-            max-width: 480px; margin: 0 auto; line-height: 1.55;
+            font-size: 1.0625rem; color: rgba(255,255,255,0.48);
+            max-width: 440px; margin: 0 auto; line-height: 1.55;
         }
 
-        /* ── Skills Grid ── */
-        .boutique-grid-section { padding: 2rem 0 6rem; }
-        .boutique-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        /* ── Proof strip ── */
+        .proof-strip {
+            padding: 1.75rem 0 0;
+        }
+        .proof-strip-inner {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.75rem; flex-wrap: wrap;
+        }
+        .proof-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem; color: rgba(255,255,255,0.22);
+            letter-spacing: 0.04em; white-space: nowrap;
+        }
+        .proof-sep { color: rgba(255,255,255,0.1); font-size: 0.6875rem; }
 
+        /* ── Grid section — atmosphère froide ── */
+        .boutique-grid-section {
+            padding: 3rem 0 6rem;
+            background: linear-gradient(180deg, #0d1326 0%, #090f1c 50%, #080C18 100%);
+        }
+
+        /* ── Bento grid ── */
+        .boutique-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        /* ── Base card ── */
         .skill-card {
-            border-radius: 1rem; padding: 1.75rem;
+            border-radius: 1rem; padding: 1.625rem;
             display: flex; flex-direction: column;
-            transition: border-color 0.2s ease, transform 0.2s ease;
+            transition: border-color 0.2s ease, transform 0.18s ease;
             position: relative; overflow: hidden;
         }
         .skill-card:hover { transform: translateY(-2px); }
 
+        /* Featured wide cards — bento layout */
+        .skill-card--wide {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .skill-card--wide-right {
+            grid-column: 2 / 4; /* cols 2-3 */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .skill-card-content { display: flex; flex-direction: column; height: 100%; }
+
+        /* ── Card atmospheres ── */
         .skill-card--art {
             background: radial-gradient(ellipse 80% 60% at 15% 20%, rgba(139,92,246,0.18) 0%, transparent 55%), linear-gradient(155deg, #111828 0%, #0d1220 100%);
             border: 1px solid rgba(139,92,246,0.18);
@@ -125,10 +170,13 @@
         .skill-card--articles:hover { border-color: rgba(251,146,60,0.32); }
 
         .skill-card--design {
-            background: radial-gradient(ellipse 80% 60% at 15% 80%, rgba(34,211,238,0.15) 0%, transparent 55%), linear-gradient(155deg, #0f1a22 0%, #0b1218 100%);
-            border: 1px solid rgba(34,211,238,0.15);
+            background:
+                radial-gradient(ellipse 70% 60% at 10% 20%, rgba(34,211,238,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 90% 80%, rgba(34,211,238,0.08) 0%, transparent 50%),
+                linear-gradient(155deg, #0f1a22 0%, #0b1218 100%);
+            border: 1px solid rgba(34,211,238,0.18);
         }
-        .skill-card--design:hover { border-color: rgba(34,211,238,0.30); }
+        .skill-card--design:hover { border-color: rgba(34,211,238,0.34); }
 
         .skill-card--canvas {
             background: radial-gradient(ellipse 80% 60% at 80% 80%, rgba(244,114,182,0.14) 0%, transparent 55%), linear-gradient(155deg, #131220 0%, #0f0e1a 100%);
@@ -149,81 +197,145 @@
         .skill-card--gif:hover { border-color: rgba(99,179,237,0.30); }
 
         .skill-card--seo {
-            background: radial-gradient(ellipse 80% 60% at 50% 15%, rgba(212,184,122,0.15) 0%, transparent 55%), linear-gradient(155deg, #171410 0%, #110f09 100%);
-            border: 1px solid rgba(212,184,122,0.18);
+            background:
+                radial-gradient(ellipse 70% 60% at 85% 20%, rgba(212,184,122,0.16) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 10% 80%, rgba(212,184,122,0.08) 0%, transparent 50%),
+                linear-gradient(155deg, #171410 0%, #110f09 100%);
+            border: 1px solid rgba(212,184,122,0.22);
         }
-        .skill-card--seo:hover { border-color: rgba(212,184,122,0.35); }
+        .skill-card--seo:hover { border-color: rgba(212,184,122,0.40); }
 
-        /* Card internals */
+        /* ── Card internals ── */
         .skill-card-tag {
             font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
-            color: rgba(255,255,255,0.28); letter-spacing: 0.04em; margin-bottom: 1rem;
+            color: rgba(255,255,255,0.26); letter-spacing: 0.04em;
+            margin-bottom: 0.875rem; display: block;
         }
+
         .skill-card-title {
-            font-family: 'Space Grotesk', sans-serif; font-size: 1.125rem;
-            font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 0.625rem;
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.0625rem;
+            font-weight: 600; letter-spacing: -0.015em; line-height: 1.2;
+            margin-bottom: 0.5rem;
         }
+        .skill-card--wide .skill-card-title,
+        .skill-card--wide-right .skill-card-title {
+            font-size: 1.375rem; letter-spacing: -0.02em; margin-bottom: 0.625rem;
+        }
+
         .skill-card-desc {
-            font-size: 0.875rem; color: rgba(255,255,255,0.52);
-            line-height: 1.5; flex: 1; margin-bottom: 0.875rem;
+            font-size: 0.875rem; color: rgba(255,255,255,0.5);
+            line-height: 1.5; margin-bottom: 0.75rem;
         }
+        .skill-card--wide .skill-card-desc,
+        .skill-card--wide-right .skill-card-desc {
+            font-size: 0.9375rem; color: rgba(255,255,255,0.56);
+        }
+
+        /* Mono artefact line — regular cards only */
+        .skill-card-artifact {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem; color: rgba(255,255,255,0.18);
+            letter-spacing: 0.02em; margin-bottom: 0.875rem;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+
+        /* Flex spacer */
+        .skill-card-spacer { flex: 1; }
+
         .btn-details {
             background: none; border: none; cursor: pointer; padding: 0;
             font-family: 'DM Sans', sans-serif; font-size: 0.8125rem;
-            color: rgba(255,255,255,0.36); letter-spacing: -0.01em;
+            color: rgba(255,255,255,0.38); letter-spacing: -0.01em;
             text-align: left; margin-bottom: 1.25rem;
             transition: color 0.15s ease; display: inline-flex; align-items: center; gap: 0.3rem;
         }
-        .btn-details:hover { color: rgba(255,255,255,0.7); }
-        .btn-details-arrow { font-size: 0.7rem; transition: transform 0.15s ease; }
+        .btn-details:hover { color: rgba(255,255,255,0.68); }
+        .btn-details-arrow { transition: transform 0.15s ease; }
         .btn-details:hover .btn-details-arrow { transform: translateX(2px); }
 
         .skill-card-footer {
-            display: flex; align-items: center;
-            justify-content: space-between; gap: 0.75rem;
-            margin-top: auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
         }
+
         .skill-price {
-            font-family: 'Space Grotesk', sans-serif; font-size: 1.125rem;
-            font-weight: 700; letter-spacing: -0.02em; color: #fff;
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.375rem;
+            font-weight: 700; letter-spacing: -0.025em; color: #fff;
         }
         .skill-price span {
-            font-size: 0.75rem; font-weight: 400;
-            color: rgba(255,255,255,0.38); margin-left: 0.2rem;
+            font-size: 0.75rem; font-weight: 400; color: rgba(255,255,255,0.32); margin-left: 0.2rem;
         }
+
+        /* Primary CTA — gold */
         .btn-buy {
-            background: rgba(255,255,255,0.08); color: #fff;
-            border: 1px solid rgba(255,255,255,0.14);
-            padding: 0.5rem 1.1rem; border-radius: 9999px;
-            font-size: 0.875rem; font-weight: 500; text-decoration: none;
-            letter-spacing: -0.01em;
-            transition: background 0.15s ease, border-color 0.15s ease; white-space: nowrap;
+            background: #D4B87A; color: #0A0A0E;
+            padding: 0.5rem 1.25rem; border-radius: 9999px;
+            font-weight: 600; font-size: 0.875rem; text-decoration: none;
+            letter-spacing: -0.01em; transition: opacity 0.15s ease; white-space: nowrap;
         }
-        .btn-buy:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.26); }
+        .btn-buy:hover { opacity: 0.88; }
+
+        /* ── Artefact visuals — featured cards ── */
+        .skill-card-visual {
+            background: rgba(0,0,0,0.22);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.375rem;
+            display: flex; flex-direction: column; gap: 0.875rem;
+        }
+
+        /* better-design modes artefact */
+        .artefact-mode-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 0.875rem;
+            align-items: baseline;
+        }
+        .artefact-mode-cmd {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+            color: rgba(34,211,238,0.7); letter-spacing: 0.02em; white-space: nowrap;
+        }
+        .artefact-mode-val {
+            font-size: 0.8125rem; color: rgba(255,255,255,0.38); line-height: 1.4;
+        }
+        .artefact-divider {
+            height: 1px; background: rgba(255,255,255,0.06); margin: 0.25rem 0;
+        }
+
+        /* seo labels artefact */
+        .artefact-label-row {
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .artefact-badge {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.5875rem;
+            font-weight: 500; letter-spacing: 0.06em; padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem; white-space: nowrap; flex-shrink: 0;
+        }
+        .badge-official  { background: rgba(212,184,122,0.18); color: rgba(212,184,122,0.9); }
+        .badge-supported { background: rgba(52,211,153,0.15);  color: rgba(52,211,153,0.8); }
+        .badge-framework { background: rgba(99,179,237,0.15);  color: rgba(99,179,237,0.8); }
+        .badge-observed  { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.42); }
+
+        .artefact-label-desc {
+            font-size: 0.8125rem; color: rgba(255,255,255,0.36); line-height: 1.3;
+        }
 
         /* ── Modal ── */
         .modal-overlay {
             position: fixed; inset: 0; z-index: 2000;
-            background: rgba(5, 8, 18, 0.82);
-            backdrop-filter: blur(6px);
-            display: flex; align-items: center; justify-content: center;
-            padding: 1.5rem;
+            background: rgba(5,8,18,0.82); backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center; padding: 1.5rem;
             opacity: 0; visibility: hidden;
             transition: opacity 0.18s ease, visibility 0.18s ease;
         }
         .modal-overlay.open { opacity: 1; visibility: visible; }
 
         .modal-panel {
-            background: #0f1628;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 1.125rem;
-            width: 100%; max-width: 560px;
-            max-height: 88vh; overflow-y: auto;
-            position: relative;
+            background: #0f1628; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 1.125rem; width: 100%; max-width: 560px;
+            max-height: 88vh; overflow-y: auto; position: relative;
             transform: translateY(12px) scale(0.98);
             transition: transform 0.2s ease;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255,255,255,0.12) transparent;
+            scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.12) transparent;
         }
         .modal-overlay.open .modal-panel { transform: translateY(0) scale(1); }
 
@@ -234,8 +346,7 @@
         .modal-header-left { flex: 1; }
         .modal-tag {
             font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
-            color: rgba(255,255,255,0.28); letter-spacing: 0.04em; display: block;
-            margin-bottom: 0.5rem;
+            color: rgba(255,255,255,0.28); letter-spacing: 0.04em; display: block; margin-bottom: 0.5rem;
         }
         .modal-title {
             font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem;
@@ -244,37 +355,26 @@
         .modal-close {
             width: 32px; height: 32px; border-radius: 50%;
             background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-            color: rgba(255,255,255,0.6); font-size: 1.1rem;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.6); font-size: 1.1rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
             flex-shrink: 0; margin-top: 0.1rem;
             transition: background 0.15s ease, color 0.15s ease;
         }
         .modal-close:hover { background: rgba(255,255,255,0.14); color: #fff; }
 
         .modal-body { padding: 1.5rem 1.75rem; }
-
-        .modal-intro {
-            font-size: 0.9375rem; color: rgba(255,255,255,0.64);
-            line-height: 1.6; margin-bottom: 1.5rem;
-        }
-
+        .modal-intro { font-size: 0.9375rem; color: rgba(255,255,255,0.62); line-height: 1.6; margin-bottom: 1.5rem; }
         .modal-section-title {
-            font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem;
-            font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-            color: rgba(255,255,255,0.3); margin-bottom: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.28);
+            margin-bottom: 0.75rem;
         }
-
-        .modal-list {
-            list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;
-        }
+        .modal-list { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
         .modal-list li {
-            font-size: 0.9rem; color: rgba(255,255,255,0.62); line-height: 1.5;
+            font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.5;
             padding-left: 1rem; position: relative;
         }
-        .modal-list li::before {
-            content: '–'; position: absolute; left: 0;
-            color: rgba(255,255,255,0.24);
-        }
+        .modal-list li::before { content: '–'; position: absolute; left: 0; color: rgba(255,255,255,0.22); }
 
         .modal-footer {
             padding: 1.25rem 1.75rem 1.75rem;
@@ -286,29 +386,26 @@
             font-weight: 700; letter-spacing: -0.025em;
         }
         .modal-price span { font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,0.38); margin-left: 0.2rem; }
-
         .btn-buy-modal {
             background: #D4B87A; color: #0A0A0E;
             padding: 0.65rem 1.5rem; border-radius: 9999px;
             font-weight: 600; font-size: 0.9375rem; text-decoration: none;
             letter-spacing: -0.01em; transition: opacity 0.15s ease; white-space: nowrap;
-            display: inline-block;
         }
         .btn-buy-modal:hover { opacity: 0.88; }
 
-        /* Accent color on modal border per skill */
         .modal-panel[data-accent="art"]     { border-color: rgba(139,92,246,0.28); }
         .modal-panel[data-accent="articles"]{ border-color: rgba(251,146,60,0.26); }
-        .modal-panel[data-accent="design"]  { border-color: rgba(34,211,238,0.24); }
+        .modal-panel[data-accent="design"]  { border-color: rgba(34,211,238,0.26); }
         .modal-panel[data-accent="canvas"]  { border-color: rgba(244,114,182,0.24); }
         .modal-panel[data-accent="cycle"]   { border-color: rgba(52,211,153,0.24); }
         .modal-panel[data-accent="gif"]     { border-color: rgba(99,179,237,0.24); }
-        .modal-panel[data-accent="seo"]     { border-color: rgba(212,184,122,0.28); }
+        .modal-panel[data-accent="seo"]     { border-color: rgba(212,184,122,0.30); }
 
         /* ── Footer ── */
         .footer {
-            background: rgba(10,15,28,0.95); padding: 3rem 0 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(8,12,24,0.98); padding: 3rem 0 1rem;
+            border-top: 1px solid rgba(255,255,255,0.07);
         }
         .footer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
         .footer-brand h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; color: #D4B87A; margin-bottom: 0.5rem; }
@@ -317,17 +414,31 @@
         .footer-column h4 { color: #fff; margin-bottom: 1rem; font-size: 0.9rem; }
         .footer-column a { display: block; color: #8492A6; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.3s; }
         .footer-column a:hover { color: #D4B87A; }
-        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #8492A6; font-size: 0.9rem; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07); color: #8492A6; font-size: 0.9rem; }
 
         /* ── Responsive ── */
-        @media (max-width: 900px) { .boutique-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu-toggle { display: flex; }
+        @media (max-width: 900px) {
+            .boutique-grid { grid-template-columns: repeat(2, 1fr); }
+            .skill-card--wide,
+            .skill-card--wide-right {
+                grid-column: span 2;
+                grid-template-columns: 1fr;
+            }
+            .skill-card--wide-right { grid-column: span 2; }
+            .skill-card-visual { display: none; }
+        }
+        @media (max-width: 640px) {
             .boutique-grid { grid-template-columns: 1fr; }
+            .skill-card--wide,
+            .skill-card--wide-right { grid-column: 1; }
             .footer-content, .footer-links { grid-template-columns: 1fr; }
             .modal-footer { flex-direction: column; align-items: flex-start; }
             .btn-buy-modal { width: 100%; text-align: center; }
+            .proof-strip-inner { gap: 0.5rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .skill-card, .modal-panel, .modal-overlay { transition: none; }
         }
     </style>
 </head>
@@ -362,92 +473,170 @@
         Paiement confirmé — votre skill sera livré sous 24h à l'adresse email renseignée.
     </div>
 
+    <!-- ── Hero ── -->
     <section class="boutique-hero">
         <div class="container">
-            <span class="boutique-hero-label">marpeap · skills</span>
             <h1 class="boutique-hero-title">Boutique de Skills</h1>
-            <p class="boutique-hero-sub">Protocoles et outils Claude conçus par Marpeap. Chaque skill, 15 €.</p>
+            <p class="boutique-hero-sub">Outils et protocoles Claude conçus par Marpeap. Chaque skill, 15 €.</p>
+            <div class="proof-strip">
+                <div class="proof-strip-inner">
+                    <span class="proof-item">7 skills</span>
+                    <span class="proof-sep">·</span>
+                    <span class="proof-item">Livraison sous 24h</span>
+                    <span class="proof-sep">·</span>
+                    <span class="proof-item">15 € · paiement unique</span>
+                    <span class="proof-sep">·</span>
+                    <span class="proof-item">Stripe sécurisé</span>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- ── Bento grid ── -->
     <section class="boutique-grid-section">
         <div class="container">
             <div class="boutique-grid">
 
+                <!-- ROW 1 : [better-design WIDE · 2 cols] [art · 1 col] -->
+
+                <!-- better-design — featured wide left -->
+                <div class="skill-card skill-card--design skill-card--wide">
+                    <div class="skill-card-content">
+                        <span class="skill-card-tag">better-design</span>
+                        <h2 class="skill-card-title">Web Design Anti-LLM</h2>
+                        <p class="skill-card-desc">Système Hyper V3 pour concevoir, auditer ou corriger un site sans patterns génériques IA. 6 systèmes de fond, 8 types de sections, matière visuelle, rythme.</p>
+                        <div class="skill-card-spacer"></div>
+                        <button class="btn-details" data-skill="design">Voir le détail <span class="btn-details-arrow">→</span></button>
+                        <div class="skill-card-footer">
+                            <div class="skill-price">15 €<span>HT</span></div>
+                            <a href="https://buy.stripe.com/7sY4gzf6z8NwdUI1xs93y03" class="btn-buy" target="_blank" rel="noopener">Acheter — 15 €</a>
+                        </div>
+                    </div>
+                    <div class="skill-card-visual">
+                        <div class="artefact-mode-row">
+                            <span class="artefact-mode-cmd">/better-design create</span>
+                            <span class="artefact-mode-val">Direction · Fond · Matière · Système UI</span>
+                        </div>
+                        <div class="artefact-divider"></div>
+                        <div class="artefact-mode-row">
+                            <span class="artefact-mode-cmd">/better-design audit</span>
+                            <span class="artefact-mode-val">P0 direction · P1 système · P2 finition</span>
+                        </div>
+                        <div class="artefact-divider"></div>
+                        <div class="artefact-mode-row">
+                            <span class="artefact-mode-cmd">/better-design fix</span>
+                            <span class="artefact-mode-val">Keep · Change · Remove · Séquence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- art -->
                 <div class="skill-card skill-card--art">
                     <span class="skill-card-tag">art</span>
                     <h2 class="skill-card-title">Art Algorithmique</h2>
                     <p class="skill-card-desc">Génère des œuvres génératifs avec p5.js — flow fields, particules, noise Perlin. Sortie : HTML interactif + JS exportable.</p>
+                    <div class="skill-card-artifact">p5.sketch('flow-field', { seed: 42, particles: 2000 })</div>
+                    <div class="skill-card-spacer"></div>
                     <button class="btn-details" data-skill="art">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
-                        <a href="https://buy.stripe.com/fZu6oH1fJ0h07wk4JE93y01" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                        <a href="https://buy.stripe.com/fZu6oH1fJ0h07wk4JE93y01" class="btn-buy" target="_blank" rel="noopener">Acheter — 15 €</a>
                     </div>
                 </div>
 
+                <!-- ROW 2 : [articles] [canvas] [cycle] -->
+
+                <!-- articles -->
                 <div class="skill-card skill-card--articles">
                     <span class="skill-card-tag">articles</span>
                     <h2 class="skill-card-title">Rédaction d'Articles</h2>
-                    <p class="skill-card-desc">Machine éditoriale sur 912M d'articles, NNGroup eye-tracking, Cialdini & Kahneman. Headlines, hooks, biais cognitifs, conversion.</p>
+                    <p class="skill-card-desc">Machine éditoriale sur 912M d'articles, NNGroup, Cialdini & Kahneman. Headlines, hooks, biais cognitifs, conversion.</p>
+                    <div class="skill-card-artifact">BuzzSumo 912M · NNGroup 1.5M fixations · Cialdini × Kahneman</div>
+                    <div class="skill-card-spacer"></div>
                     <button class="btn-details" data-skill="articles">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
-                        <a href="https://buy.stripe.com/eVq14naQj4xgg2Q0to93y02" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                        <a href="https://buy.stripe.com/eVq14naQj4xgg2Q0to93y02" class="btn-buy" target="_blank" rel="noopener">Acheter — 15 €</a>
                     </div>
                 </div>
 
-                <div class="skill-card skill-card--design">
-                    <span class="skill-card-tag">better-design</span>
-                    <h2 class="skill-card-title">Web Design Anti-LLM</h2>
-                    <p class="skill-card-desc">Système Hyper V3 pour concevoir ou auditer un site sans patterns génériques IA. 6 fonds, 8 types de sections, typographie, rythme.</p>
-                    <button class="btn-details" data-skill="design">Voir le détail <span class="btn-details-arrow">→</span></button>
-                    <div class="skill-card-footer">
-                        <div class="skill-price">15 €<span>HT</span></div>
-                        <a href="https://buy.stripe.com/7sY4gzf6z8NwdUI1xs93y03" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
-                    </div>
-                </div>
-
+                <!-- canvas -->
                 <div class="skill-card skill-card--canvas">
                     <span class="skill-card-tag">canvas</span>
                     <h2 class="skill-card-title">Design sur Canvas</h2>
-                    <p class="skill-card-desc">Crée des affiches et visuels statiques (PNG, PDF) via une philosophie de design originale. Composition, typographie, ambiance.</p>
+                    <p class="skill-card-desc">Crée affiches et visuels statiques (PNG, PDF) via une philosophie de design originale. Composition, typographie, ambiance.</p>
+                    <div class="skill-card-artifact">output: poster.pdf, visual.png, thumbnail.png</div>
+                    <div class="skill-card-spacer"></div>
                     <button class="btn-details" data-skill="canvas">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
-                        <a href="https://buy.stripe.com/dRm00j7E7aVEaIw2Bw93y04" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                        <a href="https://buy.stripe.com/dRm00j7E7aVEaIw2Bw93y04" class="btn-buy" target="_blank" rel="noopener">Acheter — 15 €</a>
                     </div>
                 </div>
 
+                <!-- cycle -->
                 <div class="skill-card skill-card--cycle">
                     <span class="skill-card-tag">cycle-mkr</span>
                     <h2 class="skill-card-title">Protocole Cycle-MKR</h2>
                     <p class="skill-card-desc">R&D par patches atomiques : init bloc, reprise de session, LIRE / PLAN / CODER / CHECK / SMOKE / COMMIT, release gate, audit.</p>
+                    <div class="skill-card-artifact">LIRE → PLAN → CODER → CHECK → SMOKE → COMMIT</div>
+                    <div class="skill-card-spacer"></div>
                     <button class="btn-details" data-skill="cycle">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
-                        <a href="https://buy.stripe.com/bJecN55vZ5BkaIw4JE93y05" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                        <a href="https://buy.stripe.com/bJecN55vZ5BkaIw4JE93y05" class="btn-buy" target="_blank" rel="noopener">Acheter — 15 €</a>
                     </div>
                 </div>
 
+                <!-- ROW 3 : [gif · 1 col] [seo WIDE · 2 cols] -->
+
+                <!-- gif -->
                 <div class="skill-card skill-card--gif">
                     <span class="skill-card-tag">gif-makr</span>
                     <h2 class="skill-card-title">GIF & Vidéo Makr</h2>
-                    <p class="skill-card-desc">GIFs animés (PIL) et vidéos produit cinématiques (Puppeteer + ffmpeg) pour Slack, landing pages et campagnes marketing.</p>
+                    <p class="skill-card-desc">GIFs animés (PIL) et vidéos cinématiques (Puppeteer + ffmpeg) pour Slack, landing pages et marketing.</p>
+                    <div class="skill-card-artifact">GIFBuilder(128×128, fps=12).optimize(colors=64)</div>
+                    <div class="skill-card-spacer"></div>
                     <button class="btn-details" data-skill="gif">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
-                        <a href="https://buy.stripe.com/28E8wPgaDfbU8Ao1xs93y06" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                        <a href="https://buy.stripe.com/28E8wPgaDfbU8Ao1xs93y06" class="btn-buy" target="_blank" rel="noopener">Acheter — 15 €</a>
                     </div>
                 </div>
 
-                <div class="skill-card skill-card--seo">
-                    <span class="skill-card-tag">seo</span>
-                    <h2 class="skill-card-title">SEO Durci</h2>
-                    <p class="skill-card-desc">Guide fiable et maintenu. Sources officielles Google Search, web.dev, Next.js, OpenAI. Règles vérifiées, cross-engine, patterns framework.</p>
-                    <button class="btn-details" data-skill="seo">Voir le détail <span class="btn-details-arrow">→</span></button>
-                    <div class="skill-card-footer">
-                        <div class="skill-price">15 €<span>HT</span></div>
-                        <a href="https://buy.stripe.com/cNi9ATgaDbZI8Aoeke93y07" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
+                <!-- seo — featured wide right -->
+                <div class="skill-card skill-card--seo skill-card--wide-right">
+                    <div class="skill-card-content">
+                        <span class="skill-card-tag">seo</span>
+                        <h2 class="skill-card-title">SEO Durci</h2>
+                        <p class="skill-card-desc">Guide fiable et maintenu. Sources officielles Google Search, web.dev, Next.js, OpenAI. Règles vérifiées, niveaux de certitude explicites.</p>
+                        <div class="skill-card-spacer"></div>
+                        <button class="btn-details" data-skill="seo">Voir le détail <span class="btn-details-arrow">→</span></button>
+                        <div class="skill-card-footer">
+                            <div class="skill-price">15 €<span>HT</span></div>
+                            <a href="https://buy.stripe.com/cNi9ATgaDbZI8Aoeke93y07" class="btn-buy" target="_blank" rel="noopener">Acheter — 15 €</a>
+                        </div>
+                    </div>
+                    <div class="skill-card-visual">
+                        <div class="artefact-label-row">
+                            <span class="artefact-badge badge-official">OFFICIAL</span>
+                            <span class="artefact-label-desc">Documentation Google Search</span>
+                        </div>
+                        <div class="artefact-divider"></div>
+                        <div class="artefact-label-row">
+                            <span class="artefact-badge badge-supported">SUPPORTED</span>
+                            <span class="artefact-label-desc">Bonnes pratiques cross-engine</span>
+                        </div>
+                        <div class="artefact-divider"></div>
+                        <div class="artefact-label-row">
+                            <span class="artefact-badge badge-framework">FRAMEWORK</span>
+                            <span class="artefact-label-desc">Next.js · Vercel patterns</span>
+                        </div>
+                        <div class="artefact-divider"></div>
+                        <div class="artefact-label-row">
+                            <span class="artefact-badge badge-observed">OBSERVED</span>
+                            <span class="artefact-label-desc">Sites SaaS de référence</span>
+                        </div>
                     </div>
                 </div>
 
@@ -455,7 +644,7 @@
         </div>
     </section>
 
-    <!-- Modal unique alimenté par JS -->
+    <!-- ── Modal ── -->
     <div class="modal-overlay" id="skillModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-panel" id="modalPanel">
             <div class="modal-header">
@@ -506,11 +695,9 @@
     </footer>
 
     <script>
-    // ── Données des skills ──
     const SKILLS = {
         art: {
-            tag: 'art',
-            title: 'Art Algorithmique',
+            tag: 'art', title: 'Art Algorithmique',
             intro: 'Claude génère des œuvres d\'art génératif interactives avec p5.js, en partant d\'une philosophie computationnelle originale et en l\'exprimant en code.',
             items: [
                 'Crée d\'abord un manifeste de mouvement esthétique algorithmique (philosophie, intention, processus)',
@@ -523,22 +710,20 @@
             link: 'https://buy.stripe.com/fZu6oH1fJ0h07wk4JE93y01'
         },
         articles: {
-            tag: 'articles',
-            title: 'Rédaction d\'Articles',
+            tag: 'articles', title: 'Rédaction d\'Articles',
             intro: 'Système éditorial construit sur des données réelles — 912M d\'articles analysés, NNGroup eye-tracking, Cialdini et Kahneman — pour écrire des articles qui captent, retiennent et convertissent.',
             items: [
-                '18 parties couvrant toute la chaîne : psychologie du lecteur, headlines, structure, hooks, biais cognitifs, engagement, conversion',
+                '18 parties : psychologie du lecteur, headlines, structure, hooks, biais cognitifs, engagement, conversion',
                 'Basé sur 912M d\'articles BuzzSumo + 1,5M fixations oculaires NNGroup',
                 'Formules headline testées : Copyblogger, Buffer, Backlinko, CoSchedule',
                 'Cialdini (7 principes d\'influence) + Kahneman (Prospect Theory, anchoring, framing)',
-                'Curiosity gap (Loewenstein, Carnegie Mellon) + effet Zeigarnik sur les boucles ouvertes',
+                'Curiosity gap (Loewenstein) + effet Zeigarnik sur les boucles ouvertes',
                 'Output structuré : headline A/B-testable, hook, corps, CTA, meta SEO'
             ],
             link: 'https://buy.stripe.com/eVq14naQj4xgg2Q0to93y02'
         },
         design: {
-            tag: 'better-design',
-            title: 'Web Design Anti-LLM',
+            tag: 'better-design', title: 'Web Design Anti-LLM',
             intro: 'Système Hyper V3 pour concevoir, auditer ou corriger un site web sans tomber dans les patterns visuels génériques produits par IA — en 3 modes opératoires distincts.',
             items: [
                 '3 niveaux de règles : règles dures / préférences fortes / patterns contextuels',
@@ -551,21 +736,19 @@
             link: 'https://buy.stripe.com/7sY4gzf6z8NwdUI1xs93y03'
         },
         canvas: {
-            tag: 'canvas',
-            title: 'Design sur Canvas',
+            tag: 'canvas', title: 'Design sur Canvas',
             intro: 'Claude crée des visuels statiques originaux (PNG, PDF) en deux temps : d\'abord une philosophie de design, ensuite son expression visuelle sur canvas.',
             items: [
                 'Génère d\'abord un manifeste de mouvement esthétique (nom, philosophie 4-6 paragraphes, intention visuelle)',
                 'Exprime ensuite la philosophie sur canvas : composition, typographie, espace négatif, couleur intentionnelle',
-                'Formats : PNG (affiches, visuels marketing, thumbnails, covers) et PDF (print, documents, présentations)',
+                'Formats : PNG (affiches, visuels marketing, thumbnails) et PDF (print, documents, présentations)',
                 '90% design visuel, 10% texte — pas de templates, pas de layouts génériques',
                 'Aucune copie d\'artistes existants — chaque œuvre est une interprétation originale'
             ],
             link: 'https://buy.stripe.com/dRm00j7E7aVEaIw2Bw93y04'
         },
         cycle: {
-            tag: 'cycle-mkr',
-            title: 'Protocole Cycle-MKR',
+            tag: 'cycle-mkr', title: 'Protocole Cycle-MKR',
             intro: 'Protocole R&D par patches atomiques pour avancer sur un système sans casser ses invariants, sans perdre l\'état entre sessions, et sans exposer un changement risqué sans preuves.',
             items: [
                 'Structure : blocs (propriété à créer) → patches (changement atomique) → sessions → releases',
@@ -578,35 +761,32 @@
             link: 'https://buy.stripe.com/bJecN55vZ5BkaIw4JE93y05'
         },
         gif: {
-            tag: 'gif-makr',
-            title: 'GIF & Vidéo Makr',
+            tag: 'gif-makr', title: 'GIF & Vidéo Makr',
             intro: 'Deux pipelines de création visuelle animée — GIFs Python (PIL) pour Slack et messaging, vidéos cinématiques HTML-to-MP4 (Puppeteer + ffmpeg) pour landing pages et marketing.',
             items: [
                 'Pipeline GIF (PIL) : frames Python, emoji 128×128 ou message 480×480, palette optimisée, fichier < 3s',
-                'Pipeline vidéo (Puppeteer + ffmpeg) : scènes HTML capturées frame par frame, montage multi-scènes, transitions',
-                'Cas d\'usage : Slack emojis, product demos, landing pages animées, campagnes marketing, thumbnails',
+                'Pipeline vidéo (Puppeteer + ffmpeg) : scènes HTML capturées frame par frame, montage multi-scènes',
+                'Cas d\'usage : Slack emojis, product demos, landing pages animées, campagnes marketing',
                 'Paramètres contrôlés : FPS, palette couleurs, durée, transitions, résolution, compression',
                 'GIF builder avec API simple : add_frame(), save(), optimize()'
             ],
             link: 'https://buy.stripe.com/28E8wPgaDfbU8Ao1xs93y06'
         },
         seo: {
-            tag: 'seo',
-            title: 'SEO Durci',
+            tag: 'seo', title: 'SEO Durci',
             intro: 'Guide SEO fiable, maintenu et étiqueté par niveau de certitude — basé exclusivement sur des sources officielles Google Search, web.dev, Next.js et OpenAI.',
             items: [
                 'Labels de fiabilité : OFFICIAL / SUPPORTED / FRAMEWORK / OBSERVED / EXPERIMENTAL / THIRD_PARTY',
                 'Couche A (indexabilité) : title, canonical, noindex, sitemap, robots.txt, HTTP status, rendu JS',
                 'Couche B (compréhensibilité) : HTML sémantique, structured data supportée, images, liens internes',
                 'Couche C (performance) : Core Web Vitals — LCP ≤ 2,5 s / INP ≤ 200 ms / CLS ≤ 0,1',
-                'Couche D (distribution) : OG, Twitter Cards, bots IA (OAI-SearchBot, GPTBot, ClaudeBot) avec distinctions officielles',
+                'Couche D (distribution) : OG, Twitter Cards, bots IA (OAI-SearchBot, GPTBot, ClaudeBot)',
                 'Checklists audit 15 min / 60 min / pré-prod + tests CI minimaux recommandés'
             ],
             link: 'https://buy.stripe.com/cNi9ATgaDbZI8Aoeke93y07'
         }
     };
 
-    // ── Modal logic ──
     const overlay  = document.getElementById('skillModal');
     const panel    = document.getElementById('modalPanel');
     const tagEl    = document.getElementById('modalTag');
@@ -619,15 +799,12 @@
     function openModal(skillId) {
         const s = SKILLS[skillId];
         if (!s) return;
-
         tagEl.textContent    = s.tag;
         titleEl.textContent  = s.title;
         introEl.textContent  = s.intro;
         buyBtn.href          = s.link;
         panel.dataset.accent = skillId;
-
-        listEl.innerHTML = s.items.map(item => `<li>${item}</li>`).join('');
-
+        listEl.innerHTML     = s.items.map(i => `<li>${i}</li>`).join('');
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
         closeBtn.focus();
@@ -638,26 +815,19 @@
         document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.btn-details').forEach(btn => {
-        btn.addEventListener('click', () => openModal(btn.dataset.skill));
-    });
-
+    document.querySelectorAll('.btn-details').forEach(btn =>
+        btn.addEventListener('click', () => openModal(btn.dataset.skill))
+    );
     closeBtn.addEventListener('click', closeModal);
-
-    overlay.addEventListener('click', e => {
-        if (e.target === overlay) closeModal();
-    });
-
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
     });
 
-    // ── Success state ──
     if (new URLSearchParams(window.location.search).get('success') === '1') {
         document.getElementById('successBanner').classList.add('visible');
     }
 
-    // ── Mobile menu ──
     const toggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (toggle && navLinks) {
