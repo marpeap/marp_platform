@@ -190,7 +190,7 @@
 
     <!-- Hero Section -->
     <section class="hero" style="position:relative;overflow:hidden;" id="hero-section">
-        <video id="hero-video" autoplay muted loop playsinline preload="auto" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.6;z-index:0;pointer-events:none;display:block;">
+        <video id="hero-video" autoplay muted loop playsinline preload="auto" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.6;z-index:0;pointer-events:none;display:block;transform:none;">
             <source src="/videos/hero.mp4" type="video/mp4">
         </video>
         <div class="hero-background">
@@ -281,6 +281,7 @@
         s.zIndex     = '0';
         s.display    = 'block';
         s.pointerEvents = 'none';
+        s.transform = 'none';
         hero.style.position = 'relative';
         hero.style.overflow = 'hidden';
     })();
