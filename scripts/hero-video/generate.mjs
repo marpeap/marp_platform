@@ -11,7 +11,7 @@ const FRAMES_DIR = resolve(__dirname, 'frames');
 const HTML_FILE  = resolve(__dirname, 'scenes.html');
 const OUTPUT     = resolve(__dirname, '..', '..', 'videos', 'hero.mp4');
 
-const TOTAL_FRAMES = 216; // 215 + 1
+const TOTAL_FRAMES = 180; // seamless loop — all orb periods divide 180
 const FPS          = 6;
 
 async function main() {
@@ -54,7 +54,7 @@ async function main() {
     `-i "${FRAMES_DIR}/frame_%04d.png"`,
     '-c:v libx264',
     '-preset slow',
-    '-crf 22',
+    '-crf 28',
     '-pix_fmt yuv420p',
     '-vf "tpad=stop_mode=clone:stop_duration=2"',
     `"${OUTPUT}"`,
