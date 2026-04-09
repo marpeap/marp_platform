@@ -490,16 +490,31 @@
         .pack-mcorp .btn-pack { background: #D4B87A; color: #fff; }
         .pack-mcorp .pack-features li::before { background: #D4B87A; }
 
+        /* M-LAUNCH — #22C55E vert lancement */
+        .pack-mlaunch {
+            background:
+                radial-gradient(ellipse 110% 65% at 12% 80%, rgba(34,197,94,0.22) 0%, transparent 55%),
+                radial-gradient(ellipse 70% 50% at 88% 10%, rgba(16,185,129,0.18) 0%, transparent 45%),
+                linear-gradient(155deg, #0A2818 0%, #071A10 45%, #050E08 100%);
+            border-color: rgba(34,197,94,0.18);
+        }
+        .pack-mlaunch:hover { border-color: rgba(34,197,94,0.38); }
+        .pack-mlaunch .pack-tag { color: #22C55E; background: rgba(34,197,94,0.10); }
+        .pack-mlaunch .btn-pack { background: #22C55E; color: #fff; }
+        .pack-mlaunch .pack-features li::before { background: #22C55E; }
+
         /* Modal CTA variants — real product colors */
         .modal-cta-mone { background: #E8C547; color: #06060E; }
         .modal-cta-mcampaign { background: #0AD0C9; color: #04252F; }
         .modal-cta-mneural { background: #9B5BF5; color: #fff; }
         .modal-cta-mcorp { background: #D4B87A; color: #fff; }
+        .modal-cta-mlaunch { background: #22C55E; color: #fff; }
 
         .modal-subtitle-mone { color: #E8C547; }
         .modal-subtitle-mcampaign { color: #0AD0C9; }
         .modal-subtitle-mneural { color: #9B5BF5; }
         .modal-subtitle-mcorp { color: #D4B87A; }
+        .modal-subtitle-mlaunch { color: #22C55E; }
 
     </style>
 </head>
@@ -549,10 +564,10 @@
 
     <section class="hero-packs">
         <div class="container">
-            <h1 class="hero-title">Quatre produits. Zéro friction.</h1>
-            <p class="hero-subtitle">Un site, un agent pub, un chatbot ou une équipe IA complète. Chaque pack est déployé sous 48h, prêt à produire des résultats.</p>
+            <h1 class="hero-title">Cinq solutions. Zéro friction.</h1>
+            <p class="hero-subtitle">Un site, une présence digitale complète, un agent pub, un chatbot ou une équipe IA. Chaque pack livré rapidement, prêt à produire des résultats.</p>
             <div class="hero-proof">
-                <div><span>48h</span> déploiement</div>
+                <div><span>5</span> solutions</div>
                 <div><span>0</span> engagement</div>
                 <div><span>100%</span> opérationnel</div>
             </div>
@@ -572,12 +587,12 @@
                         <div class="pack-price">290€</div>
                         <p class="pack-price-note">tout compris</p>
                     </div>
-                    <p class="pack-desc">Site one-page rapide, optimisé mobile et SEO, livré en 72h. Hébergement inclus.</p>
+                    <p class="pack-desc">Site one-page rapide, optimisé mobile et SEO. Hébergement inclus.</p>
                     <ul class="pack-features">
                         <li>One-page responsive</li>
                         <li>SEO intégré</li>
                         <li>Hébergement inclus</li>
-                        <li>Livré en 72h</li>
+                        <li>Livraison rapide</li>
                     </ul>
                     <div class="pack-cta-block">
                         <a href="https://app.marpeap.digital/" class="btn-pack">Commander</a>
@@ -625,6 +640,30 @@
                     <div class="pack-cta-block">
                         <a href="https://app.marpeap.digital/" class="btn-pack">Installer mon chatbot</a>
                         <button class="pack-info-link" data-modal="modal-mneural">En savoir plus</button>
+                    </div>
+                </div>
+
+                <!-- M-LAUNCH -->
+                <div class="pricing-card card-wide pack-mlaunch">
+                    <span class="pack-tag">Sur Mesure</span>
+                    <h3 class="pack-name">M-LAUNCH</h3>
+                    <p class="pack-tagline">Présence digitale complète, clé en main</p>
+                    <div class="pack-price-block">
+                        <div class="pack-price">Sur Devis</div>
+                        <p class="pack-price-note">adapté à votre secteur et budget</p>
+                    </div>
+                    <p class="pack-desc">Site vitrine, domaines, hébergement, réseaux sociaux, email professionnel et lancement Google Ads — tout livré en une seule mission. Idéal pour les entreprises qui partent de zéro ou qui refondent leur présence digitale.</p>
+                    <ul class="pack-features">
+                        <li>Site vitrine professionnel multi-pages</li>
+                        <li>2 noms de domaine (36 mois inclus)</li>
+                        <li>Hébergement & gestion technique (36 mois)</li>
+                        <li>Pages Facebook, Instagram, TikTok configurées</li>
+                        <li>Emails professionnels créés et configurés</li>
+                        <li>Paramétrage & lancement Google Ads</li>
+                    </ul>
+                    <div class="pack-cta-block">
+                        <a href="contact.html" class="btn-pack">Demander un devis</a>
+                        <button class="pack-info-link" data-modal="modal-mlaunch">En savoir plus</button>
                     </div>
                 </div>
 
@@ -882,6 +921,49 @@
         </div>
     </div>
 
+
+    <div id="modal-mlaunch" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fermer">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">M-LAUNCH™</h2>
+                <p class="modal-subtitle modal-subtitle-mlaunch">Votre présence digitale complète, livrée clé en main</p>
+                <div class="modal-price">Sur Devis</div>
+            </div>
+
+            <div class="modal-section">
+                <h4>Le problème</h4>
+                <p>Lancer une présence digitale from scratch, c'est jongler avec dix prestataires différents : un pour le site, un pour les domaines, un pour l'hébergement, un pour les réseaux, un pour Google Ads... Chacun fait sa partie, personne ne voit l'ensemble. Résultat : des délais, des incohérences, et un budget qui s'éparpille.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Ce que M-LAUNCH fait pour vous</h4>
+                <p>Un seul interlocuteur. Une seule mission. On prend en charge l'intégralité de votre lancement digital, du nom de domaine jusqu'à la première campagne publicitaire active. Vous décrivez votre activité, on construit tout le reste.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Ce qui est inclus</h4>
+                <ul class="modal-benefits">
+                    <li><strong>Site vitrine professionnel</strong> — multi-pages, responsive, optimisé SEO, design premium adapté à votre secteur</li>
+                    <li><strong>2 noms de domaine (36 mois)</strong> — domaine principal + domaine secondaire ou variante métier</li>
+                    <li><strong>Hébergement & gestion technique (36 mois)</strong> — maintenance, sauvegardes, mises à jour, certificat SSL</li>
+                    <li><strong>Réseaux sociaux configurés</strong> — création et paramétrage de vos pages Facebook, Instagram et TikTok, visuels harmonisés</li>
+                    <li><strong>Emails professionnels</strong> — adresses @votredomaine créées et configurées sur vos appareils</li>
+                    <li><strong>Lancement Google Ads</strong> — paramétrage complet de la campagne, ciblage, mots-clés, annonces, suivi des conversions</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h4>Investissement</h4>
+                <p>Le tarif est établi sur devis selon votre secteur, le nombre de pages du site, la zone géographique ciblée et le budget publicitaire souhaité. Nous vous transmettons un devis détaillé sous 24h.</p>
+                <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #8492A6;">Règlement en 2 fois : 50% à la commande, solde avant mise en ligne. Délai estimatif : 2 à 4 semaines.</p>
+            </div>
+
+            <div style="text-align: center; padding: 1rem 0;">
+                <a href="contact.html" class="btn-pack modal-cta-mlaunch" style="padding: 14px 40px; font-size: 1rem;">Demander un devis gratuit</a>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main-new.js"></script>
     <script src="js/animations.js" defer></script>
