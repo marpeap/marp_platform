@@ -226,20 +226,24 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 15, 28, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: var(--spacing-md) 0;
-  transition: all var(--transition-base);
+  height: 64px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.25s var(--ease-out-cubic),
+              border-color 0.25s var(--ease-out-cubic),
+              box-shadow 0.25s var(--ease-out-cubic);
 }
 
 .navbar.scrolled {
-  background: rgba(10, 15, 28, 0.95);
-  padding: var(--spacing-sm) 0;
-  box-shadow: var(--shadow-lg);
+  background: rgba(8, 8, 14, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .navbar .container {
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -247,25 +251,37 @@ a:hover {
 
 .nav-brand {
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
-.brand-text {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: 0.05em;
+.nav-logo {
+  height: 34px;
+  width: auto;
+  display: block;
 }
 
+/* Legacy — masqués si logo image présent */
+.brand-text,
 .brand-tagline {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  color: var(--brand-cyan);
-  letter-spacing: 0.05em;
-  font-weight: 500;
-  margin-top: -0.25rem;
+  display: none;
+}
+
+.nav-link-referral {
+  color: var(--brand-gold) !important;
+  font-size: 0.875rem;
+}
+
+.nav-link-referral:hover {
+  color: var(--brand-champagne) !important;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
 }
 
 .nav-links {
@@ -349,34 +365,48 @@ a:hover {
     width: 80%;
     max-width: 300px;
     height: 100vh;
-    background: rgba(10, 15, 28, 0.98);
+    background: rgba(8, 8, 14, 0.98);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: flex-start;
-    padding: var(--spacing-3xl) var(--spacing-lg);
-    gap: var(--spacing-lg);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 80px var(--spacing-lg) var(--spacing-lg);
+    gap: var(--spacing-md);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
     transition: right var(--transition-base);
     z-index: 999;
   }
-  
+
   .nav-links.active {
     right: 0;
   }
-  
+
   .nav-link {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     width: 100%;
     padding: var(--spacing-sm) 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
-  
-  .btn-primary-nav {
+
+  /* CTA dans le panel mobile — pleine largeur */
+  .nav-links .btn-primary-nav {
     width: 100%;
     justify-content: center;
     margin-top: var(--spacing-md);
   }
-  
+
+  /* CTA dans .nav-actions — compact, toujours visible */
+  .nav-actions .btn-primary-nav {
+    width: auto;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8rem;
+    margin-top: 0;
+  }
+
+  .nav-actions .btn-primary-nav .btn-text {
+    display: none;
+  }
+
   .mobile-menu-toggle {
     display: flex;
     z-index: 1000;
@@ -420,10 +450,20 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: 0 0 4rem;
-  padding-top: 120px;
+  padding-top: 100px;
   background: var(--bg-primary);
   position: relative;
   overflow: hidden;
+}
+
+/* Atmosphère hero : glow or depuis le haut (marque Marpeap) */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 55% at 50% -5%, rgba(212,184,122,0.10) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-background {
@@ -872,9 +912,30 @@ a:hover {
    ======================================== */
 
 .stat-strip {
-  padding: 3rem 0;
-  background: var(--bg-primary);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 2.5rem 0;
+  background: #060609;
+  border-top: 1px solid rgba(212, 184, 122, 0.10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+/* Ligne de séparation lumineuse centrée — transition hero → stats */
+.stat-strip::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(212, 184, 122, 0.35) 30%,
+    rgba(212, 184, 122, 0.55) 50%,
+    rgba(212, 184, 122, 0.35) 70%,
+    transparent 100%
+  );
 }
 
 .stat-strip-inner {
@@ -929,8 +990,12 @@ a:hover {
    ======================================== */
 
 .founder-section {
-  padding: 5rem 0 4rem;
-  background: var(--bg-section-alt);
+  padding: 4.5rem 0 3.5rem;
+  background:
+    radial-gradient(ellipse 70% 60% at 0% 50%, rgba(212, 184, 122, 0.05) 0%, transparent 50%),
+    #0A0B10;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .founder-card {
@@ -987,8 +1052,11 @@ a:hover {
    ======================================== */
 
 .services-section {
-  padding: 5rem 0 6rem;
-  background: var(--bg-secondary);
+  padding: 5rem 0 7rem;
+  background:
+    radial-gradient(ellipse 100% 50% at 50% 0%, rgba(212, 184, 122, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(184, 200, 216, 0.04) 0%, transparent 45%),
+    #0D0D12;
   position: relative;
 }
 
@@ -1659,8 +1727,13 @@ a:hover {
    ======================================== */
 
 .cta-section {
-  padding: 5rem 0;
-  background: var(--bg-secondary);
+  padding: 6rem 0;
+  /* Echo du hero : même glow or mais depuis le bas (boucle narrative) */
+  background:
+    radial-gradient(ellipse 100% 60% at 50% 110%, rgba(212, 184, 122, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 40% at 20% 20%, rgba(184, 200, 216, 0.04) 0%, transparent 45%),
+    var(--bg-primary);
+  position: relative;
 }
 
 .cta-box {
@@ -1776,9 +1849,9 @@ a:hover {
    ======================================== */
 
 .footer {
-  background: var(--bg-primary);
+  background: #060609;
   padding: var(--spacing-3xl) 0 var(--spacing-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .footer-content {
