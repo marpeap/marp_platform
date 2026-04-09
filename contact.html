@@ -143,22 +143,45 @@
             color: #D4B87A;
         }
 
-        .btn-primary-nav {
-            background: #D4B87A;
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
+        .nav-actions {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
+            gap: 0.75rem;
         }
 
-        .btn-primary-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(79, 138, 255, 0.3);
+        .btn-cta-nav {
+            background: #D4B87A;
+            color: #0A0A0E;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: opacity 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .btn-cta-nav:hover { opacity: 0.88; }
+
+        .btn-phone-nav {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.5rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: border-color 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-phone-nav:hover {
+            border-color: rgba(255, 255, 255, 0.28);
+            color: #fff;
         }
 
         .mobile-menu-toggle {
@@ -179,16 +202,18 @@
 
         /* Contact Hero */
         .contact-hero {
-            padding: 10rem 0 5rem;
+            padding: 9rem 0 4rem;
             text-align: center;
+            background: radial-gradient(ellipse 70% 55% at 50% 55%, rgba(212, 184, 122, 0.10) 0%, transparent 65%);
         }
 
         .contact-hero-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 700;
             margin-bottom: 1rem;
-            line-height: 1.2;
+            line-height: 1.06;
+            letter-spacing: -0.025em;
         }
 
         .contact-hero-subtitle {
@@ -217,6 +242,11 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
             padding: 2rem;
+        }
+
+        .contact-info-card {
+            background: rgba(15, 23, 42, 0.40);
+            border-left: 2px solid rgba(212, 184, 122, 0.30);
         }
 
         .contact-info-title,
@@ -647,7 +677,8 @@
                 <a href="https://refer.marpeap.com" class="nav-link nav-link-referral" target="_blank" rel="noopener noreferrer">Devenir partenaire</a>
             </div>
             <div class="nav-actions">
-                <a href="tel:+33230964030" class="btn-primary-nav">
+                <a href="packs.html" class="btn-cta-nav">Voir nos solutions</a>
+                <a href="tel:+33230964030" class="btn-phone-nav">
                     <svg class="btn-icon" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 12.69v2.37a1.58 1.58 0 0 1-1.72 1.58 15.65 15.65 0 0 1-6.82-2.43 15.42 15.42 0 0 1-4.74-4.74A15.65 15.65 0 0 1 .8 2.72 1.58 1.58 0 0 1 2.35 1h2.37a1.58 1.58 0 0 1 1.58 1.36 10.15 10.15 0 0 0 .55 2.22 1.58 1.58 0 0 1-.36 1.67l-1 1a12.65 12.65 0 0 0 4.74 4.74l1-1a1.58 1.58 0 0 1 1.67-.36 10.15 10.15 0 0 0 2.22.55 1.58 1.58 0 0 1 1.38 1.6Z"/></svg>
                     <span class="btn-text">02 30 96 40 30</span>
                 </a>
@@ -674,7 +705,7 @@
             <div class="contact-grid">
                 
                 <div class="contact-info-card" data-aos="fade-right">
-                    <h2 class="contact-info-title">Marpeap Digitals</h2>
+                    <h2 class="contact-info-title">Contactez-nous directement</h2>
                     
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
@@ -716,7 +747,7 @@
                 </div>
 
                 <div class="contact-form-card" data-aos="fade-left">
-                    <h2 class="contact-form-title">Détails du Projet</h2>
+                    <h2 class="contact-form-title">Votre demande</h2>
                     
                     <form id="contactForm" class="contact-form">
     
@@ -806,7 +837,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>MARPEAP DIGITALS</h3>
+                    <h3>MARPEAP</h3>
                     <p>Code. Growth. Results.</p>
                 </div>
                 <div class="footer-links">
@@ -825,7 +856,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Marpeap Digitals. Tous droits réservés.</p>
+                <p>&copy; 2026 MARPEAP. Tous droits réservés.</p>
                 <p><a href="mentions-legales.html" style="color: #8492A6; text-decoration: none;">Mentions légales & Confidentialité</a></p>
             </div>
         </div>
