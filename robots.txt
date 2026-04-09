@@ -8,10 +8,6 @@ Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /.env
 
-# Autoriser CSS/JS pour le rendu
-Allow: /css/*.css$
-Allow: /js/*.js$
-
 # Crawlers IA d'entrainement — BLOQUER
 User-agent: GPTBot
 Disallow: /
