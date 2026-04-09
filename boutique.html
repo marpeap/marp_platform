@@ -20,11 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'DM Sans', sans-serif;
@@ -34,373 +30,304 @@
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
         /* ── Navbar ── */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            position: fixed; top: 0; left: 0; right: 0;
             background: rgba(10, 15, 28, 0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0; z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
         .nav-brand { font-family: 'Space Grotesk', sans-serif; }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: #8492A6;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-link { color: #8492A6; text-decoration: none; transition: color 0.3s; font-size: 0.95rem; }
         .nav-link:hover { color: #D4B87A; }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+        .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
 
         .btn-cta-nav {
-            background: #D4B87A;
-            color: #0A0A0E;
-            padding: 0.5rem 1.25rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-decoration: none;
-            letter-spacing: -0.01em;
-            transition: opacity 0.15s ease;
-            white-space: nowrap;
+            background: #D4B87A; color: #0A0A0E;
+            padding: 0.5rem 1.25rem; border-radius: 9999px;
+            font-weight: 600; font-size: 0.875rem; text-decoration: none;
+            letter-spacing: -0.01em; transition: opacity 0.15s ease; white-space: nowrap;
         }
-
         .btn-cta-nav:hover { opacity: 0.88; }
 
         .btn-phone-nav {
-            background: transparent;
-            color: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 0.5rem 1.1rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: border-color 0.2s ease, color 0.2s ease;
-            white-space: nowrap;
+            background: transparent; color: rgba(255,255,255,0.72);
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 0.5rem 1.1rem; border-radius: 9999px; font-size: 0.875rem;
+            text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+            transition: border-color 0.2s ease, color 0.2s ease; white-space: nowrap;
         }
-
-        .btn-phone-nav:hover {
-            border-color: rgba(255, 255, 255, 0.28);
-            color: #fff;
-        }
+        .btn-phone-nav:hover { border-color: rgba(255,255,255,0.28); color: #fff; }
 
         .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer;
         }
-
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #fff;
-            transition: all 0.3s;
-        }
+        .mobile-menu-toggle span { width: 25px; height: 3px; background: #fff; transition: all 0.3s; }
 
         /* ── Success Banner ── */
         .success-banner {
-            display: none;
-            position: fixed;
-            top: 4.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 900;
-            background: rgba(34, 197, 94, 0.12);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #4ade80;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            white-space: nowrap;
+            display: none; position: fixed; top: 4.5rem; left: 50%;
+            transform: translateX(-50%); z-index: 900;
+            background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3);
+            color: #4ade80; padding: 0.75rem 1.5rem; border-radius: 9999px;
+            font-size: 0.9rem; font-weight: 500; backdrop-filter: blur(10px); white-space: nowrap;
         }
-
         .success-banner.visible { display: block; }
 
         /* ── Hero ── */
         .boutique-hero {
-            padding: 9rem 0 3.5rem;
-            text-align: center;
-            background: radial-gradient(ellipse 65% 50% at 50% 60%, rgba(212, 184, 122, 0.09) 0%, transparent 65%);
+            padding: 9rem 0 3.5rem; text-align: center;
+            background: radial-gradient(ellipse 65% 50% at 50% 60%, rgba(212,184,122,0.09) 0%, transparent 65%);
         }
-
         .boutique-hero-label {
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: rgba(212, 184, 122, 0.6);
-            letter-spacing: 0.06em;
-            margin-bottom: 1.25rem;
+            display: inline-block; font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; color: rgba(212,184,122,0.6);
+            letter-spacing: 0.06em; margin-bottom: 1.25rem;
         }
-
         .boutique-hero-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 4.5vw, 3.25rem);
-            font-weight: 700;
-            line-height: 1.06;
-            letter-spacing: -0.025em;
-            margin-bottom: 1rem;
+            font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 700;
+            line-height: 1.06; letter-spacing: -0.025em; margin-bottom: 1rem;
         }
-
         .boutique-hero-sub {
-            font-size: 1.0625rem;
-            color: rgba(255, 255, 255, 0.52);
-            max-width: 480px;
-            margin: 0 auto;
-            line-height: 1.55;
+            font-size: 1.0625rem; color: rgba(255,255,255,0.52);
+            max-width: 480px; margin: 0 auto; line-height: 1.55;
         }
 
         /* ── Skills Grid ── */
-        .boutique-grid-section {
-            padding: 2rem 0 6rem;
-        }
+        .boutique-grid-section { padding: 2rem 0 6rem; }
+        .boutique-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 
-        .boutique-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-
-        /* Base card */
         .skill-card {
-            border-radius: 1rem;
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
+            border-radius: 1rem; padding: 1.75rem;
+            display: flex; flex-direction: column;
             transition: border-color 0.2s ease, transform 0.2s ease;
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
+        .skill-card:hover { transform: translateY(-2px); }
 
-        .skill-card:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Individual card atmospheres */
         .skill-card--art {
-            background:
-                radial-gradient(ellipse 80% 60% at 15% 20%, rgba(139, 92, 246, 0.18) 0%, transparent 55%),
-                linear-gradient(155deg, #111828 0%, #0d1220 100%);
-            border: 1px solid rgba(139, 92, 246, 0.18);
+            background: radial-gradient(ellipse 80% 60% at 15% 20%, rgba(139,92,246,0.18) 0%, transparent 55%), linear-gradient(155deg, #111828 0%, #0d1220 100%);
+            border: 1px solid rgba(139,92,246,0.18);
         }
-        .skill-card--art:hover { border-color: rgba(139, 92, 246, 0.35); }
+        .skill-card--art:hover { border-color: rgba(139,92,246,0.35); }
 
         .skill-card--articles {
-            background:
-                radial-gradient(ellipse 80% 60% at 85% 15%, rgba(251, 146, 60, 0.15) 0%, transparent 55%),
-                linear-gradient(155deg, #131520 0%, #0e1018 100%);
-            border: 1px solid rgba(251, 146, 60, 0.16);
+            background: radial-gradient(ellipse 80% 60% at 85% 15%, rgba(251,146,60,0.15) 0%, transparent 55%), linear-gradient(155deg, #131520 0%, #0e1018 100%);
+            border: 1px solid rgba(251,146,60,0.16);
         }
-        .skill-card--articles:hover { border-color: rgba(251, 146, 60, 0.32); }
+        .skill-card--articles:hover { border-color: rgba(251,146,60,0.32); }
 
         .skill-card--design {
-            background:
-                radial-gradient(ellipse 80% 60% at 15% 80%, rgba(34, 211, 238, 0.15) 0%, transparent 55%),
-                linear-gradient(155deg, #0f1a22 0%, #0b1218 100%);
-            border: 1px solid rgba(34, 211, 238, 0.15);
+            background: radial-gradient(ellipse 80% 60% at 15% 80%, rgba(34,211,238,0.15) 0%, transparent 55%), linear-gradient(155deg, #0f1a22 0%, #0b1218 100%);
+            border: 1px solid rgba(34,211,238,0.15);
         }
-        .skill-card--design:hover { border-color: rgba(34, 211, 238, 0.30); }
+        .skill-card--design:hover { border-color: rgba(34,211,238,0.30); }
 
         .skill-card--canvas {
-            background:
-                radial-gradient(ellipse 80% 60% at 80% 80%, rgba(244, 114, 182, 0.14) 0%, transparent 55%),
-                linear-gradient(155deg, #131220 0%, #0f0e1a 100%);
-            border: 1px solid rgba(244, 114, 182, 0.15);
+            background: radial-gradient(ellipse 80% 60% at 80% 80%, rgba(244,114,182,0.14) 0%, transparent 55%), linear-gradient(155deg, #131220 0%, #0f0e1a 100%);
+            border: 1px solid rgba(244,114,182,0.15);
         }
-        .skill-card--canvas:hover { border-color: rgba(244, 114, 182, 0.30); }
+        .skill-card--canvas:hover { border-color: rgba(244,114,182,0.30); }
 
         .skill-card--cycle {
-            background:
-                radial-gradient(ellipse 80% 60% at 20% 50%, rgba(52, 211, 153, 0.14) 0%, transparent 55%),
-                linear-gradient(155deg, #0d1a16 0%, #0a1210 100%);
-            border: 1px solid rgba(52, 211, 153, 0.15);
+            background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(52,211,153,0.14) 0%, transparent 55%), linear-gradient(155deg, #0d1a16 0%, #0a1210 100%);
+            border: 1px solid rgba(52,211,153,0.15);
         }
-        .skill-card--cycle:hover { border-color: rgba(52, 211, 153, 0.30); }
+        .skill-card--cycle:hover { border-color: rgba(52,211,153,0.30); }
 
         .skill-card--gif {
-            background:
-                radial-gradient(ellipse 80% 60% at 80% 30%, rgba(99, 179, 237, 0.15) 0%, transparent 55%),
-                linear-gradient(155deg, #0e1620 0%, #0a121c 100%);
-            border: 1px solid rgba(99, 179, 237, 0.15);
+            background: radial-gradient(ellipse 80% 60% at 80% 30%, rgba(99,179,237,0.15) 0%, transparent 55%), linear-gradient(155deg, #0e1620 0%, #0a121c 100%);
+            border: 1px solid rgba(99,179,237,0.15);
         }
-        .skill-card--gif:hover { border-color: rgba(99, 179, 237, 0.30); }
+        .skill-card--gif:hover { border-color: rgba(99,179,237,0.30); }
 
         .skill-card--seo {
-            background:
-                radial-gradient(ellipse 80% 60% at 50% 15%, rgba(212, 184, 122, 0.15) 0%, transparent 55%),
-                linear-gradient(155deg, #171410 0%, #110f09 100%);
-            border: 1px solid rgba(212, 184, 122, 0.18);
+            background: radial-gradient(ellipse 80% 60% at 50% 15%, rgba(212,184,122,0.15) 0%, transparent 55%), linear-gradient(155deg, #171410 0%, #110f09 100%);
+            border: 1px solid rgba(212,184,122,0.18);
         }
-        .skill-card--seo:hover { border-color: rgba(212, 184, 122, 0.35); }
+        .skill-card--seo:hover { border-color: rgba(212,184,122,0.35); }
 
         /* Card internals */
         .skill-card-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.6875rem;
-            color: rgba(255, 255, 255, 0.28);
-            letter-spacing: 0.04em;
-            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+            color: rgba(255,255,255,0.28); letter-spacing: 0.04em; margin-bottom: 1rem;
         }
-
         .skill-card-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 600;
-            letter-spacing: -0.015em;
-            line-height: 1.2;
-            margin-bottom: 0.625rem;
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.125rem;
+            font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 0.625rem;
         }
-
         .skill-card-desc {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.52);
-            line-height: 1.5;
-            flex: 1;
-            margin-bottom: 1.5rem;
+            font-size: 0.875rem; color: rgba(255,255,255,0.52);
+            line-height: 1.5; flex: 1; margin-bottom: 0.875rem;
         }
+        .btn-details {
+            background: none; border: none; cursor: pointer; padding: 0;
+            font-family: 'DM Sans', sans-serif; font-size: 0.8125rem;
+            color: rgba(255,255,255,0.36); letter-spacing: -0.01em;
+            text-align: left; margin-bottom: 1.25rem;
+            transition: color 0.15s ease; display: inline-flex; align-items: center; gap: 0.3rem;
+        }
+        .btn-details:hover { color: rgba(255,255,255,0.7); }
+        .btn-details-arrow { font-size: 0.7rem; transition: transform 0.15s ease; }
+        .btn-details:hover .btn-details-arrow { transform: translateX(2px); }
 
         .skill-card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 0.75rem;
+            margin-top: auto;
         }
-
         .skill-price {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: #fff;
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.125rem;
+            font-weight: 700; letter-spacing: -0.02em; color: #fff;
         }
-
         .skill-price span {
-            font-size: 0.75rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.38);
-            margin-left: 0.2rem;
+            font-size: 0.75rem; font-weight: 400;
+            color: rgba(255,255,255,0.38); margin-left: 0.2rem;
         }
-
         .btn-buy {
-            background: rgba(255, 255, 255, 0.08);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            padding: 0.5rem 1.1rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-decoration: none;
+            background: rgba(255,255,255,0.08); color: #fff;
+            border: 1px solid rgba(255,255,255,0.14);
+            padding: 0.5rem 1.1rem; border-radius: 9999px;
+            font-size: 0.875rem; font-weight: 500; text-decoration: none;
             letter-spacing: -0.01em;
-            transition: background 0.15s ease, border-color 0.15s ease;
-            white-space: nowrap;
+            transition: background 0.15s ease, border-color 0.15s ease; white-space: nowrap;
+        }
+        .btn-buy:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.26); }
+
+        /* ── Modal ── */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 2000;
+            background: rgba(5, 8, 18, 0.82);
+            backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center;
+            padding: 1.5rem;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.18s ease, visibility 0.18s ease;
+        }
+        .modal-overlay.open { opacity: 1; visibility: visible; }
+
+        .modal-panel {
+            background: #0f1628;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 1.125rem;
+            width: 100%; max-width: 560px;
+            max-height: 88vh; overflow-y: auto;
+            position: relative;
+            transform: translateY(12px) scale(0.98);
+            transition: transform 0.2s ease;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.12) transparent;
+        }
+        .modal-overlay.open .modal-panel { transform: translateY(0) scale(1); }
+
+        .modal-header {
+            padding: 1.75rem 1.75rem 0;
+            display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+        }
+        .modal-header-left { flex: 1; }
+        .modal-tag {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+            color: rgba(255,255,255,0.28); letter-spacing: 0.04em; display: block;
+            margin-bottom: 0.5rem;
+        }
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem;
+            font-weight: 700; letter-spacing: -0.02em; line-height: 1.12;
+        }
+        .modal-close {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.6); font-size: 1.1rem;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 0.1rem;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+        .modal-body { padding: 1.5rem 1.75rem; }
+
+        .modal-intro {
+            font-size: 0.9375rem; color: rgba(255,255,255,0.64);
+            line-height: 1.6; margin-bottom: 1.5rem;
         }
 
-        .btn-buy:hover {
-            background: rgba(255, 255, 255, 0.14);
-            border-color: rgba(255, 255, 255, 0.26);
+        .modal-section-title {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem;
+            font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+            color: rgba(255,255,255,0.3); margin-bottom: 0.75rem;
         }
+
+        .modal-list {
+            list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;
+        }
+        .modal-list li {
+            font-size: 0.9rem; color: rgba(255,255,255,0.62); line-height: 1.5;
+            padding-left: 1rem; position: relative;
+        }
+        .modal-list li::before {
+            content: '–'; position: absolute; left: 0;
+            color: rgba(255,255,255,0.24);
+        }
+
+        .modal-footer {
+            padding: 1.25rem 1.75rem 1.75rem;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+        }
+        .modal-price {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.375rem;
+            font-weight: 700; letter-spacing: -0.025em;
+        }
+        .modal-price span { font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,0.38); margin-left: 0.2rem; }
+
+        .btn-buy-modal {
+            background: #D4B87A; color: #0A0A0E;
+            padding: 0.65rem 1.5rem; border-radius: 9999px;
+            font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+            letter-spacing: -0.01em; transition: opacity 0.15s ease; white-space: nowrap;
+            display: inline-block;
+        }
+        .btn-buy-modal:hover { opacity: 0.88; }
+
+        /* Accent color on modal border per skill */
+        .modal-panel[data-accent="art"]     { border-color: rgba(139,92,246,0.28); }
+        .modal-panel[data-accent="articles"]{ border-color: rgba(251,146,60,0.26); }
+        .modal-panel[data-accent="design"]  { border-color: rgba(34,211,238,0.24); }
+        .modal-panel[data-accent="canvas"]  { border-color: rgba(244,114,182,0.24); }
+        .modal-panel[data-accent="cycle"]   { border-color: rgba(52,211,153,0.24); }
+        .modal-panel[data-accent="gif"]     { border-color: rgba(99,179,237,0.24); }
+        .modal-panel[data-accent="seo"]     { border-color: rgba(212,184,122,0.28); }
 
         /* ── Footer ── */
         .footer {
-            background: rgba(10, 15, 28, 0.95);
-            padding: 3rem 0 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(10,15,28,0.95); padding: 3rem 0 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-brand h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
-            color: #D4B87A;
-            margin-bottom: 0.5rem;
-        }
-
+        .footer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
+        .footer-brand h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; color: #D4B87A; margin-bottom: 0.5rem; }
         .footer-brand p { color: #8492A6; }
-
-        .footer-links {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .footer-column h4 {
-            color: #fff;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-column a {
-            display: block;
-            color: #8492A6;
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-
+        .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .footer-column h4 { color: #fff; margin-bottom: 1rem; font-size: 0.9rem; }
+        .footer-column a { display: block; color: #8492A6; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.3s; }
         .footer-column a:hover { color: #D4B87A; }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #8492A6;
-            font-size: 0.9rem;
-        }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #8492A6; font-size: 0.9rem; }
 
         /* ── Responsive ── */
-        @media (max-width: 900px) {
-            .boutique-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
+        @media (max-width: 900px) { .boutique-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu-toggle { display: flex; }
             .boutique-grid { grid-template-columns: 1fr; }
             .footer-content, .footer-links { grid-template-columns: 1fr; }
+            .modal-footer { flex-direction: column; align-items: flex-start; }
+            .btn-buy-modal { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -447,77 +374,77 @@
         <div class="container">
             <div class="boutique-grid">
 
-                <!-- Art Algorithmique -->
                 <div class="skill-card skill-card--art">
                     <span class="skill-card-tag">art</span>
                     <h2 class="skill-card-title">Art Algorithmique</h2>
                     <p class="skill-card-desc">Génère des œuvres génératifs avec p5.js — flow fields, particules, noise Perlin. Sortie : HTML interactif + JS exportable.</p>
+                    <button class="btn-details" data-skill="art">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
                         <a href="https://buy.stripe.com/fZu6oH1fJ0h07wk4JE93y01" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
                     </div>
                 </div>
 
-                <!-- Rédaction d'Articles -->
                 <div class="skill-card skill-card--articles">
                     <span class="skill-card-tag">articles</span>
                     <h2 class="skill-card-title">Rédaction d'Articles</h2>
                     <p class="skill-card-desc">Machine éditoriale sur 912M d'articles, NNGroup eye-tracking, Cialdini & Kahneman. Headlines, hooks, biais cognitifs, conversion.</p>
+                    <button class="btn-details" data-skill="articles">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
                         <a href="https://buy.stripe.com/eVq14naQj4xgg2Q0to93y02" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
                     </div>
                 </div>
 
-                <!-- Web Design Anti-LLM -->
                 <div class="skill-card skill-card--design">
                     <span class="skill-card-tag">better-design</span>
                     <h2 class="skill-card-title">Web Design Anti-LLM</h2>
                     <p class="skill-card-desc">Système Hyper V3 pour concevoir ou auditer un site sans patterns génériques IA. 6 fonds, 8 types de sections, typographie, rythme.</p>
+                    <button class="btn-details" data-skill="design">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
                         <a href="https://buy.stripe.com/7sY4gzf6z8NwdUI1xs93y03" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
                     </div>
                 </div>
 
-                <!-- Design sur Canvas -->
                 <div class="skill-card skill-card--canvas">
                     <span class="skill-card-tag">canvas</span>
                     <h2 class="skill-card-title">Design sur Canvas</h2>
                     <p class="skill-card-desc">Crée des affiches et visuels statiques (PNG, PDF) via une philosophie de design originale. Composition, typographie, ambiance.</p>
+                    <button class="btn-details" data-skill="canvas">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
                         <a href="https://buy.stripe.com/dRm00j7E7aVEaIw2Bw93y04" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
                     </div>
                 </div>
 
-                <!-- Protocole Cycle-MKR -->
                 <div class="skill-card skill-card--cycle">
                     <span class="skill-card-tag">cycle-mkr</span>
                     <h2 class="skill-card-title">Protocole Cycle-MKR</h2>
                     <p class="skill-card-desc">R&D par patches atomiques : init bloc, reprise de session, LIRE / PLAN / CODER / CHECK / SMOKE / COMMIT, release gate, audit.</p>
+                    <button class="btn-details" data-skill="cycle">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
                         <a href="https://buy.stripe.com/bJecN55vZ5BkaIw4JE93y05" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
                     </div>
                 </div>
 
-                <!-- GIF & Vidéo -->
                 <div class="skill-card skill-card--gif">
                     <span class="skill-card-tag">gif-makr</span>
                     <h2 class="skill-card-title">GIF & Vidéo Makr</h2>
                     <p class="skill-card-desc">GIFs animés (PIL) et vidéos produit cinématiques (Puppeteer + ffmpeg) pour Slack, landing pages et campagnes marketing.</p>
+                    <button class="btn-details" data-skill="gif">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
                         <a href="https://buy.stripe.com/28E8wPgaDfbU8Ao1xs93y06" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
                     </div>
                 </div>
 
-                <!-- SEO Durci -->
                 <div class="skill-card skill-card--seo">
                     <span class="skill-card-tag">seo</span>
                     <h2 class="skill-card-title">SEO Durci</h2>
                     <p class="skill-card-desc">Guide fiable et maintenu. Sources officielles Google Search, web.dev, Next.js, OpenAI. Règles vérifiées, cross-engine, patterns framework.</p>
+                    <button class="btn-details" data-skill="seo">Voir le détail <span class="btn-details-arrow">→</span></button>
                     <div class="skill-card-footer">
                         <div class="skill-price">15 €<span>HT</span></div>
                         <a href="https://buy.stripe.com/cNi9ATgaDbZI8Aoeke93y07" class="btn-buy" target="_blank" rel="noopener">Acheter</a>
@@ -527,6 +454,28 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal unique alimenté par JS -->
+    <div class="modal-overlay" id="skillModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-panel" id="modalPanel">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <span class="modal-tag" id="modalTag"></span>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                </div>
+                <button class="modal-close" id="modalClose" aria-label="Fermer">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro" id="modalIntro"></p>
+                <p class="modal-section-title">Ce que le skill fait</p>
+                <ul class="modal-list" id="modalList"></ul>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-price">15 €<span>HT · paiement unique</span></div>
+                <a href="#" class="btn-buy-modal" id="modalBuyBtn" target="_blank" rel="noopener">Acheter ce skill</a>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -557,19 +506,165 @@
     </footer>
 
     <script>
-        // Success state
-        if (new URLSearchParams(window.location.search).get('success') === '1') {
-            document.getElementById('successBanner').classList.add('visible');
+    // ── Données des skills ──
+    const SKILLS = {
+        art: {
+            tag: 'art',
+            title: 'Art Algorithmique',
+            intro: 'Claude génère des œuvres d\'art génératif interactives avec p5.js, en partant d\'une philosophie computationnelle originale et en l\'exprimant en code.',
+            items: [
+                'Crée d\'abord un manifeste de mouvement esthétique algorithmique (philosophie, intention, processus)',
+                'Exprime ensuite la philosophie en p5.js : flow fields, systèmes de particules, noise Perlin multicouche, champs de forces',
+                'Sortie : fichier HTML interactif (viewer autonome) + fichier JS (algorithme isolé)',
+                'Aléatoire seedé pour des résultats reproductibles et exportables',
+                'Exploration de paramètres : poids, fréquences, densité, couleur émergente, vitesse',
+                'Aucune copie d\'artistes existants — chaque œuvre est originale et générée algorithmiquement'
+            ],
+            link: 'https://buy.stripe.com/fZu6oH1fJ0h07wk4JE93y01'
+        },
+        articles: {
+            tag: 'articles',
+            title: 'Rédaction d\'Articles',
+            intro: 'Système éditorial construit sur des données réelles — 912M d\'articles analysés, NNGroup eye-tracking, Cialdini et Kahneman — pour écrire des articles qui captent, retiennent et convertissent.',
+            items: [
+                '18 parties couvrant toute la chaîne : psychologie du lecteur, headlines, structure, hooks, biais cognitifs, engagement, conversion',
+                'Basé sur 912M d\'articles BuzzSumo + 1,5M fixations oculaires NNGroup',
+                'Formules headline testées : Copyblogger, Buffer, Backlinko, CoSchedule',
+                'Cialdini (7 principes d\'influence) + Kahneman (Prospect Theory, anchoring, framing)',
+                'Curiosity gap (Loewenstein, Carnegie Mellon) + effet Zeigarnik sur les boucles ouvertes',
+                'Output structuré : headline A/B-testable, hook, corps, CTA, meta SEO'
+            ],
+            link: 'https://buy.stripe.com/eVq14naQj4xgg2Q0to93y02'
+        },
+        design: {
+            tag: 'better-design',
+            title: 'Web Design Anti-LLM',
+            intro: 'Système Hyper V3 pour concevoir, auditer ou corriger un site web sans tomber dans les patterns visuels génériques produits par IA — en 3 modes opératoires distincts.',
+            items: [
+                '3 niveaux de règles : règles dures / préférences fortes / patterns contextuels',
+                '6 systèmes de fond : neutre foyer, image-led, texture éditoriale, surface produit, artefact technique, couches modulaires',
+                '8 types de sections avec rôles distincts : hero, transition, use cases, feature, démo, preuve, pricing, CTA final',
+                'Matière visuelle : UI réelle, code, document, photo de marque — pas d\'illustrations abstraites',
+                'Typographie : échelle display → body → caption, tracking négatif, variation de poids réelle',
+                '3 modes : CREATE (direction + système UI), AUDIT (P0/P1/P2 par gravité), FIX (keep/change/remove + séquence)'
+            ],
+            link: 'https://buy.stripe.com/7sY4gzf6z8NwdUI1xs93y03'
+        },
+        canvas: {
+            tag: 'canvas',
+            title: 'Design sur Canvas',
+            intro: 'Claude crée des visuels statiques originaux (PNG, PDF) en deux temps : d\'abord une philosophie de design, ensuite son expression visuelle sur canvas.',
+            items: [
+                'Génère d\'abord un manifeste de mouvement esthétique (nom, philosophie 4-6 paragraphes, intention visuelle)',
+                'Exprime ensuite la philosophie sur canvas : composition, typographie, espace négatif, couleur intentionnelle',
+                'Formats : PNG (affiches, visuels marketing, thumbnails, covers) et PDF (print, documents, présentations)',
+                '90% design visuel, 10% texte — pas de templates, pas de layouts génériques',
+                'Aucune copie d\'artistes existants — chaque œuvre est une interprétation originale'
+            ],
+            link: 'https://buy.stripe.com/dRm00j7E7aVEaIw2Bw93y04'
+        },
+        cycle: {
+            tag: 'cycle-mkr',
+            title: 'Protocole Cycle-MKR',
+            intro: 'Protocole R&D par patches atomiques pour avancer sur un système sans casser ses invariants, sans perdre l\'état entre sessions, et sans exposer un changement risqué sans preuves.',
+            items: [
+                'Structure : blocs (propriété à créer) → patches (changement atomique) → sessions → releases',
+                '6 phases strictes par patch : LIRE / PLAN / CODER / CHECK / SMOKE / COMMIT',
+                'Taxonomie C0 à C5 : cosmétique → refactor → logique → endpoint → auth/données → stateful critique',
+                'Evidence Ladder E1 à E5 : structure locale → test automatisé → scénario comportemental → staging → canary',
+                'Protocoles intégrés : release gate, boucle d\'erreur classifiée, handoff de session, audit multi-rounds',
+                'Fichiers de pilotage : DOSSIER.md, MANIFEST.md, DECISIONS.md, EXCEPTIONS.md, INCIDENTS.md'
+            ],
+            link: 'https://buy.stripe.com/bJecN55vZ5BkaIw4JE93y05'
+        },
+        gif: {
+            tag: 'gif-makr',
+            title: 'GIF & Vidéo Makr',
+            intro: 'Deux pipelines de création visuelle animée — GIFs Python (PIL) pour Slack et messaging, vidéos cinématiques HTML-to-MP4 (Puppeteer + ffmpeg) pour landing pages et marketing.',
+            items: [
+                'Pipeline GIF (PIL) : frames Python, emoji 128×128 ou message 480×480, palette optimisée, fichier < 3s',
+                'Pipeline vidéo (Puppeteer + ffmpeg) : scènes HTML capturées frame par frame, montage multi-scènes, transitions',
+                'Cas d\'usage : Slack emojis, product demos, landing pages animées, campagnes marketing, thumbnails',
+                'Paramètres contrôlés : FPS, palette couleurs, durée, transitions, résolution, compression',
+                'GIF builder avec API simple : add_frame(), save(), optimize()'
+            ],
+            link: 'https://buy.stripe.com/28E8wPgaDfbU8Ao1xs93y06'
+        },
+        seo: {
+            tag: 'seo',
+            title: 'SEO Durci',
+            intro: 'Guide SEO fiable, maintenu et étiqueté par niveau de certitude — basé exclusivement sur des sources officielles Google Search, web.dev, Next.js et OpenAI.',
+            items: [
+                'Labels de fiabilité : OFFICIAL / SUPPORTED / FRAMEWORK / OBSERVED / EXPERIMENTAL / THIRD_PARTY',
+                'Couche A (indexabilité) : title, canonical, noindex, sitemap, robots.txt, HTTP status, rendu JS',
+                'Couche B (compréhensibilité) : HTML sémantique, structured data supportée, images, liens internes',
+                'Couche C (performance) : Core Web Vitals — LCP ≤ 2,5 s / INP ≤ 200 ms / CLS ≤ 0,1',
+                'Couche D (distribution) : OG, Twitter Cards, bots IA (OAI-SearchBot, GPTBot, ClaudeBot) avec distinctions officielles',
+                'Checklists audit 15 min / 60 min / pré-prod + tests CI minimaux recommandés'
+            ],
+            link: 'https://buy.stripe.com/cNi9ATgaDbZI8Aoeke93y07'
         }
+    };
 
-        // Mobile menu toggle
-        const toggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (toggle && navLinks) {
-            toggle.addEventListener('click', () => {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            });
-        }
+    // ── Modal logic ──
+    const overlay  = document.getElementById('skillModal');
+    const panel    = document.getElementById('modalPanel');
+    const tagEl    = document.getElementById('modalTag');
+    const titleEl  = document.getElementById('modalTitle');
+    const introEl  = document.getElementById('modalIntro');
+    const listEl   = document.getElementById('modalList');
+    const buyBtn   = document.getElementById('modalBuyBtn');
+    const closeBtn = document.getElementById('modalClose');
+
+    function openModal(skillId) {
+        const s = SKILLS[skillId];
+        if (!s) return;
+
+        tagEl.textContent    = s.tag;
+        titleEl.textContent  = s.title;
+        introEl.textContent  = s.intro;
+        buyBtn.href          = s.link;
+        panel.dataset.accent = skillId;
+
+        listEl.innerHTML = s.items.map(item => `<li>${item}</li>`).join('');
+
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+
+    function closeModal() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.btn-details').forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn.dataset.skill));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', e => {
+        if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+    });
+
+    // ── Success state ──
+    if (new URLSearchParams(window.location.search).get('success') === '1') {
+        document.getElementById('successBanner').classList.add('visible');
+    }
+
+    // ── Mobile menu ──
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle && navLinks) {
+        toggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    }
     </script>
 </body>
 </html>
