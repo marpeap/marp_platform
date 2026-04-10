@@ -392,7 +392,6 @@
         .modal-video-wrap.visible { display: block; }
         .modal-video-wrap video {
             width: 100%;
-            aspect-ratio: 8 / 5;
             display: block;
             border-radius: 7px 7px 0 0;
             cursor: zoom-in;
@@ -737,7 +736,7 @@
             <div class="modal-body">
                 <p class="modal-intro" id="modalIntro"></p>
                 <div class="modal-video-wrap" id="modalVideoWrap">
-                    <video id="modalVideo" muted loop playsinline preload="metadata">
+                    <video id="modalVideo" muted loop playsinline>
                         <source src="/videos/gifmakr-demo.mp4" type="video/mp4">
                     </video>
                     <div class="modal-video-caption">

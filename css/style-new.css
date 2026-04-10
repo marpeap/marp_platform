@@ -268,32 +268,13 @@ a:hover {
   display: none;
 }
 
-/* Lien "Devenir partenaire" — dans nav-actions, ghost gold discret */
-.btn-referral-nav {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 0.9rem;
-  background: transparent;
-  color: var(--brand-gold);
-  border: 1px solid rgba(212, 184, 122, 0.28);
-  border-radius: 9999px;
-  font-weight: 500;
-  font-size: 0.8rem;
-  text-decoration: none;
-  transition: all var(--transition-base);
-  white-space: nowrap;
+.nav-link-referral {
+  color: var(--brand-gold) !important;
+  font-size: 0.875rem;
 }
 
-.btn-referral-nav:hover {
-  color: var(--brand-champagne);
-  border-color: rgba(212, 184, 122, 0.5);
-  background: rgba(212, 184, 122, 0.06);
-}
-
-@media (max-width: 900px) {
-  .btn-referral-nav {
-    display: none;
-  }
+.nav-link-referral:hover {
+  color: var(--brand-champagne) !important;
 }
 
 .nav-actions {
