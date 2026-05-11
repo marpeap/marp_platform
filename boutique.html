@@ -154,6 +154,21 @@
         }
         .skill-card:hover { transform: translateY(-2px); }
 
+        /* Video backgrounds — boutique cards */
+        .boutique-card-bg-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.10;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .skill-card > *:not(.boutique-card-bg-video) {
+            position: relative;
+            z-index: 1;
+        }
+
         /* Featured wide cards — bento layout */
         .skill-card--wide {
             grid-column: span 2;
@@ -580,6 +595,7 @@
 
                 <!-- better-design — featured wide left -->
                 <div class="skill-card skill-card--design skill-card--wide">
+                    <video autoplay muted loop playsinline preload="none" class="boutique-card-bg-video"><source src="/videos/b-design.mp4" type="video/mp4"></video>
                     <div class="skill-card-content">
                         <span class="skill-card-tag">better-design</span>
                         <h2 class="skill-card-title">Web Design Anti-LLM</h2>
@@ -611,6 +627,7 @@
 
                 <!-- art -->
                 <div class="skill-card skill-card--art">
+                    <video autoplay muted loop playsinline preload="none" class="boutique-card-bg-video"><source src="/videos/b-art.mp4" type="video/mp4"></video>
                     <span class="skill-card-tag">art</span>
                     <h2 class="skill-card-title">Art Algorithmique</h2>
                     <p class="skill-card-desc">Génère des œuvres génératifs avec p5.js — flow fields, particules, noise Perlin. Sortie : HTML interactif + JS exportable.</p>
@@ -627,6 +644,7 @@
 
                 <!-- articles -->
                 <div class="skill-card skill-card--articles">
+                    <video autoplay muted loop playsinline preload="none" class="boutique-card-bg-video"><source src="/videos/b-articles.mp4" type="video/mp4"></video>
                     <span class="skill-card-tag">articles</span>
                     <h2 class="skill-card-title">Rédaction d'Articles</h2>
                     <p class="skill-card-desc">Machine éditoriale sur 912M d'articles, NNGroup, Cialdini & Kahneman. Headlines, hooks, biais cognitifs, conversion.</p>
@@ -641,6 +659,7 @@
 
                 <!-- canvas -->
                 <div class="skill-card skill-card--canvas">
+                    <video autoplay muted loop playsinline preload="none" class="boutique-card-bg-video"><source src="/videos/b-canvas.mp4" type="video/mp4"></video>
                     <span class="skill-card-tag">canvas</span>
                     <h2 class="skill-card-title">Design sur Canvas</h2>
                     <p class="skill-card-desc">Crée affiches et visuels statiques (PNG, PDF) via une philosophie de design originale. Composition, typographie, ambiance.</p>
@@ -655,6 +674,7 @@
 
                 <!-- cycle -->
                 <div class="skill-card skill-card--cycle">
+                    <video autoplay muted loop playsinline preload="none" class="boutique-card-bg-video"><source src="/videos/b-cycle.mp4" type="video/mp4"></video>
                     <span class="skill-card-tag">cycle-mkr</span>
                     <h2 class="skill-card-title">Protocole Cycle-MKR</h2>
                     <p class="skill-card-desc">R&D par patches atomiques : init bloc, reprise de session, LIRE / PLAN / CODER / CHECK / SMOKE / COMMIT, release gate, audit.</p>
@@ -671,6 +691,7 @@
 
                 <!-- gif -->
                 <div class="skill-card skill-card--gif">
+                    <video autoplay muted loop playsinline preload="none" class="boutique-card-bg-video"><source src="/videos/b-gif.mp4" type="video/mp4"></video>
                     <span class="skill-card-tag">gif-makr</span>
                     <h2 class="skill-card-title">GIF & Vidéo Makr</h2>
                     <p class="skill-card-desc">GIFs animés (PIL) et vidéos cinématiques (Puppeteer + ffmpeg) pour Slack, landing pages et marketing.</p>
@@ -685,6 +706,7 @@
 
                 <!-- seo — featured wide right -->
                 <div class="skill-card skill-card--seo skill-card--wide-right">
+                    <video autoplay muted loop playsinline preload="none" class="boutique-card-bg-video"><source src="/videos/b-seo.mp4" type="video/mp4"></video>
                     <div class="skill-card-content">
                         <span class="skill-card-tag">seo</span>
                         <h2 class="skill-card-title">SEO Durci</h2>

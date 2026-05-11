@@ -154,6 +154,7 @@
             border-radius: 16px;
             padding: 28px 24px 32px;
             position: relative;
+            overflow: hidden;
             transition: border-color 0.2s var(--ease-out-cubic), box-shadow 0.2s var(--ease-out-cubic), transform 0.2s var(--ease-out-cubic);
             display: flex;
             flex-direction: column;
@@ -163,6 +164,21 @@
         .pricing-card:hover {
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
             transform: translateY(-4px);
+        }
+
+        /* Video backgrounds — pack cards */
+        .pack-card-bg-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.10;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .pricing-card > *:not(.pack-card-bg-video) {
+            position: relative;
+            z-index: 1;
         }
 
         /* Recommended card — subtle lift */
@@ -581,6 +597,7 @@
 
                 <!-- M-ONE -->
                 <div class="pricing-card pack-mone">
+                    <video autoplay muted loop playsinline preload="none" class="pack-card-bg-video"><source src="/videos/card-1.mp4" type="video/mp4"></video>
                     <h3 class="pack-name">M-ONE</h3>
                     <p class="pack-tagline">Site web professionnel</p>
                     <div class="pack-price-block">
@@ -602,6 +619,7 @@
 
                 <!-- M-CAMPAIGN — Recommended -->
                 <div class="pricing-card pack-mcampaign pack-recommended">
+                    <video autoplay muted loop playsinline preload="none" class="pack-card-bg-video"><source src="/videos/card-2.mp4" type="video/mp4"></video>
                     <span class="pack-tag">Populaire</span>
                     <h3 class="pack-name">M-CAMPAIGN</h3>
                     <p class="pack-tagline">Google Ads en pilote automatique</p>
@@ -624,6 +642,7 @@
 
                 <!-- M-NEURAL -->
                 <div class="pricing-card pack-mneural">
+                    <video autoplay muted loop playsinline preload="none" class="pack-card-bg-video"><source src="/videos/card-3.mp4" type="video/mp4"></video>
                     <h3 class="pack-name">M-NEURAL</h3>
                     <p class="pack-tagline">Chatbot IA sur votre site</p>
                     <div class="pack-price-block">
@@ -645,6 +664,7 @@
 
                 <!-- M-LAUNCH -->
                 <div class="pricing-card card-wide pack-mlaunch">
+                    <video autoplay muted loop playsinline preload="none" class="pack-card-bg-video"><source src="/videos/card-1.mp4" type="video/mp4"></video>
                     <span class="pack-tag">Sur Mesure</span>
                     <h3 class="pack-name">M-LAUNCH</h3>
                     <p class="pack-tagline">Présence digitale complète, clé en main</p>
@@ -669,6 +689,7 @@
 
                 <!-- M-CORP -->
                 <div class="pricing-card card-wide pack-mcorp">
+                    <video autoplay muted loop playsinline preload="none" class="pack-card-bg-video"><source src="/videos/card-4.mp4" type="video/mp4"></video>
                     <span class="pack-tag">Premium</span>
                     <h3 class="pack-name">M-CORP</h3>
                     <p class="pack-tagline">5 agents IA qui collaborent</p>
