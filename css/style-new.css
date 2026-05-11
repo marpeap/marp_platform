@@ -2888,8 +2888,12 @@ a:hover {
 
 .marquee-track {
   display: flex;
+  flex-wrap: nowrap;
   width: max-content;
+  min-width: 200%;
   animation: marquee-scroll 28s linear infinite;
+  -webkit-animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track:hover {
@@ -2898,6 +2902,7 @@ a:hover {
 
 .marquee-content {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 1.75rem;
   padding-right: 1.75rem;
