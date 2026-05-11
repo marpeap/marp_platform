@@ -2878,82 +2878,61 @@ a:hover {
    METRICS SECTION (remplace stat-strip)
    ======================================== */
 
-.metrics-section {
-  padding: 5rem 0 4.5rem;
-  background:
-    radial-gradient(ellipse 50% 80% at 50% 100%, rgba(212,184,122,0.10) 0%, transparent 60%),
-    #07070C;
+.marquee-section {
+  overflow: hidden;
+  padding: 1.75rem 0;
+  background: #07070C;
   border-top: 1px solid rgba(212, 184, 122, 0.12);
   border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
-.metrics-grid {
+.marquee-track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4rem;
-  max-width: 800px;
-  margin: 0 auto;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
 }
 
-.metric-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  text-align: center;
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
-.metric-value {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding-right: 1.75rem;
+  white-space: nowrap;
+}
+
+.mw-marpeap {
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
   color: var(--text-primary);
-  line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
-.metric-label {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  max-width: 140px;
-  line-height: 1.4;
+.mw-client {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
 }
 
-.metric-divider {
-  width: 1px;
-  height: 56px;
-  background: rgba(255,255,255,0.08);
+.mw-sep {
+  color: rgba(212, 184, 122, 0.45);
+  font-size: 1rem;
   flex-shrink: 0;
 }
 
-.metrics-footnote {
-  text-align: center;
-  margin-top: 2.5rem;
-  font-size: 0.72rem;
-  color: #4A5568;
-  line-height: 1.5;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-@media (max-width: 600px) {
-  .metrics-grid {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .metric-divider {
-    width: 48px;
-    height: 1px;
-  }
-
-  .metric-value {
-    font-size: 3rem;
-  }
-}
 
 /* ========================================
    ECO-CARDS — LAYOUT VARIATIONS (Hyper V3)
